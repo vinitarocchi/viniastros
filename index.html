@@ -1423,7 +1423,7 @@
             phaseTargets = getGameTargets(gameMode).minors;
 
             gameGrid.innerHTML = '';
-            let shuffledMinors = shuffle([...deck.wands, ...deck.cups, ...deck.swords, ...deck.pentacles]);
+            let shuffledMinors = shuffle([...deck.pentacles, ...deck.swords, ...deck.cups, ...deck.wands]);
             
             shuffledMinors.forEach((cardData) => {
                 const backCard = document.createElement('div');
@@ -1529,7 +1529,7 @@
             } else {
                 minorSuitsContainer.style.display = 'flex';
                 const firstSuitTab = document.querySelector('.suit-tab');
-                filterEncyclopediaMinor('wands', firstSuitTab);
+                filterEncyclopediaMinor('pentacles', firstSuitTab);
             }
         }
 
