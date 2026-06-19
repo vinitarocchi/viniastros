@@ -170,18 +170,20 @@
         }
 
         #btnGlobalRandom {
-            position: absolute;
-            bottom: calc(100% + 10px); 
-            right: 10px; 
-            width: auto;
-            padding: 0 15px;
-            height: 32px;
-            font-size: 9px;
-            z-index: 2500;
-            border: 1px solid #FFFFFF;
-            background: #000000;
-            box-shadow: none;
-        }
+    position: fixed; 
+    top: 80px; /* Distância do topo, ficando logo abaixo do nav-header */
+    left: 50%; /* Joga o botão para o meio da tela */
+    transform: translateX(-50%); /* Centraliza perfeitamente em relação ao próprio tamanho */
+    width: auto;
+    padding: 0 15px;
+    height: 32px;
+    font-size: 9px;
+    z-index: 3000; /* Z-index alto garante que ele fique por cima das cartas e tabuleiros */
+    border: 1px solid #FFFFFF;
+    background: #000000;
+    box-shadow: none;
+}
+
 
         .post-game-controls {
             position: fixed;
