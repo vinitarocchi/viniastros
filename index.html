@@ -1354,7 +1354,7 @@
             gameStatus.textContent = step.msg;
             gameGrid.innerHTML = '';
 
-            let deckPool = (activePhase === 'majors') ? shuffle([...deck.major]) : shuffle([...deck.wands, ...deck.cups, ...deck.swords, ...deck.pentacles]);
+            let deckPool = (activePhase === 'majors') ? shuffle([...deck.major]) : shuffle([...deck.pentacles, ...deck.swords, ...deck.cups, ...deck.wands]);
 
             deckPool.forEach((cardData) => {
                 const backCard = document.createElement('div');
