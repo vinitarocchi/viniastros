@@ -996,8 +996,8 @@
 
         const deck = {
             major: majorNames.map((name, i) => ({ name, url: `${baseUrl}ar${String(i).padStart(2, '0')}.jpg` })),
-            wands: generateMinors('wa', 'Paus'), cups: generateMinors('cu', 'Copas'),
-            swords: generateMinors('sw', 'Espadas'), pentacles: generateMinors('pe', 'Ouros')
+            pentacles: generateMinors('pe', 'Ouros'), swords: generateMinors('sw', 'Espadas'),
+            cups: generateMinors('cu', 'Copas'), pentacles: generateMinors('pe', 'Ouros')
         };
 
         function ensureSlotMapping() {
@@ -1614,7 +1614,7 @@
             if (category === 'major') {
                 selectedList = deck.major;
             } else if (category === 'minor') {
-                selectedList = [...deck.wands, ...deck.cups, ...deck.swords, ...deck.pentacles];
+                selectedList = [...deck.pentacles, ...deck.swords, ...deck.cups, ...deck.wands];
             }
 
             selectedList.forEach(card => {
