@@ -381,8 +381,9 @@
             transform: translateY(calc(-15vh - 25px)) scale(0.68); 
         }
 
+        /* AJUSTE FUTEBOL: sobe mais e reduz escala para caber slots 3 e 6 */
         .board.game-active.futebol-active {
-            transform: translateY(-10vh);
+            transform: translateY(-18vh) scale(0.78);
         }
 
         .pair-container { position: absolute; top: 50%; left: 50%; display: flex; transform-origin: center center; pointer-events: none; }
@@ -449,8 +450,10 @@
         .temple-grid { display: flex; flex-direction: row; gap: calc(8 * var(--u)); align-items: center; justify-content: center; }
         .temple-col { display: flex; flex-direction: column; gap: calc(4 * var(--u)); }
         .temple-row-pair { display: flex; gap: calc(1.5 * var(--u)); }
-        .futebol-grid { display: flex; flex-direction: row; gap: calc(4 * var(--u)); align-items: center; justify-content: center; }
-        .futebol-col { display: flex; flex-direction: column; gap: calc(3.5 * var(--u)); align-items: center; }
+
+        /* FUTEBOL: gap reduzido para caber slots 3 e 6 na tela */
+        .futebol-grid { display: flex; flex-direction: row; gap: calc(2 * var(--u)); align-items: center; justify-content: center; }
+        .futebol-col { display: flex; flex-direction: column; gap: calc(1.5 * var(--u)); align-items: center; }
 
         .central-pair, .side-pair-horizontal, .pair-container, .linear-container, .home-container { display: none !important; }
         .board.home-active .home-container { display: flex !important; }
@@ -888,7 +891,7 @@
                 </div>
                 <div class="futebol-col">
                     <div class="linear-col">
-                        <span class="slot-label">7: Resultado da Partida pro Time</span>
+                        <span class="slot-label">7: Resultado</span>
                         <div class="temple-row-pair">
                             <div class="card linear-card" data-futebol-slot="7" onclick="selectCard(this)">7 Maior</div>
                             <div class="card linear-card" data-futebol-slot="14" onclick="selectCard(this)">14 Menor</div>
@@ -911,7 +914,7 @@
                         </div>
                     </div>
                     <div class="linear-col">
-                        <span class="slot-label">6: Está Próximo de Vencer?</span>
+                        <span class="slot-label">6: Está Próximo a Vencer?</span>
                         <div class="temple-row-pair">
                             <div class="card linear-card" data-futebol-slot="6" onclick="selectCard(this)">6 Maior</div>
                             <div class="card linear-card" data-futebol-slot="13" onclick="selectCard(this)">13 Menor</div>
@@ -1976,7 +1979,6 @@
             });
         }
 
-        /* --- ALTERNADOR DE ABAS DO DETALHE --- */
         function switchMeaningTab(tabName) {
             document.querySelectorAll('.subtab-btn').forEach(b => b.classList.remove('active'));
             document.querySelectorAll('.meaning-content-area').forEach(a => a.classList.remove('active'));
