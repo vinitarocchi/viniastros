@@ -428,7 +428,6 @@
         .card:hover { border-color: var(--gold-main); color: var(--gold-main); transform: rotate(calc(-1 * var(--a))) scale(1.05) translateY(-5px); }
         .card.board-face-down { background-image: var(--card-back-img) !important; background-color: transparent !important; background-size: 100% 100% !important; background-position: center !important; background-repeat: no-repeat !important; border: 1px solid rgba(255, 255, 255, 0.4) !important; color: transparent !important; }
 
-        /* Slot vazio clicável */
         .card.empty-slot-clickable {
             border: 1px dashed rgba(255,255,255,0.4);
             background-color: rgba(255, 255, 255, 0.05);
@@ -456,22 +455,15 @@
 
         .central-pair { position: absolute; top: 50%; left: 50%; display: flex; flex-direction: row; gap: calc(var(--pair-gap) * 0.7); transform: translate(-50%, -50%); pointer-events: none; }
         .central-pair .card { pointer-events: auto; transform: none; }
-        .linear-container { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%); ... }
-
+        .linear-container { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%); }
 
         #scrContainer .card, #csmdContainer .card, #duplaContainer .card, #oposicaoContainer .card { --card-w: calc(14 * var(--u)); --card-h: calc(24.3 * var(--u)); font-size: calc(2.4 * var(--u)); }
-
-
         #csmdContainer .card { --card-w: calc(7 * var(--u)); --card-h: calc(12 * var(--u)); font-size: calc(1.8 * var(--u)); }
         #oposicaoScrContainer .card { --card-w: calc(4.5 * var(--u)); --card-h: calc(7.8 * var(--u)); font-size: calc(1.3 * var(--u)); }
-
-
         #taContainer .card { --card-w: calc(11 * var(--u)); --card-h: calc(19 * var(--u)); font-size: calc(2.2 * var(--u)); }
-#daviContainer .card { --card-w: calc(10 * var(--u)); --card-h: calc(17.3 * var(--u)); font-size: calc(2.0 * var(--u)); }
-
+        #daviContainer .card { --card-w: calc(10 * var(--u)); --card-h: calc(17.3 * var(--u)); font-size: calc(2.0 * var(--u)); }
         #duplaContainer .card { --card-w: calc(18.2 * var(--u)); --card-h: calc(31.6 * var(--u)); font-size: calc(2.6 * var(--u)); }
         .dupla-active .back-card, #duplaContainer .back-card { width: calc(18.2 * var(--u)) !important; height: calc(31.6 * var(--u)) !important; }
-        
         #scrTempoContainer .card { --card-w: calc(14 * var(--u)); --card-h: calc(24.3 * var(--u)); font-size: calc(2.4 * var(--u)); }
         #futebolContainer { --card-w: calc(9.3 * var(--u)); --card-h: calc(16.1 * var(--u)); }
         #futebolContainer .card { font-size: calc(1.85 * var(--u)); }
@@ -568,31 +560,18 @@
         ::-webkit-scrollbar-thumb { background: #555555; }
         ::-webkit-scrollbar-thumb:hover { background: #FFFFFF; }
 
-.board.mandala-active .central-pair,
-.board.mandala-active .pair-container,
-.board.mandala-active .side-pair-horizontal {
-    top: 42%;
-}
+        .board.mandala-active .central-pair,
+        .board.mandala-active .pair-container,
+        .board.mandala-active .side-pair-horizontal { top: 42%; }
 
-#taContainer {
-    top: 47%;
-}
+        #taContainer { top: 47%; }
+        #daviContainer { top: 46%; }
+        #scrContainer { top: 45%; }
+        #oposicaoContainer { top: 45%; }
 
-#daviContainer {
-    top: 46%;
-}
+#oposicaoSCRContainer { top: 45%; }
 
-#scrContainer {
-    top: 45%;
-}
 
-#oposicaoContainer {
-    top: 45%;
-}
-
-#oposicaoSCRContainer {
-    top: 45%;
-}
 
 
     </style>
@@ -612,7 +591,6 @@
     <div class="board home-active" id="mainBoard">
         
         <div id="homeContainer" class="home-container">
-            
             <div class="home-hero">
                 <img src="https://i.ibb.co/JwrVdqvH/A2-B85-AEE-8797-4-C93-9-ED1-32803451-AA17.jpg" alt="Vini Astros Tarot Art" class="home-art-img">
                 <h2 class="home-title">viniastros</h2>
@@ -681,7 +659,6 @@
                 <button class="action-btn" onclick="openEncyclopedia()">78 Arcanos</button>
                 <button class="action-btn" onclick="window.location.href='https://instagram.com/viniastros'">Instagram</button>
             </div>
-
         </div>
 
         <div class="central-pair">
@@ -773,7 +750,6 @@
                         <div class="card linear-card minor-card-gap" data-oposcr-slot="t-me3" onclick="selectCard(this)">Menor</div>
                     </div>
                 </div>
-                
                 <div class="linear-row" style="align-items: center; gap: calc(2 * var(--u));">
                     <span class="slot-label" style="margin: 0; text-align: right;">Opção 2:</span>
                     <div class="linear-col">
@@ -888,7 +864,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="temple-col">
                     <div class="linear-col">
                         <span class="slot-label">Futuro</span>
@@ -898,7 +873,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="temple-col">
                     <div class="linear-col">
                         <span class="slot-label">Mental</span>
@@ -943,7 +917,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="temple-col" style="gap: calc(3 * var(--u));">
                     <div class="linear-col">
                         <span class="slot-label">1: Passado</span>
@@ -967,7 +940,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="temple-col">
                     <div class="linear-col">
                         <span class="slot-label">6: Obstáculos</span>
@@ -1053,7 +1025,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <div id="gamePanel" class="game-panel">
@@ -1134,24 +1105,18 @@
     
     <script>
     // =====================================================================
-    // RESIZE DINÂMICO E BOUNDING BOX ABSOLUTO
+    // RESIZE DINÂMICO
     // =====================================================================
     function resizeBoardToFit() {
         if (mainBoard.classList.contains('home-active')) return;
-
         const root = document.documentElement;
-        
         mainBoard.style.transition = 'none';
         root.style.setProperty('--u', '10px');
         mainBoard.style.transform = 'translateY(0) scale(1)';
-        
         void mainBoard.offsetHeight;
-
         let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
         let hasVisible = false;
-
         const elements = document.querySelectorAll('.board:not(.home-active) .card:not([style*="display: none"]), .board:not(.home-active) .slot-label:not([style*="display: none"])');
-        
         elements.forEach(el => {
             if (el.offsetWidth > 0 && el.offsetHeight > 0) {
                 hasVisible = true;
@@ -1162,28 +1127,18 @@
                 if (rect.bottom > maxY) maxY = rect.bottom;
             }
         });
-
-        if (!hasVisible) {
-            mainBoard.style.transition = '';
-            return;
-        }
-
+        if (!hasVisible) { mainBoard.style.transition = ''; return; }
         const currentW = maxX - minX;
         const currentH = maxY - minY;
-
         const unitsW = currentW / 10;
         const unitsH = currentH / 10;
-
         const navHeader = document.querySelector('.nav-header');
         const headerH = navHeader ? navHeader.offsetHeight : 65;
-        
-        const availableW = window.innerWidth * 0.94; 
+        const availableW = window.innerWidth * 0.94;
         let availableH = window.innerHeight - headerH;
-        
         const gamePanel = document.getElementById('gamePanel');
         const postControls = document.getElementById('postGameControls');
-        
-        let bottomOffset = 20; 
+        let bottomOffset = 20;
         if (mainBoard.classList.contains('game-active') && gamePanel.style.display !== 'none') {
             bottomOffset += gamePanel.offsetHeight || (window.innerHeight * 0.3);
         } else if (postControls.style.display !== 'none') {
@@ -1191,28 +1146,20 @@
         } else {
             bottomOffset += 40;
         }
-        
         availableH -= bottomOffset;
-
         let finalU = Math.min(availableW / unitsW, availableH / unitsH);
-        
-        finalU = finalU * 0.85; 
-
+        finalU = finalU * 0.85;
         if (finalU < 1) finalU = 1;
-        if (finalU > 14) finalU = 14; 
-
+        if (finalU > 14) finalU = 14;
         root.style.setProperty('--u', finalU + 'px');
-
         const centerOfAvailableArea = headerH + (availableH / 2);
         const screenCenter = window.innerHeight / 2;
         const yOffset = centerOfAvailableArea - screenCenter;
-
         requestAnimationFrame(() => {
             mainBoard.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
             mainBoard.style.transform = `translateY(${yOffset}px)`;
         });
     }
-
     window.addEventListener('resize', resizeBoardToFit);
 
     // =====================================================================
@@ -1231,22 +1178,9 @@
         Oppositions:  'https://marycusack.com/Decks/Images/Tarot/O/Oppositions/',
         RiderWaite:   'https://marycusack.com/Decks/Images/Tarot/R/RiderWaite/'
     };
-
     const decksWithSpecialMajorNaming = ['Before', 'AfterTarot', 'Fyodor'];
-
-    const specialMajorFileNames = [
-        "Fool", "Magician", "Priestess", "Empress",
-        "Emperor", "Hierophant", "Lovers", "Chariot",
-        "Strength", "Hermit", "Wheel", "Justice",
-        "Hanged", "Death", "Temperance", "Devil",
-        "Tower", "Star", "Moon", "Sun",
-        "Judgement", "World"
-    ];
-
-    const deckPentaclesPrefixOverrides = {
-        Fyodor: 'Co'
-    };
-
+    const specialMajorFileNames = ["Fool","Magician","Priestess","Empress","Emperor","Hierophant","Lovers","Chariot","Strength","Hermit","Wheel","Justice","Hanged","Death","Temperance","Devil","Tower","Star","Moon","Sun","Judgement","World"];
+    const deckPentaclesPrefixOverrides = { Fyodor: 'Co' };
     let currentDeckKey = 'Radiant';
     let baseUrl = deckBaseUrls[currentDeckKey];
 
@@ -1305,9 +1239,7 @@
         if (!file) return;
         const fileStatus = document.getElementById('meaningFileStatus');
         fileStatus.textContent = 'Carregando: ' + file.name + '...';
-
         const ext = file.name.split('.').pop().toLowerCase();
-
         if (ext === 'txt') {
             const reader = new FileReader();
             reader.onload = (e) => parseMeaningText(e.target.result, file.name);
@@ -1331,15 +1263,10 @@
                     const raw = e.target.result;
                     const matches = raw.match(/<w:t[^>]*>([^<]*)<\/w:t>/g);
                     let text = '';
-                    if (matches) {
-                        text = matches.map(m => m.replace(/<[^>]+>/g, '')).join(' ');
-                    } else {
-                        text = raw;
-                    }
+                    if (matches) { text = matches.map(m => m.replace(/<[^>]+>/g, '')).join(' '); }
+                    else { text = raw; }
                     parseMeaningText(text, file.name);
-                } catch(err) {
-                    parseMeaningText('', file.name);
-                }
+                } catch(err) { parseMeaningText('', file.name); }
             };
             reader.readAsText(file, 'UTF-8');
         }
@@ -1348,7 +1275,6 @@
     function parseMeaningText(text, fname) {
         const fileStatus = document.getElementById('meaningFileStatus');
         externalMeanings = {};
-
         const allCardNames = [
             ...majorNames.map(n => n.replace(/^\d+\s*[-–]\s*/, '').trim()),
             ...['Ouros','Espadas','Copas','Paus'].flatMap(suit => {
@@ -1356,29 +1282,18 @@
                 return names.map(n => `${n === 'Ás' ? 'Ás' : n} de ${suit}`);
             })
         ];
-
         const norm = s => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-
         const lines = text.split(/\r?\n/);
-        let currentCard = null;
-        let currentVerbs = [];
-        let currentBody = [];
-
+        let currentCard = null, currentVerbs = [], currentBody = [];
         const saveCard = () => {
             if (!currentCard) return;
             const bodyText = currentBody.join(' ').replace(/\s+/g,' ').trim();
-            externalMeanings[currentCard] = {
-                verbos: currentVerbs.length > 0 ? currentVerbs : null,
-                atributos: bodyText || null
-            };
+            externalMeanings[currentCard] = { verbos: currentVerbs.length > 0 ? currentVerbs : null, atributos: bodyText || null };
         };
-
         lines.forEach(line => {
             const trimmed = line.trim();
             if (!trimmed) return;
-
-            let foundCard = null;
-            let afterName = '';
+            let foundCard = null, afterName = '';
             for (const cardName of allCardNames) {
                 const normLine = norm(trimmed);
                 const normCard = norm(cardName);
@@ -1388,29 +1303,25 @@
                     break;
                 }
             }
-
             if (foundCard) {
                 saveCard();
                 currentCard = foundCard;
-                currentVerbs = afterName
-                    ? afterName.split(/[,;\/]/).map(s => s.trim()).filter(s => s.length > 1 && s.length < 30)
-                    : [];
+                currentVerbs = afterName ? afterName.split(/[,;\/]/).map(s => s.trim()).filter(s => s.length > 1 && s.length < 30) : [];
                 currentBody = [];
             } else if (currentCard) {
                 currentBody.push(trimmed);
             }
         });
         saveCard();
-
         const count = Object.keys(externalMeanings).length;
         fileStatus.textContent = count > 0
             ? `✓ ${fname}: ${count} arcanos carregados do arquivo.`
-            : `⚠ ${fname}: Nenhum arcano reconhecido. Verifique se os nomes das cartas estão escritos em português.`;
+            : `⚠ ${fname}: Nenhum arcano reconhecido.`;
         if (count === 0) externalMeanings = null;
     }
 
     // =====================================================================
-    // DECK DATA E INÍCIO DO TAROT
+    // DECK DATA
     // =====================================================================
     let currentSelectedCard = null;
     let gameMode = 'mandalaInterativa'; 
@@ -1445,6 +1356,9 @@
         "20%20Judgement", "21%20World"
     ];
 
+    // =====================================================================
+    // VERBOS — MAIORES (original) + MENORES (atualizados do arquivo)
+    // =====================================================================
     const verbsMap = {
         "O Louco": ["Revolução", "ousadia", "nada"], 
         "O Mago": ["Vontade", "desejo", "possibilidade"], 
@@ -1468,125 +1382,147 @@
         "O Sol": ["Sucesso", "esplendor", "realização", "expor", "falar", "aparecer", "festejar", "esclarecer", "iluminar", "clarear"], 
         "O Julgamento": ["Transcendência", "renovação", "destino", "perdoar", "reconciliar", "reavaliar", "resgatar", "despertar", "convocar"], 
         "O Mundo": ["Conclusão", "síntese", "expansão", "circular", "flertar", "socializar"],
-        "Ás de Ouros": ["Realizar", "assegurar", "iniciar", "materializar", "concretizar"],
-"2 de Ouros": ["Confrontar", "obstaculizar", "adiar", "lutar", "hesitar"],
-"3 de Ouros": ["Cooperar", "planejar", "expandir", "associar", "edificar"],
-"4 de Ouros": ["Reter", "estagnar", "proteger", "apegar", "limitar"],
-"5 de Ouros": ["Apodrecer", "afastar", "esgotar", "desamparar", "decair"],
-"6 de Ouros": ["Carece", "limitar", "hesitar", "partilhar", "auxiliar"],
-"7 de Ouros": ["Equilibrar", "ganhar", "progredir", "aguardar", "avaliar"],
-"8 de Ouros": ["Iniciar", "especializar", "oportunizar", "dedicar", "aprimorar"],
-"9 de Ouros": ["Assegurar", "estabilizar", "recompensar", "desfrutar", "enriquecer"],
-"10 de Ouros": ["Satisfazer", "glorificar", "empoderar", "legar", "consolidar"],
-"Pajem de Ouros": ["Especular", "projetar", "capacitar", "estruturar", "fundamentar"],
-"Cavaleiro de Ouros": ["Perseverar", "direcionar", "habilitar", "trabalhar", "focar"],
-"Rainha de Ouros": ["Conservar", "equilibrar", "prosperar", "administrar", "nutrir"],
-"Rei de Ouros": ["Dominar", "prosperar", "realizar", "consolidar", "enriquecer"],
-
-"Ás de Espadas": ["Agir", "persuadir", "sortear", "cortar", "decidir"],
-"2 de Espadas": ["Interromper", "rivalizar", "empatar", "bloquear", "discordar"],
-"3 de Espadas": ["Desenganar", "desiludir", "fracassar", "ferir", "magoar"],
-"4 de Espadas": ["Adiar", "silenciar", "paralisar", "isolar", "repousar"],
-"5 de Espadas": ["Perder", "desacreditar", "desperdiçar", "humilhar", "derrotar"],
-"6 de Espadas": ["Ociosar", "desleixar", "hesitar", "afastar", "transitar"],
-"7 de Espadas": ["Analisar", "acautelar", "ocultar", "enganar", "dissimular"],
-"8 de Espadas": ["Perder", "trair", "conflitar", "aprisionar", "cegar"],
-"9 de Espadas": ["Agoniar", "sofrer", "fracassar", "atormentar", "chorar"],
-"10 de Espadas": ["Romper", "decidir", "renovar", "finalizar", "destruir"],
-"Pajem de Espadas": ["Curiosar", "envaidecer", "intrigar", "bisbilhotar", "questionar"],
-"Cavaleiro de Espadas": ["Perceber", "impulsionar", "conquistar", "atacar", "combater"],
-"Rainha de Espadas": ["Intolerar", "vingar", "isolar", "racionalizar", "julgar"],
-"Rei de Espadas": ["Dominar", "liderar", "controlar", "ditar", "sentenciar"],
-
-"Ás de Copas": ["Jubilar", "arrebatar", "sortear", "transbordar", "amar"],
-"2 de Copas": ["Unir", "amar", "reciprocar", "compartilhar", "atrair"],
-"3 de Copas": ["Aprazer", "aliviar", "pacificar", "festejar", "celebrar"],
-"4 de Copas": ["Aborrecer", "desanimar", "insatisfazer", "rejeitar", "entediar"],
-"5 de Copas": ["Arrepender", "angustiar", "frustrar", "decepcionar", "lamentar"],
-"6 de Copas": ["Recordar", "melancolizar", "saudar", "nostalgiar", "reencontrar"],
-"7 de Copas": ["Utopizar", "obcecar", "cobiçar", "iludir", "fantasiar"],
-"8 de Copas": ["Prejudicar", "escandalizar", "desiludir", "abandonar", "partir"],
-"9 de Copas": ["Acordar", "realizar", "regozijar", "satisfazer", "brindar"],
-"10 de Copas": ["Plenificar", "felicitar", "vencer", "casar", "harmonizar"],
-"Pajem de Copas": ["Harmonizar", "confiar", "apaziguar", "sonhar", "encantar"],
-"Cavaleiro de Copas": ["Seduzir", "iludir", "possibilitar", "namorar", "fantasiar"],
-"Rainha de Copas": ["Misteriar", "dissimular", "inagir", "intuir", "acolher"],
-"Rei de Copas": ["Felicitar", "idealizar", "envaidecer", "amparar", "aconselhar"],
-
-"Ás de Paus": ["Fertilizar", "oportunizar", "sortear", "impulsionar", "entusiasmar"],
-"2 de Paus": ["Confrontar", "meditar", "prorrogar", "planejar", "visionar"],
-"3 de Paus": ["Intercambiar", "unir", "solucionar", "explorar", "vislumbrar"],
-"4 de Paus": ["Aliar", "favorecer", "superar", "comemorar", "estruturar"],
-"5 de Paus": ["Esforçar", "labutar", "reconstruir", "competir", "debater"],
-"6 de Paus": ["Garantir", "recorrer", "beneficiar", "triunfar", "conquistar"],
-"7 de Paus": ["Superar", "avantajar", "estrategiar", "defender", "resistir"],
-"8 de Paus": ["Finalizar", "aperfeiçoar", "progredir", "acelerar", "comunicar"],
-"9 de Paus": ["Errar", "adiar", "obstaculizar", "proteger", "desconfiar"],
-"10 de Paus": ["Independer", "recomeçar", "evoluir", "sobrecarregar", "carregar"],
-"Pajem de Paus": ["Honestar", "dedicar", "confiar", "entusiasmar", "explorar"],
-"Cavaleiro de Paus": ["Arrojar", "sagaciar", "modificar", "acelerar", "aventurar"],
-"Rainha de Paus": ["Virtuar", "empoderar", "honrar", "liderar", "irradiar"],
-"Rei de Paus": ["Produzir", "progredir", "equilibrar", "empreender", "comandar"],
+        "Ás de Ouros": ["Realizar", "assegurar", "iniciar", "materializar", "concretizar", "realizado", "seguro", "afortunado", "fértil", "promissor"],
+        "2 de Ouros": ["Confrontar", "obstaculizar", "adiar", "lutar", "hesitar", "confrontante", "obstaculizado", "adiado", "volúvel", "instável"],
+        "3 de Ouros": ["Cooperar", "planejar", "expandir", "associar", "edificar", "cooperado", "planejado", "expandido", "profissional", "estruturado"],
+        "4 de Ouros": ["Reter", "estagnar", "proteger", "apegar", "limitar", "avarento", "estagnado", "possessivo", "inflexível", "materialista"],
+        "5 de Ouros": ["Apodrecer", "afastar", "esgotar", "desamparar", "decair", "empobrecido", "afastado", "esgotado", "miserável", "pessimista"],
+        "6 de Ouros": ["Carece", "limitar", "hesitar", "partilhar", "auxiliar", "indeciso", "limitado", "hesitante", "caridoso", "grato"],
+        "7 de Ouros": ["Equilibrar", "ganhar", "progredir", "aguardar", "avaliar", "equilibrado", "lucrativo", "progressivo", "paciente", "focado"],
+        "8 de Ouros": ["Iniciar", "especializar", "oportunizar", "dedicar", "aprimorar", "refina", "perito", "oportuno", "estudioso", "meticuloso"],
+        "9 de Ouros": ["Assegurar", "estabilizar", "recompensar", "desfrutar", "enriquecer", "seguro", "estável", "recompensado", "independente", "luxuoso"],
+        "10 de Ouros": ["Satisfazer", "glorificar", "empoderar", "legar", "consolidar", "satisfeito", "glorioso", "poderoso", "familiar", "tradicional"],
+        "Pajem de Ouros": ["Especular", "projetar", "capacitar", "estruturar", "fundamentar", "prático", "capaz", "especulativo", "cauteloso", "dedicado"],
+        "Cavaleiro de Ouros": ["Perseverar", "direcionar", "habilitar", "trabalhar", "focar", "perseverante", "hábil", "direcionado", "metódico", "incansável"],
+        "Rainha de Ouros": ["Conservar", "equilibrar", "prosperar", "administrar", "nutrir", "conservadora", "equilibrada", "próspera", "generosa", "realista"],
+        "Rei de Ouros": ["Dominar", "prosperar", "realizar", "consolidar", "enriquecer", "dominador", "próspero", "bem-sucedido", "poderoso", "estável"],
+        "Ás de Espadas": ["Agir", "persuadir", "sortear", "cortar", "decidir", "ativo", "persuasivo", "afortunado", "dinâmico", "incisivo"],
+        "2 de Espadas": ["Interromper", "rivalizar", "empatar", "bloquear", "discordar", "interrompido", "rival", "empatado", "cego", "defensivo"],
+        "3 de Espadas": ["Desenganar", "desiludir", "fracassar", "ferir", "magoar", "desenganado", "desiludido", "fracassado", "doloroso", "triste"],
+        "4 de Espadas": ["Adiar", "silenciar", "paralisar", "isolar", "repousar", "adiado", "silencioso", "inerte", "exausto", "recluso"],
+        "5 de Espadas": ["Perder", "desacreditar", "desperdiçar", "humilhar", "derrotar", "perdedor", "desacreditado", "desperciçado", "hostil", "cruel"],
+        "6 de Espadas": ["Ociosar", "desleixar", "hesitar", "afastar", "transitar", "ocioso", "desleixado", "hesitante", "apático", "distante"],
+        "7 de Espadas": ["Analisar", "acautelar", "ocultar", "enganar", "dissimular", "provável", "discreto", "cauteloso", "falso", "estratégico"],
+        "8 de Espadas": ["Perder", "trair", "conflitar", "aprisionar", "cegar", "perdido", "traído", "conflituoso", "limitado", "desesperado"],
+        "9 de Espadas": ["Agoniar", "sofrer", "fracassar", "atormentar", "chorar", "agoniado", "penoso", "malsucedido", "depressivo", "angustiante"],
+        "10 de Espadas": ["Romper", "decidir", "renovar", "finalizar", "destruir", "rompido", "decisivo", "renovado", "trágico", "inevitável"],
+        "Pajem de Espadas": ["Curiosar", "envaidecer", "intrigar", "bisbilhotar", "questionar", "curioso", "vaidoso", "intrigante", "inconsistente", "ágil"],
+        "Cavaleiro de Espadas": ["Perceber", "impulsionar", "conquistar", "atacar", "combater", "perspicaz", "impetuoso", "conquistador", "feroz", "destemido"],
+        "Rainha de Espadas": ["Intolerar", "vingar", "isolar", "racionalizar", "julgar", "intolerante", "vingativa", "solitária", "fria", "severa"],
+        "Rei de Espadas": ["Dominar", "liderar", "controlar", "ditar", "sentenciar", "dominador", "austero", "líder", "rígido", "autoritário"],
+        "Ás de Copas": ["Jubilar", "arrebatar", "sortear", "transbordar", "amar", "jubiloso", "arrebatado", "sortudo", "farto", "receptivo"],
+        "2 de Copas": ["Unir", "amar", "reciprocar", "compartilhar", "atrair", "unido", "amoroso", "recíproco", "íntimo", "parceiro"],
+        "3 de Copas": ["Aprazer", "aliviar", "pacificar", "festejar", "celebrar", "prazeroso", "aliviado", "pacífico", "fraterno", "festivo"],
+        "4 de Copas": ["Aborrecer", "desanimar", "insatisfazer", "rejeitar", "entediar", "aborrecido", "desanimado", "insatisfeito", "apático", "desgostoso"],
+        "5 de Copas": ["Arrepender", "angustiar", "frustrar", "decepcionar", "lamentar", "arrependido", "angustiado", "frustrado", "triste", "amargurado"],
+        "6 de Copas": ["Recordar", "melancolizar", "saudar", "nostalgiar", "reencontrar", "saudoso", "melancólico", "apegado", "infantil", "inocente"],
+        "7 de Copas": ["Utopizar", "obcecar", "cobiçar", "iludir", "fantasiar", "utópico", "obsessivo", "cobiçoso", "confuso", "irreal"],
+        "8 de Copas": ["Prejudicar", "escandalizar", "desiludir", "abandonar", "partir", "prejudicado", "escandaloso", "desiludido", "desapegado", "renunciante"],
+        "9 de Copas": ["Acordar", "realizar", "regozijar", "satisfazer", "brindar", "concordante", "realizado", "regozijante", "orgulhoso", "saciado"],
+        "10 de Copas": ["Plenificar", "felicitar", "vencer", "casar", "harmonizar", "pleno", "feliz", "vitorioso", "familiar", "abençoado"],
+        "Pajem de Copas": ["Harmonizar", "confiar", "apaziguar", "sonhar", "encantar", "harmonioso", "confiante", "pacífico", "sensível", "ingênuo"],
+        "Cavaleiro de Copas": ["Seduzir", "iludir", "possibilitar", "namorar", "fantasiar", "sedutor", "ilusório", "possível", "romântico", "poético"],
+        "Rainha de Copas": ["Misteriar", "dissimular", "inagir", "intuir", "acolher", "misteriosa", "dissimulada", "inativa", "empática", "maternal"],
+        "Rei de Copas": ["Felicitar", "idealizar", "envaidecer", "amparar", "aconselhar", "feliz", "vaidoso", "idealista", "afetuoso", "compassivo"],
+        "Ás de Paus": ["Fertilizar", "oportunizar", "sortear", "impulsionar", "entusiasmar", "fértil", "oportuno", "sortudo", "criativo", "enérgico"],
+        "2 de Paus": ["Confrontar", "meditar", "prorrogar", "planejar", "visionar", "confrontador", "meditativo", "prorrogado", "ambicioso", "perspicaz"],
+        "3 de Paus": ["Intercambiar", "unir", "solucionar", "explorar", "vislumbrar", "intercambiável", "unido", "solucionador", "ousado", "expansionista"],
+        "4 de Paus": ["Aliar", "favorecer", "superar", "comemorar", "estruturar", "aliado", "favorecido", "superado", "estável", "acolhedor"],
+        "5 de Paus": ["Esforçar", "labutar", "reconstruir", "competir", "debater", "esforçado", "trabalhador", "reconstruído", "conflituoso", "agitado"],
+        "6 de Paus": ["Garantir", "recorrer", "beneficiar", "triunfar", "conquistar", "garantido", "assistido", "beneficiado", "vitorioso", "aclamado"],
+        "7 de Paus": ["Superar", "avantajar", "estrategiar", "defender", "resistir", "superador", "vantajoso", "estratégico", "valente", "perseverante"],
+        "8 de Paus": ["Finalizar", "aperfeiçoar", "progredir", "acelerar", "comunicar", "finalizado", "perfeito", "progressivo", "rápido", "direto"],
+        "9 de Paus": ["Adiar", "disputar", "obstaculizar", "proteger", "desconfiar", "adiado", "disputado", "obstaculizado", "cauteloso", "defensivo"],
+        "10 de Paus": ["Independer", "recomeçar", "evoluir", "sobrecarregar", "carregar", "independente", "recomeçado", "evoluído", "oprimido", "exausto"],
+        "Pajem de Paus": ["Honestar", "dedicar", "confiar", "entusiasmar", "explorar", "honesto", "dedicado", "fiduciário", "espontâneo", "vivaz"],
+        "Cavaleiro de Paus": ["Arrojar", "sagaciar", "modificar", "acelerar", "aventurar", "arrojado", "sagaz", "modificado", "impulsivo", "destemido"],
+        "Rainha de Paus": ["Virtuar", "empoderar", "honrar", "liderar", "irradiar", "virtuosa", "poderosa", "honrada", "carismática", "magnética"],
+        "Rei de Paus": ["Produzir", "progredir", "equilibrar", "empreender", "comandar", "produtivo", "progressivo", "equilibrado", "inspirador", "visionário"]
     };
 
+    // =====================================================================
+    // EXTENDED MEANINGS — MAIORES (original) + MENORES (textos de Situação)
+    // =====================================================================
     const extendedMeanings = {
-        "O Mundo": { atributos: "Autônomo, soberano, preservado. Conclusão, upgrade, promoção, independência.", explicacao: "Busca por autonomia e blindagem individual; o ser se coloca como um ecossistema completo para se proteger das loucuras do ambiente externo.", exemplo: "Decidir focar exclusivamente nas suas tarefas e bem-estar, ignorando solenemente as provocações ao redor.", metodoEuropeu: [ { comb: "Rei de Espadas", texto: "A energia de expansão e conclusão encontra a postura de controle e corte." }, { comb: "Rei de Paus", texto: "A energia de autonomia total encontra a altivez e firmeza de propósitos." } ] },
+        "O Mundo": { atributos: "Autônomo, soberano, preservado. Conclusão, upgrade, promoção, independência.", metodoEuropeu: [ { comb: "Rei de Espadas", texto: "A energia de expansão e conclusão encontra a postura de controle e corte." }, { comb: "Rei de Paus", texto: "A energia de autonomia total encontra a altivez e firmeza de propósitos." } ] },
         "Rei de Espadas": { atributos: "Rigor, clareza, razão, formalidade. Controle, intelectualidade, resolução, protocolo.", explicacao: "Orienta a agir com base em fatos e dados concretos, restaurando a dignidade por meio da verdade documental.", exemplo: "Assinar documentos importantes e organizar processos internos para recuperar o controle." },
-        "A Estrela": { atributos: "Esperançoso, sutil, saudável, otimista. Renovação, expectativas, visibilidade.", explicacao: "Traz uma energia sutil de renovação e cura, sintonizando as emoções com a esperança genuína.", exemplo: "Iniciar uma conversa leve e sincera que resulta na cura de mágoas.", metodoEuropeu: [ { comb: "Três de Copas", texto: "A energia de esperança e renovação encontra o clima de celebração e união." }, { comb: "Cinco de Paus", texto: "A energia de manter as esperanças encontra a agitação das pequenas disputas cotidianas." }, { comb: "Rei de Copas", texto: "A energia de esperança e cura encontra a generosidade e maturidade emocional." } ] },
-        "Três de Copas": { atributos: "Celebração, sociabilidade, romance, upgrade afetivo.", explicacao: "Indica momentos de alegria partilhada, fortalecimento de laços e reconhecimento público de uma união." },
+        "A Estrela": { atributos: "Esperançoso, sutil, saudável, otimista. Renovação, expectativas, visibilidade.", metodoEuropeu: [ { comb: "Três de Copas", texto: "A energia de esperança e renovação encontra o clima de celebração e união." }, { comb: "Cinco de Paus", texto: "A energia de manter as esperanças encontra a agitação das pequenas disputas cotidianas." }, { comb: "Rei de Copas", texto: "A energia de esperança e cura encontra a generosidade e maturidade emocional." } ] },
         "A Sacerdotisa": { atributos: "Devota, passiva, fiel, discreta, misteriosa, reservada.", metodoEuropeu: [ { comb: "Seis de Copas", texto: "A energia de reserva e observação encontra a postura tradicional e conservadora." } ] },
-        "Seis de Copas": { atributos: "Tradicional, clássico, conservador, recolhido, nostálgico." },
-        "A Força": { atributos: "Autocontrolado, magnético, imponente, sensual. Domínio, adestramento, persistência.", explicacao: "Uso do magnetismo pessoal e do autocontrole calculado para ditar as regras do jogo.", metodoEuropeu: [ { comb: "Rainha de Copas", texto: "A energia de domínio e superação encontra a postura acolhedora e dedicada." }, { comb: "Rainha de Paus", texto: "A energia de domínio dos instintos encontra a postura altiva e enérgica." } ] },
-        "Rainha de Copas": { atributos: "Fofinho, vulnerável, condescendente. Delicadeza, dedicação, servidão, cuidado.", explicacao: "Postura excessivamente maleável que busca evitar o conflito." },
-        "O Enforcado": { atributos: "Resignado, estático, estratégico. Afastamento, estagnação, gelo, pausa.", explicacao: "A postura correta diante do cenário é a suspensão temporária de qualquer iniciativa externa.", metodoEuropeu: [ { comb: "Quatro de Espadas", texto: "A energia de paralisação e recuo encontra a postura de silêncio e vácuo." }, { comb: "Seis de Espadas", texto: "A energia de sacrifício e estagnação encontra a retirada estratégica." } ] },
-        "Quatro de Espadas": { atributos: "Recuo, silêncio, vácuo, pausa mental." },
-        "Cinco de Paus": { atributos: "Conflituoso, competitivo, detalhista." },
-        "O Carro": { atributos: "Determinado, focado, veloz. Movimento, rumo, avanço, impulso.", explicacao: "Tomada de ações firmes, velozes e assertivas. Direcionamento firme em direção a um objetivo.", metodoEuropeu: [ { comb: "Três de Espadas", texto: "A energia de avanço impetuoso encontra a frustração das expectativas quebradas." }, { comb: "Três de Ouros", texto: "A energia de progresso e direção encontra a cooperação e o aprendizado." } ] },
-        "Três de Espadas": { atributos: "Decepção, frustração, quebra de expectativa, erro." },
-        "A Justiça": { atributos: "Perfeccionista, detalhista, rígido, pragmático, sensato.", explicacao: "Apego técnico e severo a regras, minúcias e burocracias, ou a consolidação de parcerias de forma oficial.", metodoEuropeu: [ { comb: "Rei de Espadas", texto: "A energia de ajuste e legalidade encontra o rigor racional e estratégico." }, { comb: "Três de Ouros", texto: "A energia de retidão e contratos encontra a cooperação e os trâmites formais." } ] },
-        "A Roda da Fortuna": { atributos: "Passageiro, instável, mutável. Movimento, novidade, transição.", explicacao: "Movimentos cíclicos onde pessoas ou situações do passado reaparecem de surpresa.", metodoEuropeu: [ { comb: "10 de Copas", texto: "A energia de movimento e transição encontra a plenitude afetiva." } ] },
-        "10 de Copas": { atributos: "Alegria, bem-estar, abundância emocional, satisfação." },
-        "O Imperador": { atributos: "Liderança, respeito, autoridade, solidez.", explicacao: "Traz uma energia de poder, robustez, estabilidade e a conquista de uma posição de destaque.", metodoEuropeu: [ { comb: "Rei de Paus", texto: "A energia de autoridade e solidez encontra a postura de busca ativa e esforço." }, { comb: "Seis de Paus", texto: "A energia de solidez e estabelecimento encontra o prestígio e aplauso social." }, { comb: "Dois de Espadas", texto: "A energia de imposição e autoridade encontra o bloqueio e o impasse dos pontos de vista." }, { comb: "Oito de Espadas", texto: "A energia de controle rígido encontra o aprisionamento e a toxicidade." } ] },
-        "Rei de Paus": { atributos: "Altivo, determinado, assertivo. Esforço, foco, caça, ação.", explicacao: "Exercício de comando, magnetismo e liderança ativa, direcionando a própria força de vontade." },
-        "A Imperatriz": { atributos: "Fértil, abundante, realizador, altiva, soberana. Criação, novos projetos, iniciativa.", explicacao: "Consolidação e amadurecimento pleno de projetos autorais.", metodoEuropeu: [ { comb: "Cinco de Paus", texto: "A energia de criação e fertilidade encontra a agitação dos debates." }, { comb: "Oito de Ouros", texto: "A energia de criação e novos projetos encontra a execução técnica e minuciosa." }, { comb: "Rainha de Copas", texto: "A energia de iniciativa e fertilidade encontra a disposição para servir e acolher." }, { comb: "Dois de Paus", texto: "A energia de expansão e produção encontra a divisão entre caminhos." } ] },
-        "Três de Paus": { atributos: "Visionário, paciente, focado, planejado, expectante.", explicacao: "Foco total no planejamento e na expansão de horizontes a longo prazo." },
-        "Os Enamorados": { atributos: "Indeciso, solícito, confuso. Escolha, negociação, alinhamento.", explicacao: "Dificuldade em exercer a seletividade afetiva, tendendo a querer agradar a todas as oportunidades.", metodoEuropeu: [ { comb: "Três de Paus", texto: "A energia de escolha e alinhamento encontra a visão de longo alcance." } ] },
-        "O Louco": { atributos: "Espontâneo, impulsivo, aventureiro, desprendido.", explicacao: "Agir de forma impulsiva, sem grandes planejamentos ou amarras.", metodoEuropeu: [ { comb: "Três de Espadas", texto: "A energia de agir sem amarras encontra o desgosto das expectativas frustradas." }, { comb: "Ás de Ouros", texto: "A energia de desprendimento e novos começos encontra a semente de uma oportunidade real." } ] },
-        "Três de Ouros": { atributos: "Prático, concreto, apoiado. Trabalho em equipe, mentoria, aprendizado, regras." },
+        "A Força": { atributos: "Autocontrolado, magnético, imponente, sensual. Domínio, adestramento, persistência.", metodoEuropeu: [ { comb: "Rainha de Copas", texto: "A energia de domínio e superação encontra a postura acolhedora e dedicada." }, { comb: "Rainha de Paus", texto: "A energia de domínio dos instintos encontra a postura altiva e enérgica." } ] },
+        "O Enforcado": { atributos: "Resignado, estático, estratégico. Afastamento, estagnação, gelo, pausa.", metodoEuropeu: [ { comb: "Quatro de Espadas", texto: "A energia de paralisação e recuo encontra a postura de silêncio e vácuo." }, { comb: "Seis de Espadas", texto: "A energia de sacrifício e estagnação encontra a retirada estratégica." } ] },
+        "O Carro": { atributos: "Determinado, focado, veloz. Movimento, rumo, avanço, impulso.", metodoEuropeu: [ { comb: "Três de Espadas", texto: "A energia de avanço impetuoso encontra a frustração das expectativas quebradas." }, { comb: "Três de Ouros", texto: "A energia de progresso e direção encontra a cooperação e o aprendizado." } ] },
+        "A Justiça": { atributos: "Perfeccionista, detalhista, rígido, pragmático, sensato.", metodoEuropeu: [ { comb: "Rei de Espadas", texto: "A energia de ajuste e legalidade encontra o rigor racional e estratégico." }, { comb: "Três de Ouros", texto: "A energia de retidão e contratos encontra a cooperação e os trâmites formais." } ] },
+        "A Roda da Fortuna": { atributos: "Passageiro, instável, mutável. Movimento, novidade, transição.", metodoEuropeu: [ { comb: "10 de Copas", texto: "A energia de movimento e transição encontra a plenitude afetiva." } ] },
+        "O Imperador": { atributos: "Liderança, respeito, autoridade, solidez.", metodoEuropeu: [ { comb: "Rei de Paus", texto: "A energia de autoridade e solidez encontra a postura de busca ativa e esforço." }, { comb: "Seis de Paus", texto: "A energia de solidez e estabelecimento encontra o prestígio e aplauso social." }, { comb: "Dois de Espadas", texto: "A energia de imposição e autoridade encontra o bloqueio e o impasse dos pontos de vista." }, { comb: "Oito de Espadas", texto: "A energia de controle rígido encontra o aprisionamento e a toxicidade." } ] },
+        "Rei de Paus": { atributos: "Altivo, determinado, assertivo. Esforço, foco, caça, ação." },
+        "A Imperatriz": { atributos: "Fértil, abundante, realizador, altiva, soberana. Criação, novos projetos, iniciativa.", metodoEuropeu: [ { comb: "Cinco de Paus", texto: "A energia de criação e fertilidade encontra a agitação dos debates." }, { comb: "Oito de Ouros", texto: "A energia de criação e novos projetos encontra a execução técnica e minuciosa." }, { comb: "Rainha de Copas", texto: "A energia de iniciativa e fertilidade encontra a disposição para servir e acolher." }, { comb: "Dois de Paus", texto: "A energia de expansão e produção encontra a divisão entre caminhos." } ] },
+        "Os Enamorados": { atributos: "Indeciso, solícito, confuso. Escolha, negociação, alinhamento.", metodoEuropeu: [ { comb: "Três de Paus", texto: "A energia de escolha e alinhamento encontra a visão de longo alcance." } ] },
+        "O Louco": { atributos: "Espontâneo, impulsivo, aventureiro, desprendido.", metodoEuropeu: [ { comb: "Três de Espadas", texto: "A energia de agir sem amarras encontra o desgosto das expectativas frustradas." }, { comb: "Ás de Ouros", texto: "A energia de desprendimento e novos começos encontra a semente de uma oportunidade real." } ] },
         "A Morte": { atributos: "Transformador, dinâmico, finalizador. Corte, renovação, encerramento.", metodoEuropeu: [ { comb: "Rainha de Copas", texto: "A energia de corte e transformação radical encontra o recolhimento afetivo." } ] },
-        "Oito de Ouros": { atributos: "Expertise, dedicação, técnica, garantismo.", explicacao: "Foco na execução perfeita do trabalho com base na experiência acumulada." },
-        "Seis de Paus": { atributos: "Vaidoso, frívolo, efêmero. Validação, reconhecimento social, sucesso, aplauso." },
-        "A Temperança": { atributos: "Exaustivo, lento, repetitivo. Paciência, moderação, cura pelo tempo.", explicacao: "Uma rotina operacional densa, repetitiva e cansativa que exige resiliência diária.", metodoEuropeu: [ { comb: "Nove de Paus", texto: "A energia de moderação e tempo encontra a postura defensiva baseada na bagagem adquirida." } ] },
-        "Nove de Paus": { atributos: "Defensivo, cansado, obstinado.", explicacao: "Uma postura defensiva excessiva baseada em cicatrizes passadas." },
-        "Dois de Espadas": { atributos: "Improdutivo, travado, cego. Bloqueio, dúvida, impasse, oposição." },
-        "Dois de Paus": { atributos: "Divisão, dualidade, escolhas imediatas." },
-        "Ás de Ouros": { atributos: "Nova semente, oportunidade concreta, valor real." },
-        "Oito de Espadas": { atributos: "Indiscreto, descuidado, encurralado. Aprisionamento, cobrança, toxicidade, limitação." },
-        "Cavaleiro de Paus": { atributos: "Velocidade, surpresa, movimento rápido, oportunidade." },
-        "O Diabo": { atributos: "Ambicioso, magnético, teimoso, materialista, focado.", explicacao: "Representa a força irrefreável dos desejos instintivos, a ambição desmedida.", metodoEuropeu: [ { comb: "Três de Ouros", texto: "A energia de ambição e tentação encontra a interação com o meio e terceiros." }, { comb: "Dois de Paus", texto: "A energia de autopreservação e astúcia encontra a gestão de caminhos e opções." } ] },
+        "A Temperança": { atributos: "Exaustivo, lento, repetitivo. Paciência, moderação, cura pelo tempo.", metodoEuropeu: [ { comb: "Nove de Paus", texto: "A energia de moderação e tempo encontra a postura defensiva baseada na bagagem adquirida." } ] },
+        "O Diabo": { atributos: "Ambicioso, magnético, teimoso, materialista, focado.", metodoEuropeu: [ { comb: "Três de Ouros", texto: "A energia de ambição e tentação encontra a interação com o meio e terceiros." }, { comb: "Dois de Paus", texto: "A energia de autopreservação e astúcia encontra a gestão de caminhos e opções." } ] },
         "A Lua": { atributos: "Intuitivo, sensorial, imaginativo. Ilusão, ciúme, fantasia, engano.", metodoEuropeu: [ { comb: "Três de Espadas", texto: "A energia de ilusões e fantasmas internos encontra a dor do rompimento e do erro." } ] },
         "O Mago": { atributos: "Habilidoso, articulado, criativo. Truque, artimanha, lábia.", metodoEuropeu: [ { comb: "Oito de Espadas", texto: "A energia de esperteza e truques encontra o cerco e a cobrança severa." } ] },
         "O Sol": { atributos: "Visível, exposto, entusiasmado. Sucesso, clareza, esplendor.", metodoEuropeu: [ { comb: "Cavaleiro de Paus", texto: "A energia de clareza e resultados evidentes encontra a velocidade e a surpresa." }, { comb: "Quatro de Copas", texto: "A energia de alta voltagem e exposição encontra o esgotamento e a recusa." } ] },
         "O Julgamento": { atributos: "Retornado, pensativo, cobrado, receptivo, estimulado, surpreendido.", metodoEuropeu: [ { comb: "Três de Paus", texto: "A energia de libertação e renascimento encontra a projeção de metas distantes." } ] },
         "O Eremita": { atributos: "Sábio, prudente, vagaroso, introspectivo." },
         "A Torre": { atributos: "Traumático, tempestivo, destrutivo. Ruptura, solvência, transformação.", metodoEuropeu: [ { comb: "Três de Espadas", texto: "A energia de ruptura abrupta encontra a dor do erro e da frustração." } ] },
-        "Nove de Espadas": { atributos: "Desalentado, morto, inútil. Angústia, culpa, ruminação." },
-        "Sete de Espadas": { atributos: "Exibido, articulado, discreto, malandro." },
-        "Seis de Ouros": { atributos: "Indisposto, carente, mesquinho, limitado. Escassez temporária." },
-        "Quatro de Copas": { atributos: "Distante, seletivo, preservado. Proteção emocional, introversão." },
-        "10 de Paus": { atributos: "Sobrecarregado, exausto, resiliente." },
-        "Nove de Ouros": { atributos: "Prudente, independente, previdente, refinado." },
-        "Pajem de Espadas": { atributos: "Discreto, esperto, evasivo, analítico." },
-        "10 de Ouros": { atributos: "Tradicional, seguro, próspero, formal, consistente." },
-        "Oito de Paus": { atributos: "Rápido, direto, facilitado, fluido." },
-        "Cavaleiro de Ouros": { atributos: "Lento, criterioso, seguro, pragmático, devagar, sólido, realista." },
-        "Rainha de Espadas": { atributos: "Rígida, cortante, petulante, soberba." },
-        "Rei de Copas": { atributos: "Gentil, generoso, agradável, passageiro." },
-        "Sete de Paus": { atributos: "Combativo, firme, resistente." },
-        "Nove de Copas": { atributos: "Satisfeito, acomodado, preenchido." },
-        "Cinco de Espadas": { atributos: "Agressivo, ferino, hostil, perigoso." },
-        "Sete de Copas": { atributos: "Imaginativo, fantasioso, relaxado." },
-        "Ás de Copas": { atributos: "Novo, produtivo, bom. Abertura afetiva, criatividade, oportunidade." }
+        // --- ARCANOS MENORES — textos de Situação na aba Atributos ---
+        "Ás de Ouros": { atributos: "Aponta para o princípio de uma forte realização, indicando segurança, sorte e ações que trazem estabilidade concreta." },
+        "2 de Ouros": { atributos: "Mostra um impasse kármico gerado por entraves sociais ou familiares totalmente fora do controle do indivíduo; a imposição de atrasos e impedimentos concretos exige paciência e jogo de cintura para lidar com a gangorra das circunstâncias." },
+        "3 de Ouros": { atributos: "Aponta para o avanço seguro em direção aos objetivos através do seguimento rigoroso de protocolos e planilhas; a intervenção providencial de especialistas ou ocasiões favoráveis qualifica o progresso e impulsiona o crescimento em equipe." },
+        "4 de Ouros": { atributos: "Revela uma fase de rigidez e apego excessivo gerada pelo medo irracional da perda; a recusa em investir, compartilhar ou assumir riscos cria um confinamento que petrifica os ganhos e causa o desbotamento das dinâmicas da vida." },
+        "5 de Ouros": { atributos: "Retrata uma crise profunda marcada pela escassez de recursos e perda de status devido a atitudes anteriores de controle e egoísmo; o indivíduo enfrenta o desalento da desaprovação externa, o isolamento e o esgotamento das próprias forças." },
+        "6 de Ouros": { atributos: "Representa o resgate do bem-estar por meio de atos de pura generosidade e suporte externo inesperado; o processo exige a superação do orgulho para aceitar o auxílio oferecido, restabelecendo a harmonia e o fluxo prático da vida." },
+        "7 de Ouros": { atributos: "Marca o florescimento lento e sólido de uma estrutura há muito tempo cultivada; o progresso recompensado desperta uma ambição saudável por conquistas ainda maiores, exigindo prudência e determinação para não precipitar os resultados." },
+        "8 de Ouros": { atributos: "Indica o início de um novo ciclo baseado na rica bagagem de experiências anteriores; o refinamento solitário de habilidades e o investimento em si mesmo resultam em um surpreendente cenário de oportunidades e sucesso prático." },
+        "9 de Ouros": { atributos: "Mostra uma etapa de merecida distinção social e profunda satisfação material; a colheita produtiva e de longa duração traz segurança e eleva a autoestima, permitindo desfrutar do luxo e do bem-estar com absoluta independência." },
+        "10 de Ouros": { atributos: "Marca a plenitude máxima da estabilidade e o alcance da glória duradoura no plano físico; os frutos do sucesso são consolidados a longo prazo, garantindo a solidez da estrutura familiar, o recebimento de heranças e a consagração de um legado concreto." },
+        "Pajem de Ouros": { atributos: "Representa a capacidade e a especulação no início de um projeto, focando na praticidade e na busca por investimentos seguros." },
+        "Cavaleiro de Ouros": { atributos: "Indica a preservação de ideais materiais, agindo com habilidade e perseverança para seguir em uma direção correta nos projetos." },
+        "Rainha de Ouros": { atributos: "Mostra o progresso consistente nos objetivos através da conservação, do equilíbrio e da busca constante pelo bem-estar." },
+        "Rei de Ouros": { atributos: "Simboliza a realização plena da vontade com êxito material, trazendo um cenário de domínio e grande prosperidade financeira." },
+        "Ás de Espadas": { atributos: "Simboliza a ação do pensamento veloz, do poder de persuasão assertiva e a presença de sorte nas resoluções conflituosas." },
+        "2 de Espadas": { atributos: "Mostra energias travadas por rivalidade e interrupções nas rotinas, forçando a convivência e o empate no confronto de ideias." },
+        "3 de Espadas": { atributos: "Reflete um momento árduo de desengano e desilusão profunda, apontando o fracasso mental que suspende planos e fere o ego." },
+        "4 de Espadas": { atributos: "Aponta para um cenário de total inércia, silêncio e adiamentos, causado muitas vezes por insensatez momentânea." },
+        "5 de Espadas": { atributos: "Indica a consumação de perdas dolorosas e desperdício que geram descrédito no que se pensava, deixando um grande vazio interior." },
+        "6 de Espadas": { atributos: "Traz à tona o perigo da ociosidade e do desleixo constante com as ideias, o que causa hesitação e exige muita cautela nos objetivos estagnados." },
+        "7 de Espadas": { atributos: "Revela a probabilidade e as expectativas mentais por meio de acautelamento extremo e discrição, correndo o risco de causar conflitos de ideais ocultos." },
+        "8 de Espadas": { atributos: "Sinaliza choques envolvendo perda, traição e muito conflito, desencadeando desespero pela derrota que parecia iminente." },
+        "9 de Espadas": { atributos: "Mostra a tormenta do insucesso traduzida numa dor extrema, revelando um quadro de agonia mental, penúria e luto psicológico." },
+        "10 de Espadas": { atributos: "Representa o rompimento doloroso de todas as pontes e a necessidade de uma decisão dura e final que, paradoxalmente, abrirá espaço à renovação." },
+        "Pajem de Espadas": { atributos: "Aponta para curiosidade extrema e vaidade intelectual, gerando um excesso de sagacidade que pode acabar fomentando intrigas nos objetivos." },
+        "Cavaleiro de Espadas": { atributos: "Revela o lado do ímpeto e da perspicácia implacável, mostrando uma obstinação gigantesca voltada para a conquista do desejo." },
+        "Rainha de Espadas": { atributos: "Representa atitudes mentais de intolerância e vingança, muitas vezes conduzindo à solidão sob o disfarce de um poder incontestável." },
+        "Ás de Copas": { atributos: "Aponta para o encontro desejado num estado de arrebatamento; simboliza júbilo, fartura afetiva e muita sorte sentimental." },
+        "2 de Copas": { atributos: "Traz a beleza do romance ao lado da união, promovendo o amor sincero, a união de almas e a resolução via reciprocidade." },
+        "3 de Copas": { atributos: "Representa uma aura de alegria e alívio emocional; reflete a obtenção de muito prazer afetivo num cenário de paz harmoniosa." },
+        "4 de Copas": { atributos: "Revela sintomas de declínio, onde o indivíduo foca no aborrecimento, demonstrando grande desânimo e insatisfação no plano emocional." },
+        "5 de Copas": { atributos: "Indica uma dor nostálgica gerada por angústia, profundos remorsos e frustrações que levam à constante lamentação da vida." },
+        "6 de Copas": { atributos: "Simboliza a força viva da recordação, arrastando o consulente para a nostalgia, saudade excessiva e frequente melancolia frente ao que já passou." },
+        "7 de Copas": { atributos: "Revela o desejo se desvirtuando pela cobiça exacerbada e vaidade cega, causando perdas devido a ilusões utópicas e atitudes obsessivas." },
+        "8 de Copas": { atributos: "Apresenta o peso das perdas sentimentais reais; as expectativas levam ao escândalo e geram uma dor marcante pela desilusão inevitável." },
+        "9 de Copas": { atributos: "Traz acordos perfeitos, fortes realizações e uma onda de regozijo afetivo; marca uma etapa visivelmente feliz da vida." },
+        "10 de Copas": { atributos: "Indica a consumação afetiva no seu nível máximo: plenitude nas relações e uma imensa felicidade e sensação de vitória em tudo o que envolve o amor." },
+        "Pajem de Copas": { atributos: "Simboliza uma fase delicada de harmonia, confiança e paz emocional que atrai propostas imensamente sedutoras." },
+        "Cavaleiro de Copas": { atributos: "Revela grande sedução e uma abertura inebriante a possibilidades afetivas, porém exige cuidado, pois carrega o potencial de fortes ilusões." },
+        "Rainha de Copas": { atributos: "Indica uma condição de inação física, acompanhada por muito mistério e dissimulação para garantir os afetos desejados de forma passiva." },
+        "Rei de Copas": { atributos: "Mostra uma energia amplamente voltada ao idealismo amoroso e à busca da felicidade, alimentada com fortes traços de vaidade emocional." },
+        "Ás de Paus": { atributos: "Indica uma faísca imensurável de energia, trazendo muita fertilidade, surgimento de oportunidades únicas e a sorte agindo ativamente no mundo invisível." },
+        "2 de Paus": { atributos: "Reflete pausas forçadas de confrontos espirituais ou ideológicos que demandam meditação criteriosa e acabam resultando em prorrogação dos prazos de agir." },
+        "3 de Paus": { atributos: "Revela expansão por intercâmbio com terceiros; uma fase de alianças e união positiva capaz de forjar a solução para obstáculos travados." },
+        "4 de Paus": { atributos: "Mostra a alegria provinda de fortes alianças baseadas no bom trabalho de equipe; as circunstâncias de parceria agem favorecendo a superação e trazendo grande harmonia." },
+        "5 de Paus": { atributos: "Indica uma fase cansativa onde muito esforço físico/mental e labuta ininterrupta são obrigatórios se quiser que ocorra uma devida reconstrução de forças." },
+        "6 de Paus": { atributos: "Traz uma estabilidade revigorante oriunda de garantias sólidas; aponta recursos fáceis à disposição que traduzem-se em múltiplos benefícios aos seus investimentos." },
+        "7 de Paus": { atributos: "Representa o uso minucioso de táticas perspicazes; com grande superação, estratégias bem delineadas conduzem o querente a garantir larga vantagem material ou moral." },
+        "8 de Paus": { atributos: "Aponta para o encerramento com louvor de uma jornada intensa; a busca contínua pela perfeição resulta em finalização impecável e rápido progresso de eventos." },
+        "9 de Paus": { atributos: "Mostra uma etapa penosa repleta de entraves burocráticos ou sociais; intensas disputas forçam adiamentos estressantes provocados por obstáculos quase inesperados." },
+        "10 de Paus": { atributos: "Marca o cume da evolução criativa de um indivíduo; ele encontra recomeço pleno após transpor fardos com sucesso, firmando absoluta independência nas atitudes diárias." },
+        "Pajem de Paus": { atributos: "Mostra uma vibração inicial embasada na dedicação verdadeira, honestidade de propósitos e forte fidúcia visando um futuro promissor." },
+        "Cavaleiro de Paus": { atributos: "Simboliza dinamicidade absoluta com atitudes de arrojo; demonstra sagacidade aguçada para aplicar modificações ousadas nos planos estipulados." },
+        "Rainha de Paus": { atributos: "Representa a manutenção do ideal baseada na virtude e em conduta ilibada; indica liderança pelo poder pessoal da honra com vistas à fertilidade contínua." },
+        "Rei de Paus": { atributos: "Traz uma força estruturadora focada na produtividade constante; simboliza alcançar grande progresso através do equilíbrio de forças criativas." }
     };
 
     function generateMinorsFromBase(b, prefix, suitLabel) {
@@ -1637,7 +1573,6 @@
             card.removeAttribute('data-reveal-url');
             card.removeAttribute('data-card-name');
             card.innerHTML = '';
-
             if (card.classList.contains('linear-card')) {
                 let id = card.getAttribute('data-scr-slot') || card.getAttribute('data-csmd-slot')
                        || card.getAttribute('data-ta-slot') || card.getAttribute('data-dupla-slot')
@@ -1667,10 +1602,8 @@
         if (!cardName) return;
         const existing = slotElement.querySelector('.card-inner-tag');
         if (existing) existing.remove();
-
         let cleanName = cardName.replace(/^\d+\s*[-–]\s*/, "").trim();
         let wordPool = ["Fluxo"];
-        
         if (externalMeanings && externalMeanings[cleanName] && externalMeanings[cleanName].verbos && externalMeanings[cleanName].verbos.length > 0) {
             wordPool = externalMeanings[cleanName].verbos;
         } else if (verbsMap[cleanName]) {
@@ -1683,13 +1616,11 @@
                 }
             }
         }
-
         let luckyWord = wordPool[Math.floor(Math.random() * wordPool.length)];
         const tagDiv = document.createElement('div');
         tagDiv.className = 'card-inner-tag';
         tagDiv.textContent = luckyWord;
         slotElement.appendChild(tagDiv);
-
         let cardWidth = slotElement.clientWidth;
         let fontSize = cardWidth * 0.14;
         if (luckyWord.length > 8) fontSize = cardWidth * 0.11;
@@ -1700,7 +1631,6 @@
     function pickCardForSlot(slotElement, cardData, keepHidden = false) {
         slotElement.setAttribute('data-card-name', cardData.name);
         slotElement.classList.remove('empty-slot-clickable');
-        
         if (keepHidden) {
             slotElement.setAttribute('data-reveal-url', cardData.url);
             slotElement.classList.add('board-face-down');
@@ -1712,27 +1642,16 @@
             slotElement.style.border = 'none';
             injectInnerTag(slotElement, cardData.name);
         }
-        
         checkPhaseOrComplete();
     }
 
-    // =====================================================================
-    // CHECK FASE DE JOGO
-    // Orquestra mistura de painel e seleção manual
-    // =====================================================================
     function checkPhaseOrComplete() {
         const targets = getGameTargets(gameMode);
         const allMajors = targets.majors.filter(Boolean);
         const allMinors = targets.minors.filter(Boolean);
-        
         const majorsFilled = allMajors.every(s => s.getAttribute('data-card-name'));
         const minorsFilled = allMinors.every(s => s.getAttribute('data-card-name'));
-        
-        if (majorsFilled && minorsFilled) {
-            triggerFinalReveal();
-            return;
-        }
-
+        if (majorsFilled && minorsFilled) { triggerFinalReveal(); return; }
         if (oposicaoSequence.length === 0 && mainBoard.classList.contains('game-active')) {
             if (majorsFilled && activePhase === 'majors') {
                 gameStatus.textContent = "EMBARALHANDO ARCANOS MENORES...";
@@ -1749,10 +1668,7 @@
         } else if (oposicaoSequence.length > 0 && mainBoard.classList.contains('game-active')) {
             let currentStepTargets = phaseTargets;
             let stepFilled = currentStepTargets.every(s => s.getAttribute('data-card-name'));
-            if (stepFilled) {
-                sequenceIndex++;
-                setTimeout(runNextSequenceStep, 400);
-            }
+            if (stepFilled) { sequenceIndex++; setTimeout(runNextSequenceStep, 400); }
         }
     }
 
@@ -1798,20 +1714,16 @@
 
     function triggerGlobalRandom() {
         oposicaoSequence = []; gameGrid.innerHTML = '';
-        
         if (gameMode === 'scrTempo') {
             const beforeDeck  = buildScrTempoDeck('Before');
             const newVisionDeck = buildScrTempoDeck('NewVision');
             const afterDeck   = buildScrTempoDeck('AfterTarot');
-
             const slotsBefore  = [document.querySelector('[data-scr-tempo-slot="top-1"]'), document.querySelector('[data-scr-tempo-slot="bottom-1"]')];
             const slotsNewVision = [document.querySelector('[data-scr-tempo-slot="top-2"]'), document.querySelector('[data-scr-tempo-slot="bottom-2"]')];
             const slotsAfter   = [document.querySelector('[data-scr-tempo-slot="top-3"]'), document.querySelector('[data-scr-tempo-slot="bottom-3"]')];
-
             const rBM = shuffle(beforeDeck.majors); const rBmi = shuffle(beforeDeck.minors);
             const rNVM = shuffle(newVisionDeck.majors); const rNVmi = shuffle(newVisionDeck.minors);
             const rAM = shuffle(afterDeck.majors);  const rAmi = shuffle(afterDeck.minors);
-
             pickCardForSlot(slotsBefore[0], rBM[0], false);
             pickCardForSlot(slotsBefore[1], rBmi[0], false);
             pickCardForSlot(slotsNewVision[0], rNVM[0], false);
@@ -1841,7 +1753,6 @@
         if (!selectedMode) { alert("Por favor, selecione um jogo na lista antes de continuar."); return; }
         postGameControls.style.display = 'none';
         oposicaoSequence = [];
-
         switch(selectedMode) {
             case 'dupla':           initDuplaGame(); break;
             case 'oposicao':        initOposicaoGame(); break;
@@ -1855,16 +1766,13 @@
             case 'davi':            initDaviGame(); break;
             case 'futebol':         initFutebolGame(); break;
         }
-
         enableEmptySlotClicks();
         resizeBoardToFit();
     }
 
     function initManualMandalaMode() {
-        gameMode = 'mandalaManual';
-        mainBoard.className = 'board mandala-active';
-        resetAllSlots();
-        gamePanel.style.display = 'flex'; gameGrid.innerHTML = '';
+        gameMode = 'mandalaManual'; mainBoard.className = 'board mandala-active';
+        resetAllSlots(); gamePanel.style.display = 'flex'; gameGrid.innerHTML = '';
         gameStatus.textContent = "CLIQUE NOS SLOTS DO TABULEIRO OU GERE ALEATÓRIO";
         postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
     }
@@ -1899,29 +1807,21 @@
         gameMode = 'scrTempo'; mainBoard.className = 'board scr-tempo-active game-active';
         resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none';
         btnVoltar.style.display = 'inline-flex';
-
         const beforeDeck  = buildScrTempoDeck('Before');
         const newVisionDeck = buildScrTempoDeck('NewVision');
         const afterDeck   = buildScrTempoDeck('AfterTarot');
-
         startSequence([
-            { type: 'custom', msg: 'SITUAÇÃO — ESCOLHA O MAIOR (Before Tarot)',
-              pool: shuffle(beforeDeck.majors), targets: [document.querySelector('[data-scr-tempo-slot="top-1"]')] },
+            { type: 'custom', msg: 'SITUAÇÃO — ESCOLHA O MAIOR (Before Tarot)', pool: shuffle(beforeDeck.majors), targets: [document.querySelector('[data-scr-tempo-slot="top-1"]')] },
             { action: 'shuffle', msg: 'EMBARALHANDO MENORES...' },
-            { type: 'custom', msg: 'SITUAÇÃO — ESCOLHA O MENOR (Before Tarot)',
-              pool: shuffle(beforeDeck.minors), targets: [document.querySelector('[data-scr-tempo-slot="bottom-1"]')] },
+            { type: 'custom', msg: 'SITUAÇÃO — ESCOLHA O MENOR (Before Tarot)', pool: shuffle(beforeDeck.minors), targets: [document.querySelector('[data-scr-tempo-slot="bottom-1"]')] },
             { action: 'shuffle', msg: 'EMBARALHANDO CAMINHO...' },
-            { type: 'custom', msg: 'CAMINHO — ESCOLHA O MAIOR (New Vision Tarot)',
-              pool: shuffle(newVisionDeck.majors), targets: [document.querySelector('[data-scr-tempo-slot="top-2"]')] },
+            { type: 'custom', msg: 'CAMINHO — ESCOLHA O MAIOR (New Vision Tarot)', pool: shuffle(newVisionDeck.majors), targets: [document.querySelector('[data-scr-tempo-slot="top-2"]')] },
             { action: 'shuffle', msg: 'EMBARALHANDO MENORES...' },
-            { type: 'custom', msg: 'CAMINHO — ESCOLHA O MENOR (New Vision Tarot)',
-              pool: shuffle(newVisionDeck.minors), targets: [document.querySelector('[data-scr-tempo-slot="bottom-2"]')] },
+            { type: 'custom', msg: 'CAMINHO — ESCOLHA O MENOR (New Vision Tarot)', pool: shuffle(newVisionDeck.minors), targets: [document.querySelector('[data-scr-tempo-slot="bottom-2"]')] },
             { action: 'shuffle', msg: 'EMBARALHANDO RESULTADO...' },
-            { type: 'custom', msg: 'RESULTADO — ESCOLHA O MAIOR (After Tarot)',
-              pool: shuffle(afterDeck.majors), targets: [document.querySelector('[data-scr-tempo-slot="top-3"]')] },
+            { type: 'custom', msg: 'RESULTADO — ESCOLHA O MAIOR (After Tarot)', pool: shuffle(afterDeck.majors), targets: [document.querySelector('[data-scr-tempo-slot="top-3"]')] },
             { action: 'shuffle', msg: 'EMBARALHANDO MENORES...' },
-            { type: 'custom', msg: 'RESULTADO — ESCOLHA O MENOR (After Tarot)',
-              pool: shuffle(afterDeck.minors), targets: [document.querySelector('[data-scr-tempo-slot="bottom-3"]')] }
+            { type: 'custom', msg: 'RESULTADO — ESCOLHA O MENOR (After Tarot)', pool: shuffle(afterDeck.minors), targets: [document.querySelector('[data-scr-tempo-slot="bottom-3"]')] }
         ]);
     }
 
@@ -1988,14 +1888,8 @@
 
     function runNextSequenceStep() {
         if (!oposicaoSequence.length) return;
-        if (sequenceIndex >= oposicaoSequence.length) {
-            triggerFinalReveal();
-            oposicaoSequence = [];
-            return;
-        }
-
+        if (sequenceIndex >= oposicaoSequence.length) { triggerFinalReveal(); oposicaoSequence = []; return; }
         let step = oposicaoSequence[sequenceIndex];
-
         if (step.action === 'shuffle') {
             gameStatus.textContent = step.msg;
             gameGrid.innerHTML = '<div class="shuffling-container"></div>';
@@ -2010,21 +1904,17 @@
             setTimeout(runNextSequenceStep, 2000);
             return;
         }
-
         let deckPool = step.type === 'custom' ? step.pool : (step.type === 'majors' ? shuffle([...deck.major]) : shuffle([...deck.pentacles, ...deck.swords, ...deck.cups, ...deck.wands]));
-
         activePhase = step.type;
         phaseTargets = step.targets;
         targetIndex = 0;
         gameStatus.textContent = step.msg;
         gameGrid.innerHTML = '';
-
         deckPool.forEach((cardData) => {
             const backCard = document.createElement('div');
             backCard.className = 'back-card';
             backCard.onclick = () => {
                 if (backCard.classList.contains('revealed')) return;
-                
                 while(targetIndex < phaseTargets.length && phaseTargets[targetIndex].getAttribute('data-card-name')) { targetIndex++; }
                 if(targetIndex < phaseTargets.length) {
                     backCard.classList.add('revealed');
@@ -2032,11 +1922,7 @@
                     targetIndex++;
                 }
                 while(targetIndex < phaseTargets.length && phaseTargets[targetIndex].getAttribute('data-card-name')) { targetIndex++; }
-                
-                if (targetIndex >= phaseTargets.length) {
-                    sequenceIndex++;
-                    setTimeout(runNextSequenceStep, 400);
-                }
+                if (targetIndex >= phaseTargets.length) { sequenceIndex++; setTimeout(runNextSequenceStep, 400); }
             };
             gameGrid.appendChild(backCard);
         });
@@ -2052,7 +1938,6 @@
             backCard.className = 'back-card';
             backCard.onclick = () => {
                 if (backCard.classList.contains('revealed') || activePhase !== 'majors') return;
-                
                 while(targetIndex < phaseTargets.length && phaseTargets[targetIndex].getAttribute('data-card-name')) { targetIndex++; }
                 if(targetIndex < phaseTargets.length) {
                     backCard.classList.add('revealed');
@@ -2060,7 +1945,6 @@
                     targetIndex++;
                 }
                 while(targetIndex < phaseTargets.length && phaseTargets[targetIndex].getAttribute('data-card-name')) { targetIndex++; }
-                
                 if (targetIndex >= phaseTargets.length) {
                     setTimeout(() => {
                         gameStatus.textContent = "EMBARALHANDO ARCANOS MENORES...";
@@ -2090,7 +1974,6 @@
             backCard.className = 'back-card';
             backCard.onclick = () => {
                 if (backCard.classList.contains('revealed') || activePhase !== 'minors') return;
-                
                 while(targetIndex < phaseTargets.length && phaseTargets[targetIndex].getAttribute('data-card-name')) { targetIndex++; }
                 if(targetIndex < phaseTargets.length) {
                     backCard.classList.add('revealed');
@@ -2098,10 +1981,7 @@
                     targetIndex++;
                 }
                 while(targetIndex < phaseTargets.length && phaseTargets[targetIndex].getAttribute('data-card-name')) { targetIndex++; }
-                
-                if (targetIndex >= phaseTargets.length) {
-                    triggerFinalReveal();
-                }
+                if (targetIndex >= phaseTargets.length) { triggerFinalReveal(); }
             };
             gameGrid.appendChild(backCard);
         });
@@ -2111,7 +1991,6 @@
         activePhase = 'complete';
         mainBoard.classList.remove('game-active');
         gamePanel.style.display = 'none';
-
         document.querySelectorAll('.card[data-reveal-url]').forEach(card => {
             const finalUrl  = card.getAttribute('data-reveal-url');
             const cardName  = card.getAttribute('data-card-name');
@@ -2121,7 +2000,6 @@
             card.style.border = 'none';
             injectInnerTag(card, cardName);
         });
-        
         postGameControls.style.display = 'flex';
         setTimeout(resizeBoardToFit, 50);
     }
@@ -2146,12 +2024,10 @@
         const savedName = cardElement.getAttribute('data-card-name');
         const hasImage  = cardElement.style.backgroundImage && cardElement.style.backgroundImage !== '';
         const isFaceDown = cardElement.classList.contains('board-face-down');
-
         if ((savedName || hasImage) && !isFaceDown) {
             openDetailModalDirect(savedName, cardElement.style.backgroundImage.replace(/^url\(["']?/, '').replace(/["']?\)$/, ''));
             return;
         }
-
         if (!savedName && !hasImage) {
             currentSelectedCard = cardElement;
             openCardModalForSlot(cardElement);
@@ -2228,7 +2104,6 @@
             const btns = document.querySelectorAll('#deckTabsModal .tab-btn');
             if (btns[map[category]]) btns[map[category]].classList.add('active');
         }
-
         cardsGrid.innerHTML = '';
         let selectedList = [];
         if (category === 'major')          selectedList = deck.major;
@@ -2237,7 +2112,6 @@
         else if (category === 'swords')    selectedList = deck.swords;
         else if (category === 'cups')      selectedList = deck.cups;
         else if (category === 'wands')     selectedList = deck.wands;
-
         selectedList.forEach(card => {
             const cardDiv = document.createElement('div');
             cardDiv.className = 'gallery-card';
@@ -2272,9 +2146,7 @@
         document.getElementById('detailCardName').textContent = name || "Arcano Selecionado";
         document.getElementById('detailCardImg').src = imgUrl;
         switchMeaningTab('atributos');
-
         let cleanName = name ? name.replace(/^\d+\s*[-–]\s*/, "").trim() : "";
-
         let verbs = ["Alinhamento", "Fluxo", "Sintonia"];
         if (externalMeanings && externalMeanings[cleanName] && externalMeanings[cleanName].verbos && externalMeanings[cleanName].verbos.length > 0) {
             verbs = externalMeanings[cleanName].verbos;
