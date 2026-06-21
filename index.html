@@ -1170,15 +1170,18 @@
 
         root.style.setProperty('--u', finalU + 'px');
 
+                // Ajuste aqui: 50 é o valor em pixels para subir. 
+        // Aumente este número para subir mais, diminua para descer.
+        const ajusteSubida = 50; 
         const centerOfAvailableArea = headerH + (availableH / 2);
         const screenCenter = window.innerHeight / 2;
-        const yOffset = centerOfAvailableArea - screenCenter;
+        const yOffset = (centerOfAvailableArea - screenCenter) - ajusteSubida;
 
         requestAnimationFrame(() => {
             mainBoard.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
             mainBoard.style.transform = `translateY(${yOffset}px)`;
         });
-    }
+
 
     window.addEventListener('resize', resizeBoardToFit);
 
