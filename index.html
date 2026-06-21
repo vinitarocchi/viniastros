@@ -1763,8 +1763,8 @@
         
         if (gameMode === 'scrTempo') {
             // SCR do Tempo: cada coluna usa deck diferente
-            const beforeDeck  = buildScrTempoDeck('Before');
-            const goldArtDeck = buildScrTempoDeck('GoldArt');
+            const beforeDeck  = buildScrTempoDeck('GoldArt');
+            const goldArtDeck = buildScrTempoDeck('Before');
             const afterDeck   = buildScrTempoDeck('AfterTarot');
 
             const slotsBefore  = [document.querySelector('[data-scr-tempo-slot="top-1"]'), document.querySelector('[data-scr-tempo-slot="bottom-1"]')];
