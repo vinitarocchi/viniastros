@@ -60,6 +60,64 @@
             filter: saturate(1) contrast(1.2);
         }
 
+/* Aplica o filtro de tom vintage/psicodélico APENAS ao HoiPoloi */
+/* Aplica o filtro de tom vintage/psicodélico APENAS ao HoiPoloi */
+/* Aplica o filtro de tom vintage/psicodélico APENAS ao HoiPoloi */
+#mainBoard[data-current-deck="HoiPoloi"] .card,
+#mainBoard[data-current-deck="HoiPoloi"] .back-card,
+#mainBoard[data-current-deck="HoiPoloi"] .gallery-card {
+    /* 
+       saturate(0.8): reduz a saturação para tons mais pastéis/terrosos
+       contrast(0.9): diminui o contraste para um visual mais suave
+       sepia(0.2): dá aquele ar envelhecido/vintage
+       hue-rotate(-10deg): ajusta levemente as cores para os tons da image.png
+    */
+    filter: saturate(0.8) contrast(0.9) sepia(0.2) hue-rotate(-10deg) !important;
+    border: 1px solid #FFFFFF !important;
+}
+
+
+
+
+
+/* Filtro ajustado para tons terrosos e dessaturados da image.png */
+#mainBoard[data-current-deck="RiderWaite"] .card,
+#mainBoard[data-current-deck="RiderWaite"] .back-card,
+#mainBoard[data-current-deck="RiderWaite"] .gallery-card {
+    filter: sepia(0.2) saturate(0.7) contrast(0.85) brightness(1.05) hue-rotate(330deg) !important;
+}
+
+
+
+
+
+
+
+
+
+#mainBoard[data-current-deck="HoiPoloi"] .card {
+    /* Espessuras: Topo(4px) Direita(1px) Baixo(4px) Esquerda(1px) */
+    border-width: 2px 1px 2px 1px !important; 
+    border-style: solid !important;
+    border-color: #FFFFFF !important;
+    
+    /* Adiciona o arredondamento nos cantos */
+    border-radius: 5px !important; 
+}
+
+#mainBoard[data-current-deck="RiderWaite"] .card {
+    /* Espessuras: Topo(4px) Direita(1px) Baixo(4px) Esquerda(1px) */
+    border-width: 2px 1px 2px 1px !important; 
+    border-style: solid !important;
+    border-color: #FFFFFF !important;
+    
+    /* Adiciona o arredondamento nos cantos */
+    border-radius: 5px !important; 
+}
+
+
+
+
         /* --- CABEÇALHO --- */
         .nav-header {
             position: fixed;
@@ -1235,7 +1293,7 @@
         HoiPoloi:     'https://marycusack.com/Decks/Images/Tarot/H/HoiPoloi/',
         OldStyle:     'https://marycusack.com/Decks/Images/Tarot/O/OldStyle/',
         Oppositions:  'https://marycusack.com/Decks/Images/Tarot/O/Oppositions/',
-        RiderWaite:   'https://marycusack.com/Decks/Images/Tarot/R/RiderWaite/'
+        RiderWaite:   'https://marycusack.com/Decks/Images/Tarot/R/RiderCentenial/'
     };
 
     const decksWithSpecialMajorNaming = ['Before', 'AfterTarot', 'Fyodor'];
@@ -1257,11 +1315,16 @@
     let baseUrl = deckBaseUrls[currentDeckKey];
 
     function applyDeckSelection() {
-        const sel = document.getElementById('deckSelect');
-        currentDeckKey = sel.value;
-        baseUrl = deckBaseUrls[currentDeckKey];
-        rebuildDeck();
-    }
+    const sel = document.getElementById('deckSelect');
+    currentDeckKey = sel.value;
+    baseUrl = deckBaseUrls[currentDeckKey];
+    
+    // Adiciona esta linha para rastrear o deck no CSS
+    document.getElementById('mainBoard').setAttribute('data-current-deck', currentDeckKey);
+    
+    rebuildDeck();
+}
+
 
     function buildMajorsForDeck(deckKey) {
         const b = deckBaseUrls[deckKey];
