@@ -15,7 +15,7 @@
             --pair-gap: calc(-0.8 * var(--u));
             --tight-gap: calc(-6 * var(--u));
             --pair-radius: calc(34 * var(--u));
-            --card-back-img: url('https://i.ibb.co/FvPbBMH/BAFC9957-1012-4242-B469-9-B3-E81-A25500.png');
+            --card-back-img: url('https://i.ibb.co/kgbJtCRL/6-F7178-AA-61-E3-4591-9963-BF3075-F04961.png');
             --bg-color: #000000;
             --gold-light: #FFFFFF;
             --gold-main: #FFFFFF;
@@ -39,7 +39,54 @@
             letter-spacing: 0.5px;
             overflow: hidden;
             -webkit-font-smoothing: antialiased;
+            transition: background-color 0.3s, color 0.3s;
         }
+
+        /* --- LIGHT THEME --- */
+        body.light-theme {
+            --bg-color: #f4f4f4;
+            --gold-light: #111111;
+            --gold-main: #b8860b;
+            --gold-dark: #dddddd;
+            --text-main: #111111;
+            --text-muted: #555555;
+            --border-thin: 1px solid #bbbbbb;
+            --border-active: 1px solid #000000;
+            --glass-bg: #ffffff;
+            --glass-border: #cccccc;
+        }
+        body.light-theme .nav-header { background: linear-gradient(to bottom, rgba(244,244,244,0.95) 0%, transparent 100%); }
+        body.light-theme .app-title { color: #111111; }
+        body.light-theme .home-container, body.light-theme .modal-content, body.light-theme .game-panel { background: #ffffff; border: 1px solid #cccccc; }
+        body.light-theme .home-title { color: #111111; }
+        body.light-theme .action-btn { background: #ffffff; color: #111111; border-color: #111111; }
+        body.light-theme .action-btn:hover { background: #111111; color: #ffffff; }
+        body.light-theme .action-btn.primary-cta { background: #111111; color: #ffffff; }
+        body.light-theme .action-btn.primary-cta:hover { background: #ffffff; color: #111111; }
+        body.light-theme .meta-select, body.light-theme .game-select { 
+            color: #111111; border-bottom-color: #aaaaaa; 
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%23111111" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); 
+        }
+        body.light-theme .meta-select option, body.light-theme .game-select option, body.light-theme .game-select optgroup { background-color: #ffffff; color: #111111; }
+        body.light-theme .card { background-color: rgba(0,0,0,0.03); color: rgba(0,0,0,0.4); border: 1px solid #bbbbbb; }
+        body.light-theme .card.empty-slot-clickable { border-color: #aaaaaa; background-color: rgba(0,0,0,0.05); color: #555555; }
+        body.light-theme .card.empty-slot-clickable:hover { border-color: #000000; background-color: rgba(0,0,0,0.1); color: #000000; }
+        body.light-theme .slot-label { color: #111111; }
+        body.light-theme .modal { background-color: rgba(255,255,255,0.9); }
+        body.light-theme .modal-header h2 { color: #111111; }
+        body.light-theme .verb-box-title { color: #b8860b; }
+        body.light-theme .subtab-btn { color: #666666; }
+        body.light-theme .subtab-btn.active { color: #111111; border-bottom-color: #111111; }
+        body.light-theme .europeu-title { color: #000000; }
+        body.light-theme .europeu-item { border-bottom-color: #cccccc; }
+        body.light-theme .tab-btn { color: #666666; }
+        body.light-theme .tab-btn.active { color: #111111; border-bottom-color: #111111; }
+        body.light-theme .close-btn { color: #111111; }
+        body.light-theme .card-inner-tag { background-color: rgba(255,255,255,0.95); color: #000000; border-color: #000000; }
+        body.light-theme .bottom-links .action-btn { color: #555555; }
+        body.light-theme .bottom-links .action-btn:hover { color: #111111; }
+        body.light-theme .home-meta-selectors, body.light-theme .home-action-card, body.light-theme .bottom-links, body.light-theme .modal-header, body.light-theme .deck-tabs, body.light-theme .meaning-tabs, body.light-theme .verb-box { border-color: #cccccc; }
+        /* ------------------- */
 
         body.hide-meanings .card-inner-tag { display: none !important; }
 
@@ -51,27 +98,32 @@
         #mainBoard[data-current-deck="HoiPoloi"] .back-card,
         #mainBoard[data-current-deck="HoiPoloi"] .gallery-card {
             filter: saturate(0.8) contrast(0.9) sepia(0.2) hue-rotate(-10deg) !important;
-            border: 1px solid #FFFFFF !important;
+            border: 0px solid #FFFFFF !important;
             border-radius: 12px !important;
         }
 
-        #mainBoard[data-current-deck="RiderWaite"] .card,
-        #mainBoard[data-current-deck="RiderWaite"] .back-card,
-        #mainBoard[data-current-deck="RiderWaite"] .gallery-card {
-            filter: sepia(0.2) saturate(0.7) contrast(0.85) brightness(1.05) hue-rotate(330deg) !important;
+        #mainBoard[data-current-deck="MoonBaby"] .card,
+        #mainBoard[data-current-deck="MoonBaby"] .back-card,
+        #mainBoard[data-current-deck="MoonBaby"] .gallery-card {
+            filter: sepia(0.45) saturate(1.4) contrast(1.05) brightness(1.02) !important;
+            border: 0px solid #FFFFFF !important;
+            border-radius: 3px !important;
         }
 
-        #mainBoard[data-current-deck="Radiant"] .card,
-        #mainBoard[data-current-deck="Radiant"] .back-card,
-        #mainBoard[data-current-deck="Radiant"] .gallery-card {
-            filter: sepia(0.2) saturate(0.7) contrast(0.85) brightness(1.05) hue-rotate(330deg) !important;
-        }
+       
 
         #mainBoard[data-current-deck="RiderWaite"] .card {
-            border-width: 2px 1px 2px 1px !important;
+            border-width: 2px 0px 2px 0px !important;
             border-style: solid !important;
             border-color: #FFFFFF !important;
             border-radius: 5px !important;
+        }
+
+        #mainBoard[data-current-deck="HoiPoloi"] .card {
+            border-width: 3px 2px 3px 2px !important;
+            border-style: solid !important;
+            border-color: #FFFFFF !important;
+            border-radius: 10px !important;
         }
 
         /* --- CABEÇALHO --- */
@@ -81,6 +133,7 @@
             padding: 20px 20px; box-sizing: border-box; z-index: 1000;
             background: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, transparent 100%);
             pointer-events: none;
+            transition: background 0.3s;
         }
         .nav-header * { pointer-events: auto; }
         .app-title {
@@ -88,6 +141,34 @@
             text-transform: uppercase; letter-spacing: 3px; margin: 0; text-align: center;
             color: var(--gold-main);
         }
+
+        /* --- BOTÃO MODO NOTURNO NO CANTO SUPERIOR DIREITO --- */
+        #btnNightMode {
+            position: fixed;
+            top: 14px;
+            right: 16px;
+            z-index: 2000;
+            width: auto;
+            padding: 0 12px;
+            height: 30px;
+            font-size: 9px;
+            letter-spacing: 1px;
+            border: 1px solid #555;
+            background: transparent;
+            color: var(--text-muted);
+            border-radius: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        #btnNightMode:hover { border-color: var(--text-main); color: var(--text-main); }
+        body.light-theme #btnNightMode { border-color: #aaa; color: #555; }
+        body.light-theme #btnNightMode:hover { border-color: #111; color: #111; }
 
         /* --- BOTÕES --- */
         .action-btn {
@@ -121,6 +202,8 @@
             z-index: 3000; border: 1px solid #FFFFFF; background: #000000;
             box-shadow: -2px -2px 10px rgba(0,0,0,0.8);
         }
+        body.light-theme #btnGlobalRandom { border-color: #111; background: #fff; color: #111; box-shadow: -2px -2px 10px rgba(0,0,0,0.1); }
+        body.light-theme #btnGlobalRandom:hover { background: #111; color: #fff; }
 
         /* --- TELA INICIAL --- */
         .home-container {
@@ -129,6 +212,7 @@
             width: 90%; max-width: 380px; z-index: 10;
             animation: fadeIn 0.8s ease; gap: 18px; padding: 28px 28px;
             background: #000000; border: 1px solid #333333; box-sizing: border-box;
+            transition: background 0.3s, border-color 0.3s;
         }
         .home-hero { display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; }
         .home-art-img {
@@ -157,7 +241,7 @@
         .meaning-file-status { font-size: 8px; color: #888; font-style: italic; margin-top: 2px; }
 
         .home-action-card { width: 100%; display: flex; flex-direction: column; gap: 16px; border-top: 1px solid #333333; padding-top: 20px; }
-        .action-label { font-family: 'Montserrat', sans-serif; font-size: 10px; color: #FFFFFF; text-transform: uppercase; letter-spacing: 2px; text-align: left; font-weight: 500; }
+        .action-label { font-family: 'Montserrat', sans-serif; font-size: 10px; color: var(--text-main); text-transform: uppercase; letter-spacing: 2px; text-align: left; font-weight: 500; }
         .action-form { display: flex; flex-direction: column; gap: 12px; width: 100%; }
 
         .game-select {
@@ -168,7 +252,6 @@
             background-image: url('data:image/svg+xml;utf8,<svg fill="%23FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
             background-repeat: no-repeat; background-position: right center; transition: border-color 0.3s ease;
         }
-        .game-select:hover, .game-select:focus { border-color: #FFFFFF; background-color: transparent; }
         .game-select option { background-color: #000000; color: #FFFFFF; font-family: 'Montserrat', sans-serif; padding: 10px; }
         .game-select optgroup { background-color: #111111; color: #888888; font-style: normal; font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; }
 
@@ -198,7 +281,7 @@
             transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
             text-align: center; padding: 4px; box-sizing: border-box; border-radius: 6px;
         }
-        .card:hover { border-color: var(--gold-main); color: var(--gold-main); transform: rotate(calc(-1 * var(--a))) scale(1.05) translateY(-5px); }
+        .card:hover { transform: rotate(calc(-1 * var(--a))) scale(1.05) translateY(-5px); }
         .card.board-face-down { background-image: var(--card-back-img) !important; background-color: transparent !important; background-size: 100% 100% !important; background-position: center !important; background-repeat: no-repeat !important; border: 1px solid rgba(255,255,255,0.4) !important; color: transparent !important; }
         .card.empty-slot-clickable { border: 1px dashed rgba(255,255,255,0.4); background-color: rgba(255,255,255,0.05); color: rgba(255,255,255,0.3); cursor: pointer; }
         .card.empty-slot-clickable:hover { border: 1px solid #FFFFFF; background-color: rgba(255,255,255,0.1); color: #FFFFFF; transform: rotate(calc(-1 * var(--a))) scale(1.05); }
@@ -220,21 +303,53 @@
 
         #scrContainer .card, #csmdContainer .card, #duplaContainer .card, #oposicaoContainer .card { --card-w: calc(14 * var(--u)); --card-h: calc(24.3 * var(--u)); font-size: calc(2.4 * var(--u)); }
         #csmdContainer .card { --card-w: calc(7 * var(--u)); --card-h: calc(12 * var(--u)); font-size: calc(1.8 * var(--u)); }
-        #oposicaoScrContainer .card { --card-w: calc(4.5 * var(--u)); --card-h: calc(7.8 * var(--u)); font-size: calc(1.3 * var(--u)); }
+        #oposicaoScrContainer .card { --card-w: calc(5.2 * var(--u)); --card-h: calc(9.04 * var(--u)); font-size: calc(0.9 * var(--u)); }
+        #oposicaoScrContainer .slot-label { font-size: calc(0.9 * var(--u)); min-height: auto; margin-right: calc(1 * var(--u)); }
+
         #taContainer .card { --card-w: calc(11 * var(--u)); --card-h: calc(19 * var(--u)); font-size: calc(2.2 * var(--u)); }
         #daviContainer .card { --card-w: calc(10 * var(--u)); --card-h: calc(17.3 * var(--u)); font-size: calc(2.0 * var(--u)); }
         #duplaContainer .card { --card-w: calc(18.2 * var(--u)); --card-h: calc(31.6 * var(--u)); font-size: calc(2.6 * var(--u)); }
         .dupla-active .back-card, #duplaContainer .back-card { width: calc(18.2 * var(--u)) !important; height: calc(31.6 * var(--u)) !important; }
         #scrTempoContainer .card { --card-w: calc(14 * var(--u)); --card-h: calc(24.3 * var(--u)); font-size: calc(2.4 * var(--u)); }
-        #futebolContainer { --card-w: calc(9.3 * var(--u)); --card-h: calc(16.1 * var(--u)); }
+        #futebolContainer { 
+            --card-w: calc(2 * var(--u)); 
+            --card-h: calc(5 * var(--u)); 
+        }
+
         #futebolContainer .card { font-size: calc(1.85 * var(--u)); }
         #futebolContainer .linear-col { width: calc(2 * var(--card-w) + 1.5 * var(--u)); }
         #futebolContainer .slot-label { font-size: 10px; letter-spacing: 1px; line-height: 1.25; margin-bottom: 8px; }
         #futebolContainer .slot-label .slot-sublabel { font-size: 8px; margin-top: 3px; }
 
+        .board.futebol-scr-active #oposicaoScrContainer .card-inner-tag,
+        .board.oposicao-scr-active #oposicaoScrContainer .card-inner-tag {
+            font-size: calc(0.63 * var(--u)) !important; 
+        }
+        .board.futebol-scr-active #oposicaoScrContainer .slot-label,
+        .board.oposicao-scr-active #oposicaoScrContainer .slot-label {
+            font-size: calc(0.45 * var(--u)) !important;
+        }
+
+        .board.futebol-active #futebolContainer .card-inner-tag {
+            font-size: calc(0.63 * var(--u)) !important;
+        }
+        .board.futebol-active #futebolContainer .slot-label {
+            font-size: 5px !important;
+        }
+
+        .board.futebol-scr-active .game-grid .back-card,
+        .board.oposicao-scr-active .game-grid .back-card {
+            width: 22px !important;
+            height: 39px !important;
+        }
+        .board.futebol-active .game-grid .back-card {
+            width: 22px !important;
+            height: 39px !important;
+        }
+
         .linear-row { display: flex; gap: calc(6 * var(--u)); }
         .linear-col { display: flex; flex-direction: column; align-items: center; }
-        .slot-label { font-family: 'Cinzel', serif; font-size: calc(2 * var(--u)); min-height: calc(3 * var(--u)); text-transform: uppercase; letter-spacing: 2px; color: var(--gold-light); margin-bottom: calc(2 * var(--u)); font-weight: 600; text-align: center; opacity: 0.95; white-space: nowrap; }
+        .slot-label { font-family: 'Cinzel', serif; font-size: calc(2 * var(--u)); min-height: calc(3 * var(--u)); text-transform: uppercase; letter-spacing: 2px; color: var(--gold-main); margin-bottom: calc(2 * var(--u)); font-weight: 600; text-align: center; opacity: 0.95; white-space: nowrap; }
         .slot-label .slot-sublabel { display: block; font-size: calc(1.5 * var(--u)); letter-spacing: 1px; opacity: 0.7; margin-top: 4px; font-family: 'Montserrat', sans-serif; font-weight: 500; text-transform: uppercase; }
         .linear-card { transform: none !important; }
         .minor-card-gap { margin-top: calc(1.5 * var(--u)); }
@@ -245,30 +360,92 @@
         .futebol-col { display: flex; flex-direction: column; gap: calc(1.5 * var(--u)); align-items: center; }
         .scr-tempo-deck-badge { font-size: calc(1.5 * var(--u)); font-family: 'Montserrat', sans-serif; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: calc(1 * var(--u)); text-align: center; }
 
-        /* Visibilidade dos containers */
         .central-pair, .side-pair-horizontal, .pair-container, .linear-container, .home-container { display: none !important; }
         .board.home-active .home-container { display: flex !important; }
         .board.mandala-active .central-pair, .board.mandala-active .side-pair-horizontal, .board.mandala-active .pair-container { display: flex !important; }
         .board.scr-active #scrContainer { display: flex !important; }
         .board.csmd-active #csmdContainer { display: flex !important; }
         .board.ta-active #taContainer { display: flex !important; }
-        .board.dupla-active #duplaContainer { display: flex !important; }
         .board.davi-active #daviContainer { display: flex !important; }
         .board.oposicao-active #oposicaoContainer { display: flex !important; }
-        .board.oposicao-scr-active #oposicaoScrContainer { display: flex !important; }
+/* --- Ajuste para subir o Jogo da Dupla --- */
+.board.dupla-active #duplaContainer { 
+    display: flex !important; 
+    margin-top: -120px; /* Ajuste este valor conforme necessário */
+}
+
+
+        .board.oposicao-scr-active #oposicaoScrContainer, 
+        .board.futebol-scr-active #oposicaoScrContainer { display: flex !important; }
         .board.futebol-active #futebolContainer { display: flex !important; }
         .board.scr-tempo-active #scrTempoContainer { display: flex !important; }
+        
+        /* NOVO: JOGO DOS AMANTES - CENTRALIZADO E AJUSTADO */
+.board.amantes-active #amantesContainer { 
+    display: flex !important; 
+    justify-content: center; 
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    /* Ajuste o valor abaixo: quanto menor (ou mais negativo), mais pra cima ele sobe */
+    padding-top: 0px; 
+    margin-top: -10px; 
+}
 
-        /* Posicionamento dos containers */
-        .board.mandala-active .central-pair,
-        .board.mandala-active .pair-container,
-        .board.mandala-active .side-pair-horizontal { top: 42%; }
-        #taContainer { top: 47%; }
-        #daviContainer { top: 46%; }
-        #scrContainer { top: 45%; }
-        #oposicaoContainer { top: 45%; }
-        #oposicaoScrContainer { top: 45%; }
-        .board.mandala-active .card { border-radius: 2px; }
+
+#amantesContainer .amantes-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: calc(1.5 * var(--u)); /* Reduzido para ficar compacto */
+    max-width: 90vw;
+    justify-items: center;
+}
+
+/* Reduz o tamanho das cartas no tabuleiro */
+#amantesContainer .card { 
+    --card-w: calc(4.5 * var(--u)); /* Reduzi de 5.5 para 4.5 */
+    --card-h: calc(7.8 * var(--u)); /* Reduzi de 9.5 para 7.8 */
+    font-size: calc(0.9 * var(--u)); 
+}
+
+#amantesContainer .slot-label {
+    font-size: calc(1 * var(--u)) !important;
+    margin-bottom: calc(0.5 * var(--u));
+    letter-spacing: 1px;
+}
+
+/* Ajusta o par de cartas dentro da casa */
+#amantesContainer .temple-row-pair {
+    gap: calc(0.5 * var(--u));
+}
+
+
+/* Posicionamento exato na grade de 4 linhas x 3 colunas */
+#amantesContainer .linear-col:nth-child(1)  { grid-row: 1; grid-column: 2; } /* Casa 1 - Topo Centro */
+#amantesContainer .linear-col:nth-child(2)  { grid-row: 2; grid-column: 3; } /* Casa 2 - Meio Direita */
+#amantesContainer .linear-col:nth-child(3)  { grid-row: 2; grid-column: 2; } /* Casa 3 - Meio Centro */
+#amantesContainer .linear-col:nth-child(4)  { grid-row: 2; grid-column: 1; } /* Casa 4 - Meio Esquerda */
+#amantesContainer .linear-col:nth-child(5)  { grid-row: 3; grid-column: 3; } /* Casa 5 - Baixo Direita */
+#amantesContainer .linear-col:nth-child(6)  { grid-row: 3; grid-column: 2; } /* Casa 6 - Baixo Centro */
+#amantesContainer .linear-col:nth-child(7)  { grid-row: 3; grid-column: 1; } /* Casa 7 - Baixo Esquerda */
+#amantesContainer .linear-col:nth-child(8)  { grid-row: 4; grid-column: 3; } /* Casa 8 - Fundo Direita */
+#amantesContainer .linear-col:nth-child(9)  { grid-row: 4; grid-column: 2; } /* Casa 9 - Fundo Centro */
+#amantesContainer .linear-col:nth-child(10) { grid-row: 4; grid-column: 1; } /* Casa 10 - Fundo Esquerda */
+
+
+/* --- POSIÇÕES DAS CARTAS --- */
+/* Altere os valores de top e left para posicionar onde quiser */
+#amantesContainer .linear-col:nth-child(1)  { top: 80%; left: 10%; } /* Casa 1 */
+#amantesContainer .linear-col:nth-child(2)  { top: 50%; left: 15%; } /* Casa 2 */
+#amantesContainer .linear-col:nth-child(3)  { top: 20%; left: 25%; } /* Casa 3 */
+#amantesContainer .linear-col:nth-child(4)  { top: 10%; left: 50%; } /* Casa 4 */
+#amantesContainer .linear-col:nth-child(5)  { top: 20%; left: 75%; } /* Casa 5 */
+#amantesContainer .linear-col:nth-child(6)  { top: 50%; left: 85%; } /* Casa 6 */
+#amantesContainer .linear-col:nth-child(7)  { top: 80%; left: 90%; } /* Casa 7 */
+#amantesContainer .linear-col:nth-child(8)  { top: 95%; left: 70%; } /* Casa 8 */
+#amantesContainer .linear-col:nth-child(9)  { top: 100%; left: 50%;} /* Casa 9 */
+#amantesContainer .linear-col:nth-child(10) { top: 95%; left: 30%; } /* Casa 10 */
+
 
         /* --- PAINEL DE JOGO --- */
         .game-panel { display: none; position: fixed; bottom: 0; right: 0; left: 0; width: 100vw; max-width: 100vw; height: auto; max-height: 30vh; background-color: rgba(0,0,0,0.98); border-top: 1px solid #333333; border-radius: 0; box-sizing: border-box; padding: 15px 10px; flex-direction: column; align-items: center; z-index: 2000; }
@@ -278,7 +455,7 @@
 
         .back-card { width: calc(7.5 * var(--u)); height: calc(13 * var(--u)); background-image: var(--card-back-img); background-color: transparent; background-size: 100% 100%; background-position: center; background-repeat: no-repeat; border: 1px solid rgba(255,255,255,0.4); cursor: pointer; transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s; flex-shrink: 0; border-radius: 6px; box-sizing: border-box; }
         .game-grid .back-card { width: 32px !important; height: 56px !important; border-radius: 4px; border-width: 1px !important; }
-        .game-grid .back-card:hover { transform: translateY(-4px) scale(1.1); border-color: var(--gold-main) !important; }
+        .game-grid .back-card:hover { transform: translateY(-4px) scale(1.1); }
         .back-card.revealed { pointer-events: none; animation: fadeOutSelection 0.3s ease forwards; }
         @keyframes fadeOutSelection { from { opacity: 1; transform: translateY(-4px) scale(1.1); } to { opacity: 0; transform: translateY(0) scale(0.85); } }
 
@@ -299,7 +476,7 @@
         .tab-btn.active { color: var(--gold-main); border-bottom: 2px solid var(--gold-main); }
         .cards-grid { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 18px; padding: 15px 10px 25px 10px; overflow-y: hidden; overflow-x: hidden; scroll-behavior: smooth; }
         .gallery-card { width: 110px; aspect-ratio: 7.5 / 13; background-size: 100% 100%; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; transition: transform 0.4s, border-color 0.4s; border-radius: 6px; flex-shrink: 0; }
-        .gallery-card:hover { transform: scale(1.06) translateY(-4px); border-color: var(--gold-main); }
+        .gallery-card:hover { transform: scale(1.06) translateY(-4px); }
 
         .verb-box { border: 1px solid #333333; padding: 15px; margin-top: 22px; background-color: transparent; text-align: center; border-radius: 0; overflow: visible; flex-shrink: 0; }
         .verb-box-title { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 2.5px; color: var(--gold-main); display: block; margin-bottom: 12px; }
@@ -307,7 +484,7 @@
 
         .meaning-tabs { display: flex; width: 100%; margin-bottom: 15px; border-bottom: 1px solid #222; justify-content: space-between; gap: 5px; }
         .subtab-btn { flex: 1; background: transparent; border: none; color: #666; font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 8px 2px; cursor: pointer; transition: all 0.3s; border-bottom: 2px solid transparent; word-wrap: break-word; white-space: normal; line-height: 1.2; }
-        .subtab-btn.active { color: #FFF; border-bottom: 2px solid #FFF; }
+        .subtab-btn.active { color: var(--text-main); border-bottom: 2px solid var(--text-main); }
         .meaning-content-area { display: none; text-align: left; font-size: 11px; line-height: 1.5; padding-top: 5px; font-family: 'Montserrat', sans-serif; word-wrap: break-word; overflow-wrap: break-word; max-height: 220px; overflow-y: auto; padding-right: 4px; }
         .meaning-content-area.active { display: block; }
         .europeu-item { border-bottom: 1px solid #222; padding-bottom: 10px; margin-bottom: 10px; font-size: 11px; line-height: 1.5; }
@@ -317,12 +494,36 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #000000; }
+        ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #555555; }
-        ::-webkit-scrollbar-thumb:hover { background: #FFFFFF; }
+        ::-webkit-scrollbar-thumb:hover { background: #888888; }
+
+        /* 1. Reduz o tamanho e a redondeza das cartas no jogo Futebol SCR */
+        .board.futebol-scr-active #oposicaoScrContainer .card {
+            --card-w: calc(4 * var(--u));    
+            --card-h: calc(6.9 * var(--u));  
+            font-size: calc(0.7 * var(--u)); 
+            border-radius: 3px !important; 
+        }
+
+
+/* Cartas da Oposição SCR e Futebol SCR com o mesmo tamanho e no mesmo lugar da tela */
+.board.futebol-scr-active #oposicaoScrContainer .card,
+.board.oposicao-scr-active #oposicaoScrContainer .card {
+    --card-w: calc(4 * var(--u));    
+    --card-h: calc(6.9 * var(--u));  
+    font-size: calc(0.7 * var(--u)); 
+    border-radius: 3px !important; 
+}
+
+
+
+
     </style>
 </head>
 <body>
+
+    <button id="btnNightMode" onclick="toggleTheme()">🌙 Noturno</button>
 
     <header class="nav-header">
         <h1 class="app-title">Viniastros</h1>
@@ -334,7 +535,23 @@
             <button id="btnPlayAnother" class="action-btn" onclick="playAnotherGame()">Limpar Jogo</button>
             <button id="btnToggleMeanings" class="action-btn" onclick="toggleMeanings()">Ocultar Significados</button>
         </div>
-        <button id="btnUpdateMeanings" class="action-btn" onclick="updateMeanings()">Atualizar Significados</button>
+        
+        <div class="post-game-row" id="themeContainer" style="display: none; width: 100%;">
+            <select id="themeSelect" class="action-btn" style="appearance: none; -webkit-appearance: none; text-align: center; font-size: 8px; letter-spacing: 1px;" onchange="updateMeanings()">
+                <option value="">PADRÃO: SIGNIFICADOS GERAIS</option>
+                <optgroup label="AFRODITE">
+                    <option value="MENTAL">MENTAL</option>
+                    <option value="SENTIMENTAL">SENTIMENTAL</option>
+                    <option value="MATERIAL">MATERIAL</option>
+                    <option value="FUTURO">FUTURO</option>
+                </optgroup>
+                <optgroup label="FINANCEIRO">
+                    <option value="FINANCEIRO">ARCANOS NO FINANCEIRO</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <button id="btnUpdateMeanings" class="action-btn primary-cta" onclick="updateMeanings()">Atualizar Significados</button>
     </div>
 
     <div class="board home-active" id="mainBoard">
@@ -349,8 +566,9 @@
                 <div class="meta-selector-row">
                     <span class="meta-label">Deck</span>
                     <select id="deckSelect" class="meta-select" onchange="applyDeckSelection()">
+                        <option value="Alchemical">Alchemical Tarot</option>
                         <option value="GoldArt">Golden Art Nouveau</option>
-                        <option value="Radiant" selected>Radiant Waite (padrão)</option>
+                        <option value="Radiant">Radiant Waite</option>
                         <option value="Before">Before Tarot</option>
                         <option value="AfterTarot">After Tarot</option>
                         <option value="NewVision">New Vision Tarot</option>
@@ -360,6 +578,7 @@
                         <option value="OldStyle">Old Style Tarot</option>
                         <option value="Oppositions">Tarot of Oppositions</option>
                         <option value="RiderWaite">Rider Waite Clássico</option>
+                        <option value="MoonBaby" selected>Moon Baby Tarot (padrão)</option>
                     </select>
                 </div>
                 <div class="meta-selector-row">
@@ -392,10 +611,12 @@
                             <option value="scrTempo">SCR com Before e After Tarot</option>
                             <option value="csmd">Energia do Dia</option>
                             <option value="ta">Templo de Afrodite</option>
+                            <option value="amantes">Jogo dos Amantes</option>
                             <option value="davi">Estrela de Davi</option>
                         </optgroup>
                         <optgroup label="Futebol">
                             <option value="futebol">Futebol</option>
+                            <option value="futebolScr">Futebol SCR</option>
                         </optgroup>
                     </select>
                     <button class="action-btn primary-cta" onclick="startSelectedGame()">Continuar</button>
@@ -403,11 +624,9 @@
             </div>
             <div class="bottom-links">
                 <button class="action-btn" onclick="openEncyclopedia()">78 Arcanos</button>
-                <button class="action-btn" onclick="window.location.href='https://instagram.com/viniastros'">Instagram</button>
             </div>
         </div>
 
-        <!-- MANDALA -->
         <div class="central-pair">
             <div class="card" data-slot-num="0-left" data-pos="inside" onclick="selectCard(this)">0</div>
             <div class="card" data-slot-num="0-right" data-pos="outside" onclick="selectCard(this)">0</div>
@@ -461,7 +680,6 @@
             <div class="card" data-slot-num="6" data-pos="inside" onclick="selectCard(this)" style="z-index:1;">6</div>
         </div>
 
-        <!-- OPOSIÇÃO -->
         <div id="oposicaoContainer" class="linear-container">
             <div class="linear-row" style="align-items: center; gap: calc(8 * var(--u));">
                 <div class="linear-col">
@@ -478,7 +696,6 @@
             </div>
         </div>
 
-        <!-- OPOSIÇÃO SCR -->
         <div id="oposicaoScrContainer" class="linear-container">
             <div class="linear-col" style="gap: calc(3 * var(--u));">
                 <div class="linear-row" style="align-items: center; gap: calc(2 * var(--u));">
@@ -514,7 +731,6 @@
             </div>
         </div>
 
-        <!-- DUPLA -->
         <div id="duplaContainer" class="linear-container">
             <div class="linear-row">
                 <div class="linear-col">
@@ -528,7 +744,6 @@
             </div>
         </div>
 
-        <!-- SCR -->
         <div id="scrContainer" class="linear-container">
             <div class="linear-row">
                 <div class="linear-col">
@@ -549,7 +764,6 @@
             </div>
         </div>
 
-        <!-- SCR TEMPO -->
         <div id="scrTempoContainer" class="linear-container">
             <div class="linear-row">
                 <div class="linear-col">
@@ -573,7 +787,6 @@
             </div>
         </div>
 
-        <!-- CSMD -->
         <div id="csmdContainer" class="linear-container">
             <div class="linear-row">
                 <div class="linear-col">
@@ -589,7 +802,6 @@
             </div>
         </div>
 
-        <!-- TEMPLO DE AFRODITE -->
         <div id="taContainer" class="linear-container">
             <div class="temple-grid">
                 <div class="temple-col">
@@ -650,7 +862,92 @@
             </div>
         </div>
 
-        <!-- ESTRELA DE DAVI -->
+        <div id="amantesContainer" class="linear-container">
+            <div class="amantes-grid">
+                
+                <div class="linear-col">
+                    <span class="slot-label" style="font-size: calc(1.3 * var(--u));">Casa 1</span>
+                    <div class="temple-row-pair">
+                        <div class="card linear-card" data-amantes-slot="m1" onclick="selectCard(this)">1 Maior</div>
+                        <div class="card linear-card" data-amantes-slot="me1" onclick="selectCard(this)">1 Menor</div>
+                    </div>
+                </div>
+
+                <div class="linear-col">
+                    <span class="slot-label" style="font-size: calc(1.3 * var(--u));">Casa 2</span>
+                    <div class="temple-row-pair">
+                        <div class="card linear-card" data-amantes-slot="m2" onclick="selectCard(this)">2 Maior</div>
+                        <div class="card linear-card" data-amantes-slot="me2" onclick="selectCard(this)">2 Menor</div>
+                    </div>
+                </div>
+
+                <div class="linear-col">
+                    <span class="slot-label" style="font-size: calc(1.3 * var(--u));">Casa 3</span>
+                    <div class="temple-row-pair">
+                        <div class="card linear-card" data-amantes-slot="m3" onclick="selectCard(this)">3 Maior</div>
+                        <div class="card linear-card" data-amantes-slot="me3" onclick="selectCard(this)">3 Menor</div>
+                    </div>
+                </div>
+
+                <div class="linear-col">
+                    <span class="slot-label" style="font-size: calc(1.3 * var(--u));">Casa 4</span>
+                    <div class="temple-row-pair">
+                        <div class="card linear-card" data-amantes-slot="m4" onclick="selectCard(this)">4 Maior</div>
+                        <div class="card linear-card" data-amantes-slot="me4" onclick="selectCard(this)">4 Menor</div>
+                    </div>
+                </div>
+
+                <div class="linear-col">
+                    <span class="slot-label" style="font-size: calc(1.3 * var(--u));">Casa 5</span>
+                    <div class="temple-row-pair">
+                        <div class="card linear-card" data-amantes-slot="m5" onclick="selectCard(this)">5 Maior</div>
+                        <div class="card linear-card" data-amantes-slot="me5" onclick="selectCard(this)">5 Menor</div>
+                    </div>
+                </div>
+
+                <div class="linear-col">
+                    <span class="slot-label" style="font-size: calc(1.3 * var(--u));">Casa 6</span>
+                    <div class="temple-row-pair">
+                        <div class="card linear-card" data-amantes-slot="m6" onclick="selectCard(this)">6 Maior</div>
+                        <div class="card linear-card" data-amantes-slot="me6" onclick="selectCard(this)">6 Menor</div>
+                    </div>
+                </div>
+
+                <div class="linear-col">
+                    <span class="slot-label" style="font-size: calc(1.3 * var(--u));">Casa 7</span>
+                    <div class="temple-row-pair">
+                        <div class="card linear-card" data-amantes-slot="m7" onclick="selectCard(this)">7 Maior</div>
+                        <div class="card linear-card" data-amantes-slot="me7" onclick="selectCard(this)">7 Menor</div>
+                    </div>
+                </div>
+
+                <div class="linear-col">
+                    <span class="slot-label" style="font-size: calc(1.3 * var(--u));">Casa 8</span>
+                    <div class="temple-row-pair">
+                        <div class="card linear-card" data-amantes-slot="m8" onclick="selectCard(this)">8 Maior</div>
+                        <div class="card linear-card" data-amantes-slot="me8" onclick="selectCard(this)">8 Menor</div>
+                    </div>
+                </div>
+
+                <div class="linear-col">
+                    <span class="slot-label" style="font-size: calc(1.3 * var(--u));">Casa 9</span>
+                    <div class="temple-row-pair">
+                        <div class="card linear-card" data-amantes-slot="m9" onclick="selectCard(this)">9 Maior</div>
+                        <div class="card linear-card" data-amantes-slot="me9" onclick="selectCard(this)">9 Menor</div>
+                    </div>
+                </div>
+
+                <div class="linear-col">
+                    <span class="slot-label" style="font-size: calc(1.3 * var(--u));">Casa 10</span>
+                    <div class="temple-row-pair">
+                        <div class="card linear-card" data-amantes-slot="m10" onclick="selectCard(this)">10 Maior</div>
+                        <div class="card linear-card" data-amantes-slot="me10" onclick="selectCard(this)">10 Menor</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
         <div id="daviContainer" class="linear-container">
             <div class="temple-grid">
                 <div class="temple-col">
@@ -711,7 +1008,6 @@
             </div>
         </div>
 
-        <!-- FUTEBOL -->
         <div id="futebolContainer" class="linear-container">
             <div class="futebol-grid">
                 <div class="futebol-col">
@@ -779,16 +1075,13 @@
             </div>
         </div>
 
-    </div><!-- /mainBoard -->
-
-    <div id="gamePanel" class="game-panel">
+    </div><div id="gamePanel" class="game-panel">
         <button id="btnGlobalRandom" class="action-btn" onclick="triggerGlobalRandom()">GERAR JOGO ALEATÓRIO</button>
         <div id="gameStatus" class="game-status">Selecione uma carta</div>
         <div id="gameGrid" class="game-grid"></div>
         <div class="scroll-hint-bar" aria-hidden="true"></div>
     </div>
 
-    <!-- MODAL: Escolha de carta -->
     <div id="tarotModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -809,7 +1102,6 @@
         </div>
     </div>
 
-    <!-- MODAL: Enciclopédia -->
     <div id="encyclopediaModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -832,7 +1124,6 @@
         </div>
     </div>
 
-    <!-- MODAL: Detalhe da carta -->
     <div id="detailModal" class="modal">
         <div class="modal-content" style="max-width:360px;height:auto;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;">
             <div class="modal-header">
@@ -858,9 +1149,16 @@
     </div>
 
     <script>
-    // =====================================================================
-    // RESIZE DINÂMICO
-    // =====================================================================
+    function toggleTheme() {
+        document.body.classList.toggle('light-theme');
+        const btn = document.getElementById('btnNightMode');
+        if (document.body.classList.contains('light-theme')) {
+            btn.textContent = '🌑 Noturno';
+        } else {
+            btn.textContent = '☀️ Claro';
+        }
+    }
+
     function resizeBoardToFit() {
         if (mainBoard.classList.contains('home-active')) return;
         const root = document.documentElement;
@@ -916,10 +1214,8 @@
     }
     window.addEventListener('resize', resizeBoardToFit);
 
-    // =====================================================================
-    // DECKS CONFIG
-    // =====================================================================
     const deckBaseUrls = {
+        Alchemical:   'https://trilhasnouniverso.com.br/wp-content/uploads/2021/01/',
         GoldArt:      'https://marycusack.com/Decks/Images/Tarot/G/GoldArt/',
         Radiant:      'https://marycusack.com/Decks/Images/Tarot/R/Radiant/',
         Before:       'https://marycusack.com/Decks/Images/Tarot/B/Before/',
@@ -935,7 +1231,13 @@
     const decksWithSpecialMajorNaming = ['Before', 'AfterTarot', 'Fyodor'];
     const specialMajorFileNames = ["Fool","Magician","Priestess","Empress","Emperor","Hierophant","Lovers","Chariot","Strength","Hermit","Wheel","Justice","Hanged","Death","Temperance","Devil","Tower","Star","Moon","Sun","Judgement","World"];
     const deckPentaclesPrefixOverrides = { Fyodor: 'Co' };
-    let currentDeckKey = 'Radiant';
+    let currentDeckKey = 'MoonBaby';
+
+    const moonBabyMajors = ["https://i.ibb.co/LDpLtSpD/IMG-4190.png","https://i.ibb.co/mrXj7pGm/IMG-4191.png","https://i.ibb.co/b5d703rp/IMG-4192.png","https://i.ibb.co/n40BJ1x/IMG-4193.png","https://i.ibb.co/NnfSJ4Lq/IMG-4194.png","https://i.ibb.co/xqqGZM0s/IMG-4195.png","https://i.ibb.co/Q7hj1T7W/IMG-4196.png","https://i.ibb.co/mVNC1NSJ/IMG-4197.png","https://i.ibb.co/20c5Vwrd/IMG-4312.png","https://i.ibb.co/VpwJfDt1/IMG-4313.png","https://i.ibb.co/cSR7kRGC/IMG-4314.png","https://i.ibb.co/pj2w2Rwk/IMG-4315.png","https://i.ibb.co/5WQWTvSt/IMG-4202.png","https://i.ibb.co/cSkJ7YR3/IMG-4203.png","https://i.ibb.co/Xrpd6k2Y/IMG-4204.png","https://i.ibb.co/bgPr7G2H/IMG-4205.png","https://i.ibb.co/RR3LyDx/IMG-4206.png","https://i.ibb.co/z0M2cTr/IMG-4207.png","https://i.ibb.co/bRKPjCL9/IMG-4208.png","https://i.ibb.co/93Nwyj3p/IMG-4209.png","https://i.ibb.co/B27pJPQT/IMG-4318.png","https://i.ibb.co/8n5w4hLM/IMG-4319.png"];
+    const moonBabyPentacles = ["https://i.ibb.co/wZ37xFKL/IMG-4244.png","https://i.ibb.co/vxVZmP4n/IMG-4245.png","https://i.ibb.co/wh3B8Hmv/IMG-4246.png","https://i.ibb.co/PvT12XVQ/IMG-4247.png","https://i.ibb.co/4nsc6Mfx/IMG-4248.png","https://i.ibb.co/DHVmk422/IMG-4249.png","https://i.ibb.co/GfkBkY3q/IMG-4250.png","https://i.ibb.co/chn25CJC/IMG-4251.png","https://i.ibb.co/RT1nz4LC/IMG-4258.png","https://i.ibb.co/DPkBQKyg/IMG-4259.png","https://i.ibb.co/nMq5LCG2/IMG-4260.png","https://i.ibb.co/GQDvk7rf/IMG-4261.png","https://i.ibb.co/CFqrkLQ/IMG-4262.png","https://i.ibb.co/ks5Q7dSC/IMG-4263.png"];
+    const moonBabySwords = ["https://i.ibb.co/p64SwM4r/IMG-4227.png","https://i.ibb.co/NgVqLcfV/IMG-4228.png","https://i.ibb.co/qYWpNhQz/IMG-4229.png","https://i.ibb.co/nNWwbGsT/IMG-4230.png","https://i.ibb.co/qF4dBqs6/IMG-4231.png","https://i.ibb.co/v46M4ktY/IMG-4232.png","https://i.ibb.co/nMXYrVYK/IMG-4233.png","https://i.ibb.co/XxxmVVTC/IMG-4234.png","https://i.ibb.co/WWD1JQHt/IMG-4235.png","https://i.ibb.co/r2vwyZg2/IMG-4284.png","https://i.ibb.co/C5ZRnDP7/IMG-4285.png","https://i.ibb.co/svhVDCfH/IMG-4286.png","https://i.ibb.co/v6V4qf1p/IMG-4287.png","https://i.ibb.co/YBvJs2yd/IMG-4288.png"];
+    const moonBabyCups = ["https://i.ibb.co/XrbdxLby/IMG-4213.png","https://i.ibb.co/8nfvdW4d/IMG-4214.png","https://i.ibb.co/gZvyvhR0/IMG-4215.png","https://i.ibb.co/tTc9n051/IMG-4216.png","https://i.ibb.co/8gDR9Nn3/IMG-4217.png","https://i.ibb.co/HTFKjbkz/IMG-4218.png","https://i.ibb.co/LhYzXnZ8/IMG-4219.png","https://i.ibb.co/V0cXD3pb/IMG-4220.png","https://i.ibb.co/bRYXSHVr/IMG-4221.png","https://i.ibb.co/67y43mXX/IMG-4222.png","https://i.ibb.co/B26kRXx7/IMG-4223.png","https://i.ibb.co/ymLmZk8G/IMG-4224.png","https://i.ibb.co/zTY1Gxw4/IMG-4225.png","https://i.ibb.co/XrBp969v/IMG-4226.png"];
+    const moonBabyWands = ["https://i.ibb.co/Q391pz1r/IMG-4265.png","https://i.ibb.co/vxWrwTyG/IMG-4266.png","https://i.ibb.co/pB9v9JyZ/IMG-4267.png","https://i.ibb.co/HL2ZCVLt/IMG-4268.png","https://i.ibb.co/pBGbGqPy/IMG-4269.png","https://i.ibb.co/Kc9FCP5B/IMG-4270.png","https://i.ibb.co/bMMhFKWL/IMG-4271.png","https://i.ibb.co/ymxY1Rqt/IMG-4272.png","https://i.ibb.co/67H882rf/IMG-4273.png","https://i.ibb.co/chsLqQjD/IMG-4274.png","https://i.ibb.co/k6S4F57t/IMG-4275.png","https://i.ibb.co/N2v9cnnZ/IMG-4276.png","https://i.ibb.co/1fQfrLYt/IMG-4277.png","https://i.ibb.co/Pvx6pTjM/IMG-4278.png"];
 
     function applyDeckSelection() {
         const sel = document.getElementById('deckSelect');
@@ -945,15 +1247,37 @@
     }
 
     function buildMajorsForDeck(deckKey) {
+        if (deckKey === 'MoonBaby') return majorNames.map((name, i) => ({ name, url: moonBabyMajors[i] }));
         const b = deckBaseUrls[deckKey];
-        if (decksWithSpecialMajorNaming.includes(deckKey)) {
-            return majorNames.map((name, i) => ({ name, url: `${b}${specialMajorFileNames[i]}.jpg` }));
-        }
+        if (deckKey === 'Alchemical') return majorNames.map((name, i) => ({ name, url: `${b}${String(i).padStart(2, '0')}.jpg` }));
+        if (decksWithSpecialMajorNaming.includes(deckKey)) return majorNames.map((name, i) => ({ name, url: `${b}${specialMajorFileNames[i]}.jpg` }));
         return majorNames.map((name, i) => ({ name, url: `${b}${majorFileNames[i]}.jpg` }));
     }
 
     function buildMinorsForDeck(deckKey, prefix, suitLabel) {
+        if (deckKey === 'MoonBaby') {
+            let urls = [];
+            if(suitLabel === 'Ouros') urls = moonBabyPentacles;
+            if(suitLabel === 'Espadas') urls = moonBabySwords;
+            if(suitLabel === 'Copas') urls = moonBabyCups;
+            if(suitLabel === 'Paus') urls = moonBabyWands;
+            let cards = [];
+            for(let i=0; i<10; i++) cards.push({ name: (i === 0) ? `Ás de ${suitLabel}` : `${i+1} de ${suitLabel}`, url: urls[i] });
+            let courtNames = ['Pajem', 'Cavaleiro', 'Rainha', 'Rei'];
+            courtNames.forEach((court, i) => cards.push({ name: `${court} de ${suitLabel}`, url: urls[10 + i] }));
+            return cards;
+        }
+
         const b = deckBaseUrls[deckKey];
+        if (deckKey === 'Alchemical') {
+            let startIdx = (suitLabel === 'Paus') ? 22 : (suitLabel === 'Copas') ? 36 : (suitLabel === 'Espadas') ? 50 : 64;
+            let cards = [];
+            for(let i=0; i<10; i++) cards.push({ name: (i === 0) ? `Ás de ${suitLabel}` : `${i+1} de ${suitLabel}`, url: `${b}${startIdx + i}.jpg` });
+            let courtNames = ['Cavaleiro', 'Rainha', 'Rei', 'Pajem']; 
+            courtNames.forEach((court, i) => cards.push({ name: `${court} de ${suitLabel}`, url: `${b}${startIdx + 10 + i}.jpg` }));
+            return cards;
+        }
+
         const override = deckPentaclesPrefixOverrides[deckKey];
         const effectivePrefix = (prefix === 'P' && override) ? override : prefix;
         return generateMinorsFromBase(b, effectivePrefix, suitLabel);
@@ -967,10 +1291,8 @@
         deck.wands     = buildMinorsForDeck(currentDeckKey, 'W', 'Paus');
     }
 
-    // =====================================================================
-    // FONTE DE SIGNIFICADOS
-    // =====================================================================
     let externalMeanings = null;
+    let externalTaMeanings = null;
 
     function applyMeaningSource() {
         const val = document.getElementById('meaningSourceSelect').value;
@@ -984,6 +1306,7 @@
             fileTrigger.style.display = 'none';
             fileStatus.style.display  = 'none';
             externalMeanings = null;
+            externalTaMeanings = null;
         }
     }
 
@@ -993,31 +1316,16 @@
         const fileStatus = document.getElementById('meaningFileStatus');
         fileStatus.textContent = 'Carregando: ' + file.name + '...';
         const ext = file.name.split('.').pop().toLowerCase();
-        if (ext === 'txt') {
-            const reader = new FileReader();
-            reader.onload = (e) => parseMeaningText(e.target.result, file.name);
-            reader.readAsText(file, 'UTF-8');
-        } else if (ext === 'pdf') {
-            const reader = new FileReader();
+        
+        const reader = new FileReader();
+        if (ext === 'txt' || ext === 'docx') {
             reader.onload = (e) => {
-                const arr = new Uint8Array(e.target.result);
-                let text = '';
-                for (let i = 0; i < arr.length; i++) {
-                    if (arr[i] >= 32 && arr[i] < 127) text += String.fromCharCode(arr[i]);
-                    else text += ' ';
+                let text = e.target.result;
+                if (ext === 'docx') {
+                    const matches = text.match(/<w:t[^>]*>([^<]*)<\/w:t>/g);
+                    text = matches ? matches.map(m => m.replace(/<[^>]+>/g, '')).join(' ') : text;
                 }
                 parseMeaningText(text, file.name);
-            };
-            reader.readAsArrayBuffer(file);
-        } else if (ext === 'docx') {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                try {
-                    const raw = e.target.result;
-                    const matches = raw.match(/<w:t[^>]*>([^<]*)<\/w:t>/g);
-                    let text = matches ? matches.map(m => m.replace(/<[^>]+>/g, '')).join(' ') : raw;
-                    parseMeaningText(text, file.name);
-                } catch(err) { parseMeaningText('', file.name); }
             };
             reader.readAsText(file, 'UTF-8');
         }
@@ -1026,47 +1334,80 @@
     function parseMeaningText(text, fname) {
         const fileStatus = document.getElementById('meaningFileStatus');
         externalMeanings = {};
+        externalTaMeanings = {}; 
+
         const allCardNames = [
             ...majorNames.map(n => n.replace(/^\d+\s*[-–]\s*/, '').trim()),
             ...['Ouros','Espadas','Copas','Paus'].flatMap(suit => {
-                const names = ['Ás','2','3','4','5','6','7','8','9','10','Pajem','Cavaleiro','Rainha','Rei'];
-                return names.map(n => `${n} de ${suit}`);
+                return ['Ás','2','3','4','5','6','7','8','9','10','Pajem','Cavaleiro','Rainha','Rei'].map(n => `${n} de ${suit}`);
             })
         ];
+        
         const norm = s => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
         const lines = text.split(/\r?\n/);
-        let currentCard = null, currentVerbs = [], currentBody = [];
-        const saveCard = () => {
-            if (!currentCard) return;
-            const bodyText = currentBody.join(' ').replace(/\s+/g,' ').trim();
-            externalMeanings[currentCard] = { verbos: currentVerbs.length > 0 ? currentVerbs : null, atributos: bodyText || null };
-        };
+        
+        let currentCard = null;
+        let currentTheme = null;
+        
         lines.forEach(line => {
-            const trimmed = line.trim();
+            let trimmed = line.trim();
             if (!trimmed) return;
-            let foundCard = null, afterName = '';
-            for (const cardName of allCardNames) {
-                if (norm(trimmed).startsWith(norm(cardName))) {
-                    foundCard = cardName;
-                    afterName = trimmed.slice(cardName.length).replace(/^[\s:–\-,]+/, '').trim();
-                    break;
+            
+            if (trimmed.startsWith('[') && trimmed.endsWith(']')) {
+                let themeStr = trimmed.slice(1, -1).toUpperCase();
+                if (['MENTAL', 'SENTIMENTAL', 'MATERIAL', 'FUTURO', 'FINANCEIRO'].includes(themeStr)) {
+                    currentTheme = themeStr;
+                    return;
                 }
             }
+            
+            let foundCard = null;
+            for (const cardName of allCardNames) {
+                if (norm(trimmed).startsWith(norm(cardName))) {
+                    if (trimmed.length === cardName.length || trimmed[cardName.length] === ' ' || trimmed[cardName.length] === ':' || trimmed[cardName.length] === '[') {
+                        foundCard = cardName;
+                        break;
+                    }
+                }
+            }
+            
             if (foundCard) {
-                saveCard(); currentCard = foundCard;
-                currentVerbs = afterName ? afterName.split(/[,;\/]/).map(s => s.trim()).filter(s => s.length > 1 && s.length < 30) : [];
-                currentBody = [];
-            } else if (currentCard) { currentBody.push(trimmed); }
+                currentCard = foundCard;
+                currentTheme = null; 
+                if (!externalTaMeanings[currentCard]) {
+                    externalTaMeanings[currentCard] = { MENTAL: [], SENTIMENTAL: [], MATERIAL: [], FUTURO: [], FINANCEIRO: [] };
+                }
+                
+                let afterName = trimmed.slice(foundCard.length).replace(/^[\s:–\-,]+/, '').trim();
+                if (afterName && !afterName.startsWith('[')) {
+                    externalMeanings[currentCard] = { 
+                        verbos: afterName.split(/[,;\/]/).map(s => s.trim()).filter(s => s.length > 0),
+                        atributos: afterName 
+                    };
+                }
+            } else if (currentCard && currentTheme) {
+                let phrases = trimmed.split(',').map(p => p.trim()).filter(p => p.length > 0);
+                externalTaMeanings[currentCard][currentTheme].push(...phrases);
+            } else if (currentCard) {
+                if (!externalMeanings[currentCard]) externalMeanings[currentCard] = { verbos: null, atributos: "" };
+                externalMeanings[currentCard].atributos += " " + trimmed;
+            }
         });
-        saveCard();
-        const count = Object.keys(externalMeanings).length;
-        fileStatus.textContent = count > 0 ? `✓ ${fname}: ${count} arcanos carregados.` : `⚠ ${fname}: Nenhum arcano reconhecido.`;
-        if (count === 0) externalMeanings = null;
+        
+        const taCount = Object.keys(externalTaMeanings).filter(k => 
+            externalTaMeanings[k].MENTAL.length > 0 || externalTaMeanings[k].SENTIMENTAL.length > 0 || externalTaMeanings[k].FINANCEIRO.length > 0
+        ).length;
+        const genCount = Object.keys(externalMeanings).length;
+        
+        if (taCount > 0) {
+            fileStatus.textContent = `✓ ${fname}: ${taCount} arcanos mapeados p/ Afrodite/Financeiro!`;
+        } else if (genCount > 0) {
+            fileStatus.textContent = `✓ ${fname}: ${genCount} arcanos lidos.`;
+        } else {
+            fileStatus.textContent = `⚠ ${fname}: Nenhum arcano reconhecido.`;
+        }
     }
 
-    // =====================================================================
-    // DADOS DO DECK
-    // =====================================================================
     let currentSelectedCard = null;
     let gameMode = 'mandalaInterativa';
 
@@ -1100,11 +1441,18 @@
         "20%20Judgement","21%20World"
     ];
 
-    const verbsMap = {
-    // Arcanos Maiores (Preservados)
+    
+const verbsMap = {
     "O Louco": ["liberdade","aventura","impulsividade","desapego","risco","espontaneidade","potencial"],
-    "O Mago": ["iniciativa","habilidade","comunicação","criação","foco","capacidade","ação"],
-    "A Sacerdotisa": ["intuição","mistério","sabedoria","paciência","segredo","reflexão","passividade"],
+    "O Mago": ["iniciativa","habilidade","comunicação","criação","foco","capacidade","action"],
+    "A Sacerdotisa": [
+        "não toma atitude", "medo de errar", "muda e calada", "não se posiciona", "inércia e desvalor",
+        "precisa ajuda técnica", "dor na alma", "conservacionismo de consumo", "não é notada",
+        "engole muito sapo", "aceita o oferecido", "medo do fracasso", "anulação da libido",
+        "autoridade espiritual", "dom da mágica", "pouquíssimos amigos", "silêncio como autoproteção",
+        "inércia", "desvalor", "anulação", "dor", "mágoa", "passividade", "silêncio", "reserva", "paciência",
+        "autoridade espiritual", "mágica", "inconsciente", "resistência", "vítima", "refém", "capacho", "intuição"
+    ],
     "A Imperatriz": ["fertilidade","abundância","crescimento","beleza","nutrição","expressão","realização"],
     "O Imperador": ["estrutura","autoridade","estabilidade","controle","poder","ordem","segurança"],
     "O Hierofante": ["tradição","ensinamento","crença","conselho","dogma","espiritualidade","instituição"],
@@ -1116,7 +1464,7 @@
     "A Justiça": ["equilíbrio","consequência","verdade","decisão","imparcialidade","ordem","rigor"],
     "O Enforcado": ["sacrifício","estagnação","renúncia","perspectiva","suspensão","bloqueio","espera"],
     "A Morte": ["transformação","fim","renovação","corte","transição","desapego","limpeza"],
-    "A Temperança": ["harmonia","paciência","moderação","equilíbrio","adaptação","cura","conciliação"],
+    "A Temperança": ["harmonia","paciência","moderação","equilíbrio","adaptação","cura","conciliation"],
     "O Diabo": ["materialismo","tentação","apego","desejo","ilusão","vício","sombra"],
     "A Torre": ["destruição","revelação","crise","colapso","libertação","choque","ruptura"],
     "A Estrela": ["esperança","inspiração","fé","proteção","renovação","otimismo","serenidade"],
@@ -1124,386 +1472,175 @@
     "O Sol": ["sucesso","alegria","vitalidade","clareza","brilho","realização","verdade"],
     "O Julgamento": ["renascimento","chamado","avaliação","despertar","absolvição","revelação","conclusão"],
     "O Mundo": ["plenitude","conclusão","realização","integração","sucesso","totalidade","recompensa"],
-
-    // Naipes de Paus (Atualizados do Ás ao 9)
-    "Ás de Paus": [
-        "início potente materializado",
-        "superação sem sofrimento",
-        "estado espiritual equilibrado",
-        "medida e valor",
-        "limites com harmonia",
-        "objetividade e otimismo",
-        "evolução e aprendizado",
-        "começo inquestionável",
-        "comemoração na medida",
-        "força de vontade",
-        "materialização garantida",
-        "obstáculos superados"
-    ],
-    "2 de Paus": [
-        "impasse sem avanço",
-        "paralisia por terceiros",
-        "hesitação e dúvida",
-        "reavaliação por imprevistos",
-        "adiamento futuro",
-        "promessas não cumpridas",
-        "vontade pela inércia",
-        "postura de isentão",
-        "desinteresse e apatia",
-        "obstáculos superáveis",
-        "estresse e insônia",
-        "ajustes e atrasos"
-    ],
-    "3 de Paus": [
-        "projeção longo prazo", 
-        "bases sólidas", 
-        "ampliando horizontes", 
-        "progresso ao objetivo", 
-        "negociações pragmáticas", 
-        "intercâmbios e permutas", 
-        "ajuda de parcerias", 
-        "explorando o novo", 
-        "virando a página", 
-        "start empreendedor", 
-        "comunicação aberta", 
-        "trânsito e movimento"
-    ],
-    "4 de Paus": [
-        "paz e tranquilidade", 
-        "alívio da conquista", 
-        "superação com serenidade", 
-        "solução em harmonia", 
-        "aconchego familiar", 
-        "etapa estabilizada", 
-        "celebração e confraternização", 
-        "compartilhando felicidade", 
-        "acordos e conciliações", 
-        "acolhimento e reciprocidade", 
-        "energias restauradas", 
-        "casa organizada"
-    ],
-    "5 de Paus": [
-        "ambiente competitivo", 
-        "discussões desgastantes", 
-        "pequenos obstáculos", 
-        "aborrecimentos cotidianos", 
-        "travado por detalhes", 
-        "esforço exaustivo", 
-        "luta pela razão", 
-        "dispersão de energia", 
-        "desarmonia e atrito", 
-        "exigências intolerantes", 
-        "debates improdutivos", 
-        "superando contratempos"
-    ],
-    "6 de Paus": [
-        "reconhecimento público", 
-        "colhendo frutos", 
-        "recompensa por mérito", 
-        "vanglória e autoapreciação", 
-        "conflitos resolvidos", 
-        "otimismo e autoconfiança", 
-        "resultado planejado", 
-        "retorno de investimentos", 
-        "liderança e carisma", 
-        "progresso e evolução", 
-        "comemorando boas notícias", 
-        "upgrade social"
-    ],
-    "7 de Paus": [
-        "esforço extremo", 
-        "defesa do conquistado", 
-        "foco inabalável", 
-        "lutando contra oponentes", 
-        "resistindo à inveja", 
-        "sofrendo boicotes", 
-        "sustentando status", 
-        "enfrentando provas", 
-        "perseverança na adversidade", 
-        "blindagem contra exposição", 
-        "capacidade de combate", 
-        "vitória irreversível"
-    ],
-    "8 de Paus": [
-        "finalização rápida", 
-        "desbloqueando a paralisia", 
-        "movimento e transformação", 
-        "comunicação frenética", 
-        "notícias inusitadas", 
-        "soluções fáceis", 
-        "decisões impulsivas", 
-        "restabelecimento e curas", 
-        "desfecho kármico", 
-        "negociações imediatas", 
-        "ajudas sociais", 
-        "expansão ou viagens"
-    ],
-    "9 de Paus": [
-        "erros crônicos", 
-        "punindo o futuro", 
-        "agindo na defensiva", 
-        "medos e paranoias", 
-        "atrasos passageiros", 
-        "profunda exaustão", 
-        "revivendo feridas", 
-        "timidez social", 
-        "bloqueio de recomeço", 
-        "opressão e obrigação", 
-        "próprio inimigo", 
-        "crises superáveis"
-    ],
-    
-    // Paus Restantes (Preservados)
-    "10 de Paus": ["fardo pesado","sobrecarga excessiva","responsabilidade extrema","cansaço extremo","pressão insuportável","esforço final","peso do sucesso"],
-    "Pajem de Paus": ["entusiasmo jovem","curiosidade ativa","mensagem impulsiva","desejo de aventura","energia iniciante","ousadia juvenil","ímpeto criativo"],
-    "Cavaleiro de Paus": ["action impetuosa","movimento acelerado","paixão explosiva","busca por aventura","energia inconstante","foco disperso","avanço rápido"],
-    "Rainha de Paus": ["confiança magnética","alegria contagiante","foco determinado","independência forte","carisma natural","liderança acolhedora","energia vibrante"],
-    "Rei de Paus": ["autoridade inspiradora","visão empreendedora","liderança natural","poder consolidado","atitude diretiva","domínio energético","força de vontade"],
-
-    // Naipe de Copas (Preservados)
-    "Ás de Copas": ["abertura emocional","fluxo de amor","nova paixão","sentimento puro","receptividade total","alegria transbordante","paz interior"],
-    "2 de Copas": ["conexão mútua","afinidade profunda","encontro recíproco","união harmoniosa","atração magnética","vínculo afetivo","parceria amorosa"],
-    "3 de Copas": ["alegria compartilhada","convívio social","amizade sincera","celebração afetiva","ambiente festivo","apoio mútuo","harmonia grupal"],
-    "4 de Copas": ["tédio emocional","apatia profunda","isolamento voluntário","recusa de afeto","insatisfação crônica","desinteresse total","introspecção defensiva"],
-    "5 de Copas": ["luto profundo","tristeza focada","perda dolorosa","foco no negativo","decepção amarga","dor emocional","arrependimento pesado"],
-    "6 de Copas": ["nostalgia reconfortante","memória afetiva","inocência resgatada","vínculo do passado","saudade doce","encontro familiar","conforto emocional"],
-    "7 de Copas": ["ilusão sedutora","confusão mental","fantasia excessiva","escolha irreal","devaneio constante","fuga da realidade","miragem emocional"],
-    "8 de Copas": ["abandono consciente","desapego necessário","busca de sentido","fuga emocional","cansaço afetivo","partida voluntária","vazio interior"],
-    "9 de Copas": ["satisfação pessoal","prazer material","desejo realizado","conforto emocional","felicidade plena","orgulho afetivo","estado de graça"],
-    "10 de Copas": ["harmonia familiar","felicidade duradoura","paz doméstica","plenitude emocional","amor incondicional","segurança afetiva","alinhamento perfeito"],
+    "Ás de Paus": [ "força vital máxima", "sorte por mérito", "potência pura dinâmica", "grandes oportunidades práticas", "resultados ampliados drasticamente", "fertilidade explosiva total", "criatividade brilhante ativa", "autoconfiança e coragem", "renascimento e passagens", "mudanças radicais vida", "explosão força física", "domínio do poder", "vigor sexual ativo", "excelente saúde física", "manejo do fogo", "sucesso novos negócios", "expansão da consciência" ],
+    "2 de Paus": [ "projeto empacado", "impasse sem avanço", "paralisia por imprevistos", "hesitação e dúvida", "obstáculos superáveis", "adiamento passageiro", "fatos inesperados", "surpresas que adiam", "acordo não cumprido", "vontade de inércia", "postura de isentão", "busca por neutralidade", "estresse causador insônia", "situações de repouso", "função de ajustamento", "atrasos passageiros", "falta de entusiasmo" ],
+    "3 de Paus": [ "conquista espaço novo", "ampliação de horizontes", "mente aberta visionária", "virada de página", "projeção longo prazo", "bases do futuro", "negociações bem-sucedidas", "acordos e parcerias", "comunicação fluida aberta", "progresso e expansão", "intercâmbios e permutas", "viagens e trânsito", "start empreendedor", "resiliência e tolerância", "melhora na saúde", "superação e perdão", "foco no futuro" ],
+    "4 de Paus": [ "celebração e comemoração", "confraternização social", "etapa concluída", "férias e viagens", "felicidade e reciprocidade", "ritos de passagem", "ambiente doméstico acolhedor", "compartilhar felicidade", "recompensa por esforços", "harmonia e concórdia", "conciliação e pacto", "solução de conflitos", "alívio e excitação", "restauração de forças", "liberdade e receptividade", "paz e tranquilidade", "estabilização da conquista" ],
+    "5 de Paus": [ "chatice e aborrecimento", "irritações insignificantes", "tensões cotidianas", "obstáculos pequeno porte", "desgastes e lutas", "discussões banais", "discussão de relação", "competitividade acirrada", "trabalho exaustivo", "ambiente competitivo", "picuinhas e detalhes", "debates desgastantes", "desarmonia e ansiedade", "intolerância em equipe", "perda de energia", "disputa pela razão", "pequenos contratempos diários" ],
+    "6 de Paus": [ "reconhecimento público", "frutos da vitória", "elogios e honra", "recompensas merecidas", "resolução de conflitos", "otimismo contagiante", "autoapreciação e orgulho", "certeza de ter razão", "confiança e autoestima", "concretização de objetivos", "promoção por mérito", "bônus e aumentos", "evolução e contentamento", "boas notícias recebidas", "êxito e progresso", "subir no pódio", "upgrade social merecido" ],
+    "7 de Paus": [ "esforço extremo", "defesa da posição", "foco inabalável", "combate contra oponentes", "resistência à inveja", "enfrentando boicotes", "sustentando o status", "superação de provas", "perseverança na adversidade", "blindagem contra exposição", "capacidade de luta", "vitória sob pressão", "enfrentar concorrência", "coragem defensiva", "manter terreno firme", "posição de vantagem", "resistir a ataques" ],
+    "8 de Paus": [ "finalização rápida", "movimento veloz", "transformação em curso", "comunicação frenética", "notícias inesperadas", "soluções fáceis", "decisões impulsivas", "restabelecimento rápido", "desfecho kármico", "negociações imediatas", "viagens rápidas", "acontecimentos acelerados", "caminhos abertos", "flechas do destino", "dinamismo total", "resolução instantânea", "fluxo livre" ],
+    "9 de Paus": [ "agindo na defensiva", "medos e paranoias", "atrasos temporários", "profunda exaustão", "revivendo velhas feridas", "timidez social", "bloqueio de recomeço", "opressão e obrigação", "resiliência final", "crises superáveis", "última resistência", "desconfiança do entorno", "limite das forças", "resguardar conquistas", "preparação para ataque", "cautela excessiva", "vencer pelo cansaço" ],
+    "10 de Paus": [ "fardo pesado", "sobrecarga excessiva", "responsabilidade extrema", "cansaço esmagador", "pressão insuportável", "esforço final", "peso do sucesso", "excesso de obrigações", "esgotamento físico", "centralização de tarefas", "carregar tudo sozinho", "reta final exaustiva", "oprimido por deveres", "necessidade de delegar", "limite do estresse", "metas sacrificantes", "jornada árdua" ],
+    "Pajem de Paus": [ "entusiasmo jovem", "curiosidade ativa", "mensagem impulsiva", "desejo de aventura", "energy iniciante", "ousadia juvenil", "ímpeto criativo", "boas novas apaixonantes", "exploração de ideias", "vontade de aprender", "impulso inicial", "comunicação rápida", "espírito livre", "novos começos", "faísca criativa", "mensageiro do fogo", "otimismo juvenil" ],
+    "Cavaleiro de Paus": [ "action impetuosa", "movimento acelerado", "paixão explosiva", "busca por aventura", "energia inconstante", "foco disperso", "avanço rápido", "partida repentina", "coragem audaciosa", "liderança dinâmica", "entusiasmo contagiante", "impulsividade cega", "mudança de cenário", "temperamento ardente", "conquista veloz", "fuga da rotina", "força motriz" ],
+    "Rainha de Paus": [ "confiança magnética", "alegria contagiante", "foco determinado", "independência forte", "carisma natural", "liderança acolhedora", "energia vibrante", "magnetismo pessoal", "fertilidade e calor", "paixão pela vida", "generosidade sincera", "coragem feminina", "presença marcante", "criatividade prática", "domínio social", "entusiasmo protetor", "independência financeira" ],
+    "Rei de Paus": [ "autoridade inspiradora", "visão empreendedora", "liderança natural", "poder consolidado", "atitude diretiva", "domínio energético", "força de vontade", "foco no objetivo", "carisma dominador", "coragem de comandar", "mentor experiente", "execução magistral", "visão de futuro", "honestidade brutal", "pioneirismo ativo", "estabilidade pelo fogo", "realização audaz" ],
+    "Ás de Copas": [ "Início emocional transbordante", "Sim absoluto categórico", "Sorte e êxtase", "Euforia e fertilidade", "Amor profundo genuíno", "Harmonia interna externa", "Reatividade emocional positiva", "Reconciliação e perdão", "Generosidade e otimismo", "Amparo social externo", "Cura interna profunda", "Receptividade a novidades", "Projetos materializados felizes", "Empatia e altruísmo", "Inspiração artística rica", "Novos elos afetivos", "Fertilidade orgânica mental" ],
+    "2 de Copas": [ "Resultados iniciais satisfatórios", "Momento para negociar", "Comunicação fluida afável", "Acordos harmoniosos mútuos", "Resoluções de acordo", "Reciprocidade afetiva sincera", "Associações comerciais cooperativas", "Comprometimento emocional sólido", "Autoconfiança em recepção", "Suporte em equipe", "Flertes e vínculos", "Ofertas e presentes", "Conciliação pacífica conflitos", "Cumprimento promessas seguras", "Excelente saúde equilíbrio", "Química", "Igualdade de sentimentos" ],
+    "3 de Copas": [ "Sorte e júbilo", "Ambientes livres receptivos", "Celebrações e festas", "Fim de conflitos", "Fartura alegrias genuínas", "Festa de conquistas", "Nascimento gravidez celebrada", "Êxtase em negociações", "Triunfo cura definitiva", "Ápice da fertilidade", "União cooperação festiva", "Terceira pessoa relação", "Simpatia profissional facilitada", "Festa da colheita", "Satisfação emocional renovada", "Descontração e lazer", "Conexões sociais valiosas" ],
+    "4 de Copas": [ "Adiamento temporário freio", "Pausa para reflexão", "Tédio apatia crônica", "Rejeição teimosa oportunidades", "Inveja redes sociais", "Aborrecimento esgotamento estímulos", "Sedação sensorial bloqueio", "Desencanto com tudo", "Desligamento social voluntário", "Ambientes viciados densos", "Vazio espiritual ranço", "Tédio relacionamento quebrado", "Decepção com ídolo", "Culpa parceiro ilusão", "Insatisfação crônica reclamação", "Postura rabugenta insustentável", "Sabotagem ideal impossível" ],
+    "5 de Copas": [ "Vitimismo paralisante trauma", "Fracasso por teimosia", "Ruína de expectativas", "Falta de equilíbrio", "Arrependimento perda valiosa", "Remorso amargura destrutiva", "Melancolia desilusão afetiva", "Isolamento após perdas", "Relacionamentos desgastados platônicos", "Exposição sofrimento consolo", "Foco perdas cegas", "Necessidade ressignificar atitudes", "Luto notícias ruins", "Potencial parar chorar", "Somatização crises emocionais", "Bloqueio foco defeitos", "Terapias cura desilusão" ],
+    "6 de Copas": [ "Profunda saudade passado", "Retorno ex parceiros", "Desejo idealizado passado", "Escapismo melancolia ontem", "Lamentações nostálgicas antigas", "Recusa ao novo", "Postura conservadora tradicional", "Intolerância ao inédito", "Paralisado apego antigo", "Heranças valores familiares", "Proteção força ancestral", "Conforto solidariedade genuína", "Sentimentos puros tradicionais", "Romantismo conservador tímido", "Cura recolhimento luto", "Regras tradicionais vovó", "Obediência hierarquias antigas" ],
+    "7 de Copas": [ "Deslumbramento estéril passado", "Carteirada social vaidade", "Euforia cega ilusão", "Propenso a trair", "Promessas não cumpridas", "Auto mentiras ilusões", "Filtro utópico irreal", "Soberba arrogância infantil", "Fuga por substâncias", "Anestesia sensorial compulsão", "Negacionismo ilusão ser", "Obsessão narcisista frívola", "Escapismo espiritual obrigações", "Perda noção perigos", "Otimismo exagerado cego", "Negócios enganosos miragens", "Objetivos inteiramente ilusórios" ],
+    "8 de Copas": [ "Abandono Involuntároo", "Rompimento desleixo obrigações", "Negligência vida finanças", "Abandono tratamento saúde", "Fracasso apostado erro", "Desmascarado , traiu", "Retirada forçada desistência", "Perdas materiais desolação", "Vitimismo farsa revelada", "Rumo ao desconhecido", "Remorso depressão severa", "Intervenção psiquiátrica urgente", "Arrependimento real mudança", "Divórcio mentiras insustentáveis", "Demissão por negligência", "Responsabilidade dor escolhas", "Confrontado com realidade" ],
+    "9 de Copas": [ "Felicidade satisfação plena", "Reconhecimento mérito carreira", "Expansão material plenitude", "Socialização banquetes festas", "Bom humor harmonia", "Lealdade promessas cumpridas", "Generosidade compartilhada altruísta", "Dignidade assumir erros", "Sonho real realizável", "Comemorações intensas bebedeira", "Conciliação pacífica paz", "Acordos comerciais sólidos", "Casamento próspero fartura", "Encontros comilanças familiares", "Postura rigorosa desculpas", "Franqueza exposição real", "Estabilidade prazer viver" ],
+    "10 de Copas": [ "Intensidade distorções ilusórias", "Conto fadas irreal", "Euforia falsa perfeição", "Família irmãos alma", "Vínculos profundos plenitude", "Momentos genuínos afeto", "Uniões harmoniosas honestas", "Saciedade satisfação transbordante", "Apogeu festas familiares", "Sinceridade sob ilusões", "Paz puramente ilusória", "Mascarar dor carência", "Projeção fantasiosa exagerada", "Fantasia afetiva vazia", "Otimismo cego irreal", "Clímax união comunitária", "Expectativas projeções utópicas" ],
     "Pajem de Copas": ["inocência emocional","mensagem carinhosa","surpresa agradável","sintonia suave","afeto nascente","imaginação fértil","sensibilidade aflorada"],
     "Cavaleiro de Copas": ["romantismo ativo","convite amoroso","busca idealista","charme sedutor","aproximação poética","proposta afetiva","sonho em movimento"],
     "Rainha de Copas": ["acolhimento materno","empatia profunda","intuição guiada","suporte emocional","sensibilidade madura","amor compassivo","cura afetiva"],
     "Rei de Copas": ["controle emocional","maturidade afetiva","calma diplomática","conselho sábio","equilíbrio interno","acolhimento seguro","generosidade serena"],
-
-    // Naipe de Espadas (Preservados)
-    "Ás de Espadas": ["clareza mental","corte necessário","verdade revelada","foco intelectual","decisão fria","ideia brilhante","visão objetiva"],
-    "2 de Espadas": ["bloqueio mental","cegueira voluntária","decisão adiada","tensão contida","recusa de ver","equilíbrio precário","paralisia analítica"],
-    "3 de Espadas": ["coração partido","dor aguda","decepção mental","sofrimento inevitável","tristeza cortante","rompimento doloroso","ferida aberta"],
-    "4 de Espadas": ["pausa necessária","descanso mental","retiro estratégico","recuperação lenta","isolamento curativo","repouso forçado","meditação profunda"],
-    "5 de Espadas": ["vitória vazia","derrota humilhante","conflito tóxico","hostilidade aberta","orgulho ferido","traição dolorosa","ambiente nocivo"],
-    "6 de Espadas": ["transição difícil","fuga estratégica","afastamento gradual","viagem mental","recuperação lenta","águas mais calmas","saída melancólica"],
-    "7 de Espadas": ["estratégia oculta","ação sorrateira","fuga astuta","mentira descoberta","tática evasiva","engano proposital","malícia silenciosa"],
-    "8 de Espadas": ["prisão mental","limitação autoimposta","ansiedade paralisante","vitimização crônica","cegueira do medo","cerco ilusório","restrição percebida"],
-    "9 de Espadas": ["angústia extrema","insônia crônica","desespero noturno","culpa esmagadora","preocupação doentia","tortura mental","medo avassalador"],
-    "10 de Espadas": ["fundo do poço","ruína total","fim doloroso","exaustão mental","desfecho fatal","traição final","ponto sem retorno"],
+    "Ás de Espadas": [ "Ideia fixa inicial", "Explosão de potência", "Capacidade de realização", "Lucidez mental cirúrgica", "Decisão rápida cortante", "Sentimentos intensos oscilantes", "Coragem e autoconfiança", "Esperteza intelectual articulada", "Fertilidade mental latente", "Clareza mental expansiva", "Certeza interna absoluta", "Potência sexual rígida", "Conflitos mentais paralisantes", "Acidentes e cortes", "Catalisador de impactos", "Amplificador de destruição", "Foco em meta" ],
+    "2 de Espadas": [ "Cabo de guerra", "Orgulho rígido defensivo", "ADVERSIDADES", "Oposição simétrica equivalente", "Cegueira deliberada extrema", "Recusa da realidade", "Rupturas por divergências", "Incapacidade de ceder", "Recusa ao diálogo", "Oportunidades perdidas", "Desejo de razão", "Bloqueio à reconciliação", "Foco no conflito", "Dor futura previsível", "Crises de ansiedade", "Obstáculo por vaidade", "Busca por validação" ],
+    "3 de Espadas": [ "Profunda tristeza avassaladora", "Decepção por mentira", "Coração machucado consentido", "Negligência com realidade", "Sofrimento por negação", "Traição extremamente dolorosa", "Falsa promessa frustrante", "Abandono e solidão", "Erros de julgamento", "Confusão mental generalizada", "Ruptura definitiva radical", "Incompatibilidade de temperamentos", "Mágoas e ressentimentos", "Perdas por brigas", "Ferimento físico real", "Dores físicas intensas", "Teimosia no fracasso" ],
+    "4 de Espadas": [ "Paralisia kármica indefinida", "Esgotamento mental completo", "Repouso hospitalar obrigatório", "Pausa para cura", "Reclusão e isolamento", "Solidão e abandonment", "Pausas involuntárias divinas", "Refúgio do caos", "Suporte médico especializado", "Adiamento longo desestimulante", "Estagnação prática total", "Recolhimento em guarda", "Esvaziamento mental completo", "Suspensão providencial necessária", "Reabastecimento de energias", "Imobilidade física temporária", "Travamento longo prazo" ],
+    "5 de Espadas": [ "Humilhação extrema aceita", "Guerra inútil radical", "Erros repetidos obsessivos", "Desejo de vingança", "Atitudes indignas públicas", "Vitória amarga inglória", "Fuga de responsabilidades", "Armadilhas sociais manipuladas", "Vantagens por chantagem", "Conquistas fraudulentas falsas", "Incapacidade intelectual aparente", "Derrota moral autoinfligida", "Discussões violentas indignas", "Vitimismo choroso constante", "Ganância e guerra", "Ferimentos corporais graves", "Riscos à integridade" ],
+    "6 de Espadas": [ "Fuga cenário hostil", "Busca águas calmas", "Retirada estratégica melancólica", "Problema sem resolução", "Medo do desconhecido", "Ansiedade e inconformismo", "Perda de fé", "Abandono de si", "Mudança profissional drástica", "Desleixo profissional crônico", "Viagem escapista lazer", "Abandono tratamento médico", "Riscos à saúde", "Alerta saúde mental", "Vulnerabilidade espiritual severa", "Tratamento espiritual urgente", "Fuga da realidade" ],
+    "7 de Espadas": [ "Estratégia e astúcia", "Peso de humilhações", "Saídas inteligentes focadas", "Fugas e deboche", "Fofoca e maledicência", "Traquejo social malandro", "Atalhos por trapaça", "Mentira e dissimulação", "Ações na calada", "Falta de transparência", "Ocultação de pensamentos", "Avanço pelas beiradas", "Caminho perigoso ambíguo", "Jogo de cintura", "Vulnerabilidade a infecções", "Dores crônicas", "Trações ocultas fraudes" ],
+    "8 de Espadas": [ "Ciclo kármico perigoso", "Dor e humilhação", "Destruição da dignidade", "Exposição pública vexatória", "Atos malfeitos descobertos", "Desmascarado publicamente", "Condenações por trapaça", "Prejuízos financeiros irreparáveis", "Prestação de contas", "Recusa de autocrítica", "Sem arrependimento real", "Postura irresponsável crônica", "Más notícias desesperadoras", "Prisão ou confinamento", "Estagnação absoluta encurralada", "Fraqueza física extrema", "Restrições severas paralisantes" ],
+    "9 de Espadas": [ "Desespero kármico agudo", "Negação dos fatos", "Pânico após desmascaramento", "Desejo inútil recuperação", "Persistência no fracasso", "Pensamentos fatalistas obsessivos", "Gasto mental insuportável", "Depressão profunda psiquiátrica", "Sofrimento psíquico severo", "Perda de dignidade", "Desgraça e desalento", "Isolamento e autopunição", "Opressão mental esmagadora", "Arrependimento tardio egoísta", "Degradação moral física", "Esgotamento crônico voluntário", "Insônia e paranoias" ],
+    "10 de Espadas": [ "Ruptura radical dolorosa", "Finalização cortante anuladora", "Desfechos com prejuízo", "Ruptura intencional necessária", "Resolução drástica exaustiva", "Sacrifício de convicções", "Cicatrizes psicológicas eternas", "Eliminação de amarras", "Aceleração com impacto", "Abandono de ilusões", "Sacrifícios materiais extremos", "Rompimento por esgotamento", "Revisão de convicções", "Internações médicas urgentes", "Dores físicas agudas", "Corte definitivo profundo", "Decisões que enterram" ],
     "Pajem de Espadas": ["curiosidade intelectual","vigilância atenta","mensagem cortante","mente ágil","postura defensiva","observação crítica","fofoca rápida"],
     "Cavaleiro de Espadas": ["ação precipitada","ataque direto","fúria verbal","mente impaciente","investida fria","movimento brusco","argumentação agressiva"],
     "Rainha de Espadas": ["clareza implacável","julgamento frio","independência mental","corte cirúrgico","verdade dura","visão objetiva","razão absoluta"],
     "Rei de Espadas": ["autoridade intelectual","lógica rigorosa","estratégia fria","comando racional","justiça severa","mente estruturada","decisão imparcial"],
+    "Ás de Ouros": [ "potência e começo", "materialização concreta", "sorte e realização", "reconhecimento e prestígio", "visibilidade e brilho", "amparado pelo divino", "ampliação de resultados", "infinitas possibilidades", "ausência de obstáculos", "resultados sólidos duradouros", "inteligência prática", "abundância e fertilidade", "relacionamentos sólidos", "livre arbítrio total", "recompensa por esforços", "herança e presentes", "prosperidade e conquista" ],
+    "2 de Ouros": [ "adversidades e flexibilidade", "jogo de cintura", "adiamento e demora", "arcano kármico", "impasse temporário", "impedimentos concretos", "obstáculos fora alcance", "administrar a circunstância", "malabarismos materiais", "múltiplos projetos simultâneos", "mobilidade e mudança", "efeito gangorra", "adaptação necessária", "descomprometimento de humor", "dificuldades transponíveis", "esquiva de posicionamento", "administrar demandas diversas" ],
+    "3 de Ouros": [ "avanço com ajuda", "orientação e tutoria", "cooperação e contribuição", "ajuda técnica especializada", "trabalho em equipe", "recebe ajuda experiente", "crescimento e progresso", "habilidade e perícia", "associação e parceria", "sociedade comercial", "planejamento e planilhas", "cumprimento de protocolos", "competência e qualificação", "provas e testes", "aprendizado supervisionado", "trabalho de formiguinha", "maturidade para ajuda" ],
+    "4 de Ouros": [ "mesquinharia e avareza", "conservação material excessiva", "energia estagnada", "medo de perder", "egoísmo e desconfiança", "apego ao lucro", "incapacidade assumir riscos", "petrifica o que tem", "teimosia e rigidez", "ideias fixas arcaicas", "padrões comportamentais rígidos", "ciúmes e posse", "confinamento e reclusão", "autoproteção defensiva", "acumular e controlar", "imobilidade e mofo", "paranoia por segurança" ],
+    "5 de Ouros": [ "pobreza e escassez", "afastamento e isolamento", "grandes prejuízos materiais", "perda de status", "precariedade da fé", "falta de recursos", "dificuldades reais graves", "rejeição e desaprovação", "carência afetiva total", "miséria e pessimismo", "ansiedade e angústia", "autocomiseração e desesperança", "crise de relacionamento", "risco de falência", "esgotamento e cansaço", "negligência e desleixo", "falta de sorte" ],
+    "6 de Ouros": [ "doação e generosidade", "carente / necessitado", "retorno kármico justo", "atraso por orgulho", "aceitar ajuda externa", "recebimento de oportunidades", "ganhos materiais providenciais", "passividade e espera", "prejuízo solucionado", "apoio de especialistas", "esmola de atenção", "tutor e mecenas", "tratamento e medicamentos", "resgate e amparo", "superação pela humildade", "recompensas inusitadas", "aprendizado do doar" ],
+    "7 de Ouros": [ "colheita de lucros", "progresso e avanço", "insatisfação ambiciosa positiva", "recebimento de bens", "heranças e prêmios", "oportunidades e presentes", "parcerias e sociedades", "recebe afeto", "prosperidade longo prazo", "meritocracia recompensada", "análise e avaliação", "florescimento seguro", "paciência e disciplina", "crescimento lento sólido", "maturidade e equilíbrio", "boas notícias financeiras", "independência conquistada" ],
+    "8 de Ouros": [ "recomeço e renascimento", "colheita justa kármica", "novidades construtivas", "melhora de vida", "recomeçar com experiência", "novos aprendizados práticos", "renascimento afetivo", "perito e refinamento", "aprimoramento perfeccionista", "habilidade de lapidador", "novo ciclo consciente", "aprendizagem autodidata", "trabalho solitário focado", "sucesso e rotina", "descoberta de potenciais", "investimento em si", "prosperidade e segurança" ],
+    "9 de Ouros": [ "fertilidade e satisfação", "esforço recompensado", "distinção social merecida", "sensação dever cumprido", "felicidade e bem-estar", "sucesso longo prazo", "estabilidade e segurança", "luxo e requinte", "descansos e férias", "colheita de frutos", "excelentes oportunidades", "bom negócio emprego", "produtividade e concretização", "realização durável", "autoconfiança e independência", "recuperação de prejuízos", "plenitude e gravidez" ],
+    "10 de Ouros": [ "realização longo prazo", "sucesso concreto", "família legalizada cartório", "felicidade e glória", "fim dos problemas", "perpetuação sucesso material", "legado e heranças", "bens materiais consolidados", "tradição e costumes", "ancestralidade e hereditariedade", "imóveis e patrimônio", "rede relacionamentos estável", "vínculos valiosos férteis", "boa administração recursos", "responsabilidade e competência", "segurança e esforços", "convivência prazerosa valorizada" ],
+    "Pajem de Ouros": [ "estudo prático focado", "foco no real", "esforço diligente", "mente pragmática", "oportunidade útil", "aprendizado lento", "aplicação metódica", "dedicação ao trabalho", "novas propostas financeiras", "vontade de crescer", "disciplina inicial", "gerenciamento básico", "estudante concentrado", "humildade para aprender", "pequenos ganhos iniciais", "atenção aos detalhes", "firmeza de propósitos" ],
+    "Cavaleiro de Ouros": [ "avanço lento seguro", "persistência sólida", "trabalho duro contínuo", "rotina segura eficiente", "progresso metódico", "responsabilidade assumida", "ação conservadora", "paciência inabalável", "lealdade comprovada", "firmeza absoluta", "construção passo passo", "confiabilidade prática", "resistência física", "foco na execução", "determinação realista", "colheita garantida tempo", "cautela nos investimentos" ],
+    "Rainha de Ouros": [ "nutrição prática", "conforto providenciado", "gestão eficiente", "segurança maternal", "sensatez material", "acolhimento luxuoso", "abundância terrena", "generosidade realista", "organização do lar", "estabilidade de vida", "amor prático protetor", "prosperidade doméstica", "fertilidade concreta", "saúde do corpo", "bom gosto natural", "apego seguro", "maturidade financeira" ],
+    "Rei de Ouros": [ "poder financeiro consolidado", "domínio material absoluto", "sucesso consolidado", "autoridade prática", "riqueza estruturada", "império construído", "gestão magistral", "estabilidade inabalável", "segurança patrimonial", "realismo pragmático", "provedor confiável", "fidelidade aos valores", "conquistas duradouras", "maturidade e solidez", "liderança de negócios", "firmeza e determinação", "recompensa de carreira" ]
+    };
 
-    // Naipe de Ouros (Completamente Atualizados do Ás ao 10)
-    "Ás de Ouros": [
-        "materialização duradoura",
-        "reconhecimento e prestígio",
-        "infinitas possibilidades",
-        "sementes de sucesso",
-        "recompensas e prêmios",
-        "inteligência e riqueza",
-        "livre arbítrio",
-        "abundância e fertilidade"
-    ],
-    "2 de Ouros": [
-        "impasses concretos",
-        "jogo de cintura",
-        "malabarismos materiais",
-        "obstáculos temporários",
-        "descomprometimento",
-        "esquiva de decisões",
-        "gangorra e adaptações",
-        "administrando circunstâncias"
-    ],
-    "3 de Ouros": [
-        "avanço em equipe",
-        "ajuda técnica",
-        "precisão e competência",
-        "trabalho detalhista",
-        "impulso favorável",
-        "aceitação de supervisão",
-        "aprovação com mérito",
-        "parcerias e recursos"
-    ],
-    "4 de Ouros": [
-        "medo e perdas",
-        "avareza e mesquinharia",
-        "recusa em inovar",
-        "comportamentos possessivos",
-        "isolamento e autoproteção",
-        "retenção de recursos",
-        "paranoia material",
-        "rigidez e teimosia"
-    ],
-    "5 de Ouros": [
-        "crises severas",
-        "carência e miserabilidade",
-        "afastamento doloroso",
-        "angústia e sobrevivência",
-        "esgotamento e negligência",
-        "rejeição sem apoio",
-        "vitimização",
-        "perda de poder"
-    ],
-    "6 de Ouros": [
-        "carente e necessitado",
-        "vencendo o orgulho",
-        "espera passiva",
-        "soluções pela providência",
-        "lei do retorno",
-        "oportunidades providenciais",
-        "preconceito com auxílio",
-        "lição de receber"
-    ],
-    "7 de Ouros": [
-        "colheita por mérito",
-        "insatisfação positiva",
-        "paciência no florescimento",
-        "equilíbrio e segurança",
-        "prêmios e sorte",
-        "construção duradoura",
-        "almejando mais",
-        "materialização orgânica"
-    ],
-    "8 de Ouros": [
-        "recomeço favorável",
-        "experiência prévia",
-        "aprimoramento perfeccionista",
-        "renascimento afetivo",
-        "aprendizado solitário",
-        "descoberta de potenciais",
-        "lapidação profissional",
-        "prazer na rotina"
-    ],
-    "9 de Ouros": [
-        "estabilidade e requinte",
-        "frutos da persistência",
-        "ápice material",
-        "independência alcançada",
-        "promoções garantidas",
-        "conquistas orgânicas",
-        "recompensas e lazer",
-        "planejamento materializado"
-    ],
-    "10 de Ouros": [
-        "glória material",
-        "legado para eternidade",
-        "segurança familiar",
-        "patrimônio hereditário",
-        "rede sólida",
-        "administração exemplar",
-        "segurança resoluta",
-        "estabilidade valorizada"
-    ],
+    const futebolVerbsMap = {
+        "O Louco": ["gol de surpresa", "virada inesperada", "imprevisível", "erro bizarro", "caos tático"],
+        "O Mago": ["criação genial", "domínio absoluto", "passe para gol", "controle do jogo", "vitória técnica"],
+        "A Sacerdotisa": ["zero a zero", "jogo travado", "poucas chances", "foco defensivo", "placar magro"],
+        "A Imperatriz": ["chuva de gols", "ataque letal", "vitória farta", "futebol arte", "domínio ofensivo"],
+        "O Imperador": ["vitória por 1x0", "defesa intransponível", "controle total", "nenhum gol sofrido", "vitória segura"],
+        "O Hierofante": ["resultado previsível", "jogo morno", "empate tático", "obediência", "sem surpresas"],
+        "Os Enamorados": ["empate com gols", "jogo lá e cá", "chances desperdiçadas", "indecisão no ataque", "falta de foco"],
+        "O Carro": ["vitória rápida", "contra-ataque letal", "gols no início", "avanço imparável", "triunfo direto"],
+        "A Força": ["vitória suada", "gol no final", "superação física", "ganhar na raça", "virada heroica"],
+        "O Eremita": ["placar zerado", "retranca total", "poucos chutes", "jogo lento", "esfriar a partida"],
+        "A Roda da Fortuna": ["virada de placar", "gol de sorte", "jogo instável", "mudança de ritmo", "resultado loteria"],
+        "A Justiça": ["gol de pênalti", "empate justo", "cartão vermelho", "decisão do VAR", "resultado merecido"],
+        "O Enforcado": ["derrota iminente", "time paralisado", "desfalque fatal", "sacrifício inútil", "zero gols"],
+        "A Morte": ["goleada sofrida", "eliminação", "apagão do time", "reviravolta fatal", "fim de ciclo"],
+        "A Temperança": ["empate morno", "toque de lado", "ritmo constante", "sem agressividade", "resultado mantido"],
+        "O Diabo": ["jogo sujo", "pênalti roubado", "vitória a qualquer custo", "gols de falta", "clima tenso"],
+        "A Torre": ["derrota esmagadora", "expulsão dupla", "frango do goleiro", "desastre total", "goleada histórica"],
+        "A Estrela": ["golaço", "vitória brilhante", "esperança renovada", "sorte a favor", "classificação"],
+        "A Lua": ["gol anulado", "erro bizarro", "medo de atacar", "time perdido", "resultado enganoso"],
+        "O Sol": ["vitória consagradora", "chuva de gols", "artilharia", "domínio total", "glória"],
+        "O Julgamento": ["gol no acréscimo", "decisão nos pênaltis", "salvo pelo gongo", "reviravolta final", "acordar pro jogo"],
+        "O Mundo": ["título garantido", "vitória perfeita", "goleada impecável", "festa da torcida", "resultado máximo"],
+        "Ás de Paus": ["chute pro gol", "explosão ofensiva", "pressão total", "bola na trave", "ataque letal"],
+        "2 de Paus": ["ataque ineficiente", "jogo de meio-campo", "pausa no ritmo", "estudo tático", "empate provisório"],
+        "3 de Paus": ["bola nas costas", "lançamento perfeito", "domínio territorial", "chances claras", "avanço"],
+        "4 de Paus": ["gol em casa", "comemoração", "vitória parcial", "festa da torcida", "harmonia em campo"],
+        "5 de Paus": ["jogo truncado", "muita falta", "bate-rebate", "dificuldade de criar", "disputa acirrada"],
+        "6 de Paus": ["gol de craque", "vitória encaminhada", "aplausos", "vantagem no placar", "bom momento"],
+        "7 de Paus": ["defesa bombardeada", "segurar a vantagem", "sufoco", "resistência", "um a menos"],
+        "8 de Paus": ["gol relâmpago", "contra-ataque rápido", "ritmo frenético", "muitas finalizações", "velocidade"],
+        "9 de Paus": ["cansaço extremo", "defesa no limite", "medo do empate", "retranca final", "segurar resultado"],
+        "10 de Paus": ["derrota física", "peso do placar", "time entregue", "pressão insuportável", "gols no final"],
+        "Pajem de Paus": ["impulso jovem", "ataque surpresa", "fôlego extra", "ousadia", "jogada rápida"],
+        "Cavaleiro de Paus": ["pressão absurda", "ataque fulminante", "ritmo acelerado", "arrancada para gol", "agressividade"],
+        "Rainha de Paus": ["confiança no ataque", "pressão constante", "presença de área", "motivação alta", "imposição"],
+        "Rei de Paus": ["controle ofensivo", "domínio do jogo", "autoridade em campo", "ataque organizado", "vitória construída"],
+        "Ás de Copas": ["alegria da torcida", "gol comemorado", "sintonia perfeita", "empolgação", "jogo fluído"],
+        "2 de Copas": ["tabelinha de gol", "entrosamento máximo", "jogo amigável", "empate pacífico", "acordo em campo"],
+        "3 de Copas": ["festa garantida", "chuva de gols", "vitória coletiva", "comemoração", "torcida feliz"],
+        "4 de Copas": ["desânimo", "falta de vontade", "jogo chato", "zero a zero", "apatia total"],
+        "5 de Copas": ["gol sofrido", "decepção", "falha individual", "cabeça baixa", "frustração"],
+        "6 de Copas": ["gol de ídolo", "jogo morno", "conforto de casa", "ritmo antigo", "vitória nostálgica"],
+        "7 de Copas": ["chances perdidas", "ilusão no placar", "futebol firula", "desperdício", "salto alto"],
+        "8 de Copas": ["abandono de jogo", "desistência", "time entregue", "derrota aceita", "desfalque sentido"],
+        "9 de Copas": ["vantagem confortável", "jogo resolvido", "alívio no placar", "soberba", "resultado favorável"],
+        "10 de Copas": ["goleada feliz", "sagração", "paz na torcida", "time perfeito", "sucesso total"],
+        "Pajem de Copas": ["jogada bonita", "futebol arte", "leveza em campo", "sem pressão", "boa intuição"],
+        "Cavaleiro de Copas": ["gol de placa", "toque de bola", "ritmo envolvente", "futebol vistoso", "charme tático"],
+        "Rainha de Copas": ["calma no placar", "apoio da torcida", "jogo seguro", "foco no passe", "estabilidade emocional"],
+        "Rei de Copas": ["controle dos nervos", "maturidade tática", "vantagem administrada", "frieza", "vitória tranquila"],
+        "Ás de Espadas": ["gol de falta", "chute indefensável", "corte cirúrgico", "foco no ataque", "decisão rápida"],
+        "2 de Espadas": ["empate sem gols", "jogo cego", "medo de atacar", "retranca mútua", "bloqueio tático"],
+        "3 de Espadas": ["gol contra", "lesão grave", "derrota dolorosa", "frango", "sofrimento da torcida"],
+        "4 de Espadas": ["jogo esfriou", "maca em campo", "pausa tática", "descanso no placar", "cera"],
+        "5 de Espadas": ["humilhação", "goleada sofrida", "briga em campo", "derrota vexatória", "desespero"],
+        "6 de Espadas": ["tocar de lado", "evitar goleada", "fuga do ataque", "transição lenta", "derrota aceita"],
+        "7 de Espadas": ["pênalti cavado", "gol de malandro", "jogada ensaiada", "surpresa tática", "roubada de bola"],
+        "8 de Espadas": ["sufoco total", "não passa do meio", "pressão esmagadora", "bloqueio defensivo", "nó tático"],
+        "9 de Espadas": ["pânico na zaga", "erros bizarros", "medo de tomar gol", "ansiedade", "apagão"],
+        "10 de Espadas": ["fundo do poço", "goleada humilhante", "eliminação precoce", "fim de jogo trágico", "massacre"],
+        "Pajem de Espadas": ["marcação cerrada", "provocação", "falta tática", "atenção na zaga", "roubada rápida"],
+        "Cavaleiro de Espadas": ["pressão alta", "carrinho perigoso", "contra-ataque furioso", "agressividade", "urgência de gol"],
+        "Rainha de Espadas": ["defesa fria", "foco no resultado", "sem firula", "corte seco", "tática rígida"],
+        "Rei de Espadas": ["vitória calculada", "zaga impecável", "estratégia pura", "frieza no ataque", "resultado exato"],
+        "Ás de Ouros": ["gol certo", "resultado garantido", "prêmio em campo", "domínio da bola", "lucro no placar"],
+        "2 de Ouros": ["resultado oscilante", "viradas", "improviso", "adaptação", "manter a posse"],
+        "3 de Ouros": ["gol de equipe", "construção de placar", "tática funcionando", "passe perfeito", "esforço premiado"],
+        "4 de Ouros": ["ferrolho defensivo", "segurar o 1x0", "medo de perder", "time recuado", "placar intocável"],
+        "5 de Ouros": ["desvantagem no placar", "desgaste total", "prejuízo", "falta de opções", "derrota material"],
+        "6 de Ouros": ["empate justo", "divisão de posse", "assistência pra gol", "equilíbrio", "resultado normal"],
+        "7 de Ouros": ["cozinhar o jogo", "esperar o erro", "vantagem mantida", "cadência", "estudo de campo"],
+        "8 de Ouros": ["repetição de ataque", "pressão metódica", "esforço físico", "tática disciplinada", "resultado construído"],
+        "9 de Ouros": ["goleada tranquila", "independência no placar", "jogo resolvido", "conforto total", "vitória isolada"],
+        "10 de Ouros": ["hegemonia", "título", "placar elástico", "time perfeito", "conquista máxima"],
+        "Pajem de Ouros": ["foco na marcação", "jogo pragmático", "esforço em campo", "resultado simples", "aplicação tática"],
+        "Cavaleiro de Ouros": ["avanço seguro", "defesa sólida", "jogo sem riscos", "força física", "vitória lenta"],
+        "Rainha de Ouros": ["administrar vantagem", "posse de bola", "segurança atrás", "conforto tático", "resistência"],
+        "Rei de Ouros": ["vitória absoluta", "domínio total", "resultado garantido", "poder em campo", "time imbatível"]
+    };
 
-    // Ouros Restantes (Preservados)
-    "Pajem de Ouros": ["estudo prático","foco no real","esforço diligente","mente pragmática","oportunidade útil","aprendizado lento","aplicação metódica"],
-    "Cavaleiro de Ouros": ["avanço lento","persistência sólida","trabalho duro","rotina segura","progresso metódico","responsabilidade assumida","ação conservadora"],
-    "Rainha de Ouros": ["nutrição prática","conforto providenciado","gestão eficiente","segurança maternal","sensatez material","acolhimento luxuoso","abundância terrena"],
-    "Rei de Ouros": ["poder financeiro","domínio material","sucesso consolidado","autoridade prática","riqueza estruturada","império construído","gestão magistral"]
-};
-
-const extendedMeanings = {
-    // Arcanos Maiores (Preservados com suas combinações)
-    "O Louco": { situacao: "Representa o início de uma jornada imprevista. Uma situação onde é necessário um salto de fé, rompendo com o conformismo para abraçar o desconhecido com total liberdade.", metodoEuropeu: [ { comb: "Três de Espadas", texto: "A energia de agir sem amarras encontra o desgosto das expectativas frustradas." }, { comb: "Ás de Ouros", texto: "A energia de desprendimento e novos começos encontra a semente de uma oportunidade real." } ] },
-    "O Mago": { situacao: "Representa a chegada de ferramentas e oportunidades. Uma situação que exige iniciativa, foco e lábia, onde você tem todo o potencial para materializar suas ideias e concretizar a intenção.", metodoEuropeu: [ { comb: "Oito de Espadas", texto: "A energia de esperteza e truques encontra o cerco e a cobrança severa." } ] },
-    "A Sacerdotisa": { situacao: "Representa um cenário de espera, reflexão e observação passiva. A situação pede intuição aguçada e manutenção de segredos ao invés de atitudes reveladas e precipitadas.", metodoEuropeu: [ { comb: "Seis de Copas", texto: "A energia de reserva e observação encontra a postura tradicional e conservadora." } ] },
-    "A Imperatriz": { situacao: "Representa o ápice da criatividade e do desenvolvimento. Uma situação fértil onde os projetos ganham corpo e nutrem os envolvidos de forma abundante e bela.", metodoEuropeu: [ { comb: "Cinco de Paus", texto: "A energia de criação e fertilidade encontra a agitação dos debates." }, { comb: "Oito de Ouros", texto: "A energia de criação e novos projetos encontra a execução técnica e minuciosa." }, { comb: "Rainha de Copas", texto: "A energia de iniciativa e fertilidade encontra a disposição para servir e acolher." }, { comb: "Dois de Paus", texto: "A energia de expansão e produção encontra a divisão entre caminhos." } ] },
-    "O Imperador": { situacao: "Representa a consolidação das bases. Uma situação que requer rigor, estruturação de regras, comando prático e a imposição de limites claros para manter a ordem.", metodoEuropeu: [ { comb: "Rei de Paus", texto: "A energia de autoridade e solidez encontra a postura de busca ativa e effort." }, { comb: "Seis de Paus", texto: "A energia de solidez e estabelecimento encontra o prestígio e aplauso social." }, { comb: "Dois de Espadas", texto: "A energia de imposição e autoridade encontra o bloqueio e o impasse dos pontos de vista." }, { comb: "Oito de Espadas", texto: "A energia de controle rígido encontra o aprisionamento e a toxicidade." } ] },
-    "O Hierofante": { situacao: "Representa o encontro com as normas e sistemas de crença. Uma situação de apadrinhamento, conselho formal ou a necessidade de seguir protocolos rigorosos de uma instituição." },
-    "Os Enamorados": { situacao: "Representa uma encruzilhada afetiva ou intelectual. Uma situação que demanda escolher um caminho ou buscar um alinhamento harmônico em meio a muitas possibilidades de atração.", metodoEuropeu: [ { comb: "Três de Paus", texto: "A energia de escolha e alinhamento encontra a visão de longo alcance." } ] },
-    "O Carro": { situacao: "Representa a superação através do foco. Uma situação de avanço rápido e impetuoso, onde a disciplina mental assegura a vitória sobre obstáculos no caminho.", metodoEuropeu: [ { comb: "Três de Espadas", texto: "A energia de avanço impetuoso encontra a frustração das expectativas quebradas." }, { comb: "Três de Ouros", texto: "A energia de progresso e direção encontra a cooperação e o aprendizado." } ] },
-    "A Força": { situacao: "Representa o apaziguamento dos instintos brutos. Uma situação que exige coragem silenciosa, persistência e magnetismo pessoal para domar adversidades com controle, sem explosões.", metodoEuropeu: [ { comb: "Rainha de Copas", texto: "A energia de domínio e superação encontra a postura acolhedora e dedicada." }, { comb: "Rainha de Paus", texto: "A energia de domínio dos instintos encontra a postura altiva e enérgica." } ] },
-    "O Eremita": { situacao: "Representa o tempo de reclusão. Uma situação que pede distanciamento do barulho externo, prudência e maturação vagarosa para encontrar as respostas dentro de si mesmo." },
-    "A Roda da Fortuna": { situacao: "Representa reviravoltas iminentes. Uma situação transitória e mutável, trazendo circunstâncias cíclicas ou retornos repentinos que fogem do nosso controle.", metodoEuropeu: [ { comb: "10 de Copas", texto: "A energia de movimento e transição encontra a plenitude afetiva." } ] },
-    "A Justiça": { situacao: "Representa o peso dos atos e o reajuste. Uma situação de avaliação rigorosa e kármica onde acordos são fechados ou cortados baseado inteiramente no que é correto e imparcial.", metodoEuropeu: [ { comb: "Rei de Espadas", texto: "A energia de ajuste e legalidade encontra o rigor racional e estratégico." }, { comb: "Três de Ouros", texto: "A energia de retidão e contratos encontra a cooperação e os trâmites formais." } ] },
-    "O Enforcado": { situacao: "Representa um bloqueio temporário necessário. Uma situação estagnada onde qualquer esforço de ação será inútil, exigindo mudança de perspectiva e sacrifício provisório.", metodoEuropeu: [ { comb: "Quatro de Espadas", texto: "A energia de paralisação e recuo encontra a postura de silêncio e vácuo." }, { comb: "Seis de Espadas", texto: "A energia de sacrifício e estagnação encontra a retirada estratégica." } ] },
-    "A Morte": { situacao: "Representa o encerramento absoluto. Uma situação de corte profundo e inevitável, limpando o terreno do que não serve mais para que uma verdadeira transformação possa ocorrer.", metodoEuropeu: [ { comb: "Rainha de Copas", texto: "A energia de corte e transformação radical encontra o recolhimento afetivo." } ] },
-    "A Temperança": { situacao: "Representa o ritmo fluído da cura. Uma situação que demanda extrema paciência, onde a rotina precisará ser harmonizada aos poucos até se atingir a alquimia perfeita.", metodoEuropeu: [ { comb: "Nove de Paus", texto: "A energia de moderação e tempo encontra a postura defensiva baseada na bagagem adquirida." } ] },
-    "O Diabo": { situacao: "Representa o magnetismo dos desejos profanos. Uma situação focada intensamente no mundo material, na ambição e no apego, onde as amarras dos instintos ditam as regras.", metodoEuropeu: [ { comb: "Três de Ouros", texto: "A energia de ambição e tentação encontra a interação com o meio e terceiros." }, { comb: "Dois de Paus", texto: "A energia de autopreservação e astúcia encontra a gestão de caminhos e opções." } ] },
-    "A Torre": { situacao: "Representa a queda das ilusões. Uma situação de abalo sísmico nas estruturas que antes pareciam seguras, trazendo rupturas bruscas mas que libertam o indivíduo da cegueira.", metodoEuropeu: [ { comb: "Três de Espadas", texto: "A energia de ruptura abrupta encontra a dor do erro e da frustração." } ] },
-    "A Estrela": { situacao: "Representa o resgate da fé. Uma situação em que, após as tempestades, a renovação sutil, a esperança e o fluxo saudável retornam para abençoar o consulente.", metodoEuropeu: [ { comb: "Três de Copas", texto: "A energia de esperança e renovação encontra o clima de celebração e união." }, { comb: "Cinco de Paus", texto: "A energia de manter as esperanças encontra a agitação das pequenas disputas cotidianas." }, { comb: "Rei de Copas", texto: "A energia de esperança e cura encontra a generosidade e maturidade emocional." } ] },
-    "A Lua": { situacao: "Representa a incursão pelas sombras. Uma situação nebulosa, recheada de inconstâncias, fantasias ocultas, ansiedades ou ciúmes infundados que obscurecem a visão clara.", metodoEuropeu: [ { comb: "Três de Espadas", texto: "A energia de ilusões e fantasmas internos encontra a dor do rompimento e do erro." } ] },
-    "O Sol": { situacao: "Representa a plenitude e a vitória. Uma situação iluminada por excelente vitalidade e exposição, onde o brilho e o esclarecimento absoluto afastam qualquer obscuridade.", metodoEuropeu: [ { comb: "Cavaleiro de Paus", texto: "A energia de clareza e resultados evidentes encontra a velocidade e a surpresa." }, { comb: "Quatro de Copas", texto: "A energia de alta voltagem e exposição encontra o esgotamento e a recusa." } ] },
-    "O Julgamento": { situacao: "Representa a trombeta do despertar. Uma situação em que o passado vem à tona para ser avaliado, perdoado e transcendido, propiciando um renascimento completo das intenções.", metodoEuropeu: [ { comb: "Três de Paus", texto: "A energia de libertação e renascimento encontra a projeção de metas distantes." } ] },
-    "O Mundo": { situacao: "Representa a autonomia máxima. Uma situação de conclusão gloriosa, indicando a totalidade de um projeto e a constituição do consulente como um ecossistema seguro e inviolável.", metodoEuropeu: [ { comb: "Rei de Espadas", texto: "A energia de expansão e conclusão encontra a postura de controle e corte." }, { comb: "Rei de Paus", texto: "A energia de autonomia total encontra a altivez e firmeza de propósitos." } ] },
-
-    // Naipes de Paus (Situações Atualizadas do Ás ao 9)
-    "Ás de Paus": { situacao: "Cenário de potência absoluta, inícios efetivos e materialização concreta. É um momento de superação incomparável, onde o indivíduo não sofre diante da adversidade, mas sim luta, baralha e invariavelmente vence, demonstrando resiliência. A situação encontra-se profundamente espiritualizada e equilibrada, mesclando a frieza de Ouros, a força de Espadas e a benevolência de Copas na medida exata. Há uma clara compreensão dos próprios limites e do real valor das coisas, garantindo que as reações — seja o luto ou a comemoração — sejam perfeitamente proporcionais aos eventos. É o estopim de uma evolução contínua, onde os inícios acontecem de fato e qualquer obstáculo no caminho tem a certeza de ser superado, garantindo harmonia e sucesso prático." },
-    "2 de Paus": { situacao: "Cenário de impasse, adiamento e paralisia temporária. A situação encontra-se empacada: o indivíduo não avança, não rompe, não vai embora e não progride, embora a opção de recuar sequer exista. Há uma forte hesitação, desinteresse e falta de entusiasmo, impulsionados pela dúvida se 'vale a pena' e pela preferência por manter o conforto do que já foi conquistado no Ás. Essa pausa forçada, muitas vezes desencadeada por imprevistos rápidos de terceiros ou acordos não cumpridos no tempo esperado, obriga o sujeito a reavaliar seus projetos e assumir uma postura de neutralidade evasiva ('isentão'). Apesar de trazer estresse e possíveis episódios de insônia, os obstáculos estão sob controle. O momento ensina que este atraso não é uma negação, mas um ajustamento ou 'livramento' orquestrado para ajeitar a vida e garantir que as coisas ocorram no tempo mais seguro e correto possível." },
-    "3 de Paus": { situacao: "Cenário de estruturação visionária e pragmática, onde a situação já está em andamento, mas o foco é colocar agora as bases sólidas daquilo que se deseja atingir no futuro. O estado atual é de dar o start empreendedor, virar a página com coragem e deixar o seguro para trás visando o segundo passo. A expansão acontece através da ampliação de horizontes, negociações habilidosas, comunicação fluida e intercâmbios produtivos, contando sempre com alianças e ajuda de terceiros para garantir que o projeto progrida com segurança a longo prazo." },
-    "4 de Paus": { situacao: "Cenário de profunda paz, alívio e tranquilidade, onde as dificuldades foram superadas com serenidade e os conflitos, solucionados de forma harmoniosa. A situação encontra-seestabilizada, permitindo colher as recompensas do esforço dentro de um ambiente familiar ou doméstico extremamente acolhedor. É um momento de celebrar as conquistas, compartilhar a felicidade com pessoas de forte reciprocidade e aproveitar essa pausa reconfortante para restaurar as energias, deixando a casa arrumada e estruturada para as próximas vivências." },
-    "5 de Paus": { situacao: "Cenário de atrito, competitividade e desgaste constante, impulsionado por pequenos aborrecimentos e exigências detalhistas. A situação encontra-se travada em discussões banais e debates improdutivos, onde há uma luta exaustiva para provar quem tem razão e garantir a última palavra. Embora os obstáculos sejam de pequeno porte e totalmente superáveis, o ambiente reflete desarmonia e grande dispersão de energia em trabalhos de formiguinha e conflitos de ego, exigindo paciência para lidar com as 'chatices' diárias sem se desviar do objetivo." },
-    "6 de Paus": { situacao: "Cenário de vitória, êxito e reconhecimento público, onde as provações foram superadas e o esforço é recompensado por puro mérito. A situação encontra-se em visível progresso, marcada por boas notícias, promoções, retornos de investimento e o cumprimento de promessas de ambos os lados. É um estado de forte otimismo e autoconfiança, onde os resultados saíram exatamente como planejado e a pessoa assume uma postura de liderança e carisma. Além de trazer um verdadeiro upgrade nas condições atuais, o momento carrega grande contentamento, podendo também gerar certa vanglória e exibicionismo ao se celebrar até mesmo as conquistas mais simples." },
-    "7 de Paus": { situacao: "Cenário de enorme esforço, foco e luta contínua, onde não basta ter alcançado o sucesso, é preciso defender o território ativamente para não perder o que foi conquistado. A situação encontra-se sob ataque de opositores fortes, movidos por inveja, ciúmes ou sabotagem em resposta à exposição do êxito da etapa anterior. Embora a pessoa se veja lutando sozinha contra múltiplos desafios, armadilhas e possíveis prejuízos passageiros, ela detém as armas e a capacidade para se defender. É um estado que exige perseverança inabalável e controle mental direcionado para proteger suas ideias, seu espaço e seu status, garantindo a superação definitiva das provas e uma vitória irreversível." },
-    "8 de Paus": { situacao: "Cenário de altíssima velocidade, finalização e movimento, onde aquilo que estava estagnado volta a andar e se resolve até mesmo antes do previsto. A situação encontra-se em um fluxo frenético de expansão, marcado por comunicações curtas, trocas de mensagens digitais e a chegada rápida de notícias inusitadas, porém positivas. Apesar da rapidez e das decisões impulsivas exigidas, os problemas são solucionados de forma incrivelmente suave, fácil e sem sofrimento. É um estado de caráter kármico e providencial, fortemente favorecido por contingências sociais e que promove curas, upgrades e o restabelecimento energético natural, exigindo apenas foco e controle mental para direcionar essa rápida enxurrada de realizações." },
-    "9 de Paus": { situacao: "Cenário de exaustão, recolhimento e atraso, marcado por um erro crônico fundamental: a tendência de punir o futuro pelos fracassos do passado. A situação encontra-se travada não apenas por burocracias ou crises passageiras, mas principalmente porque a pessoa age na defensiva, com 'um pé atrás'. É um estado de profunda opressão interna, onde antigas feridas e experiências dolorosas são revividas como paranoias em vez de aprendizado. Preso em seus próprios medos de errar e no receio de um novo cenário, o indivíduo retrai-se socialmente e torna-se seu próprio inimigo, atrasando realizações e gerando desgaste por obstáculos que, na realidade, são totalmente superáveis." },
-    
-    // Paus Restantes (Preservados)
-    "10 de Paus": { situacao: "Momento limite antes do encerramento de um ciclo exaustivo. Indica um fardo pesado que precisa ser carregado até a reta final para que haja a devida independência futura." },
-    "Pajem de Paus": { situacao: "Momento de dedicação honesta a um ideal recente. Uma fase de aspiração genuína, onde se demonstra a vontade pura de fazer algo novo dar certo." },
-    "Cavaleiro de Paus": { situacao: "Momento regido por um ímpeto sagaz e audacioso. Uma abordagem impulsiva, cheia de vontade de avançar, mas que pode pecar pela pressa." },
-    "Rainha de Paus": { situacao: "Momento de manter o foco através do carisma e da autoconfiança. A energia do sucesso é sustentada por uma liderança firme e acolhedora ao mesmo tempo." },
-    "Rei de Paus": { situacao: "Momento de exercer altivez e liderança realizadora. O cenário pede uma postura de executante soberano, comandando a situação com vitalidade e vigor." },
-
-    // Naipe de Copas (Preservados)
-    "Ás de Copas": { situacao: "Momento de empatia e renovação emocional. Representa o fluir de sentimentos profundos e a abertura sincera para que a felicidade emocional se instale." },
-    "2 de Copas": { situacao: "Momento focado em trocas recíprocas. Uma situação de aliança, encontro afetivo ou parceria que ressoa química, confiança mútua e harmonia." },
-    "3 de Copas": { situacao: "Momento festivo de alianças e romantismo. O ambiente é favorável a eventos, sociabilidade, ou um upgrade explícito na dinâmica afetiva." },
-    "4 de Copas": { situacao: "Momento de blindagem afetiva e introversão. A situação indica uma insatisfação silenciosa onde oportunidades emocionais são esnobadas pela estagnação." },
-    "5 de Copas": { situacao: "Momento de focar na metade vazia do copo. Situação de frustração ou remorso, onde a pessoa vivencia a amargura das expectativas que não foram atendidas." },
-    "6 de Copas": { situacao: "Momento dominado pela nostalgia ou por dinâmicas conservadoras. Repouso emocional nas coisas que já nos são familiares, seguras e com laços do passado." },
-    "7 de Copas": { situacao: "Momento dominado pelas miragens mentais. Confusão devido às muitas opções irreais; excesso de imaginação e vaidade que afastam da realização concreta." },
-    "8 de Copas": { situacao: "Momento de desilusão profunda que leva ao afastamento. Uma situação de fadiga afetiva onde se percebe que um escândalo ou perda requer abandonar o antigo barco." },
-    "9 de Copas": { situacao: "Momento recheado de conforto em que o ego fica plenamente satisfeito e a barriga farta. Desfrute honroso e apaziguador de uma conquista pessoal." },
-    "10 de Copas": { situacao: "Momento de imensa satisfação. O ambiente é de prosperidade emocional que traz um senso de família, alegria em comunidade e plenitude estruturada." },
-    "Pajem de Copas": { situacao: "Momento de sintonia sutil e inocente. Indica o nascimento de afeto ou uma inspiração que se aproxima trazendo concórdia e confiança no coração." },
-    "Cavaleiro de Copas": { situacao: "Momento de aproximação envolvente e paqueradora. Uma situação de sedução poética ou de propostas idealistas que buscam conquistar através da emoção." },
-    "Rainha de Copas": { situacao: "Momento focado no acolhimento e subserviência afetiva. Pode indicar uma pessoa ou energia dissimuladamente complacente, que prefere a omissão ao conflito." },
-    "Rei de Copas": { situacao: "Momento diplomático e compreensivo. Demonstra-se afeto através da atitude madura e gentil, evitando tempestades e promovendo o progresso da paz emocional." },
-
-    // Naipe de Espadas (Preservados)
-    "Ás de Espadas": { situacao: "Momento de lucidez e decisão irreversível. Representa a clareza cortante da mente pronta para iniciar uma ação sem rodeios ou ilusões." },
-    "2 de Espadas": { situacao: "Momento de oposição cega onde não há avanço. A paralisação mental gerada pela recusa em enxergar a verdade, gerando um bloqueio ou empate entre dois lados." },
-    "3 de Espadas": { situacao: "Momento de dor aguda por conta de um erro ou decepção. Indica a dura aceitação do desgaste em um acordo ou a falha iminente nas expectativas." },
-    "4 de Espadas": { situacao: "Momento de dar um passo para trás mentalmente. Representa uma inatividade estratégica, o popular 'deixar no vácuo' ou se isolar para restaurar a ordem interna." },
-    "5 de Espadas": { situacao: "Momento dominado pela hostilidade cruel. Um cenário bélico e adoecido onde vencer pelo corte da palavra machuca as duas partes gravemente, causando desperdício." },
-    "6 de Espadas": { situacao: "Momento de transição morosa e esgotamento. Representa o afastamento sutil de uma zona de perigo, navegando com desânimo para mares menos turbulentos." },
-    "7 de Espadas": { situacao: "Momento para a discrição máxima. Representa uma atuação sorrateira e estratégica, onde o indivíduo contorna os problemas e articula seus meios sem ser flagrado." },
-    "8 de Espadas": { situacao: "Momento de sentir-se preso por restrições ou cobranças severas. Apresenta um cenário que parece sem saída devido à autolimitação, culpa ou pressão sufocante." },
-    "9 de Espadas": { situacao: "Momento de ruminar dores e culpas crônicas. Cenário caracterizado pela angústia mental intensa que tira o sono, gerando um sofrimento pautado pelo pessimismo." },
-    "10 de Espadas": { situacao: "Momento do corte final. Representa a conclusão dolorosa, mais rápida e inevitável de um ciclo ruim; a limpeza final do terreno mental." },
-    "Pajem de Espadas": { situacao: "Momento focado em apurar a verdade de forma imatura ou curiosa. A mente ágil agindo de forma intrometida ou reativa para entender as fendas de uma situação." },
-    "Cavaleiro de Espadas": { situacao: "Momento de investida bélica e mental. Uma abordagem impulsiva onde a pessoa vai de encontro ao problema de peito aberto e com discurso rápido." },
-    "Rainha de Espadas": { situacao: "Momento em que cortes pontuais são necessários. Frieza cirúrgica em ação que descarta aquilo que não convém com clareza implacável e isolamento seletivo." },
-    "Rei de Espadas": { situacao: "Momento que requer comando lógico absoluto. O foco deve ser restaurar a dignidade por meio de racionalidade, regras e autoridade fria, longe do sentimentalismo." },
-
-    // Naipe de Ouros (Situações Atualizadas do Ás ao 10)
-    "Ás de Ouros": { situacao: "Cenário de potência máxima, inícios efetivos e realização puramente material e pragmática. É o momento em que a semente da prosperidade é plantada sem nenhum obstáculo concreto adiante, exigindo apenas ação e mérito para gerar resultados muito sólidos e duradouros. A situação é amparada por muita sorte, fecundidade e abundância, onde o livre arbítrio total permite ao indivíduo criar a própria felicidade e seu futuro. Seja no trabalho materializado, na saúde fortalecida ou em uma paixão repentina que se transforma em compromisso sólido, os esforços e a riqueza interior refletem-se perfeitamente no exterior de forma concreta, gerando um verdadeiro clímax de reconhecimento, prestígio e oportunidades imperdíveis." },
-    "2 de Ouros": { situacao: "Cenário de instabilidade material temporária, marcado por impasses, adiamentos kármicos e obstáculos concretos ou sociais que o consulente não causou e não possui meios de remover de imediato. A situação exige extrema flexibilidade, adaptação e 'jogo de cintura' para fazer malabarismos entre diversas demandas. Há uma clara mensagem de atraso: não é uma negação definitiva ao que se deseja, mas sim um 'hoje não dá'. Para suportar essas adversidades transponíveis, o indivíduo entra numa gangorra, adotando um escape de posicionamento (sem opiniões ou escolhas fixas) e mantendo um descomprometimento de humor para não se desgastar e se estressar à toa com aquilo que, temporariamente, independe da sua vontade." },
-    "3 de Ouros": { situacao: "Cenário de expansão, estruturação prática e progresso impulsionado pela colaboração essencial. A situação sai do impasse graças à intervenção construtiva de terceiros (especialistas, tutores, pessoas mais velhas ou experientes) ou ao surgimento de uma ocasião externa oportuna que conecta os interesses. É uma fase que exige esforço coordenado, trabalho minucioso e de longo prazo (trabalho de formiguinha) seguindo estritamente planejamentos, protocolos e planilhas. Representa as provas superadas, a conquista por mérito e as promoções que não desviam a rota da carreira, mas a impulsionam. Acima de tudo, o sucesso material e a abundância dependem da perícia adquirida e da maturidade e humildade de reconhecer que é preciso ser tutelado e aceitar ajuda para aprender fazendo." },
-    "4 de Ouros": { situacao: "Cenário de estagnação doentia, rigidez teimosa e absoluto controle. O indivíduo, movido pelo medo visceral de perder a colheita alcançada no passado, apega-se ferozmente a tudo o que possui (sejam bens materiais, posturas mentais ou relações), o que gera uma mesquinharia crônica. Essa avareza inibe qualquer chance de inovação, investimento ou risco, congelando o fluxo da vida. Nos relacionamentos, a dependência dessa falsa segurança e o pavor de abandono transmutam-se em dominação, ciúme hostil e abusos de poder. Por covardia e orgulho, o sujeito se isola e confina a si mesmo, acreditando que se protege do assédio externo. No entanto, sua imobilidade apenas garante o desbotamento, a miopia existencial e o apodrecimento silencioso de todo o seu potencial material e afetivo." },
-    "5 de Ouros": { situacao: "Cenário de crise abissal, empobrecimento geral e completa vulnerabilidade. Trata-se do desdobramento fatal da mesquinharia e estagnação da etapa anterior: pela falta de generosidade e ausência de fluidez orgânica, a estrutura apodrece e o indivíduo é arrastado para perdas severas — sejam falências, demissões, crises agudas de relacionamento ou até problemas de saúde e vitalidade consideráveis. A pessoa se encontra isolada, sentindo-se marginalizada, rejeitada e sem qualquer tipo de rede de apoio. É um terreno de miséria tanto financeira quanto afetiva, contaminado pelo pessimismo e pela ansiedade intensa pela sobrevivência diária. Em profundo esgotamento, descuido e falta de iniciativa, o indivíduo perdeu temporariamente a autonomia e a própria confiança." },
-    "6 de Ouros": { situacao: "Cenário de resgate kármico, caridade e equilíbrio pautado fortemente na dinâmica de dar e receber. O estado de falência e crise começa a ser resolvido exclusivamente através da bondade, sorte e ajuda material de terceiros (ofertas de emprego, empréstimos sem contrapartida, apoio médico, conselhos). Contudo, a situação não destrava facilmente porque o próprio consulente sabota a fluidez: por orgulho crônico, hesita em decidir, considerando a oportunidade ofertada uma humilhante 'esmola'. Ele assume uma atitude imobilizada, esperando que o outro faça tudo por ele — inclusive afetivamente. Exige-se do indivíduo a imediata superação dessa arrogância através do exercício da humildade plena. É um arcano profundamente didático: é necessário reaprender a receber graciosamente o amparo inusitado e generoso hoje, para curar as feridas antigas e ser capaz de partilhar a própria ajuda no amanhã." },
-    "7 de Ouros": { situacao: "Cenário de recompensas graduais, avaliação construtiva e necessidade irredutível de paciência. O indivíduo domina com estabilidade as estruturas à sua volta e, finalmente, começa a colher lucros tangíveis e progresso merecido de seus esforços — além de receber favores inesperados por sorte. No entanto, essa fase é pautada por uma 'insatisfação fominha': a pessoa analisa os bons resultados que obteve e, com maturidade analítica, constata que quer e pode obter muito mais, ambicionando de forma muito positiva alcançar o nível máximo de sucesso. Para que essa imensa realização aconteça, qualquer precipitação é fatal. O fluxo aqui aponta para um crescimento estrutural, denso e consideravelmente vagaroso; a colheita definitiva dependerá vitalmente da disciplina e da paciência para aguardar o momento exato do florescimento pleno, sem precipitar e minimizar os ganhos finais." },
-    "8 de Ouros": { situacao: "Cenário de lapidação meticulosa, renovação e forte refinamento das aptidões kármicas. É o momento de um importante recomeço, porém não se parte do zero; reinicia-se o ciclo carregando uma profunda e valiosa bagagem de experiência anterior que garante favorecimentos concretos (como ser realocado em uma nova área em que a técnica antiga auxilia perfeitamente, ou reatar um relacionamento afetivo sob novas premissas e sem ilusões, pois já conhecem as deficiências mútuas). A situação clama pelo aprimoramento contínuo, estudo intenso, prudência e trabalho focado. O indivíduo age de forma autodidata, dedicado apaixonadamente à tarefa diária e investindo unicamente no autoaperfeiçoamento solitário. Esse prazer metódico nas descobertas de si mesmo é justamente a chave lapidadora que o conduzirá infalivelmente a um patamar ainda mais sofisticado de segurança, destreza e sucesso futuro." },
-    "9 de Ouros": { situacao: "Cenário coroado por estabilidade suntuosa, prosperidade cristalizada e a exultante colheita dos méritos individuais. O indivíduo alcança uma fase de profunda satisfação em todos os setores essenciais da materialidade: finanças em alta, conforto familiar, saúde curada, luxo visível e distinção social inegável. Representa a merecida compensação pelo esforcço disciplinado das etapas anteriores, recuperando amplamente os prejuízos de antigamente e promovendo uma poderosa autoestima e autonomia pessoal. Tudo no entorno favorece as conquistas mais elevadas — excelentes ofertas, relacionamentos fartos e a consolidação prática de metas de longa duração. É, em sua essência, o grande momento para recolher os dividendos energéticos e materiais da vida e se permitir relaxar na plenitude da segurança total." },
-    "10 de Ouros": { situacao: "Cenário de apogeu prático, segurança invulnerável e perpetuação do sucesso patrimonial e familiar. O sucesso material, que no estágio anterior era saboreado de modo individual, expande-se aqui para alcançar seu grau máximo: torna-se um legado perene. Esta força abarca a rede familiar formal, oficializada em cartórios e testamentos, acolhendo tradições, heranças concretas (sejam elas imóveis valorosos ou até condicionamentos hereditários da ancestralidade). A fase atesta com precisão o fim das aflições financeiras ou de instabilidade. Profunda competência, boa administração rotineira e responsabilidade cimentam os alicerces indestrutíveis desta grande rede de convivência prazerosa e extremamente estável. Até mesmo o amor, neste estágio, é norteado pelo reconhecimento valioso que o conjunto de conquistas e os bons vínculos consolidados garantem à tranquilidade do futuro." },
-
-    // Ouros Restantes (Preservados)
-    "Pajem de Ouros": { situacao: "Momento de pragmatismo para aprender como o mundo funciona. Representa o estudo dedicado de uma meta realista, especulando o valor prático dos passos iniciais." },
-    "Cavaleiro de Ouros": { situacao: "Momento regido por paciência laboriosa. Um avanço seguro, de passos curtos e persistentes, focado no processo constante e na garantia de não retroceder." },
-    "Rainha de Ouros": { situacao: "Momento em que a ponderação material se torna a prioridade. Demonstra-se uma gestão firme e confortável para conservar o bem-estar e manter la ordem do lar/trabalho." },
-    "Rei de Ouros": { situacao: "Momento de sucesso administrativo em seu nível máximo. O ambiente requer a solidez e a estabilidade daquele que domina as finanças e assegura a prosperidade do ecossistema." }
-};
-
-
-
+    const extendedMeanings = {
+        "O Louco": { situacao: "Representa o início de uma jornada imprevista. Uma situação onde é necessário um salto de fé, rompendo com o conformismo para abraçar o desconhecido com total liberdade.", metodoEuropeu: [ { comb: "Três de Espadas", texto: "A energia de agir sem amarras encontra o desgosto das expectativas frustradas." }, { comb: "Ás de Ouros", texto: "A energia de desprendimento e novos começos encontra a semente de uma oportunidade real." } ] },
+        "O Mago": { situacao: "Representa a chegada de ferramentas e oportunidades. Uma situação que exige iniciativa, foco e lábia, onde você tem todo o potencial para materializar suas ideias e concretizar a intenção.", metodoEuropeu: [ { comb: "Oito de Espadas", texto: "A energia de esperteza e truques encontra o cerco e a cobrança severa." } ] },
+        "A Sacerdotisa": { situacao: "Representa um cenário de espera, reflexão e observação passiva. A situação pede intuição aguçada e manutenção de segredos ao invés de atitudes reveladas e precipitadas.", metodoEuropeu: [ { comb: "Seis de Copas", texto: "A energia de reserva e observação encontra a postura tradicional e conservadora." } ] },
+        "A Imperatriz": { situacao: "Representa o ápice da criatividade e do desenvolvimento. Uma situação fértil onde os projetos ganham corpo e nutrem os envolvidos de forma abundante e bela.", metodoEuropeu: [ { comb: "Cinco de Paus", texto: "A energia de criação e fertilidade encontra a agitação dos debates." }, { comb: "Oito de Ouros", texto: "A energia de criação e novos projetos encontra a execução técnica e minuciosa." }, { comb: "Rainha de Copas", texto: "A energia de iniciativa e fertilidade encontra a disposição para servir e acolher." }, { comb: "Dois de Paus", texto: "A energia de expansão e produção encontra a divisão entre caminhos." } ] },
+        "O Imperador": { situacao: "Representa a consolidação das bases. Uma situação que requer rigor, estruturação de regras, comando prático e a imposição de limites claros para manter a ordem.", metodoEuropeu: [ { comb: "Rei de Paus", texto: "A energia de autoridade e solidez encontra a postura de busca ativa e effort." }, { comb: "Seis de Paus", texto: "A energia de solidez e estabelecimento encontra o prestígio e aplauso social." }, { comb: "Dois de Espadas", texto: "A energia de imposição e autoridade encontra o bloqueio e o impasse dos pontos de vista." }, { comb: "Oito de Espadas", texto: "A energia de controle rígido encontra o aprisionamento e a toxicidade." } ] },
+        "O Hierofante": { situacao: "Representa o encontro com as normas e sistemas de crença. Uma situação de apadrinhamento, conselho formal ou a necessidade de seguir protocolos rigorosos de uma instituição." },
+        "Os Enamorados": { situacao: "Representa uma encruzilhada afetiva ou intelectual. Uma situação que demanda escolher um caminho ou buscar um alinhamento harmônico em meio a muitas possibilidades de atração.", metodoEuropeu: [ { comb: "Três de Paus", texto: "A energia de escolha e alinhamento encontra a visão de longo alcance." } ] },
+        "O Carro": { situacao: "Representa a superação através do foco. Uma situação de avanço rápido e impetuoso, onde a disciplina mental assegura a vitória sobre obstáculos no caminho.", metodoEuropeu: [ { comb: "Três de Espadas", texto: "A energia de avanço impetuoso encontra a frustração das expectativas quebradas." }, { comb: "Três de Ouros", texto: "A energia de progresso e direção encontra a cooperação e o aprendizado." } ] },
+        "A Força": { situacao: "Representa o apaziguamento dos instintos brutos. Uma situação que exige coragem silenciosa, persistência e magnetismo pessoal para domar adversidades com controle, sem explosões.", metodoEuropeu: [ { comb: "Rainha de Copas", texto: "A energia de domínio e superação encontra a postura acolhedora e dedicada." }, { comb: "Rainha de Paus", texto: "A energia de domínio dos instintos encontra a postura altiva e enérgica." } ] },
+        "O Eremita": { situacao: "Representa o tempo de reclusão. Uma situação que pede distanciamento do barulho externo, prudência e maturação vagarosa para encontrar as respostas dentro de si mesmo." },
+        "A Roda da Fortuna": { situacao: "Representa reviravoltas iminentes. Uma situação transitória e mutável, trazendo circunstâncias cíclicas ou retornos repentinos que fogem do nosso controle.", metodoEuropeu: [ { comb: "10 de Copas", texto: "A energia de movimento e transição encontra a plenitude afetiva." } ] },
+        "A Justiça": { situacao: "Representa o peso dos atos e o reajuste. Uma situação de avaliação rigorosa e kármica onde acordos são fechados ou cortados baseado inteiramente no que é correto e imparcial.", metodoEuropeu: [ { comb: "Rei de Espadas", texto: "A energia de ajuste e legalidade encontra o rigor racional e estratégico." }, { comb: "Três de Ouros", texto: "A energia de retidão e contratos encontra a cooperação e os trâmites formais." } ] },
+        "O Enforcado": { situacao: "Representa um bloqueio temporário necessário. Uma situação estagnada onde qualquer esforço de ação será inútil, exigindo mudança de perspectiva e sacrifício provisório.", metodoEuropeu: [ { comb: "Quatro de Espadas", texto: "A energia de paralisação e recuo encontra a postura de silêncio e vácuo." }, { comb: "Seis de Espadas", texto: "A energia de sacrifício e estagnação encontra a retirada estratégica." } ] },
+        "A Morte": { situacao: "Representa o encerramento absoluto. Uma situação de corte profundo e inevitável, limpando o terreno do que não serve mais para que uma verdadeira transformação possa ocorrer.", metodoEuropeu: [ { comb: "Rainha de Copas", texto: "A energia de corte e transformação radical encontra o recolhimento afetivo." } ] },
+        "A Temperança": { situacao: "Representa o ritmo fluído da cura. Uma situação que demanda extrema paciência, onde a rotina precisará ser harmonizada aos poucos até se atingir a alquimia perfeita.", metodoEuropeu: [ { comb: "Nove de Paus", texto: "A energia de moderação e tempo encontra a postura defensiva baseada na bagagem adquirida." } ] },
+        "O Diabo": { situacao: "Representa o magnetismo dos desejos profanos. Uma situação focada intensamente no mundo material, na ambição e no apego, onde as amarras dos instintos ditam as regras.", metodoEuropeu: [ { comb: "Três de Ouros", texto: "A energia de ambição e tentação encontra a interação com o meio e terceiros." }, { comb: "Dois de Paus", texto: "A energia de autopreservação e astúcia encontra a gestão de caminhos e opções." } ] },
+        "A Torre": { situacao: "Representa a queda das ilusões. Uma situação de abalo sísmico nas estruturas que antes pareciam seguras, trazendo rupturas bruscas mas que libertam o indivíduo da cegueira.", metodoEuropeu: [ { comb: "Três de Espadas", texto: "A energia de ruptura abrupta encontra a dor do erro e da frustração." }, { comb: "Pajem de Ouros", texto: "A energia aponta que tudo está ruindo, mas a pessoa insiste em gastar recursos." } ] },
+        "A Estrela": { situacao: "Representa o resgate da fé. Uma situação em que, após as tempestades, a renovação sutil, a esperança e o fluxo saudável retornam para abençoar o consulente.", metodoEuropeu: [ { comb: "Três de Copas", texto: "A energia de esperança e renovação encontra o clima de celebração e união." }, { comb: "Cinco de Paus", texto: "A energia de manter as esperanças encontra a agitação das pequenas disputas cotidianas." }, { comb: "Rei de Copas", texto: "A energia de esperança e cura encontra a generosidade e maturidade emocional." } ] },
+        "A Lua": { situacao: "Representa a incursão pelas sombras. Uma situação nebulosa, recheada de inconstâncias, fantasias ocultas, ansiedades ou ciúmes infundados que obscurecem a visão clara.", metodoEuropeu: [ { comb: "Três de Espadas", texto: "A energia de ilusões e fantasmas internos encontra a dor do rompimento e do erro." } ] },
+        "O Sol": { situacao: "Representa a plenitude e a vitória. Uma situação iluminada por excelente vitalidade e exposição, onde o brilho e o esclarecimento absoluto afastam qualquer obscuridade.", metodoEuropeu: [ { comb: "Cavaleiro de Paus", texto: "A energia de clareza e resultados evidentes encontra a velocidade e a surpresa." }, { comb: "Quatro de Copas", texto: "A energia de alta voltagem e exposição encontra o esgotamento e a recusa." } ] },
+        "O Julgamento": { situacao: "Representa a trombeta do despertar. Uma situação em que o passado vem à tona para ser avaliado, perdoado e transcendido, propiciando um renascimento completo das intenções.", metodoEuropeu: [ { comb: "Três de Paus", texto: "A energia de libertação e renascimento encontra a projeção de metas distantes." } ] },
+        "O Mundo": { situacao: "Representa a autonomia máxima. Uma situação de conclusão gloriosa, indicando a totalidade de um projeto e a constituição do consulente como um ecossistema seguro e inviolável.", metodoEuropeu: [ { comb: "Rei de Espadas", texto: "A energia de expansão e conclusão encontra a postura de controle e corte." }, { comb: "Rei de Paus", texto: "A energia de autonomia total encontra a altivez e firmeza de propósitos." } ] }
+    };
 
     function generateMinorsFromBase(b, prefix, suitLabel) {
         let cards = [];
         for (let i = 1; i <= 10; i++) {
             let numStr = String(i).padStart(2, '0');
-            let cardName = i === 1 ? `Ás de ${suitLabel}` : `${i} de ${suitLabel}`;
-            cards.push({ name: cardName, url: `${b}${prefix}${numStr}.jpg` });
+            cards.push({ name: i === 1 ? `Ás de ${suitLabel}` : `${i} de ${suitLabel}`, url: `${b}${prefix}${numStr}.jpg` });
         }
         const courtNames = ['Pajem','Cavaleiro','Rainha','Rei'];
         const courtSuffixes = ['C1P','C2K','C3Q','C4K'];
@@ -1532,6 +1669,8 @@ const extendedMeanings = {
         wands:     buildMinorsForDeck(currentDeckKey, 'W', 'Paus')
     };
 
+    document.getElementById('mainBoard').setAttribute('data-current-deck', currentDeckKey);
+
     function shuffle(array) {
         let a = [...array], ci = a.length, ri;
         while (ci !== 0) { ri = Math.floor(Math.random() * ci); ci--; [a[ci], a[ri]] = [a[ri], a[ci]]; }
@@ -1545,13 +1684,14 @@ const extendedMeanings = {
             card.classList.remove('board-face-down','empty-slot-clickable');
             card.removeAttribute('data-reveal-url');
             card.removeAttribute('data-card-name');
+            card.removeAttribute('data-meaning-index');
             card.innerHTML = '';
             if (card.classList.contains('linear-card')) {
                 let id = card.getAttribute('data-scr-slot') || card.getAttribute('data-csmd-slot')
                        || card.getAttribute('data-ta-slot') || card.getAttribute('data-dupla-slot')
                        || card.getAttribute('data-davi-slot') || card.getAttribute('data-opo-slot')
                        || card.getAttribute('data-oposcr-slot') || card.getAttribute('data-futebol-slot')
-                       || card.getAttribute('data-scr-tempo-slot');
+                       || card.getAttribute('data-scr-tempo-slot') || card.getAttribute('data-amantes-slot');
                 if (id) {
                     if (card.hasAttribute('data-davi-slot') || card.hasAttribute('data-futebol-slot')) {
                         let num = parseInt(id);
@@ -1560,6 +1700,9 @@ const extendedMeanings = {
                         card.textContent = id === "1" ? "1 Maior" : "2 Menor";
                     } else if (card.hasAttribute('data-opo-slot') || card.hasAttribute('data-oposcr-slot')) {
                         card.textContent = id.includes('me') ? "Menor" : "Maior";
+                    } else if (card.hasAttribute('data-amantes-slot')) {
+                        let num = id.replace(/\D/g, '');
+                        card.textContent = id.includes('me') ? num + " Menor" : num + " Maior";
                     } else {
                         card.textContent = id.includes('-') ? id.split('-')[1] : id;
                     }
@@ -1571,34 +1714,102 @@ const extendedMeanings = {
         });
     }
 
-    function injectInnerTag(slotElement, cardName) {
+    function injectInnerTag(slotElement, cardName, forceNext = false) {
         if (!cardName) return;
-        const existing = slotElement.querySelector('.card-inner-tag');
-        if (existing) existing.remove();
+        
         let cleanName = cardName.replace(/^\d+\s*[-–]\s*/, "").trim();
         let wordPool = ["Fluxo"];
-        if (externalMeanings && externalMeanings[cleanName] && externalMeanings[cleanName].verbos && externalMeanings[cleanName].verbos.length > 0) {
+        
+        // Puxa o tema selecionado no menu expansível para todos os jogos
+        let themeOverride = null;
+        const selectTheme = document.getElementById('themeSelect');
+        if (selectTheme && selectTheme.value) {
+            themeOverride = selectTheme.value;
+        }
+        
+        // 1. Prioriza o override selecionado pelo usuário no menu
+        if (themeOverride && externalTaMeanings && externalTaMeanings[cleanName] && externalTaMeanings[cleanName][themeOverride] && externalTaMeanings[cleanName][themeOverride].length > 0) {
+            wordPool = externalTaMeanings[cleanName][themeOverride];
+        } 
+        // 2. Fallback para as posições automáticas do Templo de Afrodite
+        else if (gameMode === 'ta' && slotElement.hasAttribute('data-ta-slot')) {
+            let taSlot = slotElement.getAttribute('data-ta-slot');
+            let slotNum = parseInt(taSlot);
+            let theme = 'MENTAL';
+            if ([1, 2, 7, 8].includes(slotNum)) theme = 'MENTAL';
+            else if ([3, 4, 9, 10].includes(slotNum)) theme = 'SENTIMENTAL';
+            else if ([5, 6, 11, 12].includes(slotNum)) theme = 'MATERIAL';
+            else if ([13, 14].includes(slotNum)) theme = 'FUTURO';
+            
+            if (externalTaMeanings && externalTaMeanings[cleanName] && externalTaMeanings[cleanName][theme] && externalTaMeanings[cleanName][theme].length > 0) {
+                wordPool = externalTaMeanings[cleanName][theme];
+            } else if (verbsMap[cleanName]) {
+                wordPool = verbsMap[cleanName];
+            }
+        } 
+        // 3. Fallback para os jogos de Futebol
+        else if (gameMode === 'futebol' || gameMode === 'futebolScr') {
+            if (futebolVerbsMap[cleanName]) {
+                wordPool = futebolVerbsMap[cleanName];
+            } else {
+                for (let key in futebolVerbsMap) {
+                    if (cleanName.toLowerCase() === key.toLowerCase() || cardName.toLowerCase().includes(key.toLowerCase())) {
+                        wordPool = futebolVerbsMap[key]; break;
+                    }
+                }
+            }
+        } 
+        // 4. Arquivos externos upados sem divisão de tags
+        else if (externalMeanings && externalMeanings[cleanName] && externalMeanings[cleanName].verbos && externalMeanings[cleanName].verbos.length > 0) {
             wordPool = externalMeanings[cleanName].verbos;
-        } else if (verbsMap[cleanName]) {
-            wordPool = verbsMap[cleanName];
-        } else {
-            for (let key in verbsMap) {
-                if (cleanName.toLowerCase() === key.toLowerCase() || cardName.toLowerCase().includes(key.toLowerCase())) {
-                    wordPool = verbsMap[key]; break;
+        } 
+        // 5. Fallback geral
+        else {
+            if (verbsMap[cleanName]) {
+                wordPool = verbsMap[cleanName];
+            } else {
+                for (let key in verbsMap) {
+                    if (cleanName.toLowerCase() === key.toLowerCase() || cardName.toLowerCase().includes(key.toLowerCase())) {
+                        wordPool = verbsMap[key]; break;
+                    }
                 }
             }
         }
-        let luckyWord = wordPool[Math.floor(Math.random() * wordPool.length)];
+
+        let currentIndex = parseInt(slotElement.getAttribute('data-meaning-index')) || 0;
+        
+        if (forceNext) {
+            currentIndex = Math.floor(Math.random() * wordPool.length);
+            slotElement.setAttribute('data-meaning-index', currentIndex);
+        } else if (!slotElement.hasAttribute('data-meaning-index')) {
+            currentIndex = Math.floor(Math.random() * wordPool.length);
+            slotElement.setAttribute('data-meaning-index', currentIndex);
+        }
+
+        let luckyWord = wordPool[currentIndex];
+        
+        const existing = slotElement.querySelector('.card-inner-tag');
+        if (existing) existing.remove();
+
         const tagDiv = document.createElement('div');
         tagDiv.className = 'card-inner-tag';
         tagDiv.textContent = luckyWord;
         slotElement.appendChild(tagDiv);
-        let cardWidth = slotElement.clientWidth;
-        let fontSize = cardWidth * 0.14;
-        if (luckyWord.length > 8) fontSize = cardWidth * 0.11;
-        if (luckyWord.length > 12) fontSize = cardWidth * 0.09;
-        tagDiv.style.fontSize = fontSize + 'px';
+        
+        let sizeU = "1.96";
+        if (luckyWord.length > 8) sizeU = "1.54";
+        if (luckyWord.length > 12) sizeU = "1.26";
+        tagDiv.style.fontSize = `calc(${sizeU} * var(--u))`;
     }
+
+    window.updateMeanings = function() {
+        document.querySelectorAll('.card[data-card-name]').forEach(card => {
+            if (!card.classList.contains('board-face-down') && card.style.backgroundImage) {
+                const cardName = card.getAttribute('data-card-name');
+                if (cardName) injectInnerTag(card, cardName, true);
+            }
+        });
+    };
 
     function pickCardForSlot(slotElement, cardData, keepHidden = false) {
         slotElement.setAttribute('data-card-name', cardData.name);
@@ -1623,23 +1834,34 @@ const extendedMeanings = {
         const allMinors = targets.minors.filter(Boolean);
         const majorsFilled = allMajors.every(s => s.getAttribute('data-card-name'));
         const minorsFilled = allMinors.every(s => s.getAttribute('data-card-name'));
+        
         if (majorsFilled && minorsFilled) { triggerFinalReveal(); return; }
+        
         if (oposicaoSequence.length === 0 && mainBoard.classList.contains('game-active')) {
             if (majorsFilled && activePhase === 'majors') {
-                gameStatus.textContent = "EMBARALHANDO ARCANOS MENORES...";
-                gameGrid.innerHTML = '<div class="shuffling-container"></div>';
-                const sc = gameGrid.querySelector('.shuffling-container');
-                for (let i = 0; i < 12; i++) {
-                    const c = document.createElement('div');
-                    c.className = 'back-card shuffling-card';
-                    c.style.animationDelay = `${i * 0.1}s`;
-                    sc.appendChild(c);
+                activePhase = 'transition';
+                if (gamePanel.style.display !== 'none') {
+                    gameStatus.textContent = "EMBARALHANDO ARCANOS MENORES...";
+                    gameGrid.innerHTML = '<div class="shuffling-container"></div>';
+                    const sc = gameGrid.querySelector('.shuffling-container');
+                    for (let i = 0; i < 12; i++) {
+                        const c = document.createElement('div');
+                        c.className = 'back-card shuffling-card';
+                        c.style.animationDelay = `${i * 0.1}s`;
+                        sc.appendChild(c);
+                    }
+                    setTimeout(setupMinorsGamePhase, 1500);
+                } else {
+                    setupMinorsGamePhase();
                 }
-                setTimeout(setupMinorsGamePhase, 1000);
             }
         } else if (oposicaoSequence.length > 0 && mainBoard.classList.contains('game-active')) {
             let stepFilled = phaseTargets.every(s => s.getAttribute('data-card-name'));
-            if (stepFilled) { sequenceIndex++; setTimeout(runNextSequenceStep, 400); }
+            if (stepFilled && activePhase !== 'transition') { 
+                activePhase = 'transition';
+                sequenceIndex++; 
+                setTimeout(runNextSequenceStep, 400); 
+            }
         }
     }
 
@@ -1669,9 +1891,12 @@ const extendedMeanings = {
         } else if (mode === 'oposicao') {
             majors = ['m1','m2'].map(s => document.querySelector(`[data-opo-slot="${s}"]`));
             minors = ['me1','me2'].map(s => document.querySelector(`[data-opo-slot="${s}"]`));
-        } else if (mode === 'oposicaoScr') {
+        } else if (mode === 'oposicaoScr' || mode === 'futebolScr') {
             majors = ['t-m1','t-m2','t-m3','b-m1','b-m2','b-m3'].map(s => document.querySelector(`[data-oposcr-slot="${s}"]`));
             minors = ['t-me1','t-me2','t-me3','b-me1','b-me2','b-me3'].map(s => document.querySelector(`[data-oposcr-slot="${s}"]`));
+        } else if (mode === 'amantes') {
+            majors = [1,2,3,4,5,6,7,8,9,10].map(i => document.querySelector(`[data-amantes-slot="m${i}"]`));
+            minors = [1,2,3,4,5,6,7,8,9,10].map(i => document.querySelector(`[data-amantes-slot="me${i}"]`));
         } else if (mode === 'mandalaInterativa' || mode === 'mandalaManual') {
             majors.push(document.querySelector('[data-slot-num="0-left"]'));
             minors.push(document.querySelector('[data-slot-num="0-right"]'));
@@ -1712,9 +1937,7 @@ const extendedMeanings = {
 
     function enableEmptySlotClicks() {
         document.querySelectorAll('.board:not(.home-active) .card').forEach(card => {
-            if (!card.getAttribute('data-card-name') && !card.style.backgroundImage) {
-                card.classList.add('empty-slot-clickable');
-            }
+            if (!card.getAttribute('data-card-name') && !card.style.backgroundImage) card.classList.add('empty-slot-clickable');
         });
     }
 
@@ -1736,6 +1959,8 @@ const extendedMeanings = {
             case 'ta':                initTaGame(); break;
             case 'davi':              initDaviGame(); break;
             case 'futebol':           initFutebolGame(); break;
+            case 'futebolScr':        initFutebolScrGame(); break;
+            case 'amantes':           initAmantesGame(); break;
         }
         enableEmptySlotClicks();
         resizeBoardToFit();
@@ -1753,32 +1978,24 @@ const extendedMeanings = {
         gamePanel.style.display = 'none'; btnVoltar.style.display = 'none';
         postGameControls.style.display = 'none'; resetAllSlots();
         document.getElementById('gameSelect').value = "";
+        
+        // Reseta o menu de temas de forma universal
+        const themeContainer = document.getElementById('themeContainer');
+        if (themeContainer) themeContainer.style.display = 'none';
+        const themeSelect = document.getElementById('themeSelect');
+        if (themeSelect) themeSelect.value = "";
+
         mainBoard.style.transform = '';
     }
 
-    function initInteractiveGame() {
-        gameMode = 'mandalaInterativa'; mainBoard.className = 'board mandala-active game-active';
-        resetAllSlots(); gamePanel.style.display = 'flex';
-        postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
-        setupMajorsGamePhase();
-    }
-    function initDuplaGame() {
-        gameMode = 'dupla'; mainBoard.className = 'board dupla-active game-active';
-        resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none';
-        btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase();
-    }
-    function initScrGame() {
-        gameMode = 'scr'; mainBoard.className = 'board scr-active game-active';
-        resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none';
-        btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase();
-    }
+    function initInteractiveGame() { gameMode = 'mandalaInterativa'; mainBoard.className = 'board mandala-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
+    function initDuplaGame() { gameMode = 'dupla'; mainBoard.className = 'board dupla-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
+
+
+    function initScrGame() { gameMode = 'scr'; mainBoard.className = 'board scr-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
     function initScrTempoGame() {
-        gameMode = 'scrTempo'; mainBoard.className = 'board scr-tempo-active game-active';
-        resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none';
-        btnVoltar.style.display = 'inline-flex';
-        const beforeDeck    = buildScrTempoDeck('Before');
-        const newVisionDeck = buildScrTempoDeck('NewVision');
-        const afterDeck     = buildScrTempoDeck('AfterTarot');
+        gameMode = 'scrTempo'; mainBoard.className = 'board scr-tempo-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
+        const beforeDeck = buildScrTempoDeck('Before'), newVisionDeck = buildScrTempoDeck('NewVision'), afterDeck = buildScrTempoDeck('AfterTarot');
         startSequence([
             { type: 'custom', msg: 'SITUAÇÃO — ESCOLHA O MAIOR (Before Tarot)', pool: shuffle(beforeDeck.majors), targets: [document.querySelector('[data-scr-tempo-slot="top-1"]')] },
             { action: 'shuffle', msg: 'EMBARALHANDO MENORES...' },
@@ -1793,30 +2010,14 @@ const extendedMeanings = {
             { type: 'custom', msg: 'RESULTADO — ESCOLHA O MENOR (After Tarot)', pool: shuffle(afterDeck.minors), targets: [document.querySelector('[data-scr-tempo-slot="bottom-3"]')] }
         ]);
     }
-    function initCsmdGame() {
-        gameMode = 'csmd'; mainBoard.className = 'board csmd-active game-active';
-        resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none';
-        btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase();
-    }
-    function initTaGame() {
-        gameMode = 'ta'; mainBoard.className = 'board ta-active game-active';
-        resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none';
-        btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase();
-    }
-    function initDaviGame() {
-        gameMode = 'davi'; mainBoard.className = 'board davi-active game-active';
-        resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none';
-        btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase();
-    }
-    function initFutebolGame() {
-        gameMode = 'futebol'; mainBoard.className = 'board futebol-active game-active';
-        resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none';
-        btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase();
-    }
+    function initCsmdGame() { gameMode = 'csmd'; mainBoard.className = 'board csmd-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
+    function initTaGame() { gameMode = 'ta'; mainBoard.className = 'board ta-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
+    function initDaviGame() { gameMode = 'davi'; mainBoard.className = 'board davi-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
+    function initFutebolGame() { gameMode = 'futebol'; mainBoard.className = 'board futebol-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
+    function initAmantesGame() { gameMode = 'amantes'; mainBoard.className = 'board amantes-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
+
     function initOposicaoGame() {
-        gameMode = 'oposicao'; mainBoard.className = 'board oposicao-active game-active';
-        resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none';
-        btnVoltar.style.display = 'inline-flex';
+        gameMode = 'oposicao'; mainBoard.className = 'board oposicao-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
         startSequence([
             { type: 'majors', msg: 'ESCOLHA O ARCANO MAIOR (OPÇÃO 1)', targets: [document.querySelector('[data-opo-slot="m1"]')] },
             { action: 'shuffle', msg: 'EMBARALHANDO PARA OS MENORES...' },
@@ -1827,10 +2028,22 @@ const extendedMeanings = {
             { type: 'minors', msg: 'ESCOLHA O ARCANO MENOR (OPÇÃO 2)', targets: [document.querySelector('[data-opo-slot="me2"]')] }
         ]);
     }
+    
     function initOposicaoScrGame() {
-        gameMode = 'oposicaoScr'; mainBoard.className = 'board oposicao-scr-active game-active';
-        resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none';
-        btnVoltar.style.display = 'inline-flex';
+        gameMode = 'oposicaoScr'; mainBoard.className = 'board oposicao-scr-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
+        startSequence([
+            { type: 'majors', msg: 'ESCOLHA OS MAIORES (OPÇÃO 1)', targets: ['t-m1','t-m2','t-m3'].map(s => document.querySelector(`[data-oposcr-slot="${s}"]`)) },
+            { action: 'shuffle', msg: 'EMBARALHANDO PARA OS MENORES...' },
+            { type: 'minors', msg: 'ESCOLHA OS MENORES (OPÇÃO 1)', targets: ['t-me1','t-me2','t-me3'].map(s => document.querySelector(`[data-oposcr-slot="${s}"]`)) },
+            { action: 'shuffle', msg: 'EMBARALHANDO PARA A OPÇÃO 2...' },
+            { type: 'majors', msg: 'ESCOLHA OS MAIORES (OPÇÃO 2)', targets: ['b-m1','b-m2','b-m3'].map(s => document.querySelector(`[data-oposcr-slot="${s}"]`)) },
+            { action: 'shuffle', msg: 'EMBARALHANDO PARA OS MENORES...' },
+            { type: 'minors', msg: 'ESCOLHA OS MENORES (OPÇÃO 2)', targets: ['b-me1','b-me2','b-me3'].map(s => document.querySelector(`[data-oposcr-slot="${s}"]`)) }
+        ]);
+    }
+
+    function initFutebolScrGame() {
+        gameMode = 'futebolScr'; mainBoard.className = 'board futebol-scr-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
         startSequence([
             { type: 'majors', msg: 'ESCOLHA OS MAIORES (OPÇÃO 1)', targets: ['t-m1','t-m2','t-m3'].map(s => document.querySelector(`[data-oposcr-slot="${s}"]`)) },
             { action: 'shuffle', msg: 'EMBARALHANDO PARA OS MENORES...' },
@@ -1879,18 +2092,14 @@ const extendedMeanings = {
                     pickCardForSlot(phaseTargets[targetIndex], cardData, true);
                     targetIndex++;
                 }
-                while (targetIndex < phaseTargets.length && phaseTargets[targetIndex].getAttribute('data-card-name')) { targetIndex++; }
-                if (targetIndex >= phaseTargets.length) { sequenceIndex++; setTimeout(runNextSequenceStep, 400); }
             };
             gameGrid.appendChild(backCard);
         });
     }
 
     function setupMajorsGamePhase() {
-        activePhase = 'majors'; targetIndex = 0;
-        gameStatus.textContent = "ESCOLHA OS ARCANOS MAIORES";
-        phaseTargets = getGameTargets(gameMode).majors;
-        gameGrid.innerHTML = '';
+        activePhase = 'majors'; targetIndex = 0; gameStatus.textContent = "ESCOLHA OS ARCANOS MAIORES";
+        phaseTargets = getGameTargets(gameMode).majors; gameGrid.innerHTML = '';
         shuffle([...deck.major]).forEach((cardData) => {
             const backCard = document.createElement('div');
             backCard.className = 'back-card';
@@ -1902,31 +2111,14 @@ const extendedMeanings = {
                     pickCardForSlot(phaseTargets[targetIndex], cardData, true);
                     targetIndex++;
                 }
-                while (targetIndex < phaseTargets.length && phaseTargets[targetIndex].getAttribute('data-card-name')) { targetIndex++; }
-                if (targetIndex >= phaseTargets.length) {
-                    setTimeout(() => {
-                        gameStatus.textContent = "EMBARALHANDO ARCANOS MENORES...";
-                        gameGrid.innerHTML = '<div class="shuffling-container"></div>';
-                        const sc = gameGrid.querySelector('.shuffling-container');
-                        for (let i = 0; i < 12; i++) {
-                            const c = document.createElement('div');
-                            c.className = 'back-card shuffling-card';
-                            c.style.animationDelay = `${i * 0.1}s`;
-                            sc.appendChild(c);
-                        }
-                        setTimeout(setupMinorsGamePhase, 2000);
-                    }, 400);
-                }
             };
             gameGrid.appendChild(backCard);
         });
     }
 
     function setupMinorsGamePhase() {
-        activePhase = 'minors'; targetIndex = 0;
-        gameStatus.textContent = "ESCOLHA OS ARCANOS MENORES";
-        phaseTargets = getGameTargets(gameMode).minors;
-        gameGrid.innerHTML = '';
+        activePhase = 'minors'; targetIndex = 0; gameStatus.textContent = "ESCOLHA OS ARCANOS MENORES";
+        phaseTargets = getGameTargets(gameMode).minors; gameGrid.innerHTML = '';
         shuffle([...deck.wands, ...deck.cups, ...deck.swords, ...deck.pentacles]).forEach((cardData) => {
             const backCard = document.createElement('div');
             backCard.className = 'back-card';
@@ -1938,8 +2130,6 @@ const extendedMeanings = {
                     pickCardForSlot(phaseTargets[targetIndex], cardData, true);
                     targetIndex++;
                 }
-                while (targetIndex < phaseTargets.length && phaseTargets[targetIndex].getAttribute('data-card-name')) { targetIndex++; }
-                if (targetIndex >= phaseTargets.length) { triggerFinalReveal(); }
             };
             gameGrid.appendChild(backCard);
         });
@@ -1949,6 +2139,13 @@ const extendedMeanings = {
         activePhase = 'complete';
         mainBoard.classList.remove('game-active');
         gamePanel.style.display = 'none';
+
+        // Mostra o seletor de temas para TODOS os jogos
+        const themeContainer = document.getElementById('themeContainer');
+        if (themeContainer) {
+            themeContainer.style.display = 'flex';
+        }
+
         document.querySelectorAll('.card[data-reveal-url]').forEach(card => {
             const finalUrl = card.getAttribute('data-reveal-url');
             const cardName = card.getAttribute('data-card-name');
@@ -1972,22 +2169,15 @@ const extendedMeanings = {
         else { document.body.classList.add('hide-meanings'); btn.textContent = 'Ligar Significados'; }
     }
 
-    // =====================================================================
-    // selectCard — CORRIGIDO
-    // =====================================================================
     function selectCard(cardElement) {
         const savedName  = cardElement.getAttribute('data-card-name');
         const hasImage   = cardElement.style.backgroundImage && cardElement.style.backgroundImage !== '';
         const isFaceDown = cardElement.classList.contains('board-face-down');
-
-        // Carta já revelada → abre modal de detalhe
         if ((savedName || hasImage) && !isFaceDown) {
             const imgUrl = cardElement.style.backgroundImage.replace(/url\(["']?|["']?\)/g, '');
-            openDetailModalDirect(savedName, imgUrl);
+            openDetailModalDirect(savedName, imgUrl, cardElement);
             return;
         }
-
-        // Slot vazio → abre modal de seleção
         if (!savedName && !hasImage) {
             currentSelectedCard = cardElement;
             openCardModalForSlot(cardElement);
@@ -2005,6 +2195,8 @@ const extendedMeanings = {
         } else if (cardElement.hasAttribute('data-opo-slot') || cardElement.hasAttribute('data-oposcr-slot')) {
             let id = cardElement.getAttribute('data-opo-slot') || cardElement.getAttribute('data-oposcr-slot');
             filterDeck(id.includes('me') ? 'minor' : 'major');
+        } else if (cardElement.hasAttribute('data-amantes-slot')) {
+            filterDeck(cardElement.getAttribute('data-amantes-slot').includes('me') ? 'minor' : 'major');
         } else if (cardElement.hasAttribute('data-scr-tempo-slot')) {
             filterDeck(cardElement.getAttribute('data-scr-tempo-slot').startsWith('top') ? 'major' : 'minor');
         } else if (cardElement.hasAttribute('data-scr-slot') || cardElement.hasAttribute('data-csmd-slot')) {
@@ -2015,10 +2207,7 @@ const extendedMeanings = {
         }
     }
 
-    function openEncyclopedia() {
-        encyclopediaModal.style.display = 'flex';
-        filterEncyclopedia('major', document.querySelector('.enc-tab'));
-    }
+    function openEncyclopedia() { encyclopediaModal.style.display = 'flex'; filterEncyclopedia('major', document.querySelector('.enc-tab')); }
     function closeEncyclopedia() { encyclopediaModal.style.display = 'none'; }
 
     function filterEncyclopedia(type, btnElement) {
@@ -2039,7 +2228,6 @@ const extendedMeanings = {
         renderEncyclopediaGrid(deck[suit]);
     }
 
-    // renderEncyclopediaGrid — CORRIGIDO (sem código solto)
     function renderEncyclopediaGrid(cardsArray) {
         encyclopediaGrid.innerHTML = '';
         cardsArray.forEach(card => {
@@ -2095,26 +2283,74 @@ const extendedMeanings = {
         detailModal.querySelector('.modal-content').scrollTop = 0;
     }
 
-    // openDetailModalDirect — CORRIGIDO (sem duplicatas)
-    function openDetailModalDirect(name, imgUrl) {
+    function openDetailModalDirect(name, imgUrl, slotElement = null) {
         document.getElementById('detailCardName').textContent = name || "Arcano Selecionado";
         document.getElementById('detailCardImg').src = imgUrl;
         switchMeaningTab('atributos');
 
         let cleanName = name ? name.replace(/^\d+\s*[-–]\s*/, "").trim() : "";
-
         let verbs = ["Alinhamento","Fluxo","Sintonia"];
-        if (externalMeanings && externalMeanings[cleanName] && externalMeanings[cleanName].verbos && externalMeanings[cleanName].verbos.length > 0) {
+        let themeLabel = "Palavras-Chave Gerais";
+        let showExtended = true; 
+        
+        let themeOverride = null;
+        const selectTheme = document.getElementById('themeSelect');
+        if (selectTheme && selectTheme.value) {
+            themeOverride = selectTheme.value;
+        }
+
+        // 1. Verifica Override Geral (inclusive Financeiro)
+        if (themeOverride && externalTaMeanings && externalTaMeanings[cleanName] && externalTaMeanings[cleanName][themeOverride] && externalTaMeanings[cleanName][themeOverride].length > 0) {
+            themeLabel = `Tema Selecionado: ${themeOverride}`;
+            verbs = externalTaMeanings[cleanName][themeOverride];
+            showExtended = false;
+        } 
+        // 2. Fallback posições Templo de Afrodite
+        else if (gameMode === 'ta' && slotElement && slotElement.hasAttribute('data-ta-slot')) {
+            let slotNum = parseInt(slotElement.getAttribute('data-ta-slot'));
+            let theme = 'MENTAL';
+            if ([1, 2, 7, 8].includes(slotNum)) theme = 'MENTAL';
+            else if ([3, 4, 9, 10].includes(slotNum)) theme = 'SENTIMENTAL';
+            else if ([5, 6, 11, 12].includes(slotNum)) theme = 'MATERIAL';
+            else if ([13, 14].includes(slotNum)) theme = 'FUTURO';
+
+            themeLabel = `Templo de Afrodite - ${theme}`;
+
+            if (externalTaMeanings && externalTaMeanings[cleanName] && externalTaMeanings[cleanName][theme] && externalTaMeanings[cleanName][theme].length > 0) {
+                verbs = externalTaMeanings[cleanName][theme];
+                showExtended = false; 
+            } else if (verbsMap[cleanName]) {
+                verbs = verbsMap[cleanName];
+            }
+        } 
+        // 3. Fallback Futebol
+        else if (gameMode === 'futebol' || gameMode === 'futebolScr') {
+            if (futebolVerbsMap[cleanName]) verbs = futebolVerbsMap[cleanName];
+            else {
+                for (let key in futebolVerbsMap) {
+                    if (cleanName.toLowerCase() === key.toLowerCase() || (name && name.toLowerCase().includes(key.toLowerCase()))) {
+                        verbs = futebolVerbsMap[key]; break;
+                    }
+                }
+            }
+        } 
+        // 4. Fallback Significado Base Externo
+        else if (externalMeanings && externalMeanings[cleanName] && externalMeanings[cleanName].verbos && externalMeanings[cleanName].verbos.length > 0) {
             verbs = externalMeanings[cleanName].verbos;
-        } else if (verbsMap[cleanName]) {
-            verbs = verbsMap[cleanName];
-        } else {
-            for (let key in verbsMap) {
-                if (cleanName.toLowerCase() === key.toLowerCase() || (name && name.toLowerCase().includes(key.toLowerCase()))) {
-                    verbs = verbsMap[key]; break;
+        } 
+        // 5. Fallback Original
+        else {
+            if (verbsMap[cleanName]) verbs = verbsMap[cleanName];
+            else {
+                for (let key in verbsMap) {
+                    if (cleanName.toLowerCase() === key.toLowerCase() || (name && name.toLowerCase().includes(key.toLowerCase()))) {
+                        verbs = verbsMap[key]; break;
+                    }
                 }
             }
         }
+
+        document.querySelector('.verb-box-title').textContent = themeLabel;
         document.getElementById('detailCardVerbs').textContent = verbs.join(', ');
 
         const extendedContainer = document.getElementById('detailExtendedText');
@@ -2124,10 +2360,16 @@ const extendedMeanings = {
         const atributosExt = extSrc && extSrc.atributos;
         const situacao     = builtIn && builtIn.situacao;
 
-        if (atributosExt) {
+        if ((gameMode === 'ta' && slotElement && slotElement.hasAttribute('data-ta-slot') && !showExtended) || (themeOverride && !showExtended)) {
+             extendedContainer.innerHTML = `
+                <div style="line-height:1.7; color:var(--text-main);">
+                    <strong style="color:var(--gold-main); font-size:12px;">Todos Significados desta Casa:</strong><br><br>
+                    • ${verbs.join('<br>• ')}
+                </div>`;
+        } else if (atributosExt) {
             extendedContainer.innerHTML = `<div style="line-height:1.7;color:#e0e0e0;">${atributosExt.replace(/\n/g,'<br>')}</div>`;
         } else if (situacao) {
-            extendedContainer.innerHTML = `<div><strong style="color:var(--gold-light);">Situação:</strong> ${situacao}</div>`;
+            extendedContainer.innerHTML = `<div><strong style="color:var(--gold-main);">Situação:</strong> <span style="color:var(--text-main);">${situacao}</span></div>`;
         } else {
             extendedContainer.innerHTML = `<div><span style="color:var(--text-muted);font-style:italic;">Use os fluxos de palavras para estruturar sua síntese de ${cleanName}.</span></div>`;
         }
@@ -2137,7 +2379,7 @@ const extendedMeanings = {
             europeuContainer.innerHTML = metEuropeu.map(item => `
                 <div class="europeu-item">
                     <div class="europeu-title">${cleanName} + ${item.comb}</div>
-                    <div>${item.texto}</div>
+                    <div style="color:var(--text-main);">${item.texto}</div>
                 </div>`).join('');
         } else {
             europeuContainer.innerHTML = `<div><span style="color:var(--text-muted);font-style:italic;">Ainda não há combinações cadastradas para este Arcano. Lembre-se: Arcano Maior = Verbo/Ação, Arcano Menor = Adjetivo/Meio.</span></div>`;
@@ -2147,15 +2389,6 @@ const extendedMeanings = {
     }
 
     function closeDetailModal() { detailModal.style.display = 'none'; }
-
-    window.updateMeanings = function() {
-        document.querySelectorAll('.card[data-card-name]').forEach(card => {
-            if (!card.classList.contains('board-face-down') && card.style.backgroundImage) {
-                const cardName = card.getAttribute('data-card-name');
-                if (cardName) injectInnerTag(card, cardName);
-            }
-        });
-    };
 
     window.onclick = function(e) {
         if (e.target === modal)             closeModal();
