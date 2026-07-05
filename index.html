@@ -528,6 +528,20 @@ margin-top: -70px;
     border-radius: 3px !important; 
 }
 
+/* Limpeza de margens manuais anteriores para não conflitar com a global */
+#duplaContainer, #csmdContainer, #daviContainer, #amantesContainer, .pair-container {
+    margin-top: 0 !important;
+}
+
+/* Regra Global Final */
+.board:not(.home-active) .linear-container,
+.board:not(.home-active) .pair-container,
+.board:not(.home-active) .side-pair-horizontal,
+.board:not(.home-active) .central-pair {
+    margin-top: -70px !important;
+}
+
+
 
 
 
