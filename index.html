@@ -240,9 +240,16 @@
         body.mystic-theme .post-game-controls { background: rgba(255,255,255,0.3); border: 1px solid rgba(255,255,255,0.4); }
         body.pastel-dark-theme .post-game-controls { background: rgba(44,41,51,0.5); border: 1px solid rgba(196,164,130,0.4); }
 
-        .post-game-controls .action-btn, .post-game-controls #themeContainer select {
-            flex: 1 1 45%; height: 20px; font-size: 8px; padding: 0 5px; margin: 0; min-width: 65px; letter-spacing: 1px;
+                .post-game-controls .action-btn {
+            flex: 0 1 30%; /* flex 0 impede que eles estiquem até a borda, reduzindo a largura */
+            height: 36px;  /* Aumenta a altura (antes era 20px) */
+            font-size: 9px; 
+            padding: 0 5px; 
+            margin: 0; 
+            min-width: 80px; 
+            letter-spacing: 1px;
         }
+
 
         #btnVoltar {
             position: absolute; top: 50%; left: 20px; transform: translateY(-50%);
@@ -408,7 +415,7 @@
         .board.scr-active #scrContainer { display: flex !important; margin-top: -70px; }
         
         /* CORREÇÃO DO ENERGIA DO DIA: MARGIN LEFT PARA 10% À DIREITA */
-        .board.csmd-active #csmdContainer { display: flex !important; margin-top: -50px; margin-left: 4vw; }
+        .board.csmd-active #csmdContainer { display: flex !important; margin-top: -5px; margin-left: 4vw; }
 
 .board.csmd-active #csmdContainer .card-inner-tag { font-size: calc(0.8 * var(--u)) !important; }
 
@@ -515,26 +522,24 @@ body.mystic-theme .bottom-links .action-btn { background: transparent; border: n
         <button id="btnVoltar" class="action-btn" style="display: none;" onclick="backToHomeMenu()">HOME</button>
     </header>
 
-    <div id="postGameControls" class="post-game-controls">
-        <button id="btnPlayAnother" class="action-btn" onclick="playAnotherGame()">Limpar Jogo</button>
-        <button id="btnToggleMeanings" class="action-btn" onclick="toggleMeanings()">Ocultar Significados</button>
-        
-        <div id="themeContainer" style="display: none; flex: 1 1 45%;">
-            <select id="themeSelect" class="action-btn" style="width: 100%; text-align: center; appearance: none; border-radius: 6px;" onchange="updateMeanings()">
-                <option value="">PADRÃO: GERAIS</option>
-                <optgroup label="AFRODITE">
-                    <option value="MENTAL">MENTAL</option>
-                    <option value="SENTIMENTAL">SENTIMENTAL</option>
-                    <option value="MATERIAL">MATERIAL</option>
-                    <option value="FUTURO">FUTURO</option>
-                </optgroup>
-                <optgroup label="FINANCEIRO">
-                    <option value="FINANCEIRO">FINANCEIRO</option>
-                </optgroup>
-            </select>
-        </div>
+        <div id="postGameControls" class="post-game-controls">
 
-        <button id="btnUpdateMeanings" class="action-btn primary-cta" onclick="updateMeanings()">Atualizar Significados</button>
+
+<button
+id="btnToggleMeanings"
+class="action-btn"
+onclick="toggleMeanings()">0cult
+ar Significados</button>
+
+<button id="btnUpdateMeanings" class="action-btn primary-cta" onclick="updateMeanings()">Atualizar Significados</button>
+
+<button
+id="btnPlayAnother" class="action-btn"
+onclick="playAnotherGame()">Limpar Jogo</button>
+        
+        
+
+        
     </div>
 
     <div class="board home-active" id="mainBoard">
