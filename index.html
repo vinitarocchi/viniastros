@@ -400,6 +400,7 @@
         .linear-col { display: flex; flex-direction: column; align-items: center; }
         .slot-label { font-family: 'Cinzel', serif; font-size: calc(2 * var(--u)); min-height: auto; text-transform: uppercase; letter-spacing: 2px; color: var(--gold-main); margin-bottom: calc(0.5 * var(--u)); font-weight: 600; text-align: center; opacity: 0.95; white-space: nowrap; }
 
+
         .slot-label .slot-sublabel { display: block; font-size: calc(1.5 * var(--u)); letter-spacing: 1px; opacity: 0.7; margin-top: 4px; font-family: 'Montserrat', sans-serif; font-weight: 500; text-transform: uppercase; }
         .linear-card { transform: none !important; }
         .minor-card-gap { margin-top: calc(1.5 * var(--u)); }
@@ -431,7 +432,8 @@
         
         /* JOGO DOS AMANTES */
         .board.amantes-active #amantesContainer { display: flex !important; justify-content: center; align-items: center; width: 100vw; height: 100vh; padding-top: 0px; margin-top: -65px; }
-        #amantesContainer .amantes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: calc(1.5 * var(--u)); max-width: 90vw; justify-items: center; }
+        #amantesContainer .amantes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: calc(1.5 * var(--u)); width: 100%; max-width: 90vw; justify-items: center; }
+
         #amantesContainer .card { --card-w: calc(4.5 * var(--u)); --card-h: calc(7.8 * var(--u)); font-size: calc(0.9 * var(--u)); }
         #amantesContainer .slot-label { font-size: calc(1 * var(--u)) !important; margin-bottom: calc(0.5 * var(--u)); letter-spacing: 1px; }
         #amantesContainer .temple-row-pair { gap: calc(0.5 * var(--u)); }
