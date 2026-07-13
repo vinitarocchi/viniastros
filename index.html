@@ -373,28 +373,20 @@
         #duplaContainer .card { --card-w: calc(18.2 * var(--u)); --card-h: calc(31.6 * var(--u)); font-size: calc(2.6 * var(--u)); }
         .dupla-active .back-card, #duplaContainer .back-card { width: calc(18.2 * var(--u)) !important; height: calc(31.6 * var(--u)) !important; }
         #scrTempoContainer .card { --card-w: calc(14 * var(--u)); --card-h: calc(24.3 * var(--u)); font-size: calc(2.4 * var(--u)); }
-        
-        #futebolContainer { --card-w: calc(9.3 * var(--u)); --card-h: calc(16.1 * var(--u)); }
-        #futebolContainer .card { font-size: calc(1.85 * var(--u)); }
-        #futebolContainer .linear-col { width: calc(2 * var(--card-w) + 1.5 * var(--u)); }
-        #futebolContainer .slot-label { font-size: calc(1.2 * var(--u)); letter-spacing: 1px; margin-bottom: calc(0.5 * var(--u)); }
-        #futebolContainer .slot-label .slot-sublabel { font-size: 8px; margin-top: 3px; }
-        #futebolContainer .temple-row-pair { gap: calc(0.5 * var(--u)); }
+        #cruzContainer .card { --card-w: calc(9 * var(--u)); --card-h: calc(15.6 * var(--u)); font-size: calc(1.8 * var(--u)); }
+
+        .cruz-grid { display: flex; flex-direction: column; align-items: center; gap: calc(4 * var(--u)); }
+        .cruz-middle-row { display: flex; flex-direction: row; align-items: center; gap: calc(10 * var(--u)); }
 
         /* Ajustes de Fonte para jogos com cartas menores */
         .board.amantes-active #amantesContainer .card-inner-tag { font-size: calc(0.55 * var(--u)) !important; }
-        .board.futebol-active #futebolContainer .card-inner-tag { font-size: calc(0.7 * var(--u)) !important; }
         .board.davi-active #daviContainer .card-inner-tag { font-size: calc(0.8 * var(--u)) !important; }
+        .board.cruz-active #cruzContainer .card-inner-tag { font-size: calc(0.75 * var(--u)) !important; }
         
-        .board.futebol-scr-active #oposicaoScrContainer .card-inner-tag,
         .board.oposicao-scr-active #oposicaoScrContainer .card-inner-tag { font-size: calc(0.63 * var(--u)) !important; }
-        .board.futebol-scr-active #oposicaoScrContainer .slot-label,
         .board.oposicao-scr-active #oposicaoScrContainer .slot-label { font-size: calc(0.45 * var(--u)) !important; }
-        .board.futebol-active #futebolContainer .slot-label { font-size: calc(1.2 * var(--u)) !important; }
 
-        .board.futebol-scr-active .game-grid .back-card,
         .board.oposicao-scr-active .game-grid .back-card { width: 22px !important; height: 39px !important; }
-        .board.futebol-active .game-grid .back-card { width: 22px !important; height: 39px !important; }
 
         .linear-row { display: flex; gap: calc(6 * var(--u)); }
         .linear-col { display: flex; flex-direction: column; align-items: center; }
@@ -407,8 +399,6 @@
         .temple-grid { display: flex; flex-direction: row; gap: calc(8 * var(--u)); align-items: center; justify-content: center; }
         .temple-col { display: flex; flex-direction: column; gap: calc(4 * var(--u)); }
         .temple-row-pair { display: flex; gap: calc(1.5 * var(--u)); }
-        .futebol-grid { display: flex; flex-direction: row; gap: calc(2 * var(--u)); align-items: center; justify-content: center; }
-        .futebol-col { display: flex; flex-direction: column; gap: calc(1.5 * var(--u)); align-items: center; }
         .scr-tempo-deck-badge { font-size: calc(1.5 * var(--u)); font-family: 'Montserrat', sans-serif; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: calc(1 * var(--u)); text-align: center; }
 
         .central-pair, .side-pair-horizontal, .pair-container, .linear-container, .home-container { display: none !important; }
@@ -426,9 +416,9 @@
         .board.davi-active #daviContainer { display: flex !important; margin-top: -70px; }
         .board.oposicao-active #oposicaoContainer { display: flex !important; margin-top: -70px; }
         .board.dupla-active #duplaContainer { display: flex !important; margin-top: -70px; }
-        .board.oposicao-scr-active #oposicaoScrContainer, .board.futebol-scr-active #oposicaoScrContainer { display: flex !important; margin-top: -70px; }
-        .board.futebol-active #futebolContainer { display: flex !important; margin-top: -70px; }
+        .board.oposicao-scr-active #oposicaoScrContainer { display: flex !important; margin-top: -70px; }
         .board.scr-tempo-active #scrTempoContainer { display: flex !important; margin-top: -70px; }
+        .board.cruz-active #cruzContainer { display: flex !important; margin-top: -70px; }
         
         /* JOGO DOS AMANTES */
         .board.amantes-active #amantesContainer { display: flex !important; justify-content: center; align-items: center; width: 100vw; height: 100vh; padding-top: 0px; margin-top: -65px; }
@@ -502,8 +492,7 @@
         ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.6); }
         body.light-theme ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); }
 
-        .board.futebol-scr-active #oposicaoScrContainer .card { --card-w: calc(4 * var(--u)); --card-h: calc(6.9 * var(--u)); font-size: calc(0.7 * var(--u)); border-radius: 3px !important; }
-        .board.futebol-scr-active #oposicaoScrContainer .card, .board.oposicao-scr-active #oposicaoScrContainer .card { --card-w: calc(4 * var(--u)); --card-h: calc(6.9 * var(--u)); font-size: calc(0.7 * var(--u)); border-radius: 3px !important; }
+        .board.oposicao-scr-active #oposicaoScrContainer .card { --card-w: calc(4 * var(--u)); --card-h: calc(6.9 * var(--u)); font-size: calc(0.7 * var(--u)); border-radius: 3px !important; }
 
 
 body .board .card-inner-tag { 
@@ -511,6 +500,15 @@ body .board .card-inner-tag {
 }
 
 body.mystic-theme .bottom-links .action-btn { background: transparent; border: none; }
+
+/* Tamanho das cartas da Cruz Simples APENAS quando reveladas */
+#cruzContainer .card[data-card-name] {
+    --card-w: calc(5.3 * var(--u)); 
+    --card-h: calc(9.1 * var(--u));
+}
+
+
+
 
 
 
@@ -603,10 +601,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
                             <option value="ta">Templo de Afrodite</option>
                             <option value="amantes">Jogo dos Amantes</option>
                             <option value="davi">Estrela de Davi</option>
-                        </optgroup>
-                        <optgroup label="Futebol">
-                            <option value="futebol">Futebol</option>
-                            <option value="futebolScr">Futebol SCR</option>
+                            <option value="cruz">Cruz Simples</option>
                         </optgroup>
                     </select>
                     <button class="action-btn primary-cta" onclick="startSelectedGame()">Continuar</button>
@@ -988,68 +983,36 @@ onclick="playAnotherGame()">Limpar Jogo</button>
             </div>
         </div>
 
-        <div id="futebolContainer" class="linear-container">
-            <div class="futebol-grid">
-                <div class="futebol-col">
+        <div id="cruzContainer" class="linear-container">
+            <div class="cruz-grid">
+                <div class="linear-col">
+                    <span class="slot-label">Casa 3</span>
+                    <div class="temple-row-pair">
+                        <div class="card linear-card" data-cruz-slot="3-maior" onclick="selectCard(this)">Maior</div>
+                        <div class="card linear-card" data-cruz-slot="3-menor" onclick="selectCard(this)">Menor</div>
+                    </div>
+                </div>
+                <div class="cruz-middle-row">
                     <div class="linear-col">
-                        <span class="slot-label">1: Força do Time</span>
+                        <span class="slot-label">Casa 1</span>
                         <div class="temple-row-pair">
-                            <div class="card linear-card" data-futebol-slot="1" onclick="selectCard(this)">1 Maior</div>
-                            <div class="card linear-card" data-futebol-slot="9" onclick="selectCard(this)">9 Menor</div>
+                            <div class="card linear-card" data-cruz-slot="1-maior" onclick="selectCard(this)">Maior</div>
+                            <div class="card linear-card" data-cruz-slot="1-menor" onclick="selectCard(this)">Menor</div>
                         </div>
                     </div>
                     <div class="linear-col">
-                        <span class="slot-label">2: Ataque do Time</span>
+                        <span class="slot-label">Casa 2</span>
                         <div class="temple-row-pair">
-                            <div class="card linear-card" data-futebol-slot="2" onclick="selectCard(this)">2 Maior</div>
-                            <div class="card linear-card" data-futebol-slot="10" onclick="selectCard(this)">10 Menor</div>
-                        </div>
-                    </div>
-                    <div class="linear-col">
-                        <span class="slot-label">3: Defesa do Time</span>
-                        <div class="temple-row-pair">
-                            <div class="card linear-card" data-futebol-slot="3" onclick="selectCard(this)">3 Maior</div>
-                            <div class="card linear-card" data-futebol-slot="11" onclick="selectCard(this)">11 Menor</div>
+                            <div class="card linear-card" data-cruz-slot="2-maior" onclick="selectCard(this)">Maior</div>
+                            <div class="card linear-card" data-cruz-slot="2-menor" onclick="selectCard(this)">Menor</div>
                         </div>
                     </div>
                 </div>
-                <div class="futebol-col">
-                    <div class="linear-col">
-                        <span class="slot-label">7: Adversário</span>
-                        <div class="temple-row-pair">
-                            <div class="card linear-card" data-futebol-slot="7" onclick="selectCard(this)">7 Maior</div>
-                            <div class="card linear-card" data-futebol-slot="15" onclick="selectCard(this)">15 Menor</div>
-                        </div>
-                    </div>
-                    <div class="linear-col">
-                        <span class="slot-label">8: Resultado</span>
-                        <div class="temple-row-pair">
-                            <div class="card linear-card" data-futebol-slot="8" onclick="selectCard(this)">8 Maior</div>
-                            <div class="card linear-card" data-futebol-slot="16" onclick="selectCard(this)">16 Menor</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="futebol-col">
-                    <div class="linear-col">
-                        <span class="slot-label">4: Fluxo na Partida</span>
-                        <div class="temple-row-pair">
-                            <div class="card linear-card" data-futebol-slot="4" onclick="selectCard(this)">4 Maior</div>
-                            <div class="card linear-card" data-futebol-slot="12" onclick="selectCard(this)">12 Menor</div>
-                        </div>
-                    </div>
-                    <div class="linear-col">
-                        <span class="slot-label">5: Sorte do Time</span>
-                        <div class="temple-row-pair">
-                            <div class="card linear-card" data-futebol-slot="5" onclick="selectCard(this)">5 Maior</div>
-                            <div class="card linear-card" data-futebol-slot="13" onclick="selectCard(this)">13 Menor</div>
-                        </div>
-                    </div>
-                    <div class="linear-col">
-                        <span class="slot-label">6: Está Próximo a Vencer?</span>
-                        <div class="temple-row-pair">
-                            <div class="card linear-card" data-futebol-slot="6" onclick="selectCard(this)">6 Maior</div>
-                            <div class="card linear-card" data-futebol-slot="14" onclick="selectCard(this)">14 Menor</div>
-                        </div>
+                <div class="linear-col">
+                    <span class="slot-label">Casa 4</span>
+                    <div class="temple-row-pair">
+                        <div class="card linear-card" data-cruz-slot="4-maior" onclick="selectCard(this)">Maior</div>
+                        <div class="card linear-card" data-cruz-slot="4-menor" onclick="selectCard(this)">Menor</div>
                     </div>
                 </div>
             </div>
@@ -1437,173 +1400,250 @@ onclick="playAnotherGame()">Limpar Jogo</button>
     ];
 
     const verbsMap = {
-    "O Louco": ["liberdade","aventura","impulsividade","desapego","risco","espontaneidade","potencial"],
-    "O Mago": ["iniciativa","habilidade","comunicação","criação","foco","capacidade","action"],
-    "A Sacerdotisa": [
-        "não toma atitude", "medo de errar", "muda e calada", "não se posiciona", "inércia e desvalor",
-        "precisa ajuda técnica", "dor na alma", "conservacionismo de consumo", "não é notada",
-        "engole muito sapo", "aceita o oferecido", "medo do fracasso", "anulação da libido",
-        "autoridade espiritual", "dom da mágica", "pouquíssimos amigos", "silêncio como autoproteção",
-        "inércia", "desvalor", "anulação", "dor", "mágoa", "passividade", "silêncio", "reserva", "paciência",
-        "autoridade espiritual", "mágica", "inconsciente", "resistência", "vítima", "refém", "capacho", "intuição"
-    ],
-    "A Imperatriz": ["fertilidade","abundância","crescimento","beleza","nutrição","expressão","realização"],
-    "O Imperador": ["estrutura","autoridade","estabilidade","controle","poder","ordem","segurança"],
-    "O Hierofante": ["tradição","ensinamento","crença","conselho","dogma","espiritualidade","instituição"],
-    "Os Enamorados": ["escolha","relacionamento","desejo","dúvida","conexão","união","atração"],
-    "O Carro": ["vitória","direcionamento","movimento","controle","determinação","foco","triunfo"],
-    "A Força": ["coragem","domínio","paixão","resistência","vitalidade","compaixão","autocontrole"],
-    "O Eremita": ["introspecção","busca","sabedoria","solidão","prudência","isolamento","experiência"],
-    "A Roda da Fortuna": ["mudança","ciclo","destino","movimento","instabilidade","oportunidade","revezamento"],
-    "A Justiça": ["equilíbrio","consequência","verdade","decisão","imparcialidade","ordem","rigor"],
-    "O Enforcado": ["sacrifício","estagnação","renúncia","perspectiva","suspensão","bloqueio","espera"],
-    "A Morte": ["transformação","fim","renovação","corte","transição","desapego","limpeza"],
-    "A Temperança": ["harmonia","paciência","moderação","equilíbrio","adaptação","cura","conciliation"],
-    "O Diabo": ["materialismo","tentação","apego","desejo","ilusão","vício","sombra"],
-    "A Torre": ["destruição","revelação","crise","colapso","libertação","choque","ruptura"],
-    "A Estrela": ["esperança","inspiração","fé","proteção","renovação","otimismo","serenidade"],
-    "A Lua": ["ilusão","medo","inconsciente","confusão","intuição","ansiedade","fantasia"],
-    "O Sol": ["sucesso","alegria","vitalidade","clareza","brilho","realização","verdade"],
-    "O Julgamento": ["renascimento","chamado","avaliação","despertar","absolvição","revelação","conclusão"],
-    "O Mundo": ["plenitude","conclusão","realização","integração","sucesso","totalidade","recompensa"],
-    "Ás de Paus": [ "força vital máxima", "sorte por mérito", "potência pura dinâmica", "grandes oportunidades práticas", "resultados ampliados drasticamente", "fertilidade explosiva total", "criatividade brilhante ativa", "autoconfiança e coragem", "renascimento e passagens", "mudanças radicais vida", "explosão força física", "domínio do poder", "vigor sexual ativo", "excelente saúde física", "manejo do fogo", "sucesso novos negócios", "expansão da consciência" ],
-    "2 de Paus": [ "projeto empacado", "impasse sem avanço", "paralisia por imprevistos", "hesitação e dúvida", "obstáculos superáveis", "adiamento passageiro", "fatos inesperados", "surpresas que adiam", "acordo não cumprido", "vontade de inércia", "postura de isentão", "busca por neutralidade", "estresse causador insônia", "situações de repouso", "função de ajustamento", "atrasos passageiros", "falta de entusiasmo" ],
-    "3 de Paus": [ "conquista espaço novo", "ampliação de horizontes", "mente aberta visionária", "virada de página", "projeção longo prazo", "bases do futuro", "negociações bem-sucedidas", "acordos e parcerias", "comunicação fluida aberta", "progresso e expansão", "intercâmbios e permutas", "viagens e trânsito", "start empreendedor", "resiliência e tolerância", "melhora na saúde", "superação e perdão", "foco no futuro" ],
-    "4 de Paus": [ "celebração e comemoração", "confraternização social", "etapa concluída", "férias e viagens", "felicidade e reciprocidade", "ritos de passagem", "ambiente doméstico acolhedor", "compartilhar felicidade", "recompensa por esforços", "harmonia e concórdia", "conciliação e pacto", "solução de conflitos", "alívio e excitação", "restauração de forças", "liberdade e receptividade", "paz e tranquilidade", "estabilização da conquista" ],
-    "5 de Paus": [ "chatice e aborrecimento", "irritações insignificantes", "tensões cotidianas", "obstáculos pequeno porte", "desgastes e lutas", "discussões banais", "discussão de relação", "competitividade acirrada", "trabalho exaustivo", "ambiente competitivo", "picuinhas e detalhes", "debates desgastantes", "desarmonia e ansiedade", "intolerância em equipe", "perda de energia", "disputa pela razão", "pequenos contratempos diários" ],
-    "6 de Paus": [ "reconhecimento público", "frutos da vitória", "elogios e honra", "recompensas merecidas", "resolução de conflitos", "otimismo contagiante", "autoapreciação e orgulho", "certeza de ter razão", "confiança e autoestima", "concretização de objetivos", "promoção por mérito", "bônus e aumentos", "evolução e contentamento", "boas notícias recebidas", "êxito e progresso", "subir no pódio", "upgrade social merecido" ],
-    "7 de Paus": [ "esforço extremo", "defesa da posição", "foco inabalável", "combate contra oponentes", "resistência à inveja", "enfrentando boicotes", "sustentando o status", "superação de provas", "perseverança na adversidade", "blindagem contra exposição", "capacidade de luta", "vitória sob pressão", "enfrentar concorrência", "coragem defensiva", "manter terreno firme", "posição de vantagem", "resistir a ataques" ],
-    "8 de Paus": [ "finalização rápida", "movimento veloz", "transformação em curso", "comunicação frenética", "notícias inesperadas", "soluções fáceis", "decisões impulsivas", "restabelecimento rápido", "desfecho kármico", "negociações imediatas", "viagens rápidas", "acontecimentos acelerados", "caminhos abertos", "flechas do destino", "dinamismo total", "resolução instantânea", "fluxo livre" ],
-    "9 de Paus": [ "agindo na defensiva", "medos e paranoias", "atrasos temporários", "profunda exaustão", "revivendo velhas feridas", "timidez social", "bloqueio de recomeço", "opressão e obrigação", "resiliência final", "crises superáveis", "última resistência", "desconfiança do entorno", "limite das forças", "resguardar conquistas", "preparação para ataque", "cautela excessiva", "vencer pelo cansaço" ],
-    "10 de Paus": [ "fardo pesado", "sobrecarga excessiva", "responsabilidade extrema", "cansaço esmagador", "pressão insuportável", "esforço final", "peso do sucesso", "excesso de obrigações", "esgotamento físico", "centralização de tarefas", "carregar tudo sozinho", "reta final exaustiva", "oprimido por deveres", "necessidade de delegar", "limite do estresse", "metas sacrificantes", "jornada árdua" ],
-    "Pajem de Paus": [ "entusiasmo jovem", "curiosidade ativa", "mensagem impulsiva", "desejo de aventura", "energy iniciante", "ousadia juvenil", "ímpeto criativo", "boas novas apaixonantes", "exploração de ideias", "vontade de aprender", "impulso inicial", "comunicação rápida", "espírito livre", "novos começos", "faísca criativa", "mensageiro do fogo", "otimismo juvenil" ],
-    "Cavaleiro de Paus": [ "action impetuosa", "movimento acelerado", "paixão explosiva", "busca por aventura", "energia inconstante", "foco disperso", "avanço rápido", "partida repentina", "coragem audaciosa", "liderança dinâmica", "entusiasmo contagiante", "impulsividade cega", "mudança de cenário", "temperamento ardente", "conquista veloz", "fuga da rotina", "força motriz" ],
-    "Rainha de Paus": [ "confiança magnética", "alegria contagiante", "foco determinado", "independência forte", "carisma natural", "liderança acolhedora", "energia vibrante", "magnetismo pessoal", "fertilidade e calor", "paixão pela vida", "generosidade sincera", "coragem feminina", "presença marcante", "criatividade prática", "domínio social", "entusiasmo protetor", "independência financeira" ],
-    "Rei de Paus": [ "autoridade inspiradora", "visão empreendedora", "liderança natural", "poder consolidado", "atitude diretiva", "domínio energético", "força de vontade", "foco no objetivo", "carisma dominador", "coragem de comandar", "mentor experiente", "execução magistral", "visão de futuro", "honestidade brutal", "pioneirismo ativo", "estabilidade pelo fogo", "realização audaz" ],
-    "Ás de Copas": [ "Início emocional transbordante", "Sim absoluto categórico", "Sorte e êxtase", "Euforia e fertilidade", "Amor profundo genuíno", "Harmonia interna externa", "Reatividade emocional positiva", "Reconciliação e perdão", "Generosidade e otimismo", "Amparo social externo", "Cura interna profunda", "Receptividade a novidades", "Projetos materializados felizes", "Empatia e altruísmo", "Inspiração artística rica", "Novos elos afetivos", "Fertilidade orgânica mental" ],
-    "2 de Copas": [ "Resultados iniciais satisfatórios", "Momento para negociar", "Comunicação fluida afável", "Acordos harmoniosos mútuos", "Resoluções de acordo", "Reciprocidade afetiva sincera", "Associações comerciais cooperativas", "Comprometimento emocional sólido", "Autoconfiança em recepção", "Suporte em equipe", "Flertes e vínculos", "Ofertas e presentes", "Conciliação pacífica conflitos", "Cumprimento promessas seguras", "Excelente saúde equilíbrio", "Química", "Igualdade de sentimentos" ],
-    "3 de Copas": [ "Sorte e júbilo", "Ambientes livres receptivos", "Celebrações e festas", "Fim de conflitos", "Fartura alegrias genuínas", "Festa de conquistas", "Nascimento gravidez celebrada", "Êxtase em negociações", "Triunfo cura definitiva", "Ápice da fertilidade", "União cooperação festiva", "Terceira pessoa relação", "Simpatia profissional facilitada", "Festa da colheita", "Satisfação emocional renovada", "Descontração e lazer", "Conexões sociais valiosas" ],
-    "4 de Copas": [ "Adiamento temporário freio", "Pausa para reflexão", "Tédio apatia crônica", "Rejeição teimosa oportunidades", "Inveja redes sociais", "Aborrecimento esgotamento estímulos", "Sedação sensorial bloqueio", "Desencanto com tudo", "Desligamento social voluntário", "Ambientes viciados densos", "Vazio espiritual ranço", "Tédio relacionamento quebrado", "Decepção com ídolo", "Culpa parceiro ilusão", "Insatisfação crônica reclamação", "Postura rabugenta insustentável", "Sabotagem ideal impossível" ],
-    "5 de Copas": [ "Vitimismo paralisante trauma", "Fracasso por teimosia", "Ruína de expectativas", "Falta de equilíbrio", "Arrependimento perda valiosa", "Remorso amargura destrutiva", "Melancolia desilusão afetiva", "Isolamento após perdas", "Relacionamentos desgastados platônicos", "Exposição sofrimento consolo", "Foco perdas cegas", "Necessidade ressignificar atitudes", "Luto notícias ruins", "Potencial parar chorar", "Somatização crises emocionais", "Bloqueio foco defeitos", "Terapias cura desilusão" ],
-    "6 de Copas": [ "Profunda saudade passado", "Retorno ex parceiros", "Desejo idealizado passado", "Escapismo melancolia ontem", "Lamentações nostálgicas antigas", "Recusa ao novo", "Postura conservadora tradicional", "Intolerância ao inédito", "Paralisado apego antigo", "Heranças valores familiares", "Proteção força ancestral", "Conforto solidariedade genuína", "Sentimentos puros tradicionais", "Romantismo conservador tímido", "Cura recolhimento luto", "Regras tradicionais vovó", "Obediência hierarquias antigas" ],
-    "7 de Copas": [ "Deslumbramento estéril passado", "Carteirada social vaidade", "Euforia cega ilusão", "Propenso a trair", "Promessas não cumpridas", "Auto mentiras ilusões", "Filtro utópico irreal", "Soberba arrogância infantil", "Fuga por substâncias", "Anestesia sensorial compulsão", "Negacionismo ilusão ser", "Obsessão narcisista frívola", "Escapismo espiritual obrigações", "Perda noção perigos", "Otimismo exagerado cego", "Negócios enganosos miragens", "Objetivos inteiramente ilusórios" ],
-    "8 de Copas": [ "Abandono Involuntároo", "Rompimento desleixo obrigações", "Negligência vida finanças", "Abandono tratamento saúde", "Fracasso apostado erro", "Desmascarado , traiu", "Retirada forçada desistência", "Perdas materiais desolação", "Vitimismo farsa revelada", "Rumo ao desconhecido", "Remorso depressão severa", "Intervenção psiquiátrica urgente", "Arrependimento real mudança", "Divórcio mentiras insustentáveis", "Demissão por negligência", "Responsabilidade dor escolhas", "Confrontado com realidade" ],
-    "9 de Copas": [ "Felicidade satisfação plena", "Reconhecimento mérito carreira", "Expansão material plenitude", "Socialização banquetes festas", "Bom humor harmonia", "Lealdade promessas cumpridas", "Generosidade compartilhada altruísta", "Dignidade assumir erros", "Sonho real realizável", "Comemorações intensas bebedeira", "Conciliação pacífica paz", "Acordos comerciais sólidos", "Casamento próspero fartura", "Encontros comilanças familiares", "Postura rigorosa desculpas", "Franqueza exposição real", "Estabilidade prazer viver" ],
-    "10 de Copas": [ "Intensidade distorções ilusórias", "Conto fadas irreal", "Euforia falsa perfeição", "Família irmãos alma", "Vínculos profundos plenitude", "Momentos genuínos afeto", "Uniões harmoniosas honestas", "Saciedade satisfação transbordante", "Apogeu festas familiares", "Sinceridade sob ilusões", "Paz puramente ilusória", "Mascarar dor carência", "Projeção fantasiosa exagerada", "Fantasia afetiva vazia", "Otimismo cego irreal", "Clímax união comunitária", "Expectativas projeções utópicas" ],
-    "Pajem de Copas": ["inocência emocional","mensagem carinhosa","surpresa agradável","sintonia suave","afeto nascente","imaginação fértil","sensibilidade aflorada"],
-    "Cavaleiro de Copas": ["romantismo ativo","convite amoroso","busca idealista","charme sedutor","aproximação poética","proposta afetiva","sonho em movimento"],
-    "Rainha de Copas": ["acolhimento materno","empatia profunda","intuição guiada","suporte emocional","sensibilidade madura","amor compassivo","cura afetiva"],
-    "Rei de Copas": ["controle emocional","maturidade afetiva","calma diplomática","conselho sábio","equilíbrio interno","acolhimento seguro","generosidade serena"],
-    "Ás de Espadas": [ "Ideia fixa inicial", "Explosão de potência", "Capacidade de realização", "Lucidez mental cirúrgica", "Decisão rápida cortante", "Sentimentos intensos oscilantes", "Coragem e autoconfiança", "Esperteza intelectual articulada", "Fertilidade mental latente", "Clareza mental expansiva", "Certeza interna absoluta", "Potência sexual rígida", "Conflitos mentais paralisantes", "Acidentes e cortes", "Catalisador de impactos", "Amplificador de destruição", "Foco em meta" ],
-    "2 de Espadas": [ "Cabo de guerra", "Orgulho rígido defensivo", "ADVERSIDADES", "Oposição simétrica equivalente", "Cegueira deliberada extrema", "Recusa da realidade", "Rupturas por divergências", "Incapacidade de ceder", "Recusa ao diálogo", "Oportunidades perdidas", "Desejo de razão", "Bloqueio à reconciliação", "Foco no conflito", "Dor futura previsível", "Crises de ansiedade", "Obstáculo por vaidade", "Busca por validação" ],
-    "3 de Espadas": [ "Profunda tristeza avassaladora", "Decepção por mentira", "Coração machucado consentido", "Negligência com realidade", "Sofrimento por negação", "Traição extremamente dolorosa", "Falsa promessa frustrante", "Abandono e solidão", "Erros de julgamento", "Confusão mental generalizada", "Ruptura definitiva radical", "Incompatibilidade de temperamentos", "Mágoas e ressentimentos", "Perdas por brigas", "Ferimento físico real", "Dores físicas intensas", "Teimosia no fracasso" ],
-    "4 de Espadas": [ "Paralisia kármica indefinida", "Esgotamento mental completo", "Repouso hospitalar obrigatório", "Pausa para cura", "Reclusão e isolamento", "Solidão e abandonment", "Pausas involuntárias divinas", "Refúgio do caos", "Suporte médico especializado", "Adiamento longo desestimulante", "Estagnação prática total", "Recolhimento em guarda", "Esvaziamento mental completo", "Suspensão providencial necessária", "Reabastecimento de energias", "Imobilidade física temporária", "Travamento longo prazo" ],
-    "5 de Espadas": [ "Humilhação extrema aceita", "Guerra inútil radical", "Erros repetidos obsessivos", "Desejo de vingança", "Atitudes indignas públicas", "Vitória amarga inglória", "Fuga de responsabilidades", "Armadilhas sociais manipuladas", "Vantagens por chantagem", "Conquistas fraudulentas falsas", "Incapacidade intelectual aparente", "Derrota moral autoinfligida", "Discussões violentas indignas", "Vitimismo choroso constante", "Ganância e guerra", "Ferimentos corporais graves", "Riscos à integridade" ],
-    "6 de Espadas": [ "Fuga cenário hostil", "Busca águas calmas", "Retirada estratégica melancólica", "Problema sem resolução", "Medo do desconhecido", "Ansiedade e inconformismo", "Perda de fé", "Abandono de si", "Mudança profissional drástica", "Desleixo profissional crônico", "Viagem escapista lazer", "Abandono tratamento médico", "Riscos à saúde", "Alerta saúde mental", "Vulnerabilidade espiritual severa", "Tratamento espiritual urgente", "Fuga da realidade" ],
-    "7 de Espadas": [ "Estratégia e astúcia", "Peso de humilhações", "Saídas inteligentes focadas", "Fugas e deboche", "Fofoca e maledicência", "Traquejo social malandro", "Atalhos por trapaça", "Mentira e dissimulação", "Ações na calada", "Falta de transparência", "Ocultação de pensamentos", "Avanço pelas beiradas", "Caminho perigoso ambíguo", "Jogo de cintura", "Vulnerabilidade a infecções", "Dores crônicas", "Trações ocultas fraudes" ],
-    "8 de Espadas": [ "Ciclo kármico perigoso", "Dor e humilhação", "Destruição da dignidade", "Exposição pública vexatória", "Atos malfeitos descobertos", "Desmascarado publicamente", "Condenações por trapaça", "Prejuízos financeiros irreparáveis", "Prestação de contas", "Recusa de autocrítica", "Sem arrependimento real", "Postura irresponsável crônica", "Más notícias desesperadoras", "Prisão ou confinamento", "Estagnação absoluta encurralada", "Fraqueza física extrema", "Restrições severas paralisantes" ],
-    "9 de Espadas": [ "Desespero kármico agudo", "Negação dos fatos", "Pânico após desmascaramento", "Desejo inútil recuperação", "Persistência no fracasso", "Pensamentos fatalistas obsessivos", "Gasto mental insuportável", "Depressão profunda psiquiátrica", "Sofrimento psíquico severo", "Perda de dignidade", "Desgraça e desalento", "Isolamento e autopunição", "Opressão mental esmagadora", "Arrependimento tardio egoísta", "Degradação moral física", "Esgotamento crônico voluntário", "Insônia e paranoias" ],
-    "10 de Espadas": [ "Ruptura radical dolorosa", "Finalização cortante anuladora", "Desfechos com prejuízo", "Ruptura intencional necessária", "Resolução drástica exaustiva", "Sacrifício de convicções", "Cicatrizes psicológicas eternas", "Eliminação de amarras", "Aceleração com impacto", "Abandono de ilusões", "Sacrifícios materiais extremos", "Rompimento por esgotamento", "Revisão de convicções", "Internações médicas urgentes", "Dores físicas agudas", "Corte definitivo profundo", "Decisões que enterram" ],
-    "Pajem de Espadas": ["curiosidade intelectual","vigilância atenta","mensagem cortante","mente ágil","postura defensiva","observação crítica","fofoca rápida"],
-    "Cavaleiro de Espadas": ["ação precipitada","ataque direto","fúria verbal","mente impaciente","investida fria","movimento brusco","argumentação agressiva"],
-    "Rainha de Espadas": ["clareza implacável","julgamento frio","independência mental","corte cirúrgico","verdade dura","visão objetiva","razão absoluta"],
-    "Rei de Espadas": ["autoridade intelectual","lógica rigorosa","estratégia fria","comando racional","justiça severa","mente estruturada","decisão imparcial"],
-    "Ás de Ouros": [ "potência e começo", "materialização concreta", "sorte e realização", "reconhecimento e prestígio", "visibilidade e brilho", "amparado pelo divino", "ampliação de resultados", "infinitas possibilidades", "ausência de obstáculos", "resultados sólidos duradouros", "inteligência prática", "abundância e fertilidade", "relacionamentos sólidos", "livre arbítrio total", "recompensa por esforços", "herança e presentes", "prosperidade e conquista" ],
-    "2 de Ouros": [ "adversidades e flexibilidade", "jogo de cintura", "adiamento e demora", "arcano kármico", "impasse temporário", "impedimentos concretos", "obstáculos fora alcance", "administrar a circunstância", "malabarismos materiais", "múltiplos projetos simultâneos", "mobilidade e mudança", "efeito gangorra", "adaptação necessária", "descomprometimento de humor", "dificuldades transponíveis", "esquiva de posicionamento", "administrar demandas diversas" ],
-    "3 de Ouros": [ "avanço com ajuda", "orientação e tutoria", "cooperação e contribuição", "ajuda técnica especializada", "trabalho em equipe", "recebe ajuda experiente", "crescimento e progresso", "habilidade e perícia", "associação e parceria", "sociedade comercial", "planejamento e planilhas", "cumprimento de protocolos", "competência e qualificação", "provas e testes", "aprendizado supervisionado", "trabalho de formiguinha", "maturidade para ajuda" ],
-    "4 de Ouros": [ "mesquinharia e avareza", "conservação material excessiva", "energia estagnada", "medo de perder", "egoísmo e desconfiança", "apego ao lucro", "incapacidade assumir riscos", "petrifica o que tem", "teimosia e rigidez", "ideias fixas arcaicas", "padrões comportamentais rígidos", "ciúmes e posse", "confinamento e reclusão", "autoproteção defensiva", "acumular e controlar", "imobilidade e mofo", "paranoia por segurança" ],
-    "5 de Ouros": [ "pobreza e escassez", "afastamento e isolamento", "grandes prejuízos materiais", "perda de status", "precariedade da fé", "falta de recursos", "dificuldades reais graves", "rejeição e desaprovação", "carência afetiva total", "miséria e pessimismo", "ansiedade e angústia", "autocomiseração e desesperança", "crise de relacionamento", "risco de falência", "esgotamento e cansaço", "negligência e desleixo", "falta de sorte" ],
-    "6 de Ouros": [ "doação e generosidade", "carente / necessitado", "retorno kármico justo", "atraso por orgulho", "aceitar ajuda externa", "recebimento de oportunidades", "ganhos materiais providenciais", "passividade e espera", "prejuízo solucionado", "apoio de especialistas", "esmola de atenção", "tutor e mecenas", "tratamento e medicamentos", "resgate e amparo", "superação pela humildade", "recompensas inusitadas", "aprendizado do doar" ],
-    "7 de Ouros": [ "colheita de lucros", "progresso e avanço", "insatisfação ambiciosa positiva", "recebimento de bens", "heranças e prêmios", "oportunidades e presentes", "parcerias e sociedades", "recebe afeto", "prosperidade longo prazo", "meritocracia recompensada", "análise e avaliação", "florescimento seguro", "paciência e disciplina", "crescimento lento sólido", "maturidade e equilíbrio", "boas notícias financeiras", "independência conquistada" ],
-    "8 de Ouros": [ "recomeço e renascimento", "colheita justa kármica", "novidades construtivas", "melhora de vida", "recomeçar com experiência", "novos aprendizados práticos", "renascimento afetivo", "perito e refinamento", "aprimoramento perfeccionista", "habilidade de lapidador", "novo ciclo consciente", "aprendizagem autodidata", "trabalho solitário focado", "sucesso e rotina", "descoberta de potenciais", "investimento em si", "prosperidade e segurança" ],
-    "9 de Ouros": [ "fertilidade e satisfação", "esforço recompensado", "distinção social merecida", "sensação dever cumprido", "felicidade e bem-estar", "sucesso longo prazo", "estabilidade e segurança", "luxo e requinte", "descansos e férias", "colheita de frutos", "excelentes oportunidades", "bom negócio emprego", "produtividade e concretização", "realização durável", "autoconfiança e independência", "recuperação de prejuízos", "plenitude e gravidez" ],
-    "10 de Ouros": [ "realização longo prazo", "sucesso concreto", "família legalizada cartório", "felicidade e glória", "fim dos problemas", "perpetuação sucesso material", "legado e heranças", "bens materiais consolidados", "tradição e costumes", "ancestralidade e hereditariedade", "imóveis e patrimônio", "rede relacionamentos estável", "vínculos valiosos férteis", "boa administração recursos", "responsabilidade e competência", "segurança e esforços", "convivência prazerosa valorizada" ],
-    "Pajem de Ouros": [ "estudo prático focado", "foco no real", "esforço diligente", "mente pragmática", "oportunidade útil", "aprendizado lento", "aplicação metódica", "dedicação ao trabalho", "novas propostas financeiras", "vontade de crescer", "disciplina inicial", "gerenciamento básico", "estudante concentrado", "humildade para aprender", "pequenos ganhos iniciais", "atenção aos detalhes", "firmeza de propósitos" ],
-    "Cavaleiro de Ouros": [ "avanço lento seguro", "persistência sólida", "trabalho duro contínuo", "rotina segura eficiente", "progresso metódico", "responsabilidade assumida", "ação conservadora", "paciência inabalável", "lealdade comprovada", "firmeza absoluta", "construção passo passo", "confiabilidade prática", "resistência física", "foco na execução", "determinação realista", "colheita garantida tempo", "cautela nos investimentos" ],
-    "Rainha de Ouros": [ "nutrição prática", "conforto providenciado", "gestão eficiente", "segurança maternal", "sensatez material", "acolhimento luxuoso", "abundância terrena", "generosidade realista", "organização do lar", "estabilidade de vida", "amor prático protetor", "prosperidade doméstica", "fertilidade concreta", "saúde do corpo", "bom gosto natural", "apego seguro", "maturidade financeira" ],
-    "Rei de Ouros": [ "poder financeiro consolidado", "domínio material absoluto", "sucesso consolidado", "autoridade prática", "riqueza estruturada", "império construído", "gestão magistral", "estabilidade inabalável", "segurança patrimonial", "realismo pragmático", "provedor confiável", "fidelidade aos valores", "conquistas duradouras", "maturidade e solidez", "liderança de negócios", "firmeza e determinação", "recompensa de carreira" ]
-    };
-
-    const futebolVerbsMap = {
-        "O Louco": ["gol de surpresa", "virada inesperada", "imprevisível", "erro bizarro", "caos tático"],
-        "O Mago": ["criação genial", "domínio absoluto", "passe para gol", "controle do jogo", "vitória técnica"],
-        "A Sacerdotisa": ["zero a zero", "jogo travado", "poucas chances", "foco defensivo", "placar magro"],
-        "A Imperatriz": ["chuva de gols", "ataque letal", "vitória farta", "futebol arte", "domínio ofensivo"],
-        "O Imperador": ["vitória por 1x0", "defesa intransponível", "controle total", "nenhum gol sofrido", "vitória segura"],
-        "O Hierofante": ["resultado previsível", "jogo morno", "empate tático", "obediência", "sem surpresas"],
-        "Os Enamorados": ["empate com gols", "jogo lá e cá", "chances desperdiçadas", "indecisão no ataque", "falta de foco"],
-        "O Carro": ["vitória rápida", "contra-ataque letal", "gols no início", "avanço imparável", "triunfo direto"],
-        "A Força": ["vitória suada", "gol no final", "superação física", "ganhar na raça", "virada heroica"],
-        "O Eremita": ["placar zerado", "retranca total", "poucos chutes", "jogo lento", "esfriar a partida"],
-        "A Roda da Fortuna": ["virada de placar", "gol de sorte", "jogo instável", "mudança de ritmo", "resultado loteria"],
-        "A Justiça": ["gol de pênalti", "empate justo", "cartão vermelho", "decisão do VAR", "resultado merecido"],
-        "O Enforcado": ["derrota iminente", "time paralisado", "desfalque fatal", "sacrifício inútil", "zero gols"],
-        "A Morte": ["goleada sofrida", "eliminação", "apagão do time", "reviravolta fatal", "fim de ciclo"],
-        "A Temperança": ["empate morno", "toque de lado", "ritmo constante", "sem agressividade", "resultado mantido"],
-        "O Diabo": ["jogo sujo", "pênalti roubado", "vitória a qualquer custo", "gols de falta", "clima tenso"],
-        "A Torre": ["derrota esmagadora", "expulsão dupla", "frango do goleiro", "desastre total", "goleada histórica"],
-        "A Estrela": ["golaço", "vitória brilhante", "esperança renovada", "sorte a favor", "classificação"],
-        "A Lua": ["gol anulado", "erro bizarro", "medo de atacar", "time perdido", "resultado enganoso"],
-        "O Sol": ["vitória consagradora", "chuva de gols", "artilharia", "domínio total", "glória"],
-        "O Julgamento": ["gol no acréscimo", "decisão nos pênaltis", "salvo pelo gongo", "reviravolta final", "acordar pro jogo"],
-        "O Mundo": ["título garantido", "vitória perfeita", "goleada impecável", "festa da torcida", "resultado máximo"],
-        "Ás de Paus": ["chute pro gol", "explosão ofensiva", "pressão total", "bola na trave", "ataque letal"],
-        "2 de Paus": ["ataque ineficiente", "jogo de meio-campo", "pausa no ritmo", "estudo tático", "empate provisório"],
-        "3 de Paus": ["bola nas costas", "lançamento perfeito", "domínio territorial", "chances claras", "avanço"],
-        "4 de Paus": ["gol em casa", "comemoração", "vitória parcial", "festa da torcida", "harmonia em campo"],
-        "5 de Paus": ["jogo truncado", "muita falta", "bate-rebate", "dificuldade de criar", "disputa acirrada"],
-        "6 de Paus": ["gol de craque", "vitória encaminhada", "aplausos", "vantagem no placar", "bom momento"],
-        "7 de Paus": ["defesa bombardeada", "segurar a vantagem", "sufoco", "resistência", "um a menos"],
-        "8 de Paus": ["gol relâmpago", "contra-ataque rápido", "ritmo frenético", "muitas finalizações", "velocidade"],
-        "9 de Paus": ["cansaço extremo", "defesa no limite", "medo do empate", "retranca final", "segurar resultado"],
-        "10 de Paus": ["derrota física", "peso do placar", "time entregue", "pressão insuportável", "gols no final"],
-        "Pajem de Paus": ["impulso jovem", "ataque surpresa", "fôlego extra", "ousadia", "jogada rápida"],
-        "Cavaleiro de Paus": ["pressão absurda", "ataque fulminante", "ritmo acelerado", "arrancada para gol", "agressividade"],
-        "Rainha de Paus": ["confiança no ataque", "pressão constante", "presença de área", "motivação alta", "imposição"],
-        "Rei de Paus": ["controle ofensivo", "domínio do jogo", "autoridade em campo", "ataque organizado", "vitória construída"],
-        "Ás de Copas": ["alegria da torcida", "gol comemorado", "sintonia perfeita", "empolgação", "jogo fluído"],
-        "2 de Copas": ["tabelinha de gol", "entrosamento máximo", "jogo amigável", "empate pacífico", "acordo em campo"],
-        "3 de Copas": ["festa garantida", "chuva de gols", "vitória coletiva", "comemoração", "torcida feliz"],
-        "4 de Copas": ["desânimo", "falta de vontade", "jogo chato", "zero a zero", "apatia total"],
-        "5 de Copas": ["gol sofrido", "decepção", "falha individual", "cabeça baixa", "frustração"],
-        "6 de Copas": ["gol de ídolo", "jogo morno", "conforto de casa", "ritmo antigo", "vitória nostálgica"],
-        "7 de Copas": ["chances perdidas", "ilusão no placar", "futebol firula", "desperdício", "salto alto"],
-        "8 de Copas": ["abandono de jogo", "desistência", "time entregue", "derrota aceita", "desfalque sentido"],
-        "9 de Copas": ["vantagem confortável", "jogo resolvido", "alívio no placar", "soberba", "resultado favorável"],
-        "10 de Copas": ["goleada feliz", "sagração", "paz na torcida", "time perfeito", "sucesso total"],
-        "Pajem de Copas": ["jogada bonita", "futebol arte", "leveza em campo", "sem pressão", "boa intuição"],
-        "Cavaleiro de Copas": ["gol de placa", "toque de bola", "ritmo envolvente", "futebol vistoso", "charme tático"],
-        "Rainha de Copas": ["calma no placar", "apoio da torcida", "jogo seguro", "foco no passe", "estabilidade emocional"],
-        "Rei de Copas": ["controle dos nervos", "maturidade tática", "vantagem administrada", "frieza", "vitória tranquila"],
-        "Ás de Espadas": ["gol de falta", "chute indefensável", "corte cirúrgico", "foco no ataque", "decisão rápida"],
-        "2 de Espadas": ["empate sem gols", "jogo cego", "medo de atacar", "retranca mútua", "bloqueio tático"],
-        "3 de Espadas": ["gol contra", "lesão grave", "derrota dolorosa", "frango", "sofrimento da torcida"],
-        "4 de Espadas": ["jogo esfriou", "maca em campo", "pausa tática", "descanso no placar", "cera"],
-        "5 de Espadas": ["humilhação", "goleada sofrida", "briga em campo", "derrota vexatória", "desespero"],
-        "6 de Espadas": ["tocar de lado", "evitar goleada", "fuga do ataque", "transição lenta", "derrota aceita"],
-        "7 de Espadas": ["pênalti cavado", "gol de malandro", "jogada ensaiada", "surpresa tática", "roubada de bola"],
-        "8 de Espadas": ["sufoco total", "não passa do meio", "pressão esmagadora", "bloqueio defensivo", "nó tático"],
-        "9 de Espadas": ["pânico na zaga", "erros bizarros", "medo de tomar gol", "ansiedade", "apagão"],
-        "10 de Espadas": ["fundo do poço", "goleada humilhante", "eliminação precoce", "fim de jogo trágico", "massacre"],
-        "Pajem de Espadas": ["marcação cerrada", "provocação", "falta tática", "atenção na zaga", "roubada rápida"],
-        "Cavaleiro de Espadas": ["pressão alta", "carrinho perigoso", "contra-ataque furioso", "agressividade", "urgência de gol"],
-        "Rainha de Espadas": ["defesa fria", "foco no resultado", "sem firula", "corte seco", "tática rígida"],
-        "Rei de Espadas": ["vitória calculada", "zaga impecável", "estratégia pura", "frieza no ataque", "resultado exato"],
-        "Ás de Ouros": ["gol certo", "resultado garantido", "prêmio em campo", "domínio da bola", "lucro no placar"],
-        "2 de Ouros": ["resultado oscilante", "viradas", "improviso", "adaptação", "manter a posse"],
-        "3 de Ouros": ["gol de equipe", "construção de placar", "tática funcionando", "passe perfeito", "esforço premiado"],
-        "4 de Ouros": ["ferrolho defensivo", "segurar o 1x0", "medo de perder", "time recuado", "placar intocável"],
-        "5 de Ouros": ["desvantagem no placar", "desgaste total", "prejuízo", "falta de opções", "derrota material"],
-        "6 de Ouros": ["empate justo", "divisão de posse", "assistência pra gol", "equilíbrio", "resultado normal"],
-        "7 de Ouros": ["cozinhar o jogo", "esperar o erro", "vantagem mantida", "cadência", "estudo de campo"],
-        "8 de Ouros": ["repetição de ataque", "pressão metódica", "esforço físico", "tática disciplinada", "resultado construído"],
-        "9 de Ouros": ["goleada tranquila", "independência no placar", "jogo resolvido", "conforto total", "vitória isolada"],
-        "10 de Ouros": ["hegemonia", "título", "placar elástico", "time perfeito", "conquista máxima"],
-        "Pajem de Ouros": ["foco na marcação", "jogo pragmático", "esforço em campo", "resultado simples", "aplicação tática"],
-        "Cavaleiro de Ouros": ["avanço seguro", "defesa sólida", "jogo sem riscos", "força física", "vitória lenta"],
-        "Rainha de Ouros": ["administrar vantagem", "posse de bola", "segurança atrás", "conforto tático", "resistência"],
-        "Rei de Ouros": ["vitória absoluta", "domínio total", "resultado garantido", "poder em campo", "time imbatível"]
-    };
+    "O Mago": [ "dar um jeito", "com criatividade", "novidades e inícios", "moderno", "lábia e carisma", "sabe vender", "novos projetos", "potencialidades inexploradas", "iniciativas promissoras", "soluções práticas", "recursos disponíveis", "caminhos abertos", "início", "criação", "habilidade", "comunicação", "ação", "vontade", "networking", "novos ritmos", "atividade temporária importante", "ajuda de amigos p tranalho" ],
+"A Sacerdotisa": [ "perfeccionismo", "passividade", "inércia", "inteligencia e memória", "quer receber", "não fala", "se esconde", "segredos revelados", "sabedoria oculta", "intuição aguçada", "preparação mental", "gestação de ideias", "estudar para um concurso", "trabalho rotineiro", "oportunidade de emprego", "preguiça de trabalahr" ],
+"A Imperatriz": [ "negociar", "semear e plantar", "traquejo", "generosamente", "comunicativamente", "harmoniosamente", "novos projetos", "desenvolvimento pessoal", "expressão artística", "fertilidade criativa", "abundância material", "autoafirmação social", "lançar um novo empreendimento", "sucesso e bem vista", "sorte nos empreendimentos", "bom emprego" ],
+"O Imperador": [ "possessivo", "estável", "precisa segurança", "controle", "conservador", "concretamente", "bases sólidas", "estrutura definida", "controle total", "autoridade estabelecida", "realização prática", "segurança garantida", "conquistar um cargo alto", "organizar uma empresa familiar", "definir planos de carreira", "prere n trabalhar" ],
+"O Hierofante": [ "tradicional", "protocolar", "regras", "moralmente", "eticamente", "coletivamente", "ensinamentos superiores", "valores éticos", "guia espiritual", "conhecimento tradicional", "alinhamento social", "busca de sentido", "fazer um curso superior", "saldar dívidas", "estabilidade no trabalho", "garantia de trabalho" ],
+"Os Enamorados": [ "afetivo", "negociar", "decisões", "harmoniosamente", "decisivamente", "sensivelmente", "opções importantes", "alianças afetivas", "decisões cruciais", "harmonia interna", "melhoria profissional", "várias ofertas de trabalho", "melhoria profissional", "indefinição", "bons investimentos", "oportunidade financeira" ],
+"O Carro": [ "impulso", "avanço", "energia", "direto ao ponto", "faz antes de pensar", "ambiciosamente", "êxito conquistado", "objetivos claros", "direção tomada", "melhoria ou equilíbrio de orçamento", "nova funçao ou cidade", "boa liderança", "promoção", "contratação", "gastos excessivos", "melhoria profissional" ],
+"A Justiça": [ "equilibradamente", "justamente", "imparcialmente", "racionalmente", "honestamente", "claramente", "decisões justas", "equilíbrio interno", "acordos formais", "verdade revelada", "consequências lógicas", "ordem estabelecida", "evitar se expoe ou fofocas", "possível contratação p experiência", "diminuição de recursos em médio prazo", "orçamento limitado" ],
+"O Eremita": [ "trabalho lento", "trabalho de formiguinha", "ttabalho discreto", "dificuldade de ter trabalho", "estabilidade profissional", "orçamento limitado e equilibrado", "autoconhecimento profundo", "sabedoria adquirida", "prudência necessária", "reflexão solitária", "análise minuciosa", "amadurecimento pessoal", "aposentar-se da vida ativa", "estudar algo muito técnico", "cuidar da própria saúde", "fazer um retiro espiritual" ],
+"A Roda da Fortuna": [ "imprevisivibilidade", "instável", "inconstante", "dificuldade de ter emprego estável", "mudanças no trabalho", "flexivelmente", "mudanças rápidas", "oportunidades surgindo", "ciclos naturais", "movimento de vida", "novas fases", "fluxo de destino", "mudar de casa rapidamente", "receber uma proposta súbita", "iniciar uma nova fase", "adaptar-se a novos tempos" ],
+"A Força": [ "corajosamente", "controladamente", "dominantemente", "vibrantemente", "ternamente", "firmemente", "domínio dos instintos", "energia vital", "coragem pessoal", "força interior", "auto-controle emocional", "poder de vontade", "lidar com pessoas difíceis", "superar medos profundos", "ter resistência física intensa", "controlar impulsos nervosos" ],
+"O Enforcado": [ "Estragado", "sem recursos", "resistente", "estagnado", "carente", "podre", "visão alterada", "vitimista", "prejuízo", "desqualificado", "inadaptação", "ilusão", "suspensão", "dor e sofrimento", "dependência", "importência" ],
+"A Morte": [ "transformação", "mudança", "acelerado", "egoísta", "desapega", "inova", "muda o rumo", "prática", "ação", "corajosa", "rompimento de valores e ilusões", "futuro promissor", "antecipa em 50%", "movimento", "cura", "prosperidade" ],
+"A Temperança": [ "lentidão", "arrastado", "superficial e cômodo", "Otimista", "responde SIM", "procrastina e enrola", "apaziguar e harmonizar", "Tolerância e Permissividade", "Tédio ou Serenidade", "Disciplina", "Sem Modernidade", "coisas velhas ou antigas", "Sem Ambiçao", "Sem Prejuízo ou Melhoria", "Harmônico e Conciliador", "Trocas" ],
+"O Diabo": [ "Desejo", "Apego", "Insatisfeito", "Inteligência", "Egoísta e Possessivo", "Racional", "Poder Material", "Ambição", "Obsessão", "Teimosoa", "Não aceita Não", "Sem Escrúpulos", "toxico e invejoso", "Interesseiro e Manipulador", "Articulado", "Amoral" ],
+"A Torre": [ "Ataque Externo", "Estrago", "Cenário Terrível", "SOFRIMENTO", "RUÍNA", "Sem Estrutura", "Ruptura de Valores e Ideias", "Brutalidade", "Agressividade", "Prejuízos por algo Externo", "Atrasos", "Dívida", "Trabalho Temporário", "Perdas", "Dívidas", "Roubo" ],
+"A Estrela": [ "Expectativa", "Sorte", "Crescimento", "Sucesso", "Coragem", "Confiança", "Ingenuidade", "Pureza", "Renovação", "Felicidade", "Criatividade", "Abundância", "Romântico", "sentir-se guiado internamente", "fazer planos com otimismo", "reconectar com seus sonhos" ],
+"A Lua": [ "Loucura", "Reatividade", "Magia", "Não Escuta", "Medos Ilusórios", "Hiperdimensiona", "Fartura", "Prosperidade Material", "Reage a suas Fantasia", "Não Escuta", "Reage Erroneamente", "Paranóia", "Confunde Real e Imaginário", "Mente", "Criativo", "Sorte e Promoção", "Atrai Sucesso", "Inveja no Trabalho" ],
+"O Sol": [ "alegremente", "radiantemente", "claramente", "vitoriosamente", "genuinamente", "calorosamente", "sucesso total", "clareza absoluta", "alegria de viver", "reconhecimento público", "vitalidade plena", "luz da verdade", "ser promovido ao topo", "viver um amor verdadeiro", "tornar-se centro atenção", "conquistar fama e brilho" ],
+"O Julgamento": [ "decisivamente", "renovadamente", "conscientemente", "reveladoramente", "inevitavelmente", "espiritualmente", "chamado interior", "tomada de consciência", "juízo final", "renascimento espiritual", "redenção pessoal", "veredicto claro", "ouvir sua vocação real", "perdoar erros passados", "mudar sua trajetória vida", "assumir nova identidade pessoal" ],
+"O Mundo": [ "crescimento", "finalização", "mudança de fase", "expansão", "egoísta", "coragem", "sucesso total", "conclusão perfeita", "autoconfiança", "se mostrar", "sorte e sucesso", "ampliação", "internet", "fim dos obstáculos", "não mente", "viver a vida plena" ],
+"O Louco": [ "desleixo", "perde tudo", "euforia", "cai em golpes", "esquece o dinheiro", "distraído", "ideias desconexas", "prejuízos", "irresponsabilidade", "mal visto no trabalho", "acomodado", "n quer trabalhar", "insatisfeito", "coragem", "criança de 3 anos", "não confiável", "alegria", "trabalho criativo", "apressado" ],
+  "Ás de Ouros": [
+    "potenciar", "começar", "efetivar", "acontecer", "realizar", "materializar", "brilhar", "amparar", "ampliar",
+    "sorte e realização", "reconhecimento e prestígio", "infinitas possibilidades", "não há obstáculos", "inteligência prática e autoestima", "semente de relacionamentos duradouros", "recompensa por esforços", "riqueza interior e clímax", "paixão repentina e forte"
+  ],
+  "2 de Ouros": [
+    "adiar", "conter", "superar", "administrar", "procrastinar", "coordenar", "mudar", "adaptar", "enrolar",
+    "adversidade e flexibilidade", "arcano kármico e impasse", "demora com obstáculos", "impedimentos irritantes e concretos", "malabarismos materiais", "gangorra de emoções", "dificuldades temporárias transponíveis", "falta de opinião firme", "administrar demandas diversas"
+  ],
+  "3 de Ouros": [
+    "expandir", "avançar", "ajudar", "ensinar", "orientar", "cooperar", "contribuir", "planejar", "qualificar",
+    "ajuda de terceiros", "tutoria de superiores", "trabalho em equipe", "crescimento e abundância", "parceria e sociedade", "cumprimento de protocolo", "provas e testes", "ritual de iniciação", "trabalho de formiguinha"
+  ],
+  "4 de Ouros": [
+    "acumular", "controlar", "dominar", "reter", "petrificar", "recuar", "exibir", "estagnar", "apodrecer",
+    "mesquinharia e egoísmo", "medo de perder", "avareza e teimosia", "ideias fixas e opressoras", "preso ao presente", "ciúmes e inveja", "bloqueio de ações", "imaturidade e visão deturpada", "paranoia por segurança"
+  ],
+  "5 de Ouros": [
+    "arruinar", "afastar", "estragar", "mofar", "perder", "rejeitar", "esgotar", "negligenciar", "sofrer",
+    "pobreza e perdas", "carência de recursos", "dificuldades concretas reais", "roubo ou exílio", "miséria", "deterioração", "destruidor",
+  ],
+  "6 de Ouros": [
+    "carência", "ausência de", "prolongar", "adiar", "relutar", "aceitar", "solucionar", "oferecer", "resgatar",
+    "carência e necessidade", "ajuda por generosidade", "medo de decidir", "prejuízo é solucionado", "esmola de atenção", "tratamento ou remédio", "superação pela humildade", "recompensas inusitadas inesperadas", "pedir ajuda"
+  ],
+  "7 de Ouros": [
+    "colher", "progredir", "avançar", "receber", "avaliar", "florescer", "dominar", "analisar", "estruturar",
+    "lucros e progresso", "insatisfação boa", "doação ou herança", "parceria e sociedade", "prosperidade longo prazo", "crescimento lento e sólido", "maturidade e equilíbrio", "força física e serenidade", "desafios e contestações"
+  ],
+  "8 de Ouros": [
+    "recomeçar", "renascer", "colher", "aprender", "refinar", "aprimorar", "planejar", "descobrir", "investir",
+    "arcano kármico novidade", "cenário da experiência", "habilidade de perito", "novo ciclo consciente", "estudo sem supervisão", "sucesso e sorte", "trabalho que dá prazer", "investimento em si mesmo", "destreza e prudência"
+  ],
+  "9 de Ouros": [
+    "fertilizar", "recompensar", "descansar", "colher", "pescar", "concretizar", "materializar", "multiplicar", "planejar",
+    "sorte e satisfação", "distinção social justa", "sucesso longo prazo", "evolução e segurança", "luxo e requinte", "diminuição de dor", "bom negócio e compra", "autoestima e autoconfiança", "plenitude e gravidez"
+  ],
+  "10 de Ouros": [
+    "realizar", "concretizar", "perpetuar", "receber", "adotar", "administrar", "valorizar", "estabilizar", "conviver",
+    "sucesso a longo prazo", "família do cartório", "felicidade e glória", "bens materiais e heranças", "costumes e tradições", "rede de relacionamentos", "segurança e competência", "convivência prazerosa", "boa administração familiar"
+  ],
+  "Ás de Espadas": [
+    "fixar", "realizar", "racionalizar", "impulsionar", "decidir", "conquistar", "expandir", "focar", "agir",
+    "força e potência", "originalidade e lucidez", "coragem e furor", "capacidade intelectual esperteza", "clareza mental e lógica", "potência sexual viril", "conflitos mentais e ansiedades", "medos e depressão", "excesso sem limites"
+  ],
+  "2 de Espadas": [
+    "teimar", "opor", "conflitar", "disputar", "empatar", "discordar", "recusar", "romper", "cegar",
+    "cabo de guerra", "orgulho e egoísmo", "rivalidade e arrogância", "ambos estão certos", "crise e ignorância", "dualidade e discórdia", "recusa em enxergar", "arcano kármico e oposição", "obstáculo intransponível irreversível"
+  ],
+  "3 de Espadas": [
+    "não da certo", "ruptura", "não vinga", "comprometido", "traição", "errou", "conflitar", "romper", "incompatibilidade e melancolia", "ferimento físico provocado", "impossibilidade de recuperar"
+  ],
+  "4 de Espadas": [
+    "paralisar", "suspender", "esgotar", "descansar", "refugiar", "recolher", "reequipar", "travar", "repousar",
+    "arcano kármico de paralisia", "pausa para curar feridas", "reclusão e solidão", "pausas involuntárias indefinidas", "ação divina obrigatória", "reabastecimento de energia", "coma ou uti", "imobilidade física ou sexual", "sinal de alerta"
+  ],
+  "5 de Espadas": [
+    "humilhar", "teimar", "vingar", "revidar", "degradar", "implorar", "discutir", "vitimizar", "agredir",
+    "mico e derrota moral", "atitudes indignas humilhantes", "sede por vencer", "fim de batalha vergonhosa", "entrega sem amor", "vitória injusta e agressiva", "ferimentos graves com cortes", "cirurgias e acidentes", "pior carta do jogo"
+  ],
+  "6 de Espadas": [
+    "abandonar", "fugir", "afastar", "distanciar", "retirar", "mudar", "partir", "renunciar", "viajar",
+    "fuga e águas calmas", "impotência e medo", "insegurança no desconhecido", "inconformismo e irritação", "busca do recomeço", "abandono de si mesmo", "infecções e contaminação d'água", "pior arcano para espiritualidade", "portal para o desconhecido"
+  ],
+  "7 de Espadas": [
+    "diplomar", "fugir", "roubar", "debochar", "stalkear", "esquivar", "trapacear", "dissimular", "mentir",
+    "fuga astuta e coragem", "deboche infantiloide fofoca", "jogo de cintura", "caminho do menor esforço", "hipocrisia e dissimulação", "malícia sem roubo", "dores crônicas agudas", "traição não descoberta", "caixa dois financeiro"
+  ],
+  "8 de Espadas": [
+    "destruir", "expor", "trair", "errar", "roubar", "desmascarar", "reprovar", "adoecer", "estagnar",
+    "arcano kármico de perigo", "segunda pior carta", "vexame público humilhante", "divulgação pública do erro", "perdas irreversíveis irreparáveis", "corrupção e calote", "sem autocrítica ou arrependimento", "litígio e hospitalização", "autoflagelo e desespero", "meter os pés pelas mãos",
+  ],
+  "9 de Espadas": [
+    "desesperar", "perder", "afligir", "angustiar", "isolar", "abandonar", "oprimir", "degradar", "chorar",
+    "arcano kármico sem luz", "aflição e angústia", "medo por ser irrecuperável", "pesadelo e isolamento", "degradação moral e física", "sofrimento exaustivo longo", "noites mal dormidas insônia", "paranoias e depressão forte", "perigo de suicídio"
+  ],
+  "10 de Espadas": [
+    "finalizar", "romper", "eliminar", "sofrer", "decidir", "radicalizar", "exaurir", "desistir", "agredir",
+    "livre arbítrio com dor", "ruptura intencional dolorosa", "lágrimas e exaustão", "anula característica do maior", "conquista sem lucro felicidade", "mudança sem anestesia", "internações intensivas crônicas", "doenças terminais e dores", "deixa cicatrizes eternas"
+  ],
+  "Ás de Copas": [
+    "potenciar", "começar", "efetivar", "realizar", "materializar", "ostentar", "transbordar", "nutrir", "harmonizar",
+    "sorte e abundância", "euforia e alegria", "amor e paixão", "apoio externo social", "cura interna e externa", "reconciliação e compreensão", "receptividade de pessoas", "empatia e altruísmo", "produções artísticas ricas"
+  ],
+  "2 de Copas": [
+    "realizar", "agir", "negociar", "propor", "atrair", "associar", "cooperar", "comprometer", "apaziguar",
+    "comunicação fluida e reciprocidade", "estabilidade emocional e autoconfiança", "trabalho em equipe cooperação", "vínculos e flertes", "trocas e química", "promessas seguras cumpridas", "boas amizades e sócios", "saúde boa em equilíbrio", "período fértil para mulheres"
+  ],
+  "3 de Copas": [
+    "formalização", "acordos", "negociações", "trair c lua etc", "evolução por conquista", "cura", "solução", "Despreocupação",
+    "sorte e abundância", "fim de conflitos", "liberdade", "fertilidade e gravidez", "extâse e satisfação", "problemas solucionados"
+  ],
+  "4 de Copas": [
+    "adiar e rejeitar", "ranço", "fofocar", "invejar", "aborrecer", "desinteressar", "recuar", "irritado", "excesso do MAIOR", "tédio e apatia", "chatisse", "fofoca e ciúmes", "insatisfação irreal", "ambientes viciados densos", "vazio espiritual e desligamento", "mau humor e asco", "NOJO", "energia DENSA"
+  ],
+  "5 de Copas": [
+    "vitimizar", "fracassar", "quebrar", "arrepender", "agonizar", "decepcionar", "lamentar", "culpar", "reclusar", "buscar alternativas",
+    "amargura", "projeto fracassa", "arrependimento e remorso", "medo da perda do maior", "amargura e melancolia", "falta de amor próprio", "perdas e desgostos", "mudar o foco", "psoriase e depressão leve"
+  ],
+  "6 de Copas": [
+    "saudar", "melancolizar", "fugir", "tradicional", "lamentar", "conservar", "paralisar", "vitimista", "solidarizar",
+    "passado se faz presente", "nostalgia e saudade", "fuga da realidade", "esperança inútil conservadora", "dificuldade aceitar o novo", "reacionário focado no passado", "boas intenções e sentimentos", "adiamento e paralisação", "acolhimento e solidariedade"
+  ],
+  "7 de Copas": [
+    "deslumbrar", "trair", "prometer", "mentir", "enganar", "fantasiar", "anestesiar", "alucinar", "não enxergar direito",
+    "orgulho e soberba", "fuga da realidade negacionismo", "perda noção perigos", "otimismo exagerado cego", "viagens astrais ilusões", "negócios enganosos fúteis", "vaidade que gera utopia", "miragem e encantamento", "imaturidade sem limites"
+  ],
+  "8 de Copas": [
+    "abandonar", "expulsar", "desleixar", "fracassar", "ir", "despedir", "chorar", "arrepender", "adoecer",
+    "saída forçada", "abandono de promessas", "perdas e prejuízos", "crime ou delito", "crise e desolação", "despedida forçada com pesar", "remorso e depressão", "sinal de psiquiatra", "divórcio ou demissão"
+  ],
+  "9 de Copas": [
+    "superar", "alegrar", "promover", "avançar", "progredir", "socializar", "harmonizar", "beber", "conciliar",
+    "felicidade e sorte", "dignidade e meritocracia", "plenitude e satisfação", "bom humor e lealdade", "promessas cumpridas", "sucesso em todos cenários", "arcano de bebedeira", "acordo e conciliação", "saciedade alimentar"
+  ],
+  "10 de Copas": [
+    "aumentar", "sentir", "ampliar", "confundir", "iludir", "fantasiar", "vincular", "saciar", "comemorar",
+    "fartura de contatos e opções afetivas", "vínculos afetivos sinceros", "união harmoniosa digna", "apogeu e abundância", "honra e festa", "sinceridade dentro de ilusões", "euforia fantasiosa", "paz ilusória", "sensação de conto fadas"
+  ],
+  "Ás de Paus": [
+    "concentrar", "potenciar", "engajar", "comprometer", "inspirar", "alegrar", "apaixonar", "criar", "explodir",
+    "sorte e meritocracia", "caminhos abertos oportunidades", "clímax e criatividade", "fertilidade em todos níveis", "nascimento ou morte", "intensidade emocional pura", "boa saúde sem toxinas", "sucesso e boas novidades", "condições disponíveis dominação"
+  ],
+  "2 de Paus": [
+    "empacar", "paralisar", "adiar", "reavaliar", "desinteressar", "surpreender", "neutralizar", "empatar", "observar",
+    "impasse sem ação", "obstáculo superável", "imprevistos de terceiros", "falta de entusiasmo", "promessas não cumpridas", "ajustamento do universo", "paralisia passageira curta", "postura de isentão", "stress que causa insônia"
+  ],
+  "3 de Paus": [
+    "visionar", "explorar", "projetar", "avançar", "negociar", "progredir", "expandir", "viajar", "superar",
+    "conquista de novo território", "apenas médio e longo prazo", "mente aberta pragmática", "acordos e parcerias", "comunicação aberta fluida", "intercâmbios e viagens", "base sólida superação", "empreendedorismo e tolerância", "melhora e recuperação"
+  ],
+  "4 de Paus": [
+    "celebrar", "comemorar", "confraternizar", "viajar", "compartilhar", "harmonizar", "conciliar", "excitar", "descansar",
+    "férias viagem sorte", "ritos de passagem", "ambiente doméstico confortável", "recompensa por esforços", "pactos entre pessoas", "alívio e restauração", "estabilização do projeto", "tranquilidade da alma", "preparação antes da batalha"
+  ],
+  "5 de Paus": [
+    "aborrecer", "desgastar", "lutar", "discutir", "competir", "cansar", "exigir", "trabalhar", "detalhar",
+    "chatice e picuinhas", "obstáculos de pequeno porte", "esforço exaustivo de formiguinha", "conflitos sem líderes", "debates construtivos que desgastam", "ansiedade e desarmonia", "discussões por coisas banais", "intolerância sem perder razão", "o chato do rolê"
+  ],
+  "6 de Paus": [
+    "vangloriar", "honrar", "reconhecer", "concretizar", "evoluir", "contentar", "exibir", "progredir", "liderar",
+    "glórias do trivial", "recompensas merecidas curtas", "auto apreciação e confiança", "promoção e aumento", "notícias boas otimismo", "sucesso após provas", "upgrade social imediato", "solenidades no podium", "retorno de investimento"
+  ],
+  "7 de Paus": [
+    "esforçar", "focar", "perseverar", "conquistar", "lutar", "defender", "boicotar", "sabotar", "desafiar",
+    "vitória irreversível firme", "luta solitária contra todos", "oponentes fortes invejosos", "ataques de magia feitiços", "disciplina foco e coragem", "meritocracia completa", "sucesso afeta o entorno", "coragem para combater", "força para vencer provas"
+  ],
+  "8 de Paus": [
+    "finalizar", "agilizar", "acelerar", "expandir", "curar", "surpreender", "transformar", "adaptar", "comunicar",
+    "arcano kármico veloz", "comunicação frenética agitada", "internet e redes sociais", "curas físicas e mentais", "vitórias imediatas inusitadas", "movimento rápido de mudança", "resolução suave sem dor", "propostas velozes de relacionamento", "resiliência adaptativa rápida"
+  ],
+  "9 de Paus": [
+    "errar", "temer", "atrasar", "exaurir", "reviver", "retrair", "recolher", "defender", "duvidar",
+    "medo de errar novamente", "obstáculos e crises passageiras", "ferida antiga aberta", "paranoias e medos passados", "sorte anulada sem azar", "teimosia na coisa errada", "defesa e alerta constante", "preso dentro de si", "experiência cautelosa opressiva"
+  ],
+  "10 de Paus": [
+    "lutar", "sufocar", "oprimir", "sobrecarregar", "superar", "aceitar", "renovar", "reorganizar", "mudar",
+    "esforço grande com sucesso", "nova fase de vida", "excesso de responsabilidades exaustivas", "exaustão absoluta", "independência após longa luta", "superação de obstáculos enormes", "sabedoria e compreensão", "sorte aliada à meritocracia", "restabelecimento geral da vida"
+  ],
+  "Pajem de Ouros": [
+    "investir", "começar", "iniciar", "focar", "observar", "analisar", "conservar", "trabalhar", "investigar",
+    "notícias sempre boas", "perspetiva de sucesso futuro", "amigo fiel e leal", "segue protocolos e sistemas", "convite para oportunidades reais", "gravidez bebê e ideias", "mérito pragmatismo tradição", "observador e prestativo", "início ainda sem estrutura"
+  ],
+  "Cavaleiro de Ouros": [
+    "disciplinar", "focar", "executar", "concretizar", "perseverar", "projetar", "trabalhar", "investir", "organizar",
+    "estabilidade e dignidade", "racional lógico e pragmático", "trabalhador que nunca para", "metódico sistemático burocrático", "possessivo prático sem apego", "saúde em dia conservada", "objetivos a longo prazo", "prudente gentil comunicativo", "paciência sem pressa"
+  ],
+  "Rainha de Ouros": [
+    "realizar", "dominar", "fertilizar", "manter", "conservar", "nutrir", "colher", "acolher", "preservar",
+    "certeza absoluta de sucesso", "pragmática objetiva realista", "prosperidade e abundância", "sensualidade maturidade e respeito", "calma paciente e autoconfiante", "generosidade com garantias seguras", "provedora da base material", "estabilidade esforço dignidade", "patrimônio e território protegidos"
+  ],
+  "Rei de Ouros": [
+    "superar", "prover", "alimentar", "proteger", "cuidar", "negociar", "liderar", "dominar", "conciliar",
+    "materialidade e estabilidade", "rei fiel da realidade", "provedor prático e leal", "possessivo apegado e ciumento", "sucesso progresso competência", "burocrático maduro respeitado", "status imponente ostentativo seguro", "sagaz autoconfiante e experiente", "retorno proteção e manutenção"
+  ],
+  "Pajem de Espadas": [
+    "mentir e sacanear", "duvidar", "evadir", "ofender", "fofocar", "stalkear", "provocar", "brigar", "criticar",
+    "grama alheia sempre verde", "más notícias trágicas", "aspirante a diabo sem capacidade", "promessas não cumpridas imaturas", "egoísta raivoso mimado ingrato", "falsa vaidade deslealdade imoral", "indiretas rasas em redes", "fofoqueiro malicioso e burro", "discussões vulgares e cortes"
+  ],
+  "Cavaleiro de Espadas": [
+    "realizar", "agilizar", "lutar", "vencer", "focar", "ousar", "comandar", "liderar", "atropelar",
+    "rapidez inteligência foco proatividade", "coragem destemor bravura sagaz", "sem empatia bruto agressivo", "autoritarismo comando impiedoso", "conquista mérito esforço próprio", "ostentação de vitórias medalhas", "fanático teimoso e combatente", "franqueza extrema fria radical", "palavra dada é cumprida"
+  ],
+  "Rainha de Espadas": [
+    "vingar", "desmascarar", "desvendar", "dissimular", "chantagear", "estrategizar", "calcular", "controlar", "criticar",
+    "inteligente austera franca independente", "perita investigadora sagaz perspicaz", "egoísta fria calculista cínica", "ambição sem escrúpulos ética", "dona da razão controladora", "apática insensível raivosa intolerante", "rancor e autocrítica tóxica", "perda de conquista indigna", "foco obsessivo infértil"
+  ],
+  "Rei de Espadas": [
+    "controlar", "focar", "batalhar", "reconstruir", "proteger", "comandar", "liderar", "calcular", "dominar",
+    "força mental inabalável", "realização independente veloz hábil", "estabilidade irredutível crítico frio", "controle emocional profundo", "domínio de cenários adversos", "protetor de seu reinado", "sem autocensura cruel radical", "destreza diplomática persuasivo estratégico", "possessividade forte e autoritária"
+  ],
+  "Pajem de Copas": [
+    "conciliar", "perdoar", "propor", "confiar", "romantizar", "seduzir", "empatizar", "acolher", "proteger",
+    "honestidade digna sem malícias", "notícias de nascimentos convites", "proativo gentil confiável leal", "sensível enjoado fresco mimado", "pureza em novas propostas", "carisma espontâneo fofo romântico", "intuição fértil e generosidade", "coragem emocional em arriscar", "desapego empatia bem intencionado"
+  ],
+  "Cavaleiro de Copas": [
+    "paquerar", "romantizar", "seduzir", "encantar", "prometer", "realiza e n sustenta", "futilizar", "idealizar", "ostentar",
+    "carismático iludido paquerador", "romance fútil meloso apaixonado", "não realiza idealismo imaturo", "perde interesse rápido fugaz", "promessas impulsivas calor da emoção", "romantismo irreal vaidoso exibido", "mentira não intencional ingênua", "química de fogo palha", "ausência de estrutura sustentável", "inconstância"
+  ],
+  "Rainha de Copas": [
+    "prestativa", "romantizar", "esconder", "fantasiar", "sufocar", "acolher", "curar", "proteger", "intuir",
+    "não responde sim claro", "fofa politicamente correta arredia", "empatia passiva protetora sensível", "médium compreensiva prestativa enjoada", "não expressa sentimentos reais", "mundo conto fadas colorido", "carisma reservada disponível passiva", "apaziguadora curandeira altruísta", "altruísmo sem atitude firme"
+  ],
+  "Rei de Copas": [
+    "agradar", "bajular", "seduzir", "romantizar", "diplomatizar", "negociar", "articular", "priorizar", "mimar", "gentil e queridão",
+    "egoísmo focado próprio prazer", "fofo por pura conveniência", "romantização e dramatização vaidosa", "fiel sob recíproca", "hedonismo carisma vaidade", "articulista diplomata inteligente elegante", "mimado carismático não confiável", "maturidade coragem sensível idealista"
+  ],
+  "Pajem de Paus": [
+    "propor", "prometer", "impulsionar", "agir", "reativar", "entusiasmar", "trabalhar", "ousar", "reagir",
+    "boas intenções lealdade pureza", "promessas com futuro longo", "vigor desinibição proatividade agitação", "fogo palha impulsividade rapidez", "tagarela extrovertido trabalhador formiguinha", "redes sociais visibilidade expansão", "convites estimulantes com euforia", "empolgação química tesão relacional", "projetos reativados destemido ousado"
+  ],
+  "Cavaleiro de Paus": [
+    "realizar", "empolgar", "agitar", "viajar", "dinamizar", "otimizar", "apaixonar", "impulsionar", "seduzir",
+    "realizador otimista vigoroso rápido", "corajoso ousado resiliente destemido", "ansiedade fogo palha aventura", "dinâmico impaciente sem pressa", "paixão intensa galinha namorador", "amigo parceiro sob estímulos", "impetuoso empolgado animado líder", "mudanças de lugar frequentes", "proatividade sorte ímpeto aventuroso"
+  ],
+  "Rainha de Paus": [
+    "liderar", "empreender", "focar", "determinar", "seduzir", "magnetizar", "domesticar", "aconselhar", "brilhar",
+    "altiva generosa íntegra nobre", "líder empreendedora inteligente progressista", "carisma empatia magnetismo poderoso", "empoderada espiritualidade foco magia", "determinação serena resiliente independente", "honestidade honra virtude coragem", "fertilidade destreza habilidade sorte", "lealdade confiável sem patifaria", "conselheira autônoma disposta empática"
+  ],
+  "Rei de Paus": [
+    "liderar", "guiar", "curar", "avançar", "empreender", "determinar", "motivar", "delegar", "articular",
+    "honra espiritualidade reverência guia", "carisma magnetismo empatia caloroso", "coragem ação ambição avanço", "generosidade maturidade foco nobreza", "criatividade resiliência sucesso incansável", "paternalista protetor conselheiro firme", "autoridade rígido severo intencionado", "reconciliador forte articulado eloquente", "líder respeitado bem articulado" ],
+};
 
     const extendedMeanings = {
         "O Louco": { situacao: "Representa o início de uma jornada imprevista. Uma situação onde é necessário um salto de fé, rompendo com o conformismo para abraçar o desconhecido com total liberdade.", metodoEuropeu: [ { comb: "Três de Espadas", texto: "A energia de agir sem amarras encontra o desgosto das expectativas frustradas." }, { comb: "Ás de Ouros", texto: "A energia de desprendimento e novos começos encontra a semente de uma oportunidade real." } ] },
@@ -1685,16 +1725,18 @@ onclick="playAnotherGame()">Limpar Jogo</button>
                 let id = card.getAttribute('data-scr-slot') || card.getAttribute('data-csmd-slot')
                        || card.getAttribute('data-ta-slot') || card.getAttribute('data-dupla-slot')
                        || card.getAttribute('data-davi-slot') || card.getAttribute('data-opo-slot')
-                       || card.getAttribute('data-oposcr-slot') || card.getAttribute('data-futebol-slot')
+                       || card.getAttribute('data-oposcr-slot') || card.getAttribute('data-cruz-slot')
                        || card.getAttribute('data-scr-tempo-slot') || card.getAttribute('data-amantes-slot');
                 if (id) {
-                    if (card.hasAttribute('data-davi-slot') || card.hasAttribute('data-futebol-slot')) {
+                    if (card.hasAttribute('data-davi-slot')) {
                         let num = parseInt(id);
-                        card.textContent = (card.hasAttribute('data-davi-slot') ? num <= 7 : num <= 8) ? num + " Maior" : num + " Menor";
+                        card.textContent = (num <= 7) ? num + " Maior" : num + " Menor";
                     } else if (card.hasAttribute('data-dupla-slot')) {
                         card.textContent = id === "1" ? "1 Maior" : "2 Menor";
                     } else if (card.hasAttribute('data-opo-slot') || card.hasAttribute('data-oposcr-slot')) {
                         card.textContent = id.includes('me') ? "Menor" : "Maior";
+                    } else if (card.hasAttribute('data-cruz-slot')) {
+                        card.textContent = id.includes('menor') ? "Menor" : "Maior";
                     } else if (card.hasAttribute('data-amantes-slot')) {
                         let num = id.replace(/\D/g, '');
                         card.textContent = id.includes('me') ? num + " Menor" : num + " Maior";
@@ -1741,17 +1783,6 @@ onclick="playAnotherGame()">Limpar Jogo</button>
                 wordPool = externalTaMeanings[cleanName][theme];
             } else if (verbsMap[cleanName]) {
                 wordPool = verbsMap[cleanName];
-            }
-        } 
-        else if (gameMode === 'futebol' || gameMode === 'futebolScr') {
-            if (futebolVerbsMap[cleanName]) {
-                wordPool = futebolVerbsMap[cleanName];
-            } else {
-                for (let key in futebolVerbsMap) {
-                    if (cleanName.toLowerCase() === key.toLowerCase() || cardName.toLowerCase().includes(key.toLowerCase())) {
-                        wordPool = futebolVerbsMap[key]; break;
-                    }
-                }
             }
         } 
         else if (externalMeanings && externalMeanings[cleanName] && externalMeanings[cleanName].verbos && externalMeanings[cleanName].verbos.length > 0) {
@@ -1893,13 +1924,13 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         } else if (mode === 'davi') {
             majors = [1,2,3,4,5,6,7].map(i => document.querySelector(`[data-davi-slot="${i}"]`));
             minors = [8,9,10,11,12,13,14].map(i => document.querySelector(`[data-davi-slot="${i}"]`));
-        } else if (mode === 'futebol') {
-            majors = [1,2,3,4,5,6,7,8].map(i => document.querySelector(`[data-futebol-slot="${i}"]`));
-            minors = [9,10,11,12,13,14,15,16].map(i => document.querySelector(`[data-futebol-slot="${i}"]`));
+        } else if (mode === 'cruz') {
+            majors = ['1-maior','2-maior','3-maior','4-maior'].map(s => document.querySelector(`[data-cruz-slot="${s}"]`));
+            minors = ['1-menor','2-menor','3-menor','4-menor'].map(s => document.querySelector(`[data-cruz-slot="${s}"]`));
         } else if (mode === 'oposicao') {
             majors = ['m1','m2'].map(s => document.querySelector(`[data-opo-slot="${s}"]`));
             minors = ['me1','me2'].map(s => document.querySelector(`[data-opo-slot="${s}"]`));
-        } else if (mode === 'oposicaoScr' || mode === 'futebolScr') {
+        } else if (mode === 'oposicaoScr') {
             majors = ['t-m1','t-m2','t-m3','b-m1','b-m2','b-m3'].map(s => document.querySelector(`[data-oposcr-slot="${s}"]`));
             minors = ['t-me1','t-me2','t-me3','b-me1','b-me2','b-me3'].map(s => document.querySelector(`[data-oposcr-slot="${s}"]`));
         } else if (mode === 'amantes') {
@@ -1972,8 +2003,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
             case 'csmd':              initCsmdGame(); break;
             case 'ta':                initTaGame(); break;
             case 'davi':              initDaviGame(); break;
-            case 'futebol':           initFutebolGame(); break;
-            case 'futebolScr':        initFutebolScrGame(); break;
+            case 'cruz':              initCruzGame(); break;
             case 'amantes':           initAmantesGame(); break;
         }
         enableEmptySlotClicks();
@@ -2025,7 +2055,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
     function initCsmdGame() { gameMode = 'csmd'; mainBoard.className = 'board csmd-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
     function initTaGame() { gameMode = 'ta'; mainBoard.className = 'board ta-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
     function initDaviGame() { gameMode = 'davi'; mainBoard.className = 'board davi-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
-    function initFutebolGame() { gameMode = 'futebol'; mainBoard.className = 'board futebol-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
+    function initCruzGame() { gameMode = 'cruz'; mainBoard.className = 'board cruz-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
     function initAmantesGame() { gameMode = 'amantes'; mainBoard.className = 'board amantes-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
 
     function initOposicaoGame() {
@@ -2043,19 +2073,6 @@ onclick="playAnotherGame()">Limpar Jogo</button>
     
     function initOposicaoScrGame() {
         gameMode = 'oposicaoScr'; mainBoard.className = 'board oposicao-scr-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
-        startSequence([
-            { type: 'majors', msg: 'ESCOLHA OS MAIORES (OPÇÃO 1)', targets: ['t-m1','t-m2','t-m3'].map(s => document.querySelector(`[data-oposcr-slot="${s}"]`)) },
-            { action: 'shuffle', msg: 'EMBARALHANDO PARA OS MENORES...' },
-            { type: 'minors', msg: 'ESCOLHA OS MENORES (OPÇÃO 1)', targets: ['t-me1','t-me2','t-me3'].map(s => document.querySelector(`[data-oposcr-slot="${s}"]`)) },
-            { action: 'shuffle', msg: 'EMBARALHANDO PARA A OPÇÃO 2...' },
-            { type: 'majors', msg: 'ESCOLHA OS MAIORES (OPÇÃO 2)', targets: ['b-m1','b-m2','b-m3'].map(s => document.querySelector(`[data-oposcr-slot="${s}"]`)) },
-            { action: 'shuffle', msg: 'EMBARALHANDO PARA OS MENORES...' },
-            { type: 'minors', msg: 'ESCOLHA OS MENORES (OPÇÃO 2)', targets: ['b-me1','b-me2','b-me3'].map(s => document.querySelector(`[data-oposcr-slot="${s}"]`)) }
-        ]);
-    }
-
-    function initFutebolScrGame() {
-        gameMode = 'futebolScr'; mainBoard.className = 'board futebol-scr-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
         startSequence([
             { type: 'majors', msg: 'ESCOLHA OS MAIORES (OPÇÃO 1)', targets: ['t-m1','t-m2','t-m3'].map(s => document.querySelector(`[data-oposcr-slot="${s}"]`)) },
             { action: 'shuffle', msg: 'EMBARALHANDO PARA OS MENORES...' },
@@ -2202,8 +2219,8 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         modal.style.display = 'flex';
         if (cardElement.hasAttribute('data-davi-slot')) {
             filterDeck(parseInt(cardElement.getAttribute('data-davi-slot')) <= 7 ? 'major' : 'minor');
-        } else if (cardElement.hasAttribute('data-futebol-slot')) {
-            filterDeck(parseInt(cardElement.getAttribute('data-futebol-slot')) <= 8 ? 'major' : 'minor');
+        } else if (cardElement.hasAttribute('data-cruz-slot')) {
+            filterDeck(cardElement.getAttribute('data-cruz-slot').includes('menor') ? 'minor' : 'major');
         } else if (cardElement.hasAttribute('data-dupla-slot')) {
             filterDeck(cardElement.getAttribute('data-dupla-slot') === "1" ? 'major' : 'minor');
         } else if (cardElement.hasAttribute('data-opo-slot') || cardElement.hasAttribute('data-oposcr-slot')) {
@@ -2333,16 +2350,6 @@ onclick="playAnotherGame()">Limpar Jogo</button>
                 showExtended = false; 
             } else if (verbsMap[cleanName]) {
                 verbs = verbsMap[cleanName];
-            }
-        } 
-        else if (gameMode === 'futebol' || gameMode === 'futebolScr') {
-            if (futebolVerbsMap[cleanName]) verbs = futebolVerbsMap[cleanName];
-            else {
-                for (let key in futebolVerbsMap) {
-                    if (cleanName.toLowerCase() === key.toLowerCase() || (name && name.toLowerCase().includes(key.toLowerCase()))) {
-                        verbs = futebolVerbsMap[key]; break;
-                    }
-                }
             }
         } 
         else if (externalMeanings && externalMeanings[cleanName] && externalMeanings[cleanName].verbos && externalMeanings[cleanName].verbos.length > 0) {
