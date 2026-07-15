@@ -447,13 +447,16 @@
         #amantesContainer .linear-col:nth-child(10) { grid-row: 4; grid-column: 1; top: 95%; left: 30%; }
 
         /* --- PAINEL DE JOGO --- */
-        .game-panel { display: none; position: fixed; bottom: 0; right: 0; left: 0; width: 100vw; max-width: 100vw; height: auto; max-height: 30vh; background-color: rgba(0,0,0,0.95); border-top: 1px solid rgba(136,136,136,0.3); border-radius: 0; box-sizing: border-box; padding: 15px 10px; flex-direction: column; align-items: center; z-index: 2000; backdrop-filter: blur(5px); }
+        .game-panel { display: none; position: fixed; bottom: 0; right: 0; left: 0; width: 100vw; max-width: 100vw; height: auto; max-height: 50vh; background-color: rgba(0,0,0,0.95); border-top: 1px solid rgba(136,136,136,0.3); border-radius: 0; box-sizing: border-box; padding: 15px 10px; flex-direction: column; align-items: center; z-index: 2000; backdrop-filter: blur(5px); }
         .game-status { color: var(--gold-main); font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; margin-bottom: 10px; letter-spacing: 2px; text-align: center; text-transform: uppercase; flex-shrink: 0; }
-        .game-grid { width: 100%; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: row; flex-wrap: wrap; overflow-x: hidden; overflow-y: auto; gap: 6px; justify-content: center; padding: 10px 20px; box-sizing: border-box; scroll-behavior: smooth; position: relative; }
+        .game-grid { width: 100%; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: row; flex-wrap: wrap; overflow-x: hidden; overflow-y: auto; gap: 3px; justify-content: center; padding: 5px 10px; box-sizing: border-box; scroll-behavior: smooth; position: relative; }
         .scroll-hint-bar { position: absolute; top: 48px; bottom: 14px; right: 5px; width: 3px; border-radius: 3px; background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 18%, rgba(255,255,255,0.4) 82%, rgba(255,255,255,0) 100%); pointer-events: none; z-index: 2001; }
 
         .back-card { width: calc(7.5 * var(--u)); height: calc(13 * var(--u)); background-image: var(--card-back-img); background-color: transparent; background-size: 100% 100%; background-position: center; background-repeat: no-repeat; border: 1px solid rgba(255,255,255,0.4); cursor: pointer; transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s; flex-shrink: 0; border-radius: 6px; box-sizing: border-box; }
         .game-grid .back-card { width: 32px !important; height: 56px !important; border-radius: 4px; border-width: 1px !important; }
+        .game-grid .back-card.minor-back-card { width: 25.6px !important; height: 44.8px !important; }
+
+
         .game-grid .back-card:hover { transform: translateY(-4px) scale(1.1); }
         .back-card.revealed { pointer-events: none; animation: fadeOutSelection 0.3s ease forwards; }
         @keyframes fadeOutSelection { from { opacity: 1; transform: translateY(-4px) scale(1.1); } to { opacity: 0; transform: translateY(0) scale(0.85); } }
@@ -1129,17 +1132,24 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         }
     }
 
-    function resizeBoardToFit() {
+        function resizeBoardToFit() {
         if (mainBoard.classList.contains('home-active')) return;
         const root = document.documentElement;
+
+        // CORREÇÃO: Desativa temporariamente todas as animações para que a medição matemática não seja corrompida pela transição.
+        const styleEl = document.createElement('style');
+        styleEl.innerHTML = '* { transition: none !important; }';
+        document.head.appendChild(styleEl);
+
         mainBoard.style.transition = 'none';
         root.style.setProperty('--u', '10px');
         mainBoard.style.transform = 'translateY(0) scale(1)';
-        void mainBoard.offsetHeight;
+        void mainBoard.offsetHeight; // Força o navegador a recalcular o layout instantaneamente
 
         let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
         let hasVisible = false;
         const elements = document.querySelectorAll('.board:not(.home-active) .card:not([style*="display: none"]), .board:not(.home-active) .slot-label:not([style*="display: none"])');
+        
         elements.forEach(el => {
             if (el.offsetWidth > 0 && el.offsetHeight > 0) {
                 hasVisible = true;
@@ -1150,7 +1160,12 @@ onclick="playAnotherGame()">Limpar Jogo</button>
                 if (rect.bottom > maxY) maxY = rect.bottom;
             }
         });
-        if (!hasVisible) { mainBoard.style.transition = ''; return; }
+        
+        if (!hasVisible) { 
+            document.head.removeChild(styleEl);
+            mainBoard.style.transition = ''; 
+            return; 
+        }
 
         const currentW = maxX - minX;
         const currentH = maxY - minY;
@@ -1158,10 +1173,13 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         const unitsH = currentH / 10;
         const navHeader = document.querySelector('.nav-header');
         const headerH = navHeader ? navHeader.offsetHeight : 65;
-        const availableW = window.innerWidth * 0.94;
+        
+        // CORREÇÃO: Aumentada a margem de segurança lateral de 0.98 para 0.92 para garantir que nunca encoste nas bordas do iPhone
+        const availableW = window.innerWidth * 0.92; 
         let availableH = window.innerHeight - headerH;
         const postControls = document.getElementById('postGameControls');
         let bottomOffset = 20;
+        
         if (mainBoard.classList.contains('game-active') && gamePanel.style.display !== 'none') {
             bottomOffset += gamePanel.offsetHeight || (window.innerHeight * 0.3);
         } else if (postControls.style.display !== 'none') {
@@ -1170,18 +1188,28 @@ onclick="playAnotherGame()">Limpar Jogo</button>
             bottomOffset += 40;
         }
         availableH -= bottomOffset;
-        let finalU = Math.min(availableW / unitsW, availableH / unitsH) * 0.85;
+        
+        // CORREÇÃO: Fator de segurança na altura ajustado para 0.95. Limite máximo diminuído de 14 para 12.
+        let finalU = Math.min(availableW / unitsW, availableH / unitsH) * 0.95;
         if (finalU < 1) finalU = 1;
-        if (finalU > 14) finalU = 14;
+        if (finalU > 12) finalU = 12; 
+        
         root.style.setProperty('--u', finalU + 'px');
         const centerOfAvailableArea = headerH + (availableH / 2);
         const screenCenter = window.innerHeight / 2;
         const yOffset = centerOfAvailableArea - screenCenter;
+        
+        void mainBoard.offsetHeight; // Confirma os novos tamanhos antes de devolver as animações
+
+        // Devolve as animações normais ao jogo
+        document.head.removeChild(styleEl);
+        
         requestAnimationFrame(() => {
             mainBoard.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
             mainBoard.style.transform = `translateY(${yOffset}px)`;
         });
     }
+
     window.addEventListener('resize', resizeBoardToFit);
 
     const deckBaseUrls = {
@@ -1618,7 +1646,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
   ],
   "Rainha de Espadas": [
     "vingar", "desmascarar", "desvendar", "dissimular", "chantagear", "estrategizar", "calcular", "controlar", "criticar",
-    "inteligente austera franca independente", "perita investigadora sagaz perspicaz", "egoísta fria calculista cínica", "ambição sem escrúpulos ética", "dona da razão controladora", "apática insensível raivosa intolerante", "rancor e autocrítica tóxica", "perda de conquista indigna", "foco obsessivo infértil"
+    "intelligent austera franca independente", "perita investigadora sagaz perspicaz", "egoísta fria calculista cínica", "ambição sem escrúpulos ética", "dona da razão controladora", "apática insensível raivosa intolerante", "rancor e autocrítica tóxica", "perda de conquista indigna", "foco obsessivo infértil"
   ],
   "Rei de Espadas": [
     "controlar", "focar", "batalhar", "reconstruir", "proteger", "comandar", "liderar", "calcular", "dominar",
@@ -2053,15 +2081,15 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         startSequence([
             { type: 'custom', msg: 'SITUAÇÃO — ESCOLHA O MAIOR (Before Tarot)', pool: shuffle(beforeDeck.majors), targets: [document.querySelector('[data-scr-tempo-slot="top-1"]')] },
             { action: 'shuffle', msg: 'EMBARALHANDO MENORES...' },
-            { type: 'custom', msg: 'SITUAÇÃO — ESCOLHA O MENOR (Before Tarot)', pool: shuffle(beforeDeck.minors), targets: [document.querySelector('[data-scr-tempo-slot="bottom-1"]')] },
+            { type: 'custom', msg: 'SITUAÇÃO — ESCOLHA O MENOR (Before Tarot)', pool: shuffle(beforeDeck.minors), targets: [document.querySelector('[data-scr-tempo-slot="bottom-1"]')], isMinor: true },
             { action: 'shuffle', msg: 'EMBARALHANDO CAMINHO...' },
             { type: 'custom', msg: 'CAMINHO — ESCOLHA O MAIOR (New Vision)', pool: shuffle(newVisionDeck.majors), targets: [document.querySelector('[data-scr-tempo-slot="top-2"]')] },
             { action: 'shuffle', msg: 'EMBARALHANDO MENORES...' },
-            { type: 'custom', msg: 'CAMINHO — ESCOLHA O MENOR (New Vision)', pool: shuffle(newVisionDeck.minors), targets: [document.querySelector('[data-scr-tempo-slot="bottom-2"]')] },
+            { type: 'custom', msg: 'CAMINHO — ESCOLHA O MENOR (New Vision)', pool: shuffle(newVisionDeck.minors), targets: [document.querySelector('[data-scr-tempo-slot="bottom-2"]')], isMinor: true },
             { action: 'shuffle', msg: 'EMBARALHANDO RESULTADO...' },
             { type: 'custom', msg: 'RESULTADO — ESCOLHA O MAIOR (After Tarot)', pool: shuffle(afterDeck.majors), targets: [document.querySelector('[data-scr-tempo-slot="top-3"]')] },
             { action: 'shuffle', msg: 'EMBARALHANDO MENORES...' },
-            { type: 'custom', msg: 'RESULTADO — ESCOLHA O MENOR (After Tarot)', pool: shuffle(afterDeck.minors), targets: [document.querySelector('[data-scr-tempo-slot="bottom-3"]')] }
+            { type: 'custom', msg: 'RESULTADO — ESCOLHA O MENOR (After Tarot)', pool: shuffle(afterDeck.minors), targets: [document.querySelector('[data-scr-tempo-slot="bottom-3"]')], isMinor: true }
         ]);
     }
     function initCsmdGame() { gameMode = 'csmd'; mainBoard.className = 'board csmd-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
@@ -2125,6 +2153,9 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         deckPool.forEach((cardData) => {
             const backCard = document.createElement('div');
             backCard.className = 'back-card';
+            if (step.type === 'minors' || step.isMinor) {
+                backCard.classList.add('minor-back-card');
+            }
             backCard.onclick = () => {
                 if (backCard.classList.contains('revealed')) return;
                 while (targetIndex < phaseTargets.length && phaseTargets[targetIndex].getAttribute('data-card-name')) { targetIndex++; }
@@ -2162,7 +2193,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         phaseTargets = getGameTargets(gameMode).minors; gameGrid.innerHTML = '';
         shuffle([...deck.wands, ...deck.cups, ...deck.swords, ...deck.pentacles]).forEach((cardData) => {
             const backCard = document.createElement('div');
-            backCard.className = 'back-card';
+            backCard.className = 'back-card minor-back-card';
             backCard.onclick = () => {
                 if (backCard.classList.contains('revealed') || activePhase !== 'minors') return;
                 while (targetIndex < phaseTargets.length && phaseTargets[targetIndex].getAttribute('data-card-name')) { targetIndex++; }
