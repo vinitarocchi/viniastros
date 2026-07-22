@@ -217,11 +217,19 @@
             font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
             font-weight: 500; cursor: pointer; transition: all 0.3s ease;
             border-radius: 6px; font-family: 'Montserrat', sans-serif; backdrop-filter: blur(4px);
+            -webkit-tap-highlight-color: transparent; tap-highlight-color: transparent;
+            outline: none;
         }
-        .action-btn:hover { background-color: rgba(255,255,255,0.8); color: #000000; border-color: #FFFFFF; }
+        @media (hover: hover) and (pointer: fine) {
+            .action-btn:hover { background-color: rgba(255,255,255,0.8); color: #000000; border-color: #FFFFFF; }
+            .action-btn.primary-cta:hover { background: rgba(0,0,0,0.8); color: #FFFFFF; }
+        }
         .action-btn.primary-cta { background: rgba(255,255,255,0.8); color: #000000; font-weight: 600; border: 1px solid #FFFFFF; }
-        .action-btn.primary-cta:hover { background: rgba(0,0,0,0.8); color: #FFFFFF; }
         button:active, .action-btn:active, .tab-btn:active, .game-select:active { transform: scale(0.98); transition: 0.1s; }
+        button, .action-btn, .tab-btn, .subtab-btn, .close-btn, .back-card, .gallery-card, .card {
+            -webkit-tap-highlight-color: transparent; tap-highlight-color: transparent;
+        }
+        button:focus, .action-btn:focus, .tab-btn:focus, .subtab-btn:focus { outline: none; }
 
         /* --- BOTÕES INFERIORES REDUZIDOS 50% --- */
         /* Ajuste --controls-lift abaixo (ou use a função JS setControlsLift(vh)) para subir/descer esta barra */
@@ -337,10 +345,14 @@
             transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
             text-align: center; padding: 4px; box-sizing: border-box; border-radius: 6px;
         }
-        .card:hover { transform: rotate(calc(-1 * var(--a))) scale(1.05) translateY(-5px); }
+        @media (hover: hover) and (pointer: fine) {
+            .card:hover { transform: rotate(calc(-1 * var(--a))) scale(1.05) translateY(-5px); }
+        }
         .card.board-face-down { background-image: var(--card-back-img) !important; background-color: transparent !important; background-size: 100% 100% !important; background-position: center !important; background-repeat: no-repeat !important; border: 1px solid rgba(255,255,255,0.4) !important; color: transparent !important; }
         .card.empty-slot-clickable { border: 1px dashed rgba(255,255,255,0.4); background-color: rgba(255,255,255,0.05); color: rgba(255,255,255,0.3); cursor: pointer; }
-        .card.empty-slot-clickable:hover { border: 1px solid #FFFFFF; background-color: rgba(255,255,255,0.1); color: #FFFFFF; transform: rotate(calc(-1 * var(--a))) scale(1.05); }
+        @media (hover: hover) and (pointer: fine) {
+            .card.empty-slot-clickable:hover { border: 1px solid #FFFFFF; background-color: rgba(255,255,255,0.1); color: #FFFFFF; transform: rotate(calc(-1 * var(--a))) scale(1.05); }
+        }
 
         /* --- BARRA DE SIGNIFICADO --- */
         .card-inner-tag {
@@ -406,7 +418,7 @@
 
         .central-pair, .side-pair-horizontal, .pair-container, .linear-container, .home-container { display: none !important; }
         .board.home-active .home-container { display: flex !important; }
-        .board.mandala-active .central-pair, .board.mandala-active .side-pair-horizontal, .board.mandala-active .pair-container { display: flex !important; margin-top: -70px; }
+        .board.mandala-active .central-pair, .board.mandala-active .side-pair-horizontal, .board.mandala-active .pair-container { display: flex !important; margin-top: calc(-70px + 3vh); }
         .board.scr-active #scrContainer { display: flex !important; margin-top: -70px; }
         
         /* CORREÇÃO DO ENERGIA DO DIA: MARGIN LEFT PARA 10% À DIREITA */
@@ -453,7 +465,9 @@
         .game-grid .back-card.minor-back-card { width: 25.6px !important; height: 44.8px !important; }
 
 
-        .game-grid .back-card:hover { transform: translateY(-4px) scale(1.1); }
+        @media (hover: hover) and (pointer: fine) {
+            .game-grid .back-card:hover { transform: translateY(-4px) scale(1.1); }
+        }
         .back-card.revealed { pointer-events: none; animation: fadeOutSelection 0.3s ease forwards; }
         @keyframes fadeOutSelection { from { opacity: 1; transform: translateY(-4px) scale(1.1); } to { opacity: 0; transform: translateY(0) scale(0.85); } }
 
@@ -475,7 +489,9 @@
         .cards-grid { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 10px 5px 20px 5px; overflow-y: auto; overflow-x: hidden; scroll-behavior: smooth; }
         
         .gallery-card { width: 77px; aspect-ratio: 7.5 / 13; background-size: 100% 100%; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; transition: transform 0.3s, border-color 0.3s; border-radius: 4px; flex-shrink: 0; }
-        .gallery-card:hover { transform: scale(1.08) translateY(-4px); }
+        @media (hover: hover) and (pointer: fine) {
+            .gallery-card:hover { transform: scale(1.08) translateY(-4px); }
+        }
 
         .verb-box { border: 1px solid rgba(255,255,255,0.2); padding: 15px; margin-top: 22px; background-color: transparent; text-align: center; border-radius: 0; overflow: visible; flex-shrink: 0; }
         .verb-box-title { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 2.5px; color: var(--gold-main); display: block; margin-bottom: 12px; }
@@ -560,9 +576,9 @@ body.mystic-theme .bottom-links .action-btn { background: transparent; border: n
 
     </style>
 </head>
-<body class="mystic-theme">
+<body class="pastel-dark-theme">
 
-    <button id="btnNightMode" onclick="toggleTheme()">✨ Místico</button>
+    <button id="btnNightMode" onclick="toggleTheme()">🌙 Pastel</button>
 
     <header class="nav-header">
         <h1 class="app-title">Viniastros</h1>
@@ -584,6 +600,8 @@ id="btnPlayAnother" class="action-btn"
 onclick="playAnotherGame()">Limpar Jogo</button>
 
 <button id="btnProgressTime" class="action-btn" style="display: none;" onclick="progressMandalaTime()">Progredir Tempo</button>
+
+<button id="btnToggleMandalaDate" class="action-btn" style="display: none;" onclick="toggleMandalaDateVisibility()">Ocultar Data</button>
         
         
 
@@ -591,7 +609,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
     </div>
 
     <div class="board home-active" id="mainBoard">
-        <div id="mandalaPeriodLabel" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%, calc(-50% + -28 * var(--u))); text-align:center; font-size:9px; color:var(--gold-main); text-transform:uppercase; letter-spacing:1px; font-family:'Montserrat', sans-serif; white-space:nowrap; z-index:6;"></div>
+        <div id="mandalaPeriodLabel" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%, calc(-50% + -24 * var(--u))); text-align:center; font-size:9px; color:var(--gold-main); text-transform:uppercase; letter-spacing:1px; font-family:'Montserrat', sans-serif; white-space:nowrap; z-index:6;"></div>
         <div id="homeContainer" class="home-container">
             <div class="home-hero">
                 <img src="https://i.ibb.co/JwrVdqvH/A2-B85-AEE-8797-4-C93-9-ED1-32803451-AA17.jpg" alt="Vini Astros Tarot Art" class="home-art-img">
@@ -1175,7 +1193,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
     </div>
 
     <script>
-    let currentThemeIndex = 2; // 0: Noturno, 1: Claro, 2: Místico, 3: Pastel
+    let currentThemeIndex = 3; // 0: Noturno, 1: Claro, 2: Místico, 3: Pastel
 
     function toggleTheme() {
         const btn = document.getElementById('btnNightMode');
@@ -1203,20 +1221,27 @@ onclick="playAnotherGame()">Limpar Jogo</button>
     // (Ocultar Significados / Atualizar Significados / Limpar Jogo / Progredir Tempo)
     //
     // Chame setControlsLift(valorEmVh) no console (ou edite o valor padrão abaixo)
-    // para subir (+) ou descer (-) a barra. O padrão já está 2vh mais alto que o
-    // posicionamento original (equivalente a "2% mais pra cima" pedido).
+    // para subir (+) ou descer (-) a barra.
     //
     // Exemplos:
-    //   setControlsLift(2)  -> padrão atual
+    //   setControlsLift(4)  -> padrão atual
     //   setControlsLift(6)  -> sobe mais a barra
-    //   setControlsLift(0)  -> volta para a posição original (antes do ajuste)
+    //   setControlsLift(0)  -> desce para a posição original
     //   setControlsLift(-3) -> desce a barra abaixo da posição original
     // ==========================================================================
-    const DEFAULT_CONTROLS_LIFT_VH = 2;
+    const DEFAULT_CONTROLS_LIFT_VH = 4;
     function setControlsLift(vh) {
         document.documentElement.style.setProperty('--controls-lift', vh + 'vh');
     }
     setControlsLift(DEFAULT_CONTROLS_LIFT_VH);
+
+    // Remove o estado "preso" de foco/hover em botões após o toque/clique (mobile)
+    document.addEventListener('click', function(e) {
+        const btn = e.target.closest('button, .action-btn, .tab-btn, .subtab-btn, .close-btn, .back-card, .gallery-card');
+        if (btn && typeof btn.blur === 'function') {
+            setTimeout(() => btn.blur(), 50);
+        }
+    }, true);
 
         function resizeBoardToFit() {
         if (mainBoard.classList.contains('home-active')) return;
@@ -1519,6 +1544,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
     let mandalaStartMonth = null; // 0-11
     let pendingMandalaMode = null;
     let mandalaProgressCount = 0;
+    let mandalaDateVisible = true;
 
     const mandalaHouseAngles = {1:270,2:240,3:210,4:180,5:150,6:120,7:90,8:60,9:30,10:0,11:330,12:300};
 
@@ -1569,6 +1595,19 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         }
 
         label.innerHTML = periodText + dateHtml;
+    }
+
+    function toggleMandalaDateVisibility() {
+        mandalaDateVisible = !mandalaDateVisible;
+        const label = document.getElementById('mandalaPeriodLabel');
+        const btn = document.getElementById('btnToggleMandalaDate');
+        if (mandalaDateVisible) {
+            label.style.display = 'block';
+            btn.textContent = 'Ocultar Data';
+        } else {
+            label.style.display = 'none';
+            btn.textContent = 'Revelar Data';
+        }
     }
 
     function progressMandalaTime() {
@@ -1772,7 +1811,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
   ],
   "4 de Copas": [
     "adiar e rejeitar", "ranço", "fofocar", "invejar", "aborrecer", "desinteressar", "recuar", "irritado", "excesso do MAIOR", "tédio e apatia", "chatisse", "fofoca e ciúmes", "insatisfação irreal", "ambientes viciados densos", "vazio espiritual e desligamento", "mau humor e asco", "NOJO", "energia DENSA" ],
-  "5 de Copas": [
+"5 de Copas": [
     "vitimizar", "fracassar", "quebrar", "arrepender", "agonizar", "decepcionar", "lamentar", "culpar", "reclusar", "buscar alternativas",
     "amargura", "projeto fracassa", "arrependimento e remorso", "medo da perda do maior", "amargura e melancolia", "falta de amor próprio", "perdas e desgostos", "mudar o foco", "psoriase e depressão leve"
   ],
@@ -2263,7 +2302,10 @@ onclick="playAnotherGame()">Limpar Jogo</button>
     function launchGame(selectedMode) {
         postGameControls.style.display = 'none';
         document.getElementById('btnProgressTime').style.display = 'none';
+        document.getElementById('btnToggleMandalaDate').style.display = 'none';
         document.getElementById('mandalaPeriodLabel').style.display = 'none';
+        mandalaDateVisible = true;
+        document.getElementById('btnToggleMandalaDate').textContent = 'Ocultar Data';
         oposicaoSequence = [];
         activePhase = 'majors';
         sequenceIndex = 0;
@@ -2302,6 +2344,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
 
         mandalaStartDay = null; mandalaStartMonth = null; mandalaProgressCount = 0;
         document.getElementById('btnProgressTime').style.display = 'none';
+        document.getElementById('btnToggleMandalaDate').style.display = 'none';
         document.getElementById('mandalaPeriodLabel').style.display = 'none';
 
         mainBoard.style.transform = '';
@@ -2461,6 +2504,9 @@ onclick="playAnotherGame()">Limpar Jogo</button>
 
         if (gameMode === 'mandalaInterativa' || gameMode === 'mandalaManual') {
             document.getElementById('btnProgressTime').style.display = 'inline-flex';
+            document.getElementById('btnToggleMandalaDate').style.display = 'inline-flex';
+            mandalaDateVisible = true;
+            document.getElementById('btnToggleMandalaDate').textContent = 'Ocultar Data';
             document.getElementById('mandalaPeriodLabel').style.display = 'block';
             updateMandalaPeriodLabel();
         }
