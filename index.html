@@ -224,8 +224,9 @@
         button:active, .action-btn:active, .tab-btn:active, .game-select:active { transform: scale(0.98); transition: 0.1s; }
 
         /* --- BOTÕES INFERIORES REDUZIDOS 50% --- */
+        /* Ajuste --controls-lift abaixo (ou use a função JS setControlsLift(vh)) para subir/descer esta barra */
         .post-game-controls {
-            position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%);
+            position: fixed; bottom: calc(12px - 5vh + var(--controls-lift, 2vh)); left: 50%; transform: translateX(-50%);
             display: none; flex-wrap: wrap; justify-content: center; align-items: center;
             gap: 6px; z-index: 3000; width: 96%; max-width: 600px;
             background: rgba(0,0,0,0.4); padding: 8px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2);
@@ -518,8 +519,43 @@ body.mystic-theme .bottom-links .action-btn { background: transparent; border: n
 .board.cruz-active #cruzContainer .slot-label { font-size: calc(1 * var(--u)) !important; margin-bottom: calc(0.8 * var(--u)); }
 
 
+/* --- Datas do Período da Mandala (abaixo do texto "Período: X a Y meses") --- */
+.mandala-period-date {
+    display: block;
+    margin-top: 4px;
+    font-weight: 700; /* fonte mais grossa, pedido do usuário */
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--gold-main);
+    text-shadow: 0 0 4px rgba(0,0,0,0.5);
+}
 
+/* --- FIX: Seletor de Tema pós-jogo --- */
+#themeContainer {
+    display: none;
+    position: fixed;
+    top: 70px; left: 50%; transform: translateX(-50%);
+    z-index: 1500;
+    align-items: center; gap: 8px;
+    background: rgba(0,0,0,0.55);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    padding: 6px 10px;
+    backdrop-filter: blur(6px);
+}
+#themeContainer label {
+    font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);
+    font-family: 'Montserrat', sans-serif; white-space: nowrap;
+}
+#themeSelect {
+    background: transparent; color: var(--text-main); border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.5); font-size: 10px; padding: 2px 0;
+    outline: none; cursor: pointer; font-family: 'Montserrat', sans-serif;
+}
+#themeSelect option { background-color: #111; color: #fff; }
 
+/* --- FIX: Modal de data da Mandala --- */
+#mandalaDateModal .modal-content { max-width: 320px; height: auto; }
 
 
     </style>
@@ -546,6 +582,8 @@ onclick="toggleMeanings()">Ocultar Significados</button>
 <button
 id="btnPlayAnother" class="action-btn"
 onclick="playAnotherGame()">Limpar Jogo</button>
+
+<button id="btnProgressTime" class="action-btn" style="display: none;" onclick="progressMandalaTime()">Progredir Tempo</button>
         
         
 
@@ -553,6 +591,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
     </div>
 
     <div class="board home-active" id="mainBoard">
+        <div id="mandalaPeriodLabel" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%, calc(-50% + -28 * var(--u))); text-align:center; font-size:9px; color:var(--gold-main); text-transform:uppercase; letter-spacing:1px; font-family:'Montserrat', sans-serif; white-space:nowrap; z-index:6;"></div>
         <div id="homeContainer" class="home-container">
             <div class="home-hero">
                 <img src="https://i.ibb.co/JwrVdqvH/A2-B85-AEE-8797-4-C93-9-ED1-32803451-AA17.jpg" alt="Vini Astros Tarot Art" class="home-art-img">
@@ -1102,6 +1141,39 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         </div>
     </div>
 
+    <div id="mandalaDateModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Data de Início</h2>
+                <button class="close-btn" onclick="document.getElementById('mandalaDateModal').style.display='none';">&times;</button>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:15px; padding:10px 0;">
+                <div class="meta-selector-row">
+                    <span class="meta-label">Dia</span>
+                    <select id="mandalaDaySelect" class="meta-select"></select>
+                </div>
+                <div class="meta-selector-row">
+                    <span class="meta-label">Mês</span>
+                    <select id="mandalaMonthSelect" class="meta-select">
+                        <option value="0">Janeiro</option>
+                        <option value="1">Fevereiro</option>
+                        <option value="2">Março</option>
+                        <option value="3">Abril</option>
+                        <option value="4">Maio</option>
+                        <option value="5">Junho</option>
+                        <option value="6">Julho</option>
+                        <option value="7">Agosto</option>
+                        <option value="8">Setembro</option>
+                        <option value="9">Outubro</option>
+                        <option value="10">Novembro</option>
+                        <option value="11">Dezembro</option>
+                    </select>
+                </div>
+                <button class="action-btn primary-cta" onclick="confirmMandalaDate()">Confirmar e Iniciar</button>
+            </div>
+        </div>
+    </div>
+
     <script>
     let currentThemeIndex = 2; // 0: Noturno, 1: Claro, 2: Místico, 3: Pastel
 
@@ -1125,6 +1197,26 @@ onclick="playAnotherGame()">Limpar Jogo</button>
             btn.textContent = '🌑 Noturno';
         }
     }
+
+    // ==========================================================================
+    // AJUSTE DA POSIÇÃO VERTICAL DA BARRA DE BOTÕES INFERIOR
+    // (Ocultar Significados / Atualizar Significados / Limpar Jogo / Progredir Tempo)
+    //
+    // Chame setControlsLift(valorEmVh) no console (ou edite o valor padrão abaixo)
+    // para subir (+) ou descer (-) a barra. O padrão já está 2vh mais alto que o
+    // posicionamento original (equivalente a "2% mais pra cima" pedido).
+    //
+    // Exemplos:
+    //   setControlsLift(2)  -> padrão atual
+    //   setControlsLift(6)  -> sobe mais a barra
+    //   setControlsLift(0)  -> volta para a posição original (antes do ajuste)
+    //   setControlsLift(-3) -> desce a barra abaixo da posição original
+    // ==========================================================================
+    const DEFAULT_CONTROLS_LIFT_VH = 2;
+    function setControlsLift(vh) {
+        document.documentElement.style.setProperty('--controls-lift', vh + 'vh');
+    }
+    setControlsLift(DEFAULT_CONTROLS_LIFT_VH);
 
         function resizeBoardToFit() {
         if (mainBoard.classList.contains('home-active')) return;
@@ -1423,6 +1515,13 @@ onclick="playAnotherGame()">Limpar Jogo</button>
     let currentSelectedCard = null;
     let gameMode = 'mandalaInterativa';
 
+    let mandalaStartDay = null;
+    let mandalaStartMonth = null; // 0-11
+    let pendingMandalaMode = null;
+    let mandalaProgressCount = 0;
+
+    const mandalaHouseAngles = {1:270,2:240,3:210,4:180,5:150,6:120,7:90,8:60,9:30,10:0,11:330,12:300};
+
     const modal             = document.getElementById('tarotModal');
     const encyclopediaModal = document.getElementById('encyclopediaModal');
     const detailModal       = document.getElementById('detailModal');
@@ -1435,6 +1534,110 @@ onclick="playAnotherGame()">Limpar Jogo</button>
     const gameStatus        = document.getElementById('gameStatus');
     const btnVoltar         = document.getElementById('btnVoltar');
     const postGameControls  = document.getElementById('postGameControls');
+
+    (function populateMandalaDaySelect(){
+        const sel = document.getElementById('mandalaDaySelect');
+        if (!sel) return;
+        for (let d = 1; d <= 31; d++) {
+            const opt = document.createElement('option');
+            opt.value = d; opt.textContent = d;
+            sel.appendChild(opt);
+        }
+    })();
+
+    function addMonthsClamped(day, month, monthsToAdd) {
+        const daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
+        const newMonth = ((month + monthsToAdd) % 12 + 12) % 12;
+        const newDay = Math.min(day, daysInMonth[newMonth]);
+        return { day: newDay, month: newMonth };
+    }
+
+    // Retorna o texto "Período: X a Y meses" + a data (dd/mm) correspondente ao
+    // início desse período, calculada a partir da data inicial informada pelo usuário.
+    function updateMandalaPeriodLabel() {
+        const label = document.getElementById('mandalaPeriodLabel');
+        if (!label) return;
+        const starts = [0,3,6,9], ends = [3,6,9,12];
+        const idx = mandalaProgressCount % 4;
+        const periodText = `Período: ${starts[idx]} a ${ends[idx]} meses`;
+
+        let dateHtml = '';
+        if (mandalaStartDay !== null && mandalaStartMonth !== null) {
+            const d = addMonthsClamped(mandalaStartDay, mandalaStartMonth, starts[idx]);
+            const dateStr = `${String(d.day).padStart(2,'0')}/${String(d.month+1).padStart(2,'0')}`;
+            dateHtml = `<span class="mandala-period-date">${dateStr}</span>`;
+        }
+
+        label.innerHTML = periodText + dateHtml;
+    }
+
+    function progressMandalaTime() {
+        if (gameMode !== 'mandalaInterativa' && gameMode !== 'mandalaManual') return;
+        const cards = document.querySelectorAll('.card[data-slot-num]:not([data-slot-num="0-left"]):not([data-slot-num="0-right"])');
+        cards.forEach(c => { c.style.transition = 'opacity 0.3s ease'; c.style.opacity = '0'; });
+        setTimeout(() => {
+            applyMandalaRotation();
+            cards.forEach(c => { c.style.opacity = '1'; });
+        }, 320);
+    }
+
+    function applyMandalaRotation() {
+        const houseData = {};
+        for (let h = 1; h <= 12; h++) {
+            houseData[h] = {};
+            ['inside','outside'].forEach(pos => {
+                const slot = document.querySelector(`.card[data-slot-num="${h}"][data-pos="${pos}"]`);
+                if (!slot) return;
+                houseData[h][pos] = {
+                    name: slot.getAttribute('data-card-name'),
+                    bg: slot.style.backgroundImage,
+                    hasContent: !!slot.getAttribute('data-card-name')
+                };
+            });
+        }
+
+        function wrapHouse(n) {
+            let w = n - 3;
+            while (w < 1) w += 12;
+            while (w > 12) w -= 12;
+            return w;
+        }
+
+        for (let h = 1; h <= 12; h++) {
+            ['inside','outside'].forEach(pos => {
+                const slot = document.querySelector(`.card[data-slot-num="${h}"][data-pos="${pos}"]`);
+                if (!slot) return;
+                slot.style.backgroundImage = '';
+                slot.classList.remove('board-face-down', 'empty-slot-clickable');
+                slot.removeAttribute('data-card-name');
+                slot.removeAttribute('data-reveal-url');
+                slot.removeAttribute('data-meaning-index');
+                slot.removeAttribute('data-used-indices');
+                slot.innerHTML = '';
+                slot.style.border = '';
+                slot.textContent = h;
+            });
+        }
+
+        for (let h = 1; h <= 12; h++) {
+            const newHouse = wrapHouse(h);
+            ['inside','outside'].forEach(pos => {
+                const data = houseData[h][pos];
+                if (!data || !data.hasContent) return;
+                const target = document.querySelector(`.card[data-slot-num="${newHouse}"][data-pos="${pos}"]`);
+                if (!target) return;
+                target.style.backgroundImage = data.bg;
+                target.setAttribute('data-card-name', data.name);
+                target.innerHTML = '';
+                target.style.border = 'none';
+                injectInnerTag(target, data.name);
+            });
+        }
+
+        enableEmptySlotClicks();
+        mandalaProgressCount++;
+        updateMandalaPeriodLabel();
+    }
 
     const majorNames = [
         "0 - O Louco","1 - O Mago","2 - A Sacerdotisa","3 - A Imperatriz",
@@ -2038,13 +2241,34 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         const select = document.getElementById('gameSelect');
         const selectedMode = select.value;
         if (!selectedMode) { alert("Por favor, selecione um jogo na lista antes de continuar."); return; }
-        
+
+        if (selectedMode === 'mandalaInterativa' || selectedMode === 'mandalaManual') {
+            pendingMandalaMode = selectedMode;
+            document.getElementById('mandalaDateModal').style.display = 'flex';
+            return;
+        }
+        launchGame(selectedMode);
+    }
+
+    function confirmMandalaDate() {
+        mandalaStartDay = parseInt(document.getElementById('mandalaDaySelect').value);
+        mandalaStartMonth = parseInt(document.getElementById('mandalaMonthSelect').value);
+        mandalaProgressCount = 0;
+        document.getElementById('mandalaDateModal').style.display = 'none';
+        const mode = pendingMandalaMode;
+        pendingMandalaMode = null;
+        launchGame(mode);
+    }
+
+    function launchGame(selectedMode) {
         postGameControls.style.display = 'none';
+        document.getElementById('btnProgressTime').style.display = 'none';
+        document.getElementById('mandalaPeriodLabel').style.display = 'none';
         oposicaoSequence = [];
         activePhase = 'majors';
         sequenceIndex = 0;
         targetIndex = 0;
-        
+
         switch(selectedMode) {
             case 'dupla':             initDuplaGame(); break;
             case 'oposicao':          initOposicaoGame(); break;
@@ -2075,11 +2299,10 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         gamePanel.style.display = 'none'; btnVoltar.style.display = 'none';
         postGameControls.style.display = 'none'; resetAllSlots();
         document.getElementById('gameSelect').value = "";
-        
-        const themeContainer = document.getElementById('themeContainer');
-        if (themeContainer) themeContainer.style.display = 'none';
-        const themeSelect = document.getElementById('themeSelect');
-        if (themeSelect) themeSelect.value = "";
+
+        mandalaStartDay = null; mandalaStartMonth = null; mandalaProgressCount = 0;
+        document.getElementById('btnProgressTime').style.display = 'none';
+        document.getElementById('mandalaPeriodLabel').style.display = 'none';
 
         mainBoard.style.transform = '';
     }
@@ -2225,11 +2448,6 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         mainBoard.classList.remove('game-active');
         gamePanel.style.display = 'none';
 
-        const themeContainer = document.getElementById('themeContainer');
-        if (themeContainer) {
-            themeContainer.style.display = 'flex';
-        }
-
         document.querySelectorAll('.card[data-reveal-url]').forEach(card => {
             const finalUrl = card.getAttribute('data-reveal-url');
             const cardName = card.getAttribute('data-card-name');
@@ -2240,6 +2458,13 @@ onclick="playAnotherGame()">Limpar Jogo</button>
             injectInnerTag(card, cardName);
         });
         postGameControls.style.display = 'flex';
+
+        if (gameMode === 'mandalaInterativa' || gameMode === 'mandalaManual') {
+            document.getElementById('btnProgressTime').style.display = 'inline-flex';
+            document.getElementById('mandalaPeriodLabel').style.display = 'block';
+            updateMandalaPeriodLabel();
+        }
+
         setTimeout(resizeBoardToFit, 50);
     }
 
@@ -2466,6 +2691,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         if (e.target === modal)             closeModal();
         if (e.target === encyclopediaModal) closeEncyclopedia();
         if (e.target === detailModal)       closeDetailModal();
+        if (e.target === document.getElementById('mandalaDateModal')) document.getElementById('mandalaDateModal').style.display = 'none';
     };
     </script>
 </body>
