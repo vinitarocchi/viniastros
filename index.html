@@ -343,7 +343,7 @@
         .game-select option { background-color: #000000; color: #FFFFFF; font-family: 'Montserrat', sans-serif; padding: 10px; }
         .game-select optgroup { background-color: #111111; color: #888888; font-style: normal; font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; }
 
-        .bottom-links { display: flex; flex-direction: row; justify-content: space-between; width: 100%; border-top: 1px solid rgba(136,136,136,0.3); padding-top: 14px; gap: 10px; }
+        .bottom-links { display: flex; flex-direction: row; justify-content: space-between; width: 100%; border-top: 1px solid rgba(136,136,136,0.3); padding-top: 14px; gap: 10px; flex-wrap: wrap; }
         .bottom-links .action-btn { border: none; text-decoration: underline; text-underline-offset: 4px; text-transform: uppercase; letter-spacing: 1px; font-size: 9px; padding: 0; height: auto; color: var(--text-muted); background: transparent; width: auto; flex: 1; text-align: center; backdrop-filter: none;}
         .bottom-links .action-btn:hover { color: var(--text-main); background: transparent; border-color: transparent;}
         .bottom-links .action-btn:active { color: var(--text-main); background: transparent; border-color: transparent; transform: scale(0.95); }
@@ -616,6 +616,69 @@ body.mystic-theme .bottom-links .action-btn { background: transparent; border: n
 /* --- FIX: Modal de data da Mandala --- */
 #mandalaDateModal .modal-content { max-width: 320px; height: auto; }
 
+/* ============================================================
+   JOGO DE RUNAS — tema verde escuro / marrom (natureza)
+   Independente do tema do Tarot selecionado acima.
+   ============================================================ */
+#runasScreen {
+    display: none;
+    position: fixed; inset: 0; z-index: 5000;
+    background: linear-gradient(160deg, #10160c 0%, #1c2814 45%, #2b1d10 100%);
+    color: #e8dcc3;
+    align-items: center; justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    overflow-y: auto; padding: 30px 0; box-sizing: border-box;
+}
+.runas-back-btn {
+    position: fixed; top: 14px; left: 16px; z-index: 5100; width: auto; padding: 0 14px;
+    height: 32px; font-size: 10px; border: 1px solid #8ea36a; color: #d8e8b8; background: rgba(0,0,0,0.4);
+}
+.runas-home-container {
+    display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center;
+    background: rgba(16, 22, 12, 0.6); border: 1px solid #6b4f2a; border-radius: 14px; padding: 34px 28px;
+    max-width: 340px; width: 90%; backdrop-filter: blur(6px);
+}
+.runas-glyph-hero { font-size: 42px; color: #c9a86a; font-family: 'Cinzel', serif; }
+.runas-title { font-family: 'Cinzel', serif; font-size: 20px; letter-spacing: 3px; text-transform: uppercase; color: #c9a86a; margin: 0; }
+.runas-subtitle { font-size: 11px; color: #b7c9a0; line-height: 1.6; margin: 0; }
+.runas-btn { border: 1px solid #7a8f5c; color: #d8e8b8; background: rgba(30,40,20,0.55); width: 100%; }
+.runas-btn:hover { background: #7a8f5c; color: #10160c; }
+.runas-btn.primary-cta { background: #7a8f5c; color: #10160c; font-weight: 600; }
+.runas-btn.primary-cta:hover { background: rgba(30,40,20,0.8); color: #d8e8b8; }
+.runas-btn:active { background: #7a8f5c; color: #10160c; }
+
+.runas-game-board { display: flex; flex-direction: column; align-items: center; gap: 16px; width: 92vw; max-width: 640px; }
+.runas-status { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #c9a86a; text-align: center; }
+.runas-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-height: 70vh; overflow-y: auto; padding: 6px; }
+.runa-back-card {
+    width: 46px; height: 70px; border-radius: 6px; border: 1px solid #7a8f5c;
+    background: linear-gradient(160deg, #2b1d12, #1c2814); display: flex; align-items: center; justify-content: center;
+    color: #8a6a3a; font-size: 20px; cursor: pointer; transition: transform 0.25s ease, border-color 0.25s ease; flex-shrink: 0;
+}
+.runa-back-card:hover { transform: translateY(-4px); border-color: #c9a86a; }
+.runa-back-card.revealed { pointer-events: none; opacity: 0.2; }
+
+.runas-modal-content { background: linear-gradient(160deg, #171f10, #241a10); border: 1px solid #7a8f5c; color: #e8dcc3; height: auto; max-height: 88vh; max-width: 360px; }
+.runas-modal-content .modal-header { border-bottom-color: rgba(122,143,92,0.4); }
+.runas-modal-content .modal-header h2 { color: #c9a86a; }
+.runas-modal-content .close-btn { color: #b7c9a0; }
+.runa-glyph-display { font-size: 62px; text-align: center; color: #c9a86a; margin: 6px 0 14px; font-family: 'Cinzel', serif; }
+.runa-detail-text { font-size: 13px; line-height: 1.7; color: #d8e8b8; padding: 0 2px 12px; overflow-y: auto; }
+.runas-modal-actions { display: flex; gap: 10px; margin-top: 4px; flex-shrink: 0; }
+.runas-modal-actions .action-btn { flex: 1; border: 1px solid #7a8f5c; color: #d8e8b8; background: rgba(30,40,20,0.55); height: 42px; font-size: 9px; }
+.runas-modal-actions .action-btn.primary-cta { background: #7a8f5c; color: #10160c; }
+
+.runas-encyclopedia-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; overflow-y: auto; padding: 10px; }
+.runa-gallery-card {
+    width: 68px; height: 68px; border-radius: 10px; border: 1px solid #7a8f5c;
+    background: linear-gradient(160deg, #2b1d12, #1c2814); display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-size: 24px; color: #c9a86a; cursor: pointer; gap: 3px;
+}
+.runa-gallery-card span.runa-gallery-label { font-size: 7px; color: #b7c9a0; text-transform: uppercase; letter-spacing: 0.5px; font-family: 'Montserrat', sans-serif; text-align: center; }
+#runasEncyclopediaModal .modal-content { background: linear-gradient(160deg, #171f10, #241a10); border: 1px solid #7a8f5c; }
+#runasEncyclopediaModal .modal-header h2 { color: #c9a86a; }
+#runasEncyclopediaModal .close-btn { color: #b7c9a0; }
+
 
     </style>
 </head>
@@ -719,6 +782,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
             </div>
             <div class="bottom-links">
     <button class="action-btn" onclick="openEncyclopedia()">78 Arcanos</button>
+    <button class="action-btn" onclick="openRunasHome()">Jogar Runas</button>
     <a href="https://www.instagram.com/vinitarocchi" target="_blank" class="action-btn" style="text-decoration: none;">Instagram</a>
 </div>
         </div>
@@ -1232,6 +1296,51 @@ onclick="playAnotherGame()">Limpar Jogo</button>
                     </select>
                 </div>
                 <button class="action-btn primary-cta" onclick="confirmMandalaDate()">Confirmar e Iniciar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         JOGO DE RUNAS (verde escuro / marrom — tema independente)
+         ============================================================ -->
+    <div id="runasScreen">
+        <button class="action-btn runas-back-btn" onclick="closeRunas()">HOME</button>
+        <div id="runasHomeView" class="runas-home-container">
+            <div class="runas-glyph-hero">ᚱ</div>
+            <h2 class="runas-title">Runas Futhark</h2>
+            <p class="runas-subtitle">Consulte a energia do seu dia através da sabedoria ancestral das runas nórdicas.</p>
+            <button class="action-btn runas-btn primary-cta" onclick="startRunasGame()">Jogar Runa do Dia</button>
+            <button class="action-btn runas-btn" onclick="openRunasEncyclopedia()">Conheça as 25 Runas</button>
+        </div>
+        <div id="runasGameView" class="runas-game-board" style="display:none;">
+            <div id="runasStatus" class="runas-status">Toque em uma runa</div>
+            <div id="runasGrid" class="runas-grid"></div>
+        </div>
+    </div>
+
+    <div id="runaDetailModal" class="modal">
+        <div class="modal-content runas-modal-content">
+            <div class="modal-header">
+                <h2 id="runaDetailName">Runa</h2>
+                <button class="close-btn" onclick="closeRunaDetailModal()">&times;</button>
+            </div>
+            <div id="runaDetailGlyph" class="runa-glyph-display">ᚠ</div>
+            <div id="runaDetailText" class="runa-detail-text"></div>
+            <div class="runas-modal-actions">
+                <button class="action-btn" onclick="closeRunasToMainMenu()">Voltar ao Menu Principal</button>
+                <button class="action-btn primary-cta" onclick="chooseAnotherRune()">Escolher Outra Runa</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="runasEncyclopediaModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>As 25 Runas</h2>
+                <button class="close-btn" onclick="closeRunasEncyclopedia()">&times;</button>
+            </div>
+            <div style="flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;-webkit-overflow-scrolling:touch;">
+                <div id="runasEncyclopediaGrid" class="runas-encyclopedia-grid"></div>
             </div>
         </div>
     </div>
@@ -2886,11 +2995,116 @@ onclick="playAnotherGame()">Limpar Jogo</button>
 
     function closeDetailModal() { detailModal.style.display = 'none'; }
 
+    /* ============================================================
+       JOGO DE RUNAS FUTHARK
+       ============================================================ */
+    const runasData = [
+        { name: "Fehu", glyph: "ᚠ", text: "Dia de focar na sua prosperidade e colher os lucros do seu esforço. Excelente para ganhos, recompensas materiais e para investir sua energia criativa. Apenas tenha atenção para não se esgotar ou agir por cobiça." },
+        { name: "Uruz", glyph: "ᚢ", text: "Um dia que exige determinação, persistência e força de vontade. Os obstáculos poderão ser superados se você mantiver a coragem e a firmeza. Excelente para cuidar da saúde, vitalidade e afirmar seu espaço." },
+        { name: "Thurisaz", glyph: "ᚦ", text: "Mantenha o estado de alerta. O dia pode trazer contratempos inesperados ou reações intensas. Use sua energia para se proteger de aborrecimentos e evite tomar decisões impulsivas ou precipitadas." },
+        { name: "Ansuz", glyph: "ᚨ", text: "O dia favorece o diálogo, os estudos, as conexões e a troca de ideias. Preste atenção aos sinais, conselhos sábios e às suas intuições. A comunicação clara abrirá portas e trará novas inspirações." },
+        { name: "Raidho", glyph: "ᚱ", text: "Dia excelente para focar em metas, colocar projetos em andamento e tomar as rédeas da situação. Favorece viagens, mudanças de rotina e a busca pelo caminho mais correto e equilibrado." },
+        { name: "Kenaz", glyph: "ᚲ", text: "Aproveite o dia para buscar esclarecimentos e usar sua criatividade. Uma nova luz pode surgir sobre problemas antigos, trazendo entusiasmo, autoconfiança e capacidade de regeneração para superar desafios." },
+        { name: "Gebo", glyph: "ᚷ", text: "Um dos melhores dias para firmar parcerias, acordos e fortalecer laços amorosos e fraternais. A generosidade, a solidariedade e a troca equilibrada de energia trarão grandes recompensas." },
+        { name: "Wunjo", glyph: "ᚹ", text: "Dia para aproveitar a vida, celebrar, reunir pessoas e colher os frutos do esforço em equipe. A harmonia grupal, a amizade e o bem-estar estão em alta. Apenas cuidado com exageros e impulsos emocionais." },
+        { name: "Hagalaz", glyph: "ᚺ", text: "Forças que fogem do seu controle podem mudar temporariamente os seus planos. Mantenha a calma interior, não tente forçar situações e aguarde. É um momento de limpeza e de deixar a tempestade passar." },
+        { name: "Naudhiz", glyph: "ᚾ", text: "O momento pede paciência, resiliência e prudência. Não apresse os resultados e evite a autossabotagem. Use os desafios de hoje como oportunidade para se fortalecer e focar nos esforços que trarão alívio no futuro." },
+        { name: "Isa", glyph: "ᛁ", text: "Dia de fazer uma pausa, esfriar a mente e observar. Aja com razão, evite atitudes impulsivas e preserve sua energia. É melhor focar na manutenção e na estabilidade do que tentar forçar mudanças agora." },
+        { name: "Jera", glyph: "ᛃ", text: "Tudo tem seu tempo certo. Hoje é o dia de ver os resultados práticos e colher o que plantou no passado. Mantenha o seu ritmo constante e confie que a justiça natural trará sua merecida recompensa material ou social." },
+        { name: "Eihwaz", glyph: "ᛇ", text: "Um dia de reflexão profunda, flexibilidade e grande resistência interior. Mudanças de consciência e pequenos sacrifícios podem ser necessários para atingir uma meta. Confie na sua intuição e elimine o que não serve mais." },
+        { name: "Perdhro", glyph: "ᛈ", text: "O dia pode trazer revelações, surpresas, ou o retorno de algo oculto. Esteja aberto às sincronicidades e conselhos inesperados. É um bom momento para apostar nos seus talentos e interagir em momentos de descontração." },
+        { name: "Algiz", glyph: "ᛉ", text: "Você está protegido para seguir em frente, mas mantenha-se vigilante. Confie nos seus instintos e premonições para afastar más companhias ou influências negativas. A sua intuição e defesa espiritual estão muito ativas hoje." },
+        { name: "Sowilo", glyph: "ᛋ", text: "O sucesso, o reconhecimento e a vitória estão ao seu alcance! Um dia brilhante, cheio de vitalidade, esperança e esclarecimento. Vá em frente sem medo, foque em seus objetivos, mas evite o orgulho e a arrogância." },
+        { name: "Tiwaz", glyph: "ᛏ", text: "Dia favorável para agir com coragem, disciplina e buscar a justiça. Você tem a força e a motivação necessárias para lutar por um ideal, vencer competições ou tomar decisões difíceis. Mantenha o foco." },
+        { name: "Berkano", glyph: "ᛒ", text: "Excelente dia para focar no desenvolvimento, nutrir ideias, cuidar da família e iniciar algo novo. Cuide de seus projetos com paciência e dedicação. A criatividade, a proteção e a fertilidade estão muito favorecidas." },
+        { name: "Ehwaz", glyph: "ᛖ", text: "A união faz a força hoje. Busque trabalhar em equipe e confie na lealdade dos seus parceiros e colaboradores. Ótimo momento para fazer pequenas mudanças de rota, viagens ou dar um passo adiante em conjunto." },
+        { name: "Mannaz", glyph: "ᛗ", text: "O foco do dia está nas interações sociais, no coletivo e no uso da razão inteligente. Conecte-se com grupos, peça auxílio a amigos e ajude o próximo. O altruísmo, o equilíbrio e a cooperação trarão grandes benefícios mútuos." },
+        { name: "Laguz", glyph: "ᛚ", text: "Deixe as coisas fluírem naturalmente e confie fortemente na sua intuição e imaginação. O dia pede que você não resista à correnteza, se adapte às circunstâncias e busque equilibrar suas emoções de forma profunda." },
+        { name: "Ingwaz", glyph: "ᛜ", text: "Um novo e grande potencial está se formando nos bastidores. Ótimo dia para gestar boas ideias, encerrar um ciclo e preparar o terreno para um novo passo promissor. Reserve sua energia para crescer internamente antes de agir." },
+        { name: "Othala", glyph: "ᛟ", text: "O dia pede atenção aos assuntos familiares, ao lar e aos bens e heranças, materiais ou morais. Valorize suas raízes, sua tradição e conhecimentos ancestrais. Bom para resolver questões ligadas a propriedades e fortalecimento da base." },
+        { name: "Dagaz", glyph: "ᛞ", text: "Uma nova luz ilumina o seu caminho. As dificuldades e a escuridão ficam para trás, trazendo clareza, esperança e expansão. Excelente dia para mudar de atitude, transformar uma situação estagnada e aproveitar o renascimento." },
+        { name: "Wyrd (Runa Branca)", glyph: "◯", text: "Há forças maiores atuando no seu caminho hoje, lidando com o desconhecido. O que tiver que ser, será. Confie no fluxo superior da vida e mantenha-se receptivo e sereno; o universo guarda surpresas além do seu controle." }
+    ];
+
+    function openRunasHome() {
+        document.getElementById('runasScreen').style.display = 'flex';
+        document.getElementById('runasHomeView').style.display = 'flex';
+        document.getElementById('runasGameView').style.display = 'none';
+    }
+    function closeRunas() {
+        document.getElementById('runasScreen').style.display = 'none';
+    }
+    function closeRunaDetailModal() {
+        document.getElementById('runaDetailModal').style.display = 'none';
+    }
+    function closeRunasToMainMenu() {
+        closeRunaDetailModal();
+        closeRunas();
+    }
+    function startRunasGame() {
+        document.getElementById('runasHomeView').style.display = 'none';
+        document.getElementById('runasGameView').style.display = 'flex';
+        shuffleAndRenderRunas();
+    }
+    function chooseAnotherRune() {
+        closeRunaDetailModal();
+        document.getElementById('runasGameView').style.display = 'flex';
+        shuffleAndRenderRunas();
+    }
+    function shuffleAndRenderRunas() {
+        const order = shuffle(runasData.map((r, i) => i));
+        const grid = document.getElementById('runasGrid');
+        grid.innerHTML = '';
+        document.getElementById('runasStatus').textContent = 'TOQUE EM UMA RUNA';
+        order.forEach(idx => {
+            const el = document.createElement('div');
+            el.className = 'runa-back-card';
+            el.textContent = 'ᚱ';
+            el.onclick = () => {
+                if (el.classList.contains('revealed')) return;
+                el.classList.add('revealed');
+                document.getElementById('runasGameView').style.display = 'none';
+                openRunaDetail(idx);
+            };
+            grid.appendChild(el);
+        });
+    }
+    function openRunaDetail(idx) {
+        const r = runasData[idx];
+        document.getElementById('runaDetailName').textContent = r.name;
+        document.getElementById('runaDetailGlyph').textContent = r.glyph || '◯';
+        document.getElementById('runaDetailText').textContent = r.text;
+        document.getElementById('runaDetailModal').style.display = 'flex';
+    }
+    function openRunasEncyclopedia() {
+        const grid = document.getElementById('runasEncyclopediaGrid');
+        grid.innerHTML = '';
+        runasData.forEach((r, idx) => {
+            const el = document.createElement('div');
+            el.className = 'runa-gallery-card';
+            const glyphSpan = document.createElement('div');
+            glyphSpan.textContent = r.glyph || '◯';
+            const labelSpan = document.createElement('span');
+            labelSpan.className = 'runa-gallery-label';
+            labelSpan.textContent = r.name.replace(' (Runa Branca)', '');
+            el.appendChild(glyphSpan);
+            el.appendChild(labelSpan);
+            el.onclick = () => openRunaDetail(idx);
+            grid.appendChild(el);
+        });
+        document.getElementById('runasEncyclopediaModal').style.display = 'flex';
+    }
+    function closeRunasEncyclopedia() {
+        document.getElementById('runasEncyclopediaModal').style.display = 'none';
+    }
+
     window.onclick = function(e) {
         if (e.target === modal)             closeModal();
         if (e.target === encyclopediaModal) closeEncyclopedia();
         if (e.target === detailModal)       closeDetailModal();
         if (e.target === document.getElementById('mandalaDateModal')) document.getElementById('mandalaDateModal').style.display = 'none';
+        if (e.target === document.getElementById('runasEncyclopediaModal')) closeRunasEncyclopedia();
+        if (e.target === document.getElementById('runaDetailModal')) closeRunaDetailModal();
     };
     </script>
 </body>
