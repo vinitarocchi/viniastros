@@ -63,6 +63,8 @@
         body.light-theme .action-btn:hover { background: #111111; color: #ffffff; }
         body.light-theme .action-btn.primary-cta { background: rgba(17, 17, 17, 0.85); color: #ffffff; }
         body.light-theme .action-btn.primary-cta:hover { background: rgba(255, 255, 255, 0.9); color: #111111; }
+        body.light-theme .action-btn:active { background: #111111; color: #ffffff; border-color: #111111; }
+        body.light-theme .action-btn.primary-cta:active { background: rgba(255, 255, 255, 0.9); color: #111111; }
         body.light-theme .meta-select, body.light-theme .game-select { 
             color: #111111; border-bottom-color: #aaaaaa; 
             background-image: url('data:image/svg+xml;utf8,<svg fill="%23111111" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); 
@@ -85,6 +87,7 @@
         body.light-theme .close-btn { color: #111111; }
         body.light-theme .bottom-links .action-btn { color: #555555; background: transparent; border: none; }
         body.light-theme .bottom-links .action-btn:hover { color: #111111; }
+        body.light-theme .bottom-links .action-btn:active { color: #111111; background: transparent; border: none; }
         body.light-theme .home-meta-selectors, body.light-theme .home-action-card, body.light-theme .bottom-links, body.light-theme .modal-header, body.light-theme .deck-tabs, body.light-theme .meaning-tabs, body.light-theme .verb-box { border-color: #cccccc; }
 
         /* --- PASTEL DARK THEME (Místico e Esotérico) --- */
@@ -108,6 +111,8 @@
         body.pastel-dark-theme .action-btn:hover { background: var(--gold-main); color: #1c1423; }
         body.pastel-dark-theme .action-btn.primary-cta { background: var(--gold-main); color: #1c1423; border-color: var(--gold-light); }
         body.pastel-dark-theme .action-btn.primary-cta:hover { background: rgba(28,20,35,0.8); color: var(--gold-main); }
+        body.pastel-dark-theme .action-btn:active { background: var(--gold-main); color: #1c1423; }
+        body.pastel-dark-theme .action-btn.primary-cta:active { background: rgba(28,20,35,0.8); color: var(--gold-main); }
         body.pastel-dark-theme .meta-select, body.pastel-dark-theme .game-select { 
             color: var(--text-main); border-bottom-color: rgba(196,164,130,0.6); 
             background-image: url('data:image/svg+xml;utf8,<svg fill="%23c4a482" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); 
@@ -139,6 +144,8 @@
         body.mystic-theme .action-btn { background: rgba(255,255,255,0.5); color: var(--text-main); border: 1px solid var(--gold-main); }
         body.mystic-theme .action-btn:hover, body.mystic-theme .action-btn.primary-cta { background: var(--gold-main); color: #fff; }
         body.mystic-theme .action-btn.primary-cta:hover { background: rgba(255,255,255,0.8); color: var(--text-main); }
+        body.mystic-theme .action-btn:active { background: var(--gold-main); color: #fff; }
+        body.mystic-theme .action-btn.primary-cta:active { background: rgba(255,255,255,0.8); color: var(--text-main); }
         body.mystic-theme .card { background-color: rgba(255,255,255,0.3); border: 1px solid rgba(255,255,255,0.8); color: var(--text-main); }
         body.mystic-theme .card.empty-slot-clickable { border: 1px dashed rgba(255,255,255,0.8); color: var(--text-muted); }
         body.mystic-theme .modal { background-color: rgba(166, 193, 238, 0.4); }
@@ -226,6 +233,21 @@
         }
         .action-btn.primary-cta { background: rgba(255,255,255,0.8); color: #000000; font-weight: 600; border: 1px solid #FFFFFF; }
         button:active, .action-btn:active, .tab-btn:active, .game-select:active { transform: scale(0.98); transition: 0.1s; }
+
+        /* --- FIX: feedback de toque real nos botões (não depende de :hover, funciona em touch) --- */
+        .action-btn:active {
+            background-color: rgba(255,255,255,0.8);
+            color: #000000;
+            border-color: #FFFFFF;
+            transform: scale(0.95);
+            transition: background-color 0.12s ease, color 0.12s ease, transform 0.12s ease;
+        }
+        .action-btn.primary-cta:active {
+            background: rgba(0,0,0,0.8);
+            color: #FFFFFF;
+            transform: scale(0.95);
+        }
+
         button, .action-btn, .tab-btn, .subtab-btn, .close-btn, .back-card, .gallery-card, .card {
             -webkit-tap-highlight-color: transparent; tap-highlight-color: transparent;
         }
@@ -324,6 +346,7 @@
         .bottom-links { display: flex; flex-direction: row; justify-content: space-between; width: 100%; border-top: 1px solid rgba(136,136,136,0.3); padding-top: 14px; gap: 10px; }
         .bottom-links .action-btn { border: none; text-decoration: underline; text-underline-offset: 4px; text-transform: uppercase; letter-spacing: 1px; font-size: 9px; padding: 0; height: auto; color: var(--text-muted); background: transparent; width: auto; flex: 1; text-align: center; backdrop-filter: none;}
         .bottom-links .action-btn:hover { color: var(--text-main); background: transparent; border-color: transparent;}
+        .bottom-links .action-btn:active { color: var(--text-main); background: transparent; border-color: transparent; transform: scale(0.95); }
 
         /* --- TABULEIRO --- */
         .board { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; }
@@ -353,6 +376,18 @@
         @media (hover: hover) and (pointer: fine) {
             .card.empty-slot-clickable:hover { border: 1px solid #FFFFFF; background-color: rgba(255,255,255,0.1); color: #FFFFFF; transform: rotate(calc(-1 * var(--a))) scale(1.05); }
         }
+
+        /* --- FIX: feedback de toque nos cards do tabuleiro/galeria (via classe .pressed controlada por JS,
+           pois usar :active quebraria a rotação --a já aplicada via transform) --- */
+        .card.pressed:not(.board-face-down) {
+            filter: brightness(1.15);
+            border-color: #FFFFFF !important;
+        }
+        .card.empty-slot-clickable.pressed {
+            border: 1px solid #FFFFFF; background-color: rgba(255,255,255,0.12); color: #FFFFFF;
+        }
+        .back-card.pressed { transform: translateY(-4px) scale(1.08); border-color: #FFFFFF; }
+        .gallery-card.pressed { transform: scale(1.06) translateY(-3px); border-color: rgba(255,255,255,0.6); }
 
         /* --- BARRA DE SIGNIFICADO --- */
         .card-inner-tag {
@@ -419,6 +454,11 @@
         .central-pair, .side-pair-horizontal, .pair-container, .linear-container, .home-container { display: none !important; }
         .board.home-active .home-container { display: flex !important; }
         .board.mandala-active .central-pair, .board.mandala-active .side-pair-horizontal, .board.mandala-active .pair-container { display: flex !important; margin-top: calc(-70px + 3vh); }
+
+        .board.mandala-select-house-active .central-pair,
+        .board.mandala-select-house-active .pair-container,
+        .board.mandala-select-house-active .side-pair-horizontal { pointer-events: none; }
+
         .board.scr-active #scrContainer { display: flex !important; margin-top: -70px; }
         
         /* CORREÇÃO DO ENERGIA DO DIA: MARGIN LEFT PARA 10% À DIREITA */
@@ -482,10 +522,12 @@
         .modal-header h2 { font-family: 'Cinzel', serif; font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--gold-main); margin: 0; }
         .close-btn { background: none; border: none; color: var(--text-muted); font-size: 26px; cursor: pointer; transition: color 0.3s; }
         .close-btn:hover { color: var(--gold-light); }
+        .close-btn:active { color: var(--gold-light); transform: scale(0.9); }
 
         .deck-tabs { display: flex; gap: 10px; margin-bottom: 15px; overflow-x: auto; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 5px; }
         .tab-btn { background: transparent; border: none; color: var(--text-muted); padding: 8px 12px; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; white-space: nowrap; transition: color 0.3s, border-color 0.3s; font-family: 'Montserrat', sans-serif; font-weight: 500; border-bottom: 2px solid transparent; }
         .tab-btn.active { color: var(--gold-main); border-bottom: 2px solid var(--gold-main); }
+        .tab-btn:active { color: var(--gold-main); }
         .cards-grid { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 10px 5px 20px 5px; overflow-y: auto; overflow-x: hidden; scroll-behavior: smooth; }
         
         .gallery-card { width: 77px; aspect-ratio: 7.5 / 13; background-size: 100% 100%; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; transition: transform 0.3s, border-color 0.3s; border-radius: 4px; flex-shrink: 0; }
@@ -500,6 +542,7 @@
         .meaning-tabs { display: flex; width: 100%; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.2); justify-content: space-between; gap: 5px; }
         .subtab-btn { flex: 1; background: transparent; border: none; color: var(--text-muted); font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 8px 2px; cursor: pointer; transition: all 0.3s; border-bottom: 2px solid transparent; word-wrap: break-word; white-space: normal; line-height: 1.2; }
         .subtab-btn.active { color: var(--text-main); border-bottom: 2px solid var(--text-main); }
+        .subtab-btn:active { color: var(--text-main); }
         .meaning-content-area { display: none; text-align: left; font-size: 11px; line-height: 1.5; padding-top: 5px; font-family: 'Montserrat', sans-serif; word-wrap: break-word; overflow-wrap: break-word; max-height: 220px; overflow-y: auto; padding-right: 4px; }
         .meaning-content-area.active { display: block; }
         .europeu-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 10px; font-size: 11px; line-height: 1.5; }
@@ -660,6 +703,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
                         </optgroup>
                         <optgroup label="Mesa de Leitura">
                             <option value="mandalaInterativa">Mandala Astrológica</option>
+                            <option value="mandalaEnergia">Energia do Dia (Mandala)</option>
                             <option value="mandalaManual">Monte sua Mandala</option>
                             <option value="scr">Jogo SCR</option>
                             <option value="scrTempo">SCR com Before e After Tarot</option>
@@ -1243,6 +1287,29 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         }
     }, true);
 
+    // --- FIX: feedback de toque real (classe .pressed) para .card, .back-card e .gallery-card ---
+    // Usamos touchstart/touchend/touchcancel (e mousedown/up como fallback desktop) em vez de :active
+    // porque .card já usa "transform" para a rotação (--a) no tabuleiro em mandala, e um :active
+    // que também mexesse em transform quebraria essa rotação.
+    (function setupPressedFeedback() {
+        const PRESSABLE_SELECTOR = '.card, .back-card, .gallery-card';
+        function addPressed(e) {
+            const el = e.target.closest(PRESSABLE_SELECTOR);
+            if (el) el.classList.add('pressed');
+        }
+        function removePressed(e) {
+            const el = e.target.closest(PRESSABLE_SELECTOR);
+            if (el) el.classList.remove('pressed');
+            document.querySelectorAll(PRESSABLE_SELECTOR + '.pressed').forEach(p => p.classList.remove('pressed'));
+        }
+        document.addEventListener('touchstart', addPressed, { passive: true });
+        document.addEventListener('touchend', removePressed, { passive: true });
+        document.addEventListener('touchcancel', removePressed, { passive: true });
+        document.addEventListener('mousedown', addPressed);
+        document.addEventListener('mouseup', removePressed);
+        document.addEventListener('mouseleave', removePressed);
+    })();
+
         function resizeBoardToFit() {
         if (mainBoard.classList.contains('home-active')) return;
         const root = document.documentElement;
@@ -1545,6 +1612,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
     let pendingMandalaMode = null;
     let mandalaProgressCount = 0;
     let mandalaDateVisible = true;
+    let mandalaEnergiaSelectedHouse = null;
 
     const mandalaHouseAngles = {1:270,2:240,3:210,4:180,5:150,6:120,7:90,8:60,9:30,10:0,11:330,12:300};
 
@@ -2007,6 +2075,8 @@ onclick="playAnotherGame()">Limpar Jogo</button>
     }
 
     function resetAllSlots() {
+        document.querySelectorAll('.central-pair, .pair-container, .side-pair-horizontal').forEach(c => { c.style.display = ''; });
+
         document.querySelectorAll('.card').forEach(card => {
             card.style.backgroundImage = '';
             card.style.border = '';
@@ -2231,6 +2301,15 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         } else if (mode === 'amantes') {
             majors = [1,2,3,4,5,6,7,8,9,10].map(i => document.querySelector(`[data-amantes-slot="m${i}"]`));
             minors = [1,2,3,4,5,6,7,8,9,10].map(i => document.querySelector(`[data-amantes-slot="me${i}"]`));
+        } else if (mode === 'mandalaEnergia') {
+            majors = [
+                document.querySelector(`.card[data-slot-num="${mandalaEnergiaSelectedHouse}"][data-pos="inside"]`),
+                document.querySelector('.card[data-slot-num="12"][data-pos="inside"]')
+            ];
+            minors = [
+                document.querySelector(`.card[data-slot-num="${mandalaEnergiaSelectedHouse}"][data-pos="outside"]`),
+                document.querySelector('.card[data-slot-num="12"][data-pos="outside"]')
+            ];
         } else if (mode === 'mandalaInterativa' || mode === 'mandalaManual') {
             majors.push(document.querySelector('[data-slot-num="0-left"]'));
             minors.push(document.querySelector('[data-slot-num="0-right"]'));
@@ -2316,6 +2395,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
             case 'oposicao':          initOposicaoGame(); break;
             case 'oposicaoScr':       initOposicaoScrGame(); break;
             case 'mandalaInterativa': initInteractiveGame(); break;
+            case 'mandalaEnergia':    initMandalaEnergiaGame(); break;
             case 'mandalaManual':     initManualMandalaMode(); break;
             case 'scr':               initScrGame(); break;
             case 'scrTempo':          initScrTempoGame(); break;
@@ -2336,6 +2416,74 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
     }
 
+    // --- ENERGIA DO DIA (MANDALA) ---
+    // Fase 1: ao abrir o jogo, aparecem 11 cartas viradas no painel inferior (uma para
+    // cada casa de 1 a 11 — a casa 12 nunca entra no sorteio). Ao tocar em uma delas,
+    // a casa correspondente é revelada como a "Energia do Dia".
+    // Fase 2: escolhe-se o arcano maior e depois o menor da casa sorteada (Energia do Dia).
+    // Fase 3: escolhe-se o arcano maior e depois o menor da Casa 12 (Conselho).
+    function initMandalaEnergiaGame() {
+        gameMode = 'mandalaEnergia';
+        mandalaEnergiaSelectedHouse = null;
+        mainBoard.className = 'board mandala-active game-active mandala-select-house-active';
+        resetAllSlots();
+        gamePanel.style.display = 'flex';
+        postGameControls.style.display = 'none';
+        btnVoltar.style.display = 'inline-flex';
+        setupHouseSelectionPhase();
+    }
+
+    function setupHouseSelectionPhase() {
+        activePhase = 'houseSelect';
+        gameGrid.innerHTML = '';
+        gameStatus.textContent = "TOQUE EM UMA CARTA PARA DEFINIR A CASA DA ENERGIA DO DIA";
+        const houseOrder = shuffle([1,2,3,4,5,6,7,8,9,10,11]);
+        houseOrder.forEach(houseNum => {
+            const backCard = document.createElement('div');
+            backCard.className = 'back-card';
+            backCard.onclick = () => {
+                if (backCard.classList.contains('revealed') || activePhase !== 'houseSelect') return;
+                backCard.classList.add('revealed');
+                chooseMandalaEnergiaHouse(String(houseNum));
+            };
+            gameGrid.appendChild(backCard);
+        });
+    }
+
+    function chooseMandalaEnergiaHouse(slotNum) {
+        mandalaEnergiaSelectedHouse = slotNum;
+        mainBoard.classList.remove('mandala-select-house-active');
+
+        // Esconde todas as casas, exceto a escolhida e a Casa 12 (Conselho)
+        document.querySelectorAll('.central-pair, .pair-container, .side-pair-horizontal').forEach(container => {
+            if (container.classList.contains('central-pair')) { container.style.display = 'none'; return; }
+            const sampleCard = container.querySelector('.card[data-slot-num]');
+            const num = sampleCard ? sampleCard.getAttribute('data-slot-num') : null;
+            container.style.display = (num === slotNum || num === '12') ? '' : 'none';
+        });
+
+        const insideChosen    = document.querySelector(`.card[data-slot-num="${slotNum}"][data-pos="inside"]`);
+        const outsideChosen   = document.querySelector(`.card[data-slot-num="${slotNum}"][data-pos="outside"]`);
+        const insideConselho  = document.querySelector('.card[data-slot-num="12"][data-pos="inside"]');
+        const outsideConselho = document.querySelector('.card[data-slot-num="12"][data-pos="outside"]');
+        if (insideChosen)    insideChosen.textContent    = 'Dia';
+        if (outsideChosen)   outsideChosen.textContent   = 'Dia';
+        if (insideConselho)  insideConselho.textContent  = 'Conselho';
+        if (outsideConselho) outsideConselho.textContent = 'Conselho';
+
+        resizeBoardToFit();
+
+        startSequence([
+            { type: 'majors', msg: `CASA ${slotNum} — ESCOLHA O ARCANO MAIOR DO DIA`, targets: [insideChosen] },
+            { action: 'shuffle', msg: 'EMBARALHANDO PARA O MENOR DO DIA...' },
+            { type: 'minors', msg: `CASA ${slotNum} — ESCOLHA O ARCANO MENOR DO DIA`, targets: [outsideChosen] },
+            { action: 'shuffle', msg: 'EMBARALHANDO PARA O CONSELHO (CASA 12)...' },
+            { type: 'majors', msg: 'CASA 12 — ESCOLHA O ARCANO MAIOR DO CONSELHO', targets: [insideConselho] },
+            { action: 'shuffle', msg: 'EMBARALHANDO PARA O MENOR DO CONSELHO...' },
+            { type: 'minors', msg: 'CASA 12 — ESCOLHA O ARCANO MENOR DO CONSELHO', targets: [outsideConselho] }
+        ]);
+    }
+
     function backToHomeMenu() {
         oposicaoSequence = []; mainBoard.className = 'board home-active';
         gamePanel.style.display = 'none'; btnVoltar.style.display = 'none';
@@ -2343,6 +2491,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         document.getElementById('gameSelect').value = "";
 
         mandalaStartDay = null; mandalaStartMonth = null; mandalaProgressCount = 0;
+        mandalaEnergiaSelectedHouse = null;
         document.getElementById('btnProgressTime').style.display = 'none';
         document.getElementById('btnToggleMandalaDate').style.display = 'none';
         document.getElementById('mandalaPeriodLabel').style.display = 'none';
@@ -2528,6 +2677,10 @@ onclick="playAnotherGame()">Limpar Jogo</button>
     }
 
     function selectCard(cardElement) {
+        if (gameMode === 'mandalaEnergia' && mainBoard.classList.contains('mandala-select-house-active')) {
+            return; // a seleção de casa agora é feita só pelas 11 cartas do painel (setupHouseSelectionPhase)
+        }
+
         const savedName  = cardElement.getAttribute('data-card-name');
         const hasImage   = cardElement.style.backgroundImage && cardElement.style.backgroundImage !== '';
         const isFaceDown = cardElement.classList.contains('board-face-down');
