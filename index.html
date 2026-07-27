@@ -253,6 +253,18 @@
         }
         button:focus, .action-btn:focus, .tab-btn:focus, .subtab-btn:focus { outline: none; }
 
+        /* --- NOVO EFEITO DE CLIQUE UNIFICADO PARA TODOS OS BOTÕES ---
+           Substitui os antigos efeitos sutis de :active por um "flash" mais perceptível,
+           aplicado via JS (classe .btn-flash-effect) em todos os botões do app
+           (ocultar significados, limpar jogo, atualizar significados, tabs, runas, etc). */
+        .btn-flash-effect {
+            transform: scale(0.90) !important;
+            filter: brightness(1.55) saturate(1.25) !important;
+            box-shadow: 0 0 14px rgba(255,255,255,0.35) !important;
+            transition: transform 0.1s ease, filter 0.1s ease, box-shadow 0.1s ease !important;
+        }
+        body.light-theme .btn-flash-effect { box-shadow: 0 0 14px rgba(0,0,0,0.25) !important; }
+
         /* --- BOTÕES INFERIORES REDUZIDOS 50% --- */
         /* Ajuste --controls-lift abaixo (ou use a função JS setControlsLift(vh)) para subir/descer esta barra */
         .post-game-controls {
@@ -280,18 +292,20 @@
         #btnVoltar {
             position: absolute; top: 50%; left: 20px; transform: translateY(-50%);
             width: auto; padding: 0 16px; height: 32px; font-size: 10px; z-index: 3000;
+            touch-action: manipulation;
         }
         #btnGlobalRandom {
             position: absolute; top: -35px; right: 15px; bottom: auto; left: auto;
             transform: none; width: auto; padding: 0 10px; height: 26px; font-size: 8px;
             z-index: 3000; border: 1px solid #FFFFFF; background: rgba(0,0,0,0.6);
             box-shadow: -2px -2px 10px rgba(0,0,0,0.8); border-radius: 6px;
+            color: #FFFFFF !important; opacity: 1 !important; white-space: nowrap;
         }
-        body.light-theme #btnGlobalRandom { border-color: #111; background: rgba(255,255,255,0.8); color: #111; box-shadow: -2px -2px 10px rgba(0,0,0,0.1); }
-        body.light-theme #btnGlobalRandom:hover { background: #111; color: #fff; }
-        body.mystic-theme #btnGlobalRandom { border: 1px solid var(--gold-main); background: rgba(255,255,255,0.5); color: var(--text-main); box-shadow: none; }
+        body.light-theme #btnGlobalRandom { border-color: #111; background: rgba(255,255,255,0.8); color: #111 !important; box-shadow: -2px -2px 10px rgba(0,0,0,0.1); }
+        body.light-theme #btnGlobalRandom:hover { background: #111; color: #fff !important; }
+        body.mystic-theme #btnGlobalRandom { border: 1px solid var(--gold-main); background: rgba(255,255,255,0.5); color: var(--text-main) !important; box-shadow: none; }
 
-        body.mystic-theme #btnGlobalRandom:hover { background: var(--gold-main); color: #fff; }
+        body.mystic-theme #btnGlobalRandom:hover { background: var(--gold-main); color: #fff !important; }
 
         /* --- TELA INICIAL --- */
         .home-container {
@@ -418,6 +432,37 @@
         #scrTempoContainer .card { --card-w: calc(14 * var(--u)); --card-h: calc(24.3 * var(--u)); font-size: calc(2.4 * var(--u)); }
         #cruzContainer .card { --card-w: calc(9 * var(--u)); --card-h: calc(15.6 * var(--u)); font-size: calc(1.8 * var(--u)); }
 
+        #mandalaEnergiaContainer .card { --card-w: calc(7 * var(--u)); --card-h: calc(12 * var(--u)); font-size: calc(1.8 * var(--u)); }
+        #mandalaEnergiaContainer .card-inner-tag { font-size: calc(0.8 * var(--u)) !important; }
+        #mandalaEnergiaContainer .slot-label { font-size: calc(2 * var(--u)); }
+
+        #mesContainer .mes-grid { display: flex; flex-direction: column; align-items: center; gap: calc(3 * var(--u)); }
+        #mesContainer .mes-row { display: flex; flex-direction: row; gap: calc(6 * var(--u)); justify-content: center; align-items: flex-end; }
+        #mesContainer .card { --card-w: calc(6 * var(--u)); --card-h: calc(10.4 * var(--u)); font-size: calc(1.3 * var(--u)); }
+        #mesContainer .temple-row-pair { gap: calc(1 * var(--u)); }
+        #mesContainer .slot-label { font-size: calc(1.3 * var(--u)); margin-bottom: calc(0.6 * var(--u)); }
+        #mesContainer .card-inner-tag { font-size: calc(0.65 * var(--u)) !important; }
+
+        #mesContainer .mes-grid {
+    position: relative;
+    width: calc(50 * var(--u));
+    height: calc(52 * var(--u));
+}
+#mesContainer .linear-col {
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+#mesHouse7   { left: 49%;   top: 15%; }
+#mesHouse8   { left: 18.7%; top: 25%; }
+#mesHouse6   { left: 80%;   top: 25%; }
+#mesHouse1   { left: 10%;   top: 50.8%; }
+#mesHouseMes { left: 49%;   top: 50.8%; }
+#mesHouse5   { left: 89%;   top: 50.8%; }
+#mesHouse2   { left: 18.3%; top: 77%; }
+#mesHouse4   { left: 80%;   top: 77%; }
+#mesHouse3   { left: 49%;   top: 86%; }
+
+
         .cruz-grid { display: flex; flex-direction: column; align-items: center; gap: calc(1 * var(--u)); }
 
         .cruz-middle-row { display: flex; flex-direction: row; align-items: center; gap: calc(10 * var(--u)); }
@@ -455,16 +500,15 @@
         .board.home-active .home-container { display: flex !important; }
         .board.mandala-active .central-pair, .board.mandala-active .side-pair-horizontal, .board.mandala-active .pair-container { display: flex !important; margin-top: calc(-70px + 3vh); }
 
-        .board.mandala-select-house-active .central-pair,
-        .board.mandala-select-house-active .pair-container,
-        .board.mandala-select-house-active .side-pair-horizontal { pointer-events: none; }
-
         .board.scr-active #scrContainer { display: flex !important; margin-top: -70px; }
         
         /* CORREÇÃO DO ENERGIA DO DIA: MARGIN LEFT PARA 10% À DIREITA */
         .board.csmd-active #csmdContainer { display: flex !important; margin-top: -70px; margin-left: 4vw; }
 
 .board.csmd-active #csmdContainer .card-inner-tag { font-size: calc(0.8 * var(--u)) !important; }
+
+        .board.mandala-energia-active #mandalaEnergiaContainer { display: flex !important; flex-direction: column; align-items: center; margin-top: -70px; margin-left: 4vw; }
+        .board.mes-active #mesContainer { display: flex !important; margin-top: -60px; }
 
 
         .board.ta-active #taContainer { display: flex !important; margin-top: -50px; }
@@ -616,6 +660,13 @@ body.mystic-theme .bottom-links .action-btn { background: transparent; border: n
 /* --- FIX: Modal de data da Mandala --- */
 #mandalaDateModal .modal-content { max-width: 320px; height: auto; }
 
+/* --- Label "Casa X" da Energia do Dia (Mandala) --- */
+#mandalaEnergiaHouseLabel {
+    margin-top: calc(2.5 * var(--u));
+    font-size: calc(2.2 * var(--u));
+    text-align: center;
+}
+
 /* ============================================================
    JOGO DE RUNAS — tema verde escuro / marrom (natureza)
    Independente do tema do Tarot selecionado acima.
@@ -688,7 +739,7 @@ body.mystic-theme .bottom-links .action-btn { background: transparent; border: n
 
     <header class="nav-header">
         <h1 class="app-title">Viniastros</h1>
-        <button id="btnVoltar" class="action-btn" style="display: none;" onclick="backToHomeMenu()">HOME</button>
+        <button id="btnVoltar" class="action-btn" style="display: none;" onclick="backToHomeMenu()" ontouchend="event.preventDefault(); backToHomeMenu();">HOME</button>
     </header>
 
         <div id="postGameControls" class="post-game-controls">
@@ -696,18 +747,18 @@ body.mystic-theme .bottom-links .action-btn { background: transparent; border: n
 
 <button
 id="btnToggleMeanings"
-class="action-btn"
+class="action-btn primary-cta"
 onclick="toggleMeanings()">Ocultar Significados</button>
 
 <button id="btnUpdateMeanings" class="action-btn primary-cta" onclick="updateMeanings()">Atualizar Significados</button>
 
 <button
-id="btnPlayAnother" class="action-btn"
+id="btnPlayAnother" class="action-btn primary-cta"
 onclick="playAnotherGame()">Limpar Jogo</button>
 
-<button id="btnProgressTime" class="action-btn" style="display: none;" onclick="progressMandalaTime()">Progredir Tempo</button>
+<button id="btnProgressTime" class="action-btn primary-cta" style="display: none;" onclick="progressMandalaTime()">Progredir Tempo</button>
 
-<button id="btnToggleMandalaDate" class="action-btn" style="display: none;" onclick="toggleMandalaDateVisibility()">Ocultar Data</button>
+<button id="btnToggleMandalaDate" class="action-btn primary-cta" style="display: none;" onclick="toggleMandalaDateVisibility()">Ocultar Data</button>
         
         
 
@@ -775,6 +826,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
                             <option value="amantes">Jogo dos Amantes</option>
                             <option value="davi">Estrela de Davi</option>
                             <option value="cruz">Cruz Simples</option>
+                            <option value="mes">Jogo do Mês</option>
                         </optgroup>
                     </select>
                     <button class="action-btn primary-cta" onclick="startSelectedGame()">Continuar</button>
@@ -948,19 +1000,112 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         </div>
 
         <div id="csmdContainer" class="linear-container">
-            <div class="linear-row">
+            <div class="linear-col" style="gap: calc(3 * var(--u));">
                 <div class="linear-col">
                     <span class="slot-label">Dia</span>
-                    <div class="card linear-card" data-csmd-slot="top-1" onclick="selectCard(this)">1</div>
-                    <div class="card linear-card minor-card-gap" data-csmd-slot="bottom-1" onclick="selectCard(this)">1</div>
+                    <div class="temple-row-pair">
+                        <div class="card linear-card" data-csmd-slot="top-1" onclick="selectCard(this)">Maior</div>
+                        <div class="card linear-card" data-csmd-slot="bottom-1" onclick="selectCard(this)">Menor</div>
+                    </div>
                 </div>
                 <div class="linear-col">
                     <span class="slot-label">Conselho</span>
-                    <div class="card linear-card" data-csmd-slot="top-2" onclick="selectCard(this)">2</div>
-                    <div class="card linear-card minor-card-gap" data-csmd-slot="bottom-2" onclick="selectCard(this)">2</div>
+                    <div class="temple-row-pair">
+                        <div class="card linear-card" data-csmd-slot="top-2" onclick="selectCard(this)">Maior</div>
+                        <div class="card linear-card" data-csmd-slot="bottom-2" onclick="selectCard(this)">Menor</div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div id="mandalaEnergiaContainer" class="linear-container">
+            <div class="linear-col" style="gap: calc(3 * var(--u));">
+                <div class="linear-col">
+                    <span class="slot-label">Energia do Dia</span>
+                    <div class="temple-row-pair">
+                        <div class="card linear-card" data-me-slot="dia-maior" onclick="selectCard(this)">Maior</div>
+                        <div class="card linear-card" data-me-slot="dia-menor" onclick="selectCard(this)">Menor</div>
+                    </div>
+                </div>
+                <div class="linear-col">
+                    <span class="slot-label">Conselho</span>
+                    <div class="temple-row-pair">
+                        <div class="card linear-card" data-me-slot="conselho-maior" onclick="selectCard(this)">Maior</div>
+                        <div class="card linear-card" data-me-slot="conselho-menor" onclick="selectCard(this)">Menor</div>
+                    </div>
+                </div>
+            </div>
+            <div id="mandalaEnergiaHouseLabel" style="display:none;"></div>
+        </div>
+
+        <div id="mesContainer" class="linear-container">
+    <div class="mes-grid">
+        <div class="linear-col" id="mesHouse7">
+            <span class="slot-label">7. Conselho</span>
+            <div class="temple-row-pair">
+                <div class="card linear-card" data-mes-slot="7-maior" onclick="selectCard(this)">Maior</div>
+                <div class="card linear-card" data-mes-slot="7-menor" onclick="selectCard(this)">Menor</div>
+            </div>
+        </div>
+        <div class="linear-col" id="mesHouse8">
+            <span class="slot-label">8. Dinheiro</span>
+            <div class="temple-row-pair">
+                <div class="card linear-card" data-mes-slot="8-maior" onclick="selectCard(this)">Maior</div>
+                <div class="card linear-card" data-mes-slot="8-menor" onclick="selectCard(this)">Menor</div>
+            </div>
+        </div>
+        <div class="linear-col" id="mesHouse6">
+            <span class="slot-label">6. Espiritualidade</span>
+            <div class="temple-row-pair">
+                <div class="card linear-card" data-mes-slot="6-maior" onclick="selectCard(this)">Maior</div>
+                <div class="card linear-card" data-mes-slot="6-menor" onclick="selectCard(this)">Menor</div>
+            </div>
+        </div>
+        <div class="linear-col" id="mesHouse1">
+            <span class="slot-label">1. Trabalho</span>
+            <div class="temple-row-pair">
+                <div class="card linear-card" data-mes-slot="1-maior" onclick="selectCard(this)">Maior</div>
+                <div class="card linear-card" data-mes-slot="1-menor" onclick="selectCard(this)">Menor</div>
+            </div>
+        </div>
+        <div class="linear-col" id="mesHouseMes">
+            <span class="slot-label">Mês</span>
+            <div class="temple-row-pair">
+                <div class="card linear-card" data-mes-slot="9-maior" onclick="selectCard(this)">Maior</div>
+                <div class="card linear-card" data-mes-slot="9-menor" onclick="selectCard(this)">Menor</div>
+            </div>
+        </div>
+        <div class="linear-col" id="mesHouse5">
+            <span class="slot-label">5. Vida Doméstica</span>
+            <div class="temple-row-pair">
+                <div class="card linear-card" data-mes-slot="5-maior" onclick="selectCard(this)">Maior</div>
+                <div class="card linear-card" data-mes-slot="5-menor" onclick="selectCard(this)">Menor</div>
+            </div>
+        </div>
+        <div class="linear-col" id="mesHouse2">
+            <span class="slot-label">2. Relacionamento</span>
+            <div class="temple-row-pair">
+                <div class="card linear-card" data-mes-slot="2-maior" onclick="selectCard(this)">Maior</div>
+                <div class="card linear-card" data-mes-slot="2-menor" onclick="selectCard(this)">Menor</div>
+            </div>
+        </div>
+        <div class="linear-col" id="mesHouse4">
+            <span class="slot-label">4. Vida Social</span>
+            <div class="temple-row-pair">
+                <div class="card linear-card" data-mes-slot="4-maior" onclick="selectCard(this)">Maior</div>
+                <div class="card linear-card" data-mes-slot="4-menor" onclick="selectCard(this)">Menor</div>
+            </div>
+        </div>
+        <div class="linear-col" id="mesHouse3">
+            <span class="slot-label">3. Saúde</span>
+            <div class="temple-row-pair">
+                <div class="card linear-card" data-mes-slot="3-maior" onclick="selectCard(this)">Maior</div>
+                <div class="card linear-card" data-mes-slot="3-menor" onclick="selectCard(this)">Menor</div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
         <div id="taContainer" class="linear-container">
             <div class="temple-grid">
@@ -1322,7 +1467,6 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         <div class="modal-content runas-modal-content">
             <div class="modal-header">
                 <h2 id="runaDetailName">Runa</h2>
-                <button class="close-btn" onclick="closeRunaDetailModal()">&times;</button>
             </div>
             <div id="runaDetailGlyph" class="runa-glyph-display">ᚠ</div>
             <div id="runaDetailText" class="runa-detail-text"></div>
@@ -1417,6 +1561,33 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         document.addEventListener('mousedown', addPressed);
         document.addEventListener('mouseup', removePressed);
         document.addEventListener('mouseleave', removePressed);
+    })();
+
+    // --- NOVO: efeito de clique unificado ("flash") para TODOS os botões do app
+    // (ocultar significados, atualizar significados, limpar jogo, progredir tempo,
+    // trocar tema, tabs, botões de runas, fechar modal, etc). Usa uma classe própria
+    // (.btn-flash-effect) para não conflitar com o efeito de toque dos cards acima.
+    // OBS: #btnGlobalRandom e #btnVoltar ficam de fora deste efeito para evitar que o
+    // filtro de brilho (filter: brightness) deixe o texto momentaneamente ilegível
+    // durante trocas rápidas de fase (arcano maior -> arcano menor). ---
+    (function setupButtonFlashFeedback() {
+        const CLICK_FLASH_SELECTOR = 'button, .action-btn, .runas-btn, .tab-btn, .subtab-btn, .close-btn, .runa-back-card, .runa-gallery-card, .meaning-file-label';
+        const EXCLUDE_IDS = ['btnGlobalRandom', 'btnVoltar'];
+        function addFlash(e) {
+            const el = e.target.closest(CLICK_FLASH_SELECTOR);
+            if (el && !EXCLUDE_IDS.includes(el.id)) el.classList.add('btn-flash-effect');
+        }
+        function removeFlash(e) {
+            const el = e.target.closest(CLICK_FLASH_SELECTOR);
+            if (el) el.classList.remove('btn-flash-effect');
+            document.querySelectorAll(CLICK_FLASH_SELECTOR + '.btn-flash-effect').forEach(p => p.classList.remove('btn-flash-effect'));
+        }
+        document.addEventListener('touchstart', addFlash, { passive: true });
+        document.addEventListener('touchend', removeFlash, { passive: true });
+        document.addEventListener('touchcancel', removeFlash, { passive: true });
+        document.addEventListener('mousedown', addFlash);
+        document.addEventListener('mouseup', removeFlash);
+        document.addEventListener('mouseleave', removeFlash);
     })();
 
         function resizeBoardToFit() {
@@ -2200,7 +2371,8 @@ onclick="playAnotherGame()">Limpar Jogo</button>
                        || card.getAttribute('data-ta-slot') || card.getAttribute('data-dupla-slot')
                        || card.getAttribute('data-davi-slot') || card.getAttribute('data-opo-slot')
                        || card.getAttribute('data-oposcr-slot') || card.getAttribute('data-cruz-slot')
-                       || card.getAttribute('data-scr-tempo-slot') || card.getAttribute('data-amantes-slot');
+                       || card.getAttribute('data-scr-tempo-slot') || card.getAttribute('data-amantes-slot')
+                       || card.getAttribute('data-mes-slot') || card.getAttribute('data-me-slot');
                 if (id) {
                     if (card.hasAttribute('data-davi-slot')) {
                         let num = parseInt(id);
@@ -2214,6 +2386,10 @@ onclick="playAnotherGame()">Limpar Jogo</button>
                     } else if (card.hasAttribute('data-amantes-slot')) {
                         let num = id.replace(/\D/g, '');
                         card.textContent = id.includes('me') ? num + " Menor" : num + " Maior";
+                    } else if (card.hasAttribute('data-mes-slot')) {
+                        card.textContent = id.includes('menor') ? "Menor" : "Maior";
+                    } else if (card.hasAttribute('data-me-slot')) {
+                        card.textContent = id.includes('menor') ? "Menor" : "Maior";
                     } else {
                         card.textContent = id.includes('-') ? id.split('-')[1] : id;
                     }
@@ -2410,15 +2586,12 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         } else if (mode === 'amantes') {
             majors = [1,2,3,4,5,6,7,8,9,10].map(i => document.querySelector(`[data-amantes-slot="m${i}"]`));
             minors = [1,2,3,4,5,6,7,8,9,10].map(i => document.querySelector(`[data-amantes-slot="me${i}"]`));
+        } else if (mode === 'mes') {
+            majors = [1,2,3,4,5,6,7,8,9].map(i => document.querySelector(`[data-mes-slot="${i}-maior"]`));
+            minors = [1,2,3,4,5,6,7,8,9].map(i => document.querySelector(`[data-mes-slot="${i}-menor"]`));
         } else if (mode === 'mandalaEnergia') {
-            majors = [
-                document.querySelector(`.card[data-slot-num="${mandalaEnergiaSelectedHouse}"][data-pos="inside"]`),
-                document.querySelector('.card[data-slot-num="12"][data-pos="inside"]')
-            ];
-            minors = [
-                document.querySelector(`.card[data-slot-num="${mandalaEnergiaSelectedHouse}"][data-pos="outside"]`),
-                document.querySelector('.card[data-slot-num="12"][data-pos="outside"]')
-            ];
+            majors = ['dia-maior','conselho-maior'].map(s => document.querySelector(`[data-me-slot="${s}"]`));
+            minors = ['dia-menor','conselho-menor'].map(s => document.querySelector(`[data-me-slot="${s}"]`));
         } else if (mode === 'mandalaInterativa' || mode === 'mandalaManual') {
             majors.push(document.querySelector('[data-slot-num="0-left"]'));
             minors.push(document.querySelector('[data-slot-num="0-right"]'));
@@ -2428,6 +2601,25 @@ onclick="playAnotherGame()">Limpar Jogo</button>
             }
         }
         return { majors, minors };
+    }
+
+    // --------------------------------------------------------------------
+    // NOVO: gera uma sequência "casa por casa" — para CADA casa/posição,
+    // primeiro embaralha e escolhe o Arcano Maior, depois embaralha e
+    // escolhe o Arcano Menor, e só então passa para a próxima casa.
+    // Isso vale para TODOS os jogos automáticos do app.
+    // --------------------------------------------------------------------
+    function buildPerHouseSequence(majorsArr, minorsArr, msgMajorFn, msgMinorFn) {
+        let seq = [];
+        const total = Math.min(majorsArr.length, minorsArr.length);
+        for (let i = 0; i < total; i++) {
+            if (!majorsArr[i] || !minorsArr[i]) continue;
+            if (seq.length > 0) seq.push({ action: 'shuffle', msg: 'EMBARALHANDO ARCANOS MAIORES...' });
+            seq.push({ type: 'majors', msg: msgMajorFn(i), targets: [majorsArr[i]] });
+            seq.push({ action: 'shuffle', msg: 'EMBARALHANDO ARCANOS MENORES...' });
+            seq.push({ type: 'minors', msg: msgMinorFn(i), targets: [minorsArr[i]] });
+        }
+        return seq;
     }
 
     function triggerGlobalRandom() {
@@ -2513,6 +2705,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
             case 'davi':              initDaviGame(); break;
             case 'cruz':              initCruzGame(); break;
             case 'amantes':           initAmantesGame(); break;
+            case 'mes':               initMesGame(); break;
         }
         enableEmptySlotClicks();
         resizeBoardToFit();
@@ -2526,16 +2719,21 @@ onclick="playAnotherGame()">Limpar Jogo</button>
     }
 
     // --- ENERGIA DO DIA (MANDALA) ---
-    // Fase 1: ao abrir o jogo, aparecem 11 cartas viradas no painel inferior (uma para
-    // cada casa de 1 a 11 — a casa 12 nunca entra no sorteio). Ao tocar em uma delas,
-    // a casa correspondente é revelada como a "Energia do Dia".
-    // Fase 2: escolhe-se o arcano maior e depois o menor da casa sorteada (Energia do Dia).
-    // Fase 3: escolhe-se o arcano maior e depois o menor da Casa 12 (Conselho).
+    // Fase 1: ao abrir o jogo, aparecem 12 cartas viradas no painel inferior — uma para
+    // cada casa do zodíaco, de 1 a 12. Ao tocar em uma delas, aquela casa é definida
+    // como a "Energia do Dia".
+    // Fase 2: monta-se a leitura na estrutura simples de Energia do Dia (igual ao jogo
+    // "Energia do Dia" comum): acima o par Maior+Menor do Dia, abaixo o par Maior+Menor
+    // do Conselho — sempre escolhendo primeiro o maior (embaralhando) e depois o menor.
+    // Ao final, aparece abaixo do jogo o texto "Casa X" com a casa sorteada.
     function initMandalaEnergiaGame() {
         gameMode = 'mandalaEnergia';
         mandalaEnergiaSelectedHouse = null;
-        mainBoard.className = 'board mandala-active game-active mandala-select-house-active';
+        mainBoard.className = 'board mandala-energia-active game-active';
         resetAllSlots();
+        const meLabel = document.getElementById('mandalaEnergiaHouseLabel');
+        meLabel.style.display = 'none';
+        meLabel.textContent = '';
         gamePanel.style.display = 'flex';
         postGameControls.style.display = 'none';
         btnVoltar.style.display = 'inline-flex';
@@ -2546,51 +2744,25 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         activePhase = 'houseSelect';
         gameGrid.innerHTML = '';
         gameStatus.textContent = "TOQUE EM UMA CARTA PARA DEFINIR A CASA DA ENERGIA DO DIA";
-        const houseOrder = shuffle([1,2,3,4,5,6,7,8,9,10,11]);
+        const houseOrder = shuffle([1,2,3,4,5,6,7,8,9,10,11,12]);
         houseOrder.forEach(houseNum => {
             const backCard = document.createElement('div');
             backCard.className = 'back-card';
             backCard.onclick = () => {
                 if (backCard.classList.contains('revealed') || activePhase !== 'houseSelect') return;
                 backCard.classList.add('revealed');
-                chooseMandalaEnergiaHouse(String(houseNum));
+                chooseMandalaEnergiaHouse(houseNum);
             };
             gameGrid.appendChild(backCard);
         });
     }
 
-    function chooseMandalaEnergiaHouse(slotNum) {
-        mandalaEnergiaSelectedHouse = slotNum;
-        mainBoard.classList.remove('mandala-select-house-active');
-
-        // Esconde todas as casas, exceto a escolhida e a Casa 12 (Conselho)
-        document.querySelectorAll('.central-pair, .pair-container, .side-pair-horizontal').forEach(container => {
-            if (container.classList.contains('central-pair')) { container.style.display = 'none'; return; }
-            const sampleCard = container.querySelector('.card[data-slot-num]');
-            const num = sampleCard ? sampleCard.getAttribute('data-slot-num') : null;
-            container.style.display = (num === slotNum || num === '12') ? '' : 'none';
-        });
-
-        const insideChosen    = document.querySelector(`.card[data-slot-num="${slotNum}"][data-pos="inside"]`);
-        const outsideChosen   = document.querySelector(`.card[data-slot-num="${slotNum}"][data-pos="outside"]`);
-        const insideConselho  = document.querySelector('.card[data-slot-num="12"][data-pos="inside"]');
-        const outsideConselho = document.querySelector('.card[data-slot-num="12"][data-pos="outside"]');
-        if (insideChosen)    insideChosen.textContent    = 'Dia';
-        if (outsideChosen)   outsideChosen.textContent   = 'Dia';
-        if (insideConselho)  insideConselho.textContent  = 'Conselho';
-        if (outsideConselho) outsideConselho.textContent = 'Conselho';
-
-        resizeBoardToFit();
-
-        startSequence([
-            { type: 'majors', msg: `CASA ${slotNum} — ESCOLHA O ARCANO MAIOR DO DIA`, targets: [insideChosen] },
-            { action: 'shuffle', msg: 'EMBARALHANDO PARA O MENOR DO DIA...' },
-            { type: 'minors', msg: `CASA ${slotNum} — ESCOLHA O ARCANO MENOR DO DIA`, targets: [outsideChosen] },
-            { action: 'shuffle', msg: 'EMBARALHANDO PARA O CONSELHO (CASA 12)...' },
-            { type: 'majors', msg: 'CASA 12 — ESCOLHA O ARCANO MAIOR DO CONSELHO', targets: [insideConselho] },
-            { action: 'shuffle', msg: 'EMBARALHANDO PARA O MENOR DO CONSELHO...' },
-            { type: 'minors', msg: 'CASA 12 — ESCOLHA O ARCANO MENOR DO CONSELHO', targets: [outsideConselho] }
-        ]);
+    function chooseMandalaEnergiaHouse(houseNum) {
+        mandalaEnergiaSelectedHouse = houseNum;
+        const targets = getGameTargets('mandalaEnergia');
+        startSequence(buildPerHouseSequence(targets.majors, targets.minors,
+            i => i === 0 ? 'ENERGIA DO DIA — ESCOLHA O ARCANO MAIOR' : 'CONSELHO — ESCOLHA O ARCANO MAIOR',
+            i => i === 0 ? 'ENERGIA DO DIA — ESCOLHA O ARCANO MENOR' : 'CONSELHO — ESCOLHA O ARCANO MENOR'));
     }
 
     function backToHomeMenu() {
@@ -2604,14 +2776,38 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         document.getElementById('btnProgressTime').style.display = 'none';
         document.getElementById('btnToggleMandalaDate').style.display = 'none';
         document.getElementById('mandalaPeriodLabel').style.display = 'none';
+        const meLabel = document.getElementById('mandalaEnergiaHouseLabel');
+        if (meLabel) { meLabel.style.display = 'none'; meLabel.textContent = ''; }
 
         mainBoard.style.transform = '';
     }
 
-    function initInteractiveGame() { gameMode = 'mandalaInterativa'; mainBoard.className = 'board mandala-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
-    function initDuplaGame() { gameMode = 'dupla'; mainBoard.className = 'board dupla-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
+    function initInteractiveGame() {
+        gameMode = 'mandalaInterativa'; mainBoard.className = 'board mandala-active game-active'; resetAllSlots();
+        gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
+        const targets = getGameTargets('mandalaInterativa');
+        startSequence(buildPerHouseSequence(targets.majors, targets.minors,
+            i => i === 0 ? 'ESCOLHA O ARCANO MAIOR CENTRAL' : `CASA ${i} — ESCOLHA O ARCANO MAIOR`,
+            i => i === 0 ? 'ESCOLHA O ARCANO MENOR CENTRAL' : `CASA ${i} — ESCOLHA O ARCANO MENOR`));
+    }
 
-    function initScrGame() { gameMode = 'scr'; mainBoard.className = 'board scr-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
+    function initDuplaGame() {
+        gameMode = 'dupla'; mainBoard.className = 'board dupla-active game-active'; resetAllSlots();
+        gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
+        const targets = getGameTargets('dupla');
+        startSequence(buildPerHouseSequence(targets.majors, targets.minors,
+            () => 'ESCOLHA O ARCANO MAIOR', () => 'ESCOLHA O ARCANO MENOR'));
+    }
+
+    function initScrGame() {
+        gameMode = 'scr'; mainBoard.className = 'board scr-active game-active'; resetAllSlots();
+        gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
+        const labels = ['SITUAÇÃO','CAMINHO','RESULTADO'];
+        const targets = getGameTargets('scr');
+        startSequence(buildPerHouseSequence(targets.majors, targets.minors,
+            i => `${labels[i]} — ESCOLHA O ARCANO MAIOR`, i => `${labels[i]} — ESCOLHA O ARCANO MENOR`));
+    }
+
     function initScrTempoGame() {
         gameMode = 'scrTempo'; mainBoard.className = 'board scr-tempo-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
         const beforeDeck = buildScrTempoDeck('Before'), newVisionDeck = buildScrTempoDeck('NewVision'), afterDeck = buildScrTempoDeck('AfterTarot');
@@ -2629,36 +2825,73 @@ onclick="playAnotherGame()">Limpar Jogo</button>
             { type: 'custom', msg: 'RESULTADO — ESCOLHA O MENOR (After Tarot)', pool: shuffle(afterDeck.minors), targets: [document.querySelector('[data-scr-tempo-slot="bottom-3"]')], isMinor: true }
         ]);
     }
-    function initCsmdGame() { gameMode = 'csmd'; mainBoard.className = 'board csmd-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
-    function initTaGame() { gameMode = 'ta'; mainBoard.className = 'board ta-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
-    function initDaviGame() { gameMode = 'davi'; mainBoard.className = 'board davi-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
-    function initCruzGame() { gameMode = 'cruz'; mainBoard.className = 'board cruz-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
-    function initAmantesGame() { gameMode = 'amantes'; mainBoard.className = 'board amantes-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex'; setupMajorsGamePhase(); }
+
+    function initCsmdGame() {
+        gameMode = 'csmd'; mainBoard.className = 'board csmd-active game-active'; resetAllSlots();
+        gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
+        const labels = ['DIA','CONSELHO'];
+        const targets = getGameTargets('csmd');
+        startSequence(buildPerHouseSequence(targets.majors, targets.minors,
+            i => `${labels[i]} — ESCOLHA O ARCANO MAIOR`, i => `${labels[i]} — ESCOLHA O ARCANO MENOR`));
+    }
+
+    function initTaGame() {
+        gameMode = 'ta'; mainBoard.className = 'board ta-active game-active'; resetAllSlots();
+        gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
+        const targets = getGameTargets('ta');
+        startSequence(buildPerHouseSequence(targets.majors, targets.minors,
+            i => `POSIÇÃO ${i+1} — ESCOLHA O ARCANO MAIOR`, i => `POSIÇÃO ${i+1} — ESCOLHA O ARCANO MENOR`));
+    }
+
+    function initDaviGame() {
+        gameMode = 'davi'; mainBoard.className = 'board davi-active game-active'; resetAllSlots();
+        gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
+        const targets = getGameTargets('davi');
+        startSequence(buildPerHouseSequence(targets.majors, targets.minors,
+            i => `CASA ${i+1} — ESCOLHA O ARCANO MAIOR`, i => `CASA ${i+1} — ESCOLHA O ARCANO MENOR`));
+    }
+
+    function initCruzGame() {
+        gameMode = 'cruz'; mainBoard.className = 'board cruz-active game-active'; resetAllSlots();
+        gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
+        const targets = getGameTargets('cruz');
+        startSequence(buildPerHouseSequence(targets.majors, targets.minors,
+            i => `CASA ${i+1} — ESCOLHA O ARCANO MAIOR`, i => `CASA ${i+1} — ESCOLHA O ARCANO MENOR`));
+    }
+
+    function initAmantesGame() {
+        gameMode = 'amantes'; mainBoard.className = 'board amantes-active game-active'; resetAllSlots();
+        gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
+        const targets = getGameTargets('amantes');
+        startSequence(buildPerHouseSequence(targets.majors, targets.minors,
+            i => `CASA ${i+1} — ESCOLHA O ARCANO MAIOR`, i => `CASA ${i+1} — ESCOLHA O ARCANO MENOR`));
+    }
+
+    function initMesGame() {
+        gameMode = 'mes'; mainBoard.className = 'board mes-active game-active'; resetAllSlots();
+        gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
+        const labels = ['Trabalho','Relacionamento','Saúde','Vida Social','Vida Doméstica','Espiritualidade','Conselho','Dinheiro','Mês'];
+        const targets = getGameTargets('mes');
+        startSequence(buildPerHouseSequence(targets.majors, targets.minors,
+            i => `${labels[i].toUpperCase()} — ESCOLHA O ARCANO MAIOR`, i => `${labels[i].toUpperCase()} — ESCOLHA O ARCANO MENOR`));
+    }
 
     function initOposicaoGame() {
-        gameMode = 'oposicao'; mainBoard.className = 'board oposicao-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
-        startSequence([
-            { type: 'majors', msg: 'ESCOLHA O ARCANO MAIOR (OPÇÃO 1)', targets: [document.querySelector('[data-opo-slot="m1"]')] },
-            { action: 'shuffle', msg: 'EMBARALHANDO PARA OS MENORES...' },
-            { type: 'minors', msg: 'ESCOLHA O ARCANO MENOR (OPÇÃO 1)', targets: [document.querySelector('[data-opo-slot="me1"]')] },
-            { action: 'shuffle', msg: 'EMBARALHANDO PARA A OPÇÃO 2...' },
-            { type: 'majors', msg: 'ESCOLHA O ARCANO MAIOR (OPÇÃO 2)', targets: [document.querySelector('[data-opo-slot="m2"]')] },
-            { action: 'shuffle', msg: 'EMBARALHANDO PARA OS MENORES...' },
-            { type: 'minors', msg: 'ESCOLHA O ARCANO MENOR (OPÇÃO 2)', targets: [document.querySelector('[data-opo-slot="me2"]')] }
-        ]);
+        gameMode = 'oposicao'; mainBoard.className = 'board oposicao-active game-active'; resetAllSlots();
+        gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
+        const targets = getGameTargets('oposicao');
+        const labels = ['OPÇÃO 1','OPÇÃO 2'];
+        startSequence(buildPerHouseSequence(targets.majors, targets.minors,
+            i => `${labels[i]} — ESCOLHA O ARCANO MAIOR`, i => `${labels[i]} — ESCOLHA O ARCANO MENOR`));
     }
     
     function initOposicaoScrGame() {
-        gameMode = 'oposicaoScr'; mainBoard.className = 'board oposicao-scr-active game-active'; resetAllSlots(); gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
-        startSequence([
-            { type: 'majors', msg: 'ESCOLHA OS MAIORES (OPÇÃO 1)', targets: ['t-m1','t-m2','t-m3'].map(s => document.querySelector(`[data-oposcr-slot="${s}"]`)) },
-            { action: 'shuffle', msg: 'EMBARALHANDO PARA OS MENORES...' },
-            { type: 'minors', msg: 'ESCOLHA OS MENORES (OPÇÃO 1)', targets: ['t-me1','t-me2','t-me3'].map(s => document.querySelector(`[data-oposcr-slot="${s}"]`)) },
-            { action: 'shuffle', msg: 'EMBARALHANDO PARA A OPÇÃO 2...' },
-            { type: 'majors', msg: 'ESCOLHA OS MAIORES (OPÇÃO 2)', targets: ['b-m1','b-m2','b-m3'].map(s => document.querySelector(`[data-oposcr-slot="${s}"]`)) },
-            { action: 'shuffle', msg: 'EMBARALHANDO PARA OS MENORES...' },
-            { type: 'minors', msg: 'ESCOLHA OS MENORES (OPÇÃO 2)', targets: ['b-me1','b-me2','b-me3'].map(s => document.querySelector(`[data-oposcr-slot="${s}"]`)) }
-        ]);
+        gameMode = 'oposicaoScr'; mainBoard.className = 'board oposicao-scr-active game-active'; resetAllSlots();
+        gamePanel.style.display = 'flex'; postGameControls.style.display = 'none'; btnVoltar.style.display = 'inline-flex';
+        const targets = getGameTargets('oposicaoScr');
+        const labels = ['OPÇÃO 1 - CARTA 1','OPÇÃO 1 - CARTA 2','OPÇÃO 1 - CARTA 3','OPÇÃO 2 - CARTA 1','OPÇÃO 2 - CARTA 2','OPÇÃO 2 - CARTA 3'];
+        startSequence(buildPerHouseSequence(targets.majors, targets.minors,
+            i => `${labels[i]} — ARCANO MAIOR`, i => `${labels[i]} — ARCANO MENOR`));
     }
 
     let oposicaoSequence = [], sequenceIndex = 0;
@@ -2769,6 +3002,12 @@ onclick="playAnotherGame()">Limpar Jogo</button>
             updateMandalaPeriodLabel();
         }
 
+        if (gameMode === 'mandalaEnergia' && mandalaEnergiaSelectedHouse) {
+            const meLabel = document.getElementById('mandalaEnergiaHouseLabel');
+            meLabel.textContent = 'Casa ' + mandalaEnergiaSelectedHouse;
+            meLabel.style.display = 'block';
+        }
+
         setTimeout(resizeBoardToFit, 50);
     }
 
@@ -2786,10 +3025,6 @@ onclick="playAnotherGame()">Limpar Jogo</button>
     }
 
     function selectCard(cardElement) {
-        if (gameMode === 'mandalaEnergia' && mainBoard.classList.contains('mandala-select-house-active')) {
-            return; // a seleção de casa agora é feita só pelas 11 cartas do painel (setupHouseSelectionPhase)
-        }
-
         const savedName  = cardElement.getAttribute('data-card-name');
         const hasImage   = cardElement.style.backgroundImage && cardElement.style.backgroundImage !== '';
         const isFaceDown = cardElement.classList.contains('board-face-down');
@@ -2819,6 +3054,10 @@ onclick="playAnotherGame()">Limpar Jogo</button>
             filterDeck(cardElement.getAttribute('data-amantes-slot').includes('me') ? 'minor' : 'major');
         } else if (cardElement.hasAttribute('data-scr-tempo-slot')) {
             filterDeck(cardElement.getAttribute('data-scr-tempo-slot').startsWith('top') ? 'major' : 'minor');
+        } else if (cardElement.hasAttribute('data-mes-slot')) {
+            filterDeck(cardElement.getAttribute('data-mes-slot').includes('menor') ? 'minor' : 'major');
+        } else if (cardElement.hasAttribute('data-me-slot')) {
+            filterDeck(cardElement.getAttribute('data-me-slot').includes('menor') ? 'minor' : 'major');
         } else if (cardElement.hasAttribute('data-scr-slot') || cardElement.hasAttribute('data-csmd-slot')) {
             let id = cardElement.getAttribute('data-scr-slot') || cardElement.getAttribute('data-csmd-slot');
             filterDeck(id.startsWith('top') ? 'major' : 'minor');
