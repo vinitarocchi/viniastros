@@ -502,12 +502,12 @@
 
         .board.scr-active #scrContainer { display: flex !important; margin-top: -70px; }
         
-        /* CORREÇÃO DO ENERGIA DO DIA: MARGIN LEFT PARA 10% À DIREITA */
-        .board.csmd-active #csmdContainer { display: flex !important; margin-top: -70px; margin-left: 4vw; }
+        /* ENERGIA DO DIA: centralizado no tabuleiro */
+        .board.csmd-active #csmdContainer { display: flex !important; margin-top: -70px; }
 
 .board.csmd-active #csmdContainer .card-inner-tag { font-size: calc(0.8 * var(--u)) !important; }
 
-        .board.mandala-energia-active #mandalaEnergiaContainer { display: flex !important; flex-direction: column; align-items: center; margin-top: -70px; margin-left: 4vw; }
+        .board.mandala-energia-active #mandalaEnergiaContainer { display: flex !important; flex-direction: column; align-items: center; margin-top: -70px; }
         .board.mes-active #mesContainer { display: flex !important; margin-top: -60px; }
 
 
@@ -738,7 +738,7 @@ body.mystic-theme .bottom-links .action-btn { background: transparent; border: n
     <button id="btnNightMode" onclick="toggleTheme()">🌙 Pastel</button>
 
     <header class="nav-header">
-        <h1 class="app-title">Viniastros</h1>
+        <h1 id="appTitle" class="app-title">Viniastros</h1>
         <button id="btnVoltar" class="action-btn" style="display: none;" onclick="backToHomeMenu()" ontouchend="event.preventDefault(); backToHomeMenu();">HOME</button>
     </header>
 
@@ -1910,6 +1910,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
     const gameStatus        = document.getElementById('gameStatus');
     const btnVoltar         = document.getElementById('btnVoltar');
     const postGameControls  = document.getElementById('postGameControls');
+    const appTitle           = document.getElementById('appTitle');
 
     (function populateMandalaDaySelect(){
         const sel = document.getElementById('mandalaDaySelect');
@@ -2715,6 +2716,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         activePhase = 'majors';
         sequenceIndex = 0;
         targetIndex = 0;
+        if (appTitle) appTitle.style.display = 'none';
 
         switch(selectedMode) {
             case 'dupla':             initDuplaGame(); break;
@@ -2795,6 +2797,7 @@ onclick="playAnotherGame()">Limpar Jogo</button>
         gamePanel.style.display = 'none'; btnVoltar.style.display = 'none';
         postGameControls.style.display = 'none'; resetAllSlots();
         document.getElementById('gameSelect').value = "";
+        if (appTitle) appTitle.style.display = '';
 
         mandalaStartDay = null; mandalaStartMonth = null; mandalaProgressCount = 0;
         mandalaEnergiaSelectedHouse = null;
